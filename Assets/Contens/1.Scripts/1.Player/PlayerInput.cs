@@ -71,7 +71,7 @@ public class PlayerInput : MonoBehaviour
     [HideInInspector] public bool onRPast;
     [HideInInspector] public bool onLPast;
 
-
+    //インゲームのところではこれが呼び出される
     public void PlayerInputUpdate()
     {
         TracePast();
