@@ -604,7 +604,9 @@ MonoBehaviour:
   isEnable: 1
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
-  n_Up_Warp: {fileID: 0}
+  playerActionManager: {fileID: 1195519186}
+  onUpWarp: 0
+  onUpWarpPast: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -624,7 +626,9 @@ MonoBehaviour:
   isEnable: 1
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
-  n_Up_Warp: {fileID: 0}
+  playerActionManager: {fileID: 1195519186}
+  onUpWarp: 0
+  onUpWarpPast: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -644,7 +648,9 @@ MonoBehaviour:
   isEnable: 1
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
-  n_Up_Warp: {fileID: 0}
+  playerActionManager: {fileID: 1195519186}
+  onUpWarp: 0
+  onUpWarpPast: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -1127,7 +1133,9 @@ MonoBehaviour:
   isEnable: 1
   COOL_DOWN_TIME: 0
   isCoolDowning: 0
-  n_Up_Warp: {fileID: 0}
+  playerActionManager: {fileID: 0}
+  onUpWarp: 0
+  onUpWarpPast: 0
   INVINCIBLE_TIME: 0
 --- !u!1 &891434552
 GameObject:
@@ -1972,6 +1980,8 @@ MonoBehaviour:
   - {fileID: 214158812}
   - {fileID: 214158813}
   playerMovement: {fileID: 1573583785}
+  INPUT_BLOCK_TIME: 0.1
+  NBlock: 0
 --- !u!1 &1306926477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,10 +2714,12 @@ MonoBehaviour:
   isEnable: 1
   COOL_DOWN_TIME: 0
   isCoolDowning: 0
+  playerActionManager: {fileID: 0}
+  onUpWarp: 0
+  onUpWarpPast: 0
   rb: {fileID: 0}
   Player: {fileID: 0}
   WarpPoint: {fileID: 0}
-  isWarping: 0
 --- !u!1 &1793282358
 GameObject:
   m_ObjectHideFlags: 0
