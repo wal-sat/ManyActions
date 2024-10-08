@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class N_LeftRightDown_FrontWarp : PlayerActionRequireCoolDownBase
+public class N_LeftRightDown_FrontWarp : PlayerActionNBase
 {
-    [SerializeField] N_Up_Warp n_Up_Warp;
     [SerializeField] GameObject Player;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float WARP_DISTANCE;
@@ -13,9 +12,12 @@ public class N_LeftRightDown_FrontWarp : PlayerActionRequireCoolDownBase
 
     public override void InitAction()
     {
-        if (n_Up_Warp.isWarping)
+        if (onUpWarp && !onUpWarpPast) InitUpWarp();
+        else if (onUpWarp && onUpWarpPast) InUpWarp();
+        else if (!onUpWarp && onUpWarpPast) EndUpWarp();
+        else
         {
-            return;
+            
         }
         
         if (base.isCoolDowning) return;

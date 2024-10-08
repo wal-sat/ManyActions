@@ -150,11 +150,13 @@ public class PlayerInput : MonoBehaviour
             else if (direction == Vector2.right) onN_Right = true;
             else onN = true;
         }
-
-        if (direction == Vector2.up) onUp = true;
-        else if (direction == Vector2.down) onDown = true;
-        else if (direction == Vector2.left) onLeft = true;
-        else if (direction == Vector2.right) onRight = true;
+        else
+        {
+            if (direction == Vector2.up) onUp = true;
+            else if (direction == Vector2.down) onDown = true;
+            else if (direction == Vector2.left) onLeft = true;
+            else if (direction == Vector2.right) onRight = true;
+        }
 
         onR = inputManager.isPushingR;
         onL = inputManager.isPushingL;

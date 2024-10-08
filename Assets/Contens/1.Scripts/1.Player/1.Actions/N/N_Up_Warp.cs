@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class N_Up_Warp : PlayerActionRequireCoolDownBase
+public class N_Up_Warp : PlayerActionNBase
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject WarpPoint;
 
-    [HideInInspector] public bool isWarping;
-
     public override void InitAction()
     {
-        if (base.isCoolDowning) return;
+        if (onUpWarp && !onUpWarpPast) InitUpWarp();
+        else if (onUpWarp && onUpWarpPast) InUpWarp();
+        else if (!onUpWarp && onUpWarpPast) EndUpWarp();
+        else
+        {
+            if (base.isCoolDowning) return;
 
-        base.InitAction();
-        isWarping = true;
+            base.InitAction();
+        }
     }
 }

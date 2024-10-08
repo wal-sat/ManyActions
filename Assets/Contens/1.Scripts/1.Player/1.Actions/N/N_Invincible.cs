@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class N_Invincible : PlayerActionRequireCoolDownBase
+public class N_Invincible : PlayerActionNBase
 {
-    [SerializeField] N_Up_Warp n_Up_Warp;
     [SerializeField] private float INVINCIBLE_TIME;
 
     public override void InitAction()
     {
-        if (n_Up_Warp.isWarping)
+        if (onUpWarp && !onUpWarpPast) InitUpWarp();
+        else if (onUpWarp && onUpWarpPast) InUpWarp();
+        else if (!onUpWarp && onUpWarpPast) EndUpWarp();
+        else
         {
-            return;
+            
         }
+        
         if (base.isCoolDowning) return;
 
         base.InitAction();

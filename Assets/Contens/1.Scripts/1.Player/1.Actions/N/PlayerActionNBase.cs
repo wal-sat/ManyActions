@@ -1,16 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerActionNBase : MonoBehaviour
+public class PlayerActionNBase : PlayerActionRequireCoolDownBase
 {
-    [SerializeField] PlayerInput playerInput;
+    [SerializeField] public PlayerActionManager playerActionManager;
 
-    public void EndAction()
+    [HideInInspector] public bool onUpWarp;
+    [HideInInspector] public bool onUpWarpPast;
+
+    private void FixedUpdate()
     {
-        if (playerInput.onN || playerInput.onN_Up || playerInput.onN_Left || playerInput.onN_Right || playerInput.onN_Down)
-        {
+        onUpWarpPast = onUpWarp;
 
-        }
+        onUpWarp = playerActionManager.NBlock;
+    }
+
+    public void InitUpWarp()
+    {
+        Debug.Log("a");
+    }
+    public void InUpWarp()
+    {
+        Debug.Log("a");
+    }
+    public void EndUpWarp()
+    {
+        Debug.Log("a");
     }
 }
