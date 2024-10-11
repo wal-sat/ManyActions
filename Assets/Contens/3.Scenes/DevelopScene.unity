@@ -605,6 +605,9 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
+  rb: {fileID: 1573583782}
+  Player: {fileID: 1573583779}
+  WarpPoint: {fileID: 0}
   onUpWarp: 0
   onUpWarpPast: 0
   Player: {fileID: 1573583779}
@@ -627,6 +630,9 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
+  rb: {fileID: 1573583782}
+  Player: {fileID: 1573583779}
+  WarpPoint: {fileID: 0}
   onUpWarp: 0
   onUpWarpPast: 0
   Player: {fileID: 1573583779}
@@ -649,6 +655,9 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
+  rb: {fileID: 1573583782}
+  Player: {fileID: 1573583779}
+  WarpPoint: {fileID: 0}
   onUpWarp: 0
   onUpWarpPast: 0
   Player: {fileID: 1573583779}
@@ -1129,11 +1138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e67a593acb164aaf6fc9724e886ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedInput: 0
+  assignedInput: 20
   isEnable: 1
   COOL_DOWN_TIME: 0
   isCoolDowning: 0
   playerActionManager: {fileID: 0}
+  rb: {fileID: 0}
+  Player: {fileID: 0}
+  WarpPoint: {fileID: 0}
   onUpWarp: 0
   onUpWarpPast: 0
   INVINCIBLE_TIME: 0
@@ -2710,16 +2722,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addf44bd5758dc14bb7ff4f15ce7eb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedInput: 0
+  assignedInput: 21
   isEnable: 1
-  COOL_DOWN_TIME: 0
+  COOL_DOWN_TIME: 2
   isCoolDowning: 0
-  playerActionManager: {fileID: 0}
+  playerActionManager: {fileID: 1195519186}
+  rb: {fileID: 1573583782}
+  Player: {fileID: 1573583779}
+  WarpPoint: {fileID: 668289881}
   onUpWarp: 0
   onUpWarpPast: 0
-  rb: {fileID: 0}
-  Player: {fileID: 0}
-  WarpPoint: {fileID: 0}
+  rb: {fileID: 1573583782}
+  Player: {fileID: 1573583779}
+  WarpPoint: {fileID: 668289881}
 --- !u!1 &1793282358
 GameObject:
   m_ObjectHideFlags: 0

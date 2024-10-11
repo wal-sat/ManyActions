@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum WarpDirection { up, right, left, down, none }
+
 public class PlayerActionNBase : PlayerActionRequireCoolDownBase
 {
     [SerializeField] public PlayerActionManager playerActionManager;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject WarpPoint;
 
     [HideInInspector] public bool onUpWarp;
     [HideInInspector] public bool onUpWarpPast;
@@ -21,7 +26,7 @@ public class PlayerActionNBase : PlayerActionRequireCoolDownBase
     {
         Debug.Log("a");
     }
-    public void InUpWarp()
+    public void InUpWarp(WarpDirection warpDirection)
     {
         Debug.Log("a");
     }
