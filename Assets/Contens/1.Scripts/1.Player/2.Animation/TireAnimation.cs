@@ -14,7 +14,6 @@ public class TireAnimation : MonoBehaviour
     private void FixedUpdate()
     {
         // いづれどこかからこれを呼び出す
-        Debug.Log("a");
         AnimationUpdate();
     }
 
