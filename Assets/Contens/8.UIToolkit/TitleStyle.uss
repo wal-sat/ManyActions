@@ -1,0 +1,26 @@
+.Options {
+    -unity-font: url("project://database/Assets/Contens/7.Font/YDWaosagi.otf?fileID=12800000&guid=702e835cea736254b992da370d889d70&type=3#YDWaosagi");
+    -unity-font-definition: initial;
+    font-size: 90px;
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+    text-overflow: clip;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    -unity-text-outline-width: 0;
+    margin-bottom: 30px;
+    margin-right: 0;
+    margin-top: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-left: 0;
+    height: 100px;
+    width: 300px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.Options--Selected {
+    font-size: 110px;
+}

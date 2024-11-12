@@ -108,24 +108,22 @@ public class S_InputSystem : Singleton<S_InputSystem>
     //ーーーーーUI Mapーーーーー
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            move = context.ReadValue<Vector2>();
-        }
+        if (context.performed) move = context.ReadValue<Vector2>();
+        else move = Vector2.zero;
 
         if (!canInput) move = Vector2.zero;
     }
     public void Select(InputAction.CallbackContext context)
     {
         if (context.performed) isPushingSelect = true;
-        else if (context.canceled) isPushingSelect = false;
+        else isPushingSelect = false;
 
         if (!canInput) isPushingSelect = false;
     }
     public void Cancel(InputAction.CallbackContext context)
     {
         if (context.performed) isPushingCancel = true;
-        else if (context.canceled) isPushingCancel = false;
+        else isPushingCancel = false;
 
         if (!canInput) isPushingCancel = false;
     }
