@@ -605,11 +605,7 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  rb: {fileID: 1573583782}
-  Player: {fileID: 1573583779}
-  WarpPoint: {fileID: 0}
-  onUpWarp: 0
-  onUpWarpPast: 0
+  playerActionNManager: {fileID: 1148719642}
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -630,11 +626,7 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  rb: {fileID: 1573583782}
-  Player: {fileID: 1573583779}
-  WarpPoint: {fileID: 0}
-  onUpWarp: 0
-  onUpWarpPast: 0
+  playerActionNManager: {fileID: 1148719642}
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -655,11 +647,7 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  rb: {fileID: 1573583782}
-  Player: {fileID: 1573583779}
-  WarpPoint: {fileID: 0}
-  onUpWarp: 0
-  onUpWarpPast: 0
+  playerActionNManager: {fileID: 1148719642}
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -816,13 +804,14 @@ GameObject:
   - component: {fileID: 668289882}
   - component: {fileID: 668289884}
   - component: {fileID: 668289883}
+  - component: {fileID: 668289885}
   m_Layer: 0
   m_Name: WarpPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &668289882
 Transform:
   m_ObjectHideFlags: 0
@@ -902,6 +891,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &668289885
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668289881}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &680092597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,15 +1156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedInput: 20
   isEnable: 1
-  COOL_DOWN_TIME: 0
+  COOL_DOWN_TIME: 2
   isCoolDowning: 0
-  playerActionManager: {fileID: 0}
-  rb: {fileID: 0}
-  Player: {fileID: 0}
-  WarpPoint: {fileID: 0}
-  onUpWarp: 0
-  onUpWarpPast: 0
-  INVINCIBLE_TIME: 0
+  playerActionManager: {fileID: 1195519186}
+  playerActionNManager: {fileID: 1148719642}
+  INVINCIBLE_TIME: 1
 --- !u!1 &891434552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,6 +1731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1148719641}
+  - component: {fileID: 1148719642}
   m_Layer: 0
   m_Name: N
   m_TagString: Untagged
@@ -1744,6 +1757,20 @@ Transform:
   - {fileID: 214158810}
   m_Father: {fileID: 1195519184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1148719642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148719640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9be29d2f303c7b4fa064b998944a5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerActionManager: {fileID: 1195519186}
+  n_Up_UpWarp: {fileID: 1782122846}
 --- !u!1 &1154291162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,14 +2013,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 841807324}
+  - {fileID: 1782122846}
   - {fileID: 214158811}
   - {fileID: 214158812}
   - {fileID: 214158813}
   playerMovement: {fileID: 1573583785}
   INPUT_BLOCK_TIME: 0.1
+  NLogicalDisjunction: 0
   NBlock: 0
+  NBlockPast: 0
 --- !u!1 &1306926477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,14 +2756,11 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
+  playerActionNManager: {fileID: 1148719642}
   rb: {fileID: 1573583782}
   Player: {fileID: 1573583779}
   WarpPoint: {fileID: 668289881}
-  onUpWarp: 0
-  onUpWarpPast: 0
-  rb: {fileID: 1573583782}
-  Player: {fileID: 1573583779}
-  WarpPoint: {fileID: 668289881}
+  WARP_POINT_SPEED: 10
 --- !u!1 &1793282358
 GameObject:
   m_ObjectHideFlags: 0

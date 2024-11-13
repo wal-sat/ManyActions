@@ -12,33 +12,57 @@ public class N_LeftRightDown_Warp : PlayerActionNBase
 
     public override void InitAction()
     {
-        if (onUpWarp && !onUpWarpPast) InitUpWarp();
-        else if (onUpWarp && onUpWarpPast) 
+        base.InitAction();
+
+        if (playerActionManager.NBlock)
         {
-            if (assignedInput == InputKind.N_Left) InUpWarp(WarpDirection.left);
-            else if (assignedInput == InputKind.N_Right) InUpWarp(WarpDirection.right);
-            else if (assignedInput == InputKind.N_Down) InUpWarp(WarpDirection.down);
+            if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
+            else if (assignedInput == InputKind.N_Right) playerActionNManager.InUpWarp(WarpDirection.right);
+            else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
+            return;
         }
-        else if (!onUpWarp && onUpWarpPast) EndUpWarp();
-        else
+
+        if (base.isCoolDowning) return;
+
+        _distance = WARP_DISTANCE;
+
+        if (assignedInput == InputKind.N_Down)
         {
-            if (base.isCoolDowning) return;
+            Player.transform.position = new Vector2(Player.transform.position.x, Player.transform.position.y - _distance);
+            rb.velocity = new Vector2(0f, 0f);
 
-            base.InitAction();
-
-            _distance = WARP_DISTANCE;
-
-            if (assignedInput == InputKind.N_Down)
-            {
-                Player.transform.position = new Vector2(Player.transform.position.x, Player.transform.position.y - _distance);
-                rb.velocity = new Vector2(0f, 0f);
-
-                return;
-            }
-            else if (assignedInput == InputKind.N_Left) _distance *= -1;
-
-            Player.transform.position = new Vector2(Player.transform.position.x + _distance, Player.transform.position.y);
-            rb.velocity = new Vector2(0f, 0f);   
+            return;
         }
+        else if (assignedInput == InputKind.N_Left) _distance *= -1;
+
+        Player.transform.position = new Vector2(Player.transform.position.x + _distance, Player.transform.position.y);
+        rb.velocity = new Vector2(0f, 0f);   
+    }
+
+    public override void InAction()
+    {
+        base.InAction();
+
+        if (playerActionManager.NBlock)
+        {
+            if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
+            else if (assignedInput == InputKind.N_Right) playerActionNManager.InUpWarp(WarpDirection.right);
+            else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
+            return;
+        }
+    }
+
+    public override void EndAction()
+    {
+        base.EndAction();
+
+        if (playerActionManager.NBlock)
+        {
+            if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
+            else if (assignedInput == InputKind.N_Right) playerActionNManager.InUpWarp(WarpDirection.right);
+            else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
+            return;
+        }
+        else if (!playerActionManager.NBlock) playerActionNManager.EndUpWarp();
     }
 }
