@@ -6,10 +6,11 @@ public enum WarpDirection { up, right, left, down, none }
 
 public class N_Up_UpWarp : PlayerActionNBase
 {
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject WarpPoint;
     [SerializeField] private float WARP_POINT_SPEED;
+
+    private bool _coolTimeBlock;
 
     private void Start()
     {
@@ -18,6 +19,12 @@ public class N_Up_UpWarp : PlayerActionNBase
 
     public override void InitAction()
     {
+        if (base.isCoolDowning || _coolTimeBlock)
+        {
+            _coolTimeBlock = true;
+            return;
+        }
+
         base.InitAction();
 
         if (playerActionManager.NBlock && !playerActionManager.NBlockPast) playerActionNManager.InitUpWarp();
@@ -25,7 +32,7 @@ public class N_Up_UpWarp : PlayerActionNBase
     }
     public override void InAction()
     {
-        playerActionNManager.InUpWarp(WarpDirection.up);
+        if (playerActionManager.NBlock) playerActionNManager.InUpWarp(WarpDirection.up);
     }
     public override void EndAction()
     {
@@ -38,35 +45,45 @@ public class N_Up_UpWarp : PlayerActionNBase
     //N上のアップワープの処理
     public void InitUpWarp()
     {
+        if (_coolTimeBlock) return;
+
         Debug.Log("Init Up Warp");
         WarpPoint.gameObject.SetActive(true);
+
+        WarpPoint.transform.position = Player.transform.position;
     }
     public void InUpWarp(WarpDirection warpDirection)
     {
+        if (_coolTimeBlock) return;
+
         Debug.Log("In Up Warp");
         switch (warpDirection)
         {
             case WarpDirection.up:
             case WarpDirection.none:
-                WarpPoint.transform.localPosition += new Vector3(0f, WARP_POINT_SPEED * Time.deltaTime, 0f);
+                WarpPoint.transform.position += new Vector3(0f, WARP_POINT_SPEED * Time.deltaTime, 0f);
             break;
             case WarpDirection.right:
-                WarpPoint.transform.localPosition += new Vector3(WARP_POINT_SPEED * Time.deltaTime, 0f, 0f);
+                WarpPoint.transform.position += new Vector3(WARP_POINT_SPEED * Time.deltaTime, 0f, 0f);
             break;
             case WarpDirection.left:
-                WarpPoint.transform.localPosition += new Vector3(-WARP_POINT_SPEED * Time.deltaTime, 0f, 0f);
+                WarpPoint.transform.position += new Vector3(-WARP_POINT_SPEED * Time.deltaTime, 0f, 0f);
             break;
             case WarpDirection.down:
-                WarpPoint.transform.localPosition += new Vector3(0f, -WARP_POINT_SPEED * Time.deltaTime, 0f);
+                WarpPoint.transform.position += new Vector3(0f, -WARP_POINT_SPEED * Time.deltaTime, 0f);
             break;
         }
     }
     public void EndUpWarp()
     {
+        if (_coolTimeBlock) 
+        {
+            _coolTimeBlock = false;
+            return;
+        }
         Debug.Log("End Up Warp");
-        Player.transform.position = WarpPoint.transform.position;
 
-        WarpPoint.transform.localPosition = Vector3.zero;
+        Player.transform.position = WarpPoint.transform.position;
 
         WarpPoint.gameObject.SetActive(false);
     }

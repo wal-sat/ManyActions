@@ -25,8 +25,6 @@ public class PlayerActionRequireCoolDownBase : PlayerActionBase
 
     public override void InitAction()
     {
-        if (isCoolDowning) return;
-
         _timer = 0;
         _onTimer = true;
 

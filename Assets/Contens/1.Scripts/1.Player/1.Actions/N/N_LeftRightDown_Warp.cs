@@ -12,8 +12,6 @@ public class N_LeftRightDown_Warp : PlayerActionNBase
 
     public override void InitAction()
     {
-        base.InitAction();
-
         if (playerActionManager.NBlock)
         {
             if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
@@ -23,6 +21,8 @@ public class N_LeftRightDown_Warp : PlayerActionNBase
         }
 
         if (base.isCoolDowning) return;
+
+        base.InitAction();
 
         _distance = WARP_DISTANCE;
 
@@ -63,6 +63,10 @@ public class N_LeftRightDown_Warp : PlayerActionNBase
             else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
             return;
         }
-        else if (!playerActionManager.NBlock) playerActionNManager.EndUpWarp();
+        else if (!playerActionManager.NBlock && playerActionManager.NBlockPast) 
+        {
+            playerActionNManager.EndUpWarp();
+            return;
+        }
     }
 }

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Down_Crouching : PlayerActionBase
 {
-    [SerializeField] Transform Player;
-    private float _scaleY;
+    //TODO:マジックナンバーを消す。
+    //TODO:スプライトの変更を別のスクリプトで行う
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] CapsuleCollider2D capsuleCollider2D;
+    [SerializeField] Sprite main;
+    [SerializeField] Sprite crouch;
 
     public override void InitAction()
     {
-        _scaleY = Player.localScale.y;
-        Player.localScale = new Vector3(Player.localScale.x, Player.localScale.y / 2, 1f);
+        spriteRenderer.sprite = crouch;
+        capsuleCollider2D.offset = new Vector2(0, -0.175f);
+        capsuleCollider2D.size = new Vector2(0.4f, 0.65f);
     }
     public override void InAction()
     {
@@ -18,6 +23,8 @@ public class Down_Crouching : PlayerActionBase
     }
     public override void EndAction()
     {
-        Player.localScale = new Vector3(Player.localScale.x, _scaleY, 1f);
+        spriteRenderer.sprite = main;
+        capsuleCollider2D.offset = new Vector2(0, -0.05f);
+        capsuleCollider2D.size = new Vector2(0.4f, 0.9f);
     }
 }
