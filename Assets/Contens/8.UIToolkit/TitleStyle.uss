@@ -1,7 +1,7 @@
 .Options {
     -unity-font: url("project://database/Assets/Contens/7.Font/YDWaosagi.otf?fileID=12800000&guid=702e835cea736254b992da370d889d70&type=3#YDWaosagi");
     -unity-font-definition: initial;
-    font-size: 90px;
+    font-size: 65px;
     -unity-font-style: normal;
     -unity-text-align: middle-center;
     text-overflow: clip;
@@ -19,8 +19,24 @@
     width: 300px;
     transition-duration: 0.2s;
     transition-timing-function: ease-out-cubic;
+    color: rgb(45, 45, 45);
 }
 
 .Options--Selected {
-    font-size: 110px;
+    font-size: 85px;
+    color: rgb(0, 0, 0);
+}
+
+.Panel {
+    flex-grow: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-cubic;
+    translate: 0 -100%;
+}
+
+.Panel--Open {
+    translate: 0 0;
 }
