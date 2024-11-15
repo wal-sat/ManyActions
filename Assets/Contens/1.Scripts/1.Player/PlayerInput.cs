@@ -14,8 +14,6 @@ public enum InputKind
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] InputManager inputManager;
-
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public bool onUp;
     [HideInInspector] public bool onDown;
@@ -76,7 +74,7 @@ public class PlayerInput : MonoBehaviour
     {
         TracePast();
 
-        direction = NormalizeDirection(inputManager.direction);
+        direction = NormalizeDirection(S_InputSystem._instance.direction);
 
         CheckInput();
     }
@@ -118,7 +116,7 @@ public class PlayerInput : MonoBehaviour
         onN_Left = false;
         onN_Right = false;
 
-        if (inputManager.isPushingSouth)
+        if (S_InputSystem._instance.isPushingSouth)
         {
             if (direction == Vector2.up) onS_Up = true;
             else if (direction == Vector2.down) onS_Down = true;
@@ -126,7 +124,7 @@ public class PlayerInput : MonoBehaviour
             else if (direction == Vector2.right) onS_Right = true;
             else onS = true;
         }
-        else if (inputManager.isPushingEast)
+        else if (S_InputSystem._instance.isPushingEast)
         {
             if (direction == Vector2.up) onE_Up = true;
             else if (direction == Vector2.down) onE_Down = true;
@@ -134,7 +132,7 @@ public class PlayerInput : MonoBehaviour
             else if (direction == Vector2.right) onE_Right = true;
             else onE = true;
         }
-        else if (inputManager.isPushingWest) 
+        else if (S_InputSystem._instance.isPushingWest) 
         {
             if (direction == Vector2.up) onW_Up = true;
             else if (direction == Vector2.down) onW_Down = true;
@@ -142,7 +140,7 @@ public class PlayerInput : MonoBehaviour
             else if (direction == Vector2.right) onW_Right = true;
             else onW = true;
         }
-        else if (inputManager.isPushingNorth)
+        else if (S_InputSystem._instance.isPushingNorth)
         {
             if (direction == Vector2.up) onN_Up = true;
             else if (direction == Vector2.down) onN_Down = true;
@@ -158,8 +156,8 @@ public class PlayerInput : MonoBehaviour
             else if (direction == Vector2.right) onRight = true;
         }
 
-        onR = inputManager.isPushingR;
-        onL = inputManager.isPushingL;
+        onR = S_InputSystem._instance.isPushingR;
+        onL = S_InputSystem._instance.isPushingL;
     }
 
     private void TracePast()
