@@ -66,11 +66,14 @@ public class PlayerActionManager : MonoBehaviour
     private bool _SBlock;
     private bool _EBlock;
     private bool _WBlock;
-    [HideInInspector] public bool NBlock;
 
     private float _STimer;
     private float _ETimer;
     private float _WTimer;
+
+    [HideInInspector] public bool NLogicalDisjunction;
+    [HideInInspector] public bool NBlock;
+    [HideInInspector] public bool NBlockPast;
 
     private void FixedUpdate()
     {
@@ -111,6 +114,8 @@ public class PlayerActionManager : MonoBehaviour
         _onN_RightPast = _onN_Right;
         _onRPast = _onR;
         _onLPast = _onL;
+
+        NBlockPast = NBlock;
     }
 
     private void InputAdjustment()
@@ -177,14 +182,9 @@ public class PlayerActionManager : MonoBehaviour
         _onN_Left = playerInput.onN_Left;
         _onN_Right = playerInput.onN_Right;
         _onN_Down = playerInput.onN_Down;
-        if (!playerInput.onN_Up && playerInput.onN_UpPast)
-        {
-            if (playerInput.onN || playerInput.onN_Up || playerInput.onN_Left || playerInput.onN_Right || playerInput.onN_Down) NBlock = true;
-        }
-        if (NBlock)
-        {
-            if (!playerInput.onN && !playerInput.onN_Up && !playerInput.onN_Left && !playerInput.onN_Right && !playerInput.onN_Down) NBlock = false;
-        }
+        NLogicalDisjunction = (_onN || _onN_Up || _onN_Left || _onN_Right || _onN_Down);
+        if (_onN_Up && !NBlock) NBlock = true;
+        if (NBlock && !NLogicalDisjunction) NBlock = false;
 
         _onL = playerInput.onL;
         _onR = playerInput.onR;
