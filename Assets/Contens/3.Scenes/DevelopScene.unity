@@ -957,8 +957,8 @@ MonoBehaviour:
   isEnable: 1
   spriteRenderer: {fileID: 1573583783}
   capsuleCollider2D: {fileID: 1573583786}
-  main: {fileID: 21300000, guid: b87edf05c0bb618428dc2938ed1ef852, type: 3}
-  crouch: {fileID: 21300000, guid: 3a2fd63cb790fc14b99ee6abc4e8606f, type: 3}
+  main: {fileID: 21300000, guid: 9a3edafa92177444fa751610969fec03, type: 3}
+  crouch: {fileID: 21300000, guid: 5823a7a7de5027246bc20cb2109a0dcc, type: 3}
 --- !u!1 &668289881
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +987,7 @@ Transform:
   m_GameObject: {fileID: 668289881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.22, y: -7.82, z: -1}
+  m_LocalPosition: {x: -4.713, y: -6.165, z: -1}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1616,7 +1616,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -733178215, guid: a66152168b4255e42bc4282497389d49, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2336,7 +2336,7 @@ MonoBehaviour:
   - {fileID: 214158812}
   - {fileID: 214158813}
   playerMovement: {fileID: 1573583785}
-  INPUT_BLOCK_TIME: 0.1
+  INPUT_BLOCK_TIME: 0.02
   NLogicalDisjunction: 0
   NBlock: 0
   NBlockPast: 0
@@ -2759,7 +2759,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b87edf05c0bb618428dc2938ed1ef852, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a3edafa92177444fa751610969fec03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2853,7 +2853,7 @@ MonoBehaviour:
     m_Bits: 256
   SwapChecker: {fileID: 680092598}
   LandingChecker: {fileID: 2115020898}
-  SPEED: 0
+  SPEED: 300
   PLUS_SPEED: 100
   TERMINAL_VELOCITY: 650
   isFacingRight: 0
@@ -3326,7 +3326,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -733178215, guid: a66152168b4255e42bc4282497389d49, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3692,7 +3692,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.7962555, b: 0.56078434, a: 0}
+  m_BackGroundColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4137,5 +4137,4 @@ SceneRoots:
   - {fileID: 368246594}
   - {fileID: 94162751}
   - {fileID: 11536532}
-  - {fileID: 666942778}
   - {fileID: 1154960232}
