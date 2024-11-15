@@ -819,6 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140ed99ddcba215469709df3a7382bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleSceneUIToolkit: {fileID: 1257457617}
 --- !u!114 &1257457620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8d163379d69d84a9a487cebb47aeb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleSceneUIToolkit: {fileID: 1257457617}
 --- !u!114 &1257457622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,9 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c52136e5ffffec48b6a4d7ef39cae65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleSceneMenu: {fileID: 0}
-  titleSceneSetting: {fileID: 0}
-  titleSceneExit: {fileID: 0}
+  titleSceneMenu: {fileID: 1257457621}
+  titleSceneSetting: {fileID: 1257457620}
+  titleSceneExit: {fileID: 1257457619}
 --- !u!1 &1509642944
 GameObject:
   m_ObjectHideFlags: 0
