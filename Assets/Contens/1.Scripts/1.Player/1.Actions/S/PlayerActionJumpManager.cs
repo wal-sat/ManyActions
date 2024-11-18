@@ -2,13 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum JumpKind
-{
-    Jump,
-    BigJump,
-    FrontJump,
-    BackJump
-}
+public enum JumpKind { Jump, BigJump, FrontJump, BackJump }
 
 public class PlayerActionJumpManager : MonoBehaviour
 {

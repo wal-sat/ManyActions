@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class N_Invincible : PlayerActionNBase
+public class N_Invincible : PlayerActionRequireCoolDownBase
 {
+    [SerializeField] public PlayerActionManager playerActionManager;
+    [SerializeField] public PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] private float INVINCIBLE_TIME;
 
     public override void InitAction()
     {
         if (playerActionManager.NBlock) 
         {
-            playerActionNManager.InUpWarp(WarpDirection.none);
+            playerActionWarpManager.InUpWarp(WarpDirection.none);
             return;
         }
 
@@ -24,12 +26,13 @@ public class N_Invincible : PlayerActionNBase
 
     public override void InAction()
     {
-        base.InAction();
-
-        if (playerActionManager.NBlock)
+        if (!playerActionWarpManager.isLimited)
         {
-            playerActionNManager.InUpWarp(WarpDirection.none);
-            return;
+            if (playerActionManager.NBlock)
+            {
+                playerActionWarpManager.InUpWarp(WarpDirection.none);
+                return;
+            }
         }
 
         Debug.Log("In無敵");
@@ -37,17 +40,18 @@ public class N_Invincible : PlayerActionNBase
 
     public override void EndAction()
     {
-        base.EndAction();
-
-        if (playerActionManager.NBlock)
+        if (!playerActionWarpManager.isLimited)
         {
-            playerActionNManager.InUpWarp(WarpDirection.none);
-            return;
-        }
-        else if (!playerActionManager.NBlock && playerActionManager.NBlockPast) 
-        {
-            playerActionNManager.EndUpWarp();
-            return;
+            if (playerActionManager.NBlock)
+            {
+                playerActionWarpManager.InUpWarp(WarpDirection.none);
+                return;
+            }
+            else if (!playerActionManager.NBlock && playerActionManager.NBlockPast) 
+            {
+                playerActionWarpManager.EndUpWarp();
+                return;
+            }
         }
 
         Debug.Log("End無敵");

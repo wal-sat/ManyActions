@@ -734,10 +734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedInput: 24
   isEnable: 1
-  COOL_DOWN_TIME: 2
-  isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  playerActionNManager: {fileID: 1148719642}
+  playerActionWarpManager: {fileID: 1148719642}
+  playerMovement: {fileID: 1573583785}
+  warpKind: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -755,10 +755,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedInput: 23
   isEnable: 1
-  COOL_DOWN_TIME: 2
-  isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  playerActionNManager: {fileID: 1148719642}
+  playerActionWarpManager: {fileID: 1148719642}
+  playerMovement: {fileID: 1573583785}
+  warpKind: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -776,10 +776,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedInput: 22
   isEnable: 1
-  COOL_DOWN_TIME: 2
-  isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  playerActionNManager: {fileID: 1148719642}
+  playerActionWarpManager: {fileID: 1148719642}
+  playerMovement: {fileID: 1573583785}
+  warpKind: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -969,7 +969,6 @@ GameObject:
   m_Component:
   - component: {fileID: 668289882}
   - component: {fileID: 668289884}
-  - component: {fileID: 668289883}
   - component: {fileID: 668289885}
   m_Layer: 0
   m_Name: WarpPoint
@@ -993,18 +992,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1928757421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &668289883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668289881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694c3a6ced8bddc488e39b11321b2cb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &668289884
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1325,7 +1312,7 @@ MonoBehaviour:
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  playerActionNManager: {fileID: 1148719642}
+  playerActionWarpManager: {fileID: 1148719642}
   INVINCIBLE_TIME: 1
 --- !u!1 &891434552
 GameObject:
@@ -2043,6 +2030,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9be29d2f303c7b4fa064b998944a5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1573583785}
+  warpActions:
+  - {fileID: 1782122846}
+  - {fileID: 214158811}
+  - {fileID: 214158812}
+  - {fileID: 214158813}
+  MAX_WARP_TIMES: 2
+  isLimited: 0
   playerActionManager: {fileID: 1195519186}
   n_Up_UpWarp: {fileID: 1782122846}
 --- !u!1 &1154291162
@@ -2349,6 +2344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306926478}
+  - component: {fileID: 1306926479}
   m_Layer: 0
   m_Name: E
   m_TagString: Untagged
@@ -2376,6 +2372,26 @@ Transform:
   - {fileID: 894416627}
   m_Father: {fileID: 1195519184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306926479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306926477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99fead55ba9cd7419d94d63bea1bf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1573583785}
+  blinkActions:
+  - {fileID: 1704695045}
+  - {fileID: 1736821645}
+  - {fileID: 1736821644}
+  - {fileID: 1793282361}
+  - {fileID: 1793282360}
+  MAX_BLINK_TIMES: 2
 --- !u!1 &1336054679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,9 +2958,7 @@ MonoBehaviour:
   assignedInput: 11
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  MAX_USE_TIMES: 1
-  isLimited: 0
-  useTimes: 0
+  blinkKind: 2
   rb: {fileID: 1573583782}
   BLINK_SPEED: 700
   BLINK_TIME: 0.4
@@ -2996,9 +3010,7 @@ MonoBehaviour:
   assignedInput: 14
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  MAX_USE_TIMES: 1
-  isLimited: 0
-  useTimes: 0
+  blinkKind: 0
   rb: {fileID: 1573583782}
   BLINK_SPEED: 700
   BLINK_TIME: 0.4
@@ -3017,9 +3029,7 @@ MonoBehaviour:
   assignedInput: 13
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  MAX_USE_TIMES: 1
-  isLimited: 0
-  useTimes: 0
+  blinkKind: 0
   rb: {fileID: 1573583782}
   BLINK_SPEED: 700
   BLINK_TIME: 0.4
@@ -3069,10 +3079,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedInput: 21
   isEnable: 1
-  COOL_DOWN_TIME: 0
-  isCoolDowning: 0
   playerActionManager: {fileID: 1195519186}
-  playerActionNManager: {fileID: 1148719642}
+  playerActionWarpManager: {fileID: 1148719642}
+  playerMovement: {fileID: 1573583785}
+  warpKind: 1
   Player: {fileID: 1573583779}
   WarpPoint: {fileID: 668289881}
   WARP_POINT_SPEED: 10
@@ -3124,9 +3134,7 @@ MonoBehaviour:
   assignedInput: 14
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  MAX_USE_TIMES: 1
-  isLimited: 0
-  useTimes: 0
+  blinkKind: 1
   rb: {fileID: 1573583782}
   BLINK_SPEED: 600
   BLINK_TIME: 0.2
@@ -3145,9 +3153,7 @@ MonoBehaviour:
   assignedInput: 13
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  MAX_USE_TIMES: 1
-  isLimited: 0
-  useTimes: 0
+  blinkKind: 1
   rb: {fileID: 1573583782}
   BLINK_SPEED: 600
   BLINK_TIME: 0.2

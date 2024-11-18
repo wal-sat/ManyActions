@@ -4,59 +4,60 @@ using UnityEngine;
 
 public enum WarpDirection { up, right, left, down, none }
 
-public class N_Up_UpWarp : PlayerActionNBase
+public class N_Up_UpWarp : PlayerActionWarpBase
 {
     [SerializeField] GameObject Player;
     [SerializeField] GameObject WarpPoint;
     [SerializeField] private float WARP_POINT_SPEED;
 
-    private bool _coolTimeBlock;
+    private bool _upWarpBlock;
 
     private void Start()
     {
         WarpPoint.gameObject.SetActive(false);
     }
 
+    public override void Warp()
+    {
+        if (playerActionManager.NBlock && !playerActionManager.NBlockPast) playerActionWarpManager.InitUpWarp();
+    }
+
     public override void InitAction()
     {
-        if (base.isCoolDowning || _coolTimeBlock)
+        if (playerActionManager.NBlock && playerActionManager.NBlockPast) 
         {
-            _coolTimeBlock = true;
+            playerActionWarpManager.InUpWarp(WarpDirection.up);
+            Debug.Log("aaa");
             return;
         }
 
         base.InitAction();
-
-        if (playerActionManager.NBlock && !playerActionManager.NBlockPast) playerActionNManager.InitUpWarp();
-        else if (playerActionManager.NBlock && playerActionManager.NBlockPast) playerActionNManager.InUpWarp(WarpDirection.up);
     }
     public override void InAction()
     {
-        if (playerActionManager.NBlock) playerActionNManager.InUpWarp(WarpDirection.up);
+        if (playerActionWarpManager.isLimited) return;
+
+        if (playerActionManager.NBlock) playerActionWarpManager.InUpWarp(WarpDirection.up);
     }
     public override void EndAction()
     {
-        base.EndAction();
+        if (playerActionWarpManager.isLimited) return;
 
-        if (playerActionManager.NBlock) playerActionNManager.InUpWarp(WarpDirection.up);
-        else if (!playerActionManager.NBlock) playerActionNManager.EndUpWarp();
+        if (playerActionManager.NBlock) playerActionWarpManager.InUpWarp(WarpDirection.up);
+        else if (!playerActionManager.NBlock) playerActionWarpManager.EndUpWarp();
     }
 
     //N上のアップワープの処理
     public void InitUpWarp()
     {
-        if (_coolTimeBlock) return;
+        _upWarpBlock = true;
 
-        Debug.Log("Init Up Warp");
         WarpPoint.gameObject.SetActive(true);
 
         WarpPoint.transform.position = Player.transform.position;
     }
     public void InUpWarp(WarpDirection warpDirection)
     {
-        if (_coolTimeBlock) return;
-
-        Debug.Log("In Up Warp");
         switch (warpDirection)
         {
             case WarpDirection.up:
@@ -76,15 +77,12 @@ public class N_Up_UpWarp : PlayerActionNBase
     }
     public void EndUpWarp()
     {
-        if (_coolTimeBlock) 
-        {
-            _coolTimeBlock = false;
-            return;
-        }
-        Debug.Log("End Up Warp");
+        if (playerActionWarpManager.isLimited) return;
 
         Player.transform.position = WarpPoint.transform.position;
 
         WarpPoint.gameObject.SetActive(false);
+        
+        _upWarpBlock = false;
     }
 }

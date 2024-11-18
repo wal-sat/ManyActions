@@ -36,6 +36,13 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
         playerMovement.isLockMoving = true;
         rb.velocity = new Vector3(_speed * Time.deltaTime, JUMP_POWER * Time.deltaTime, 0);
     }
+
+    public override void InitAction()
+    {
+        if (base.assignedInput == InputKind.S_Left && playerMovement.isFacingRight) base.InitAction();
+        else if (base.assignedInput == InputKind.S_Right && !playerMovement.isFacingRight) base.InitAction();
+    }
+    
     public override void EndAction()
     {
         _isBackJumping = false;

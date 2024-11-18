@@ -9,10 +9,6 @@ public class PlayerActionJumpBase : PlayerActionBase
     [SerializeField] public JumpKind jumpKind;
 
     public Action<InputKind, JumpKind> init;
-    public void Init(Action<InputKind, JumpKind> action)
-    {
-        init = action;
-    }
 
     public override void InitAction()
     {

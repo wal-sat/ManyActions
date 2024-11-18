@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class N_LeftRightDown_Warp : PlayerActionNBase
+public class N_LeftRightDown_Warp : PlayerActionWarpBase
 {
     [SerializeField] GameObject Player;
     [SerializeField] Rigidbody2D rb;
@@ -10,20 +10,8 @@ public class N_LeftRightDown_Warp : PlayerActionNBase
 
     private float _distance;
 
-    public override void InitAction()
+    public override void Warp()
     {
-        if (playerActionManager.NBlock)
-        {
-            if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
-            else if (assignedInput == InputKind.N_Right) playerActionNManager.InUpWarp(WarpDirection.right);
-            else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
-            return;
-        }
-
-        if (base.isCoolDowning) return;
-
-        base.InitAction();
-
         _distance = WARP_DISTANCE;
 
         if (assignedInput == InputKind.N_Down)
@@ -39,33 +27,46 @@ public class N_LeftRightDown_Warp : PlayerActionNBase
         rb.velocity = new Vector2(0f, 0f);   
     }
 
+    public override void InitAction()
+    {
+        if (playerActionManager.NBlock)
+        {
+            if (assignedInput == InputKind.N_Left) playerActionWarpManager.InUpWarp(WarpDirection.left);
+            else if (assignedInput == InputKind.N_Right) playerActionWarpManager.InUpWarp(WarpDirection.right);
+            else if (assignedInput == InputKind.N_Down) playerActionWarpManager.InUpWarp(WarpDirection.down);
+            return;
+        }
+
+        base.InitAction();
+    }
+
     public override void InAction()
     {
-        base.InAction();
+        if (playerActionWarpManager.isLimited) return;
 
         if (playerActionManager.NBlock)
         {
-            if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
-            else if (assignedInput == InputKind.N_Right) playerActionNManager.InUpWarp(WarpDirection.right);
-            else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
+            if (assignedInput == InputKind.N_Left) playerActionWarpManager.InUpWarp(WarpDirection.left);
+            else if (assignedInput == InputKind.N_Right) playerActionWarpManager.InUpWarp(WarpDirection.right);
+            else if (assignedInput == InputKind.N_Down) playerActionWarpManager.InUpWarp(WarpDirection.down);
             return;
         }
     }
 
     public override void EndAction()
     {
-        base.EndAction();
+        if (playerActionWarpManager.isLimited) return;
 
         if (playerActionManager.NBlock)
         {
-            if (assignedInput == InputKind.N_Left) playerActionNManager.InUpWarp(WarpDirection.left);
-            else if (assignedInput == InputKind.N_Right) playerActionNManager.InUpWarp(WarpDirection.right);
-            else if (assignedInput == InputKind.N_Down) playerActionNManager.InUpWarp(WarpDirection.down);
+            if (assignedInput == InputKind.N_Left) playerActionWarpManager.InUpWarp(WarpDirection.left);
+            else if (assignedInput == InputKind.N_Right) playerActionWarpManager.InUpWarp(WarpDirection.right);
+            else if (assignedInput == InputKind.N_Down) playerActionWarpManager.InUpWarp(WarpDirection.down);
             return;
         }
         else if (!playerActionManager.NBlock && playerActionManager.NBlockPast) 
         {
-            playerActionNManager.EndUpWarp();
+            playerActionWarpManager.EndUpWarp();
             return;
         }
     }

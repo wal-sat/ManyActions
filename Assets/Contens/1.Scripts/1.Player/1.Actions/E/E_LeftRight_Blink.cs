@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_LeftRight_Blink : PlayerActionTimesLimitBase
+public class E_LeftRight_Blink : PlayerActionBlinkBase
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float BLINK_SPEED;
@@ -40,10 +40,8 @@ public class E_LeftRight_Blink : PlayerActionTimesLimitBase
         }
     }
 
-    public override void InitAction()
+    public override void Blink()
     {
-        if (_isBlinking || isLimited) return;
-
         if (base.assignedInput == InputKind.E_Left && !playerMovement.isFacingRight) _speed = BLINK_SPEED * -1;
         else if (base.assignedInput == InputKind.E_Right && playerMovement.isFacingRight) _speed = BLINK_SPEED;
         else return;
@@ -57,5 +55,13 @@ public class E_LeftRight_Blink : PlayerActionTimesLimitBase
         _wasFacingRight = playerMovement.isFacingRight;
 
         rb.velocity = new Vector3(0f, 0f, 0f);
+    }
+
+    public override void InitAction()
+    {
+        if (_isBlinking) return;
+
+        if (base.assignedInput == InputKind.E_Left && !playerMovement.isFacingRight) base.InitAction();
+        else if (base.assignedInput == InputKind.E_Right && playerMovement.isFacingRight) base.InitAction();
     }
 }
