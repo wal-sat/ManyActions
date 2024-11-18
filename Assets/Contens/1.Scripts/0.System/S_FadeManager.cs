@@ -1,130 +1,148 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public enum FadeKind { Black, White }
+public enum FadeKind { InOut, In, Out }
+public enum FadeType { Black, White, Diamond }
 
 public class S_FadeManager : Singleton<S_FadeManager>
 {
-    private GameObject _UIToolkit;
-
-    private VisualElement _fadePanel;
-
-    public void FadeInOut(Action inAction, Action endAction, float fadeOutTime = 0.5f, float fadeTime = 1f, float fadeInTime = 0.5f, FadeKind fadeKind = FadeKind.Black)
+    public void FadeInOut(Action inAction, Action endAction, FadeType fadeType = FadeType.Black, float fadeOutTime = 0.5f, float fadeTime = 0.5f, float fadeInTime = 0.5f)
     {
-        StartCoroutine(C_FadeInOut(inAction, endAction, fadeOutTime, fadeTime, fadeInTime, fadeKind));
-    }
-    IEnumerator C_FadeInOut(Action inAction, Action endAction, float fadeOutTime, float fadeTime, float fadeInTime, FadeKind fadeKind)
-    {
-        _UIToolkit = GameObject.Find("UIToolkit-Fade");
-        if (_UIToolkit == null) yield break;
-
-        var root = _UIToolkit.GetComponent<UIDocument>().rootVisualElement;
-
-        string classname = "";
-
-        switch (fadeKind)
+        switch (fadeType)
         {
-            case FadeKind.Black:
-                _fadePanel = root.Q<VisualElement>("Black");
+            case FadeType.Black:
+            case FadeType.White:
+                StartCoroutine(C_Fade(inAction, endAction, FadeKind.InOut, fadeType, fadeOutTime, fadeTime, fadeInTime));
+            break;
+            case FadeType.Diamond:
+                StartCoroutine(C_FadeDiamond(inAction, endAction, fadeOutTime, fadeTime, fadeInTime));
+
+            break;
+        }
+    }
+    public void FadeIn(Action inAction, Action endAction, FadeType fadeType = FadeType.Black, float fadeOutTime = 0.5f, float fadeTime = 0.5f, float fadeInTime = 0.5f)
+    {
+        StartCoroutine(C_Fade(inAction, endAction, FadeKind.In, fadeType, fadeOutTime, fadeTime, fadeInTime));
+    }
+    public void FadeOut(Action inAction, Action endAction, FadeType fadeType = FadeType.Black, float fadeOutTime = 0.5f, float fadeTime = 0.5f, float fadeInTime = 0.5f)
+    {
+        StartCoroutine(C_Fade(inAction, endAction, FadeKind.Out, fadeType, fadeOutTime, fadeTime, fadeInTime));
+    }
+
+    public void Void() { }
+
+    IEnumerator C_Fade(Action inAction, Action endAction, FadeKind fadeKind, FadeType fadeType, float fadeOutTime, float fadeTime, float fadeInTime)
+    {
+        GameObject UIToolkit = GameObject.Find("UIToolkit-Fade");
+        if (UIToolkit == null) yield break;
+
+        var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
+
+        string classname;
+        VisualElement fadePanel;
+
+        switch (fadeType)
+        {
+            case FadeType.Black:
+            default:
+                fadePanel = root.Q<VisualElement>("Black");
                 classname = "Black--Fade";
             break;
-            case FadeKind.White:
-                _fadePanel = root.Q<VisualElement>("White");
+            case FadeType.White:
+                fadePanel = root.Q<VisualElement>("White");
                 classname = "White--Fade";
             break;
         }
 
-        _fadePanel.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };;
-        _fadePanel.AddToClassList(classname);
-        yield return new WaitForSeconds(fadeOutTime);
+        if (fadeKind == FadeKind.InOut || fadeKind == FadeKind.Out)
+        {
+            fadePanel.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
+            fadePanel.AddToClassList(classname);
+            yield return new WaitForSeconds(fadeOutTime);
+
+            inAction();
+            yield return new WaitForSeconds(fadeTime);
+        }
+
+        if (fadeKind == FadeKind.InOut || fadeKind == FadeKind.In)
+        {
+            fadePanel.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
+            fadePanel.RemoveFromClassList(classname);
+            yield return new WaitForSeconds(fadeInTime);
+            
+            endAction();
+        }
+    }
+
+    IEnumerator C_FadeDiamond(Action inAction, Action endAction, float fadeOutTime, float fadeTime, float fadeInTime)
+    {
+        GameObject UIToolkit = GameObject.Find("UIToolkit-Fade");
+        if (UIToolkit == null) yield break;
+
+        var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
+
+        VisualElement fadePanel_1 = root.Q<VisualElement>("Diamond");
+        VisualElement fadePanel_2 = root.Q<VisualElement>("Diamond_White");
+        string classname_1 = "Diamond--Fade";
+        string classname_2 = "Diamond--End";
+
+        fadePanel_1.style.display = DisplayStyle.Flex;
+        fadePanel_2.style.display = DisplayStyle.Flex;
+
+        fadePanel_1.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
+        fadePanel_1.AddToClassList(classname_1);
+        yield return new WaitForSeconds(0.1f);
+
+        fadePanel_2.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
+        fadePanel_2.AddToClassList(classname_1);
+        yield return new WaitForSeconds(fadeOutTime - 0.1f);
 
         inAction();
         yield return new WaitForSeconds(fadeTime);
 
-        _fadePanel.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };;
-        _fadePanel.RemoveFromClassList(classname);
-        yield return new WaitForSeconds(fadeInTime);
+        fadePanel_2.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
+        fadePanel_2.AddToClassList(classname_2);
+        yield return new WaitForSeconds(0.1f);
+
+        fadePanel_1.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
+        fadePanel_1.AddToClassList(classname_2);
+        yield return new WaitForSeconds(fadeInTime - 0.1f);
 
         endAction();
-    }
 
-    public void FadeOut(Action endAction, float fadeOutTime = 0.5f, FadeKind fadeKind = FadeKind.Black)
-    {
-        StartCoroutine(C_FadeOut(endAction, fadeOutTime, fadeKind));
-    }
-    IEnumerator C_FadeOut(Action endAction, float fadeOutTime, FadeKind fadeKind)
-    {
-        _UIToolkit = GameObject.Find("UIToolkit-Fade");
-        if (_UIToolkit == null) yield break;
+        fadePanel_1.style.display = DisplayStyle.None;
+        fadePanel_2.style.display = DisplayStyle.None;
 
-        var root = _UIToolkit.GetComponent<UIDocument>().rootVisualElement;
+        yield return new WaitForSeconds(0.1f);
 
-        string classname = "";
+        fadePanel_1.style.transitionDuration = new List<TimeValue> { new (0.1f, TimeUnit.Second) };
+        fadePanel_1.RemoveFromClassList(classname_1);
+        fadePanel_1.RemoveFromClassList(classname_2);
 
-        switch (fadeKind)
-        {
-            case FadeKind.Black:
-                _fadePanel = root.Q<VisualElement>("Black");
-                classname = "Black--Fade";
-            break;
-            case FadeKind.White:
-                _fadePanel = root.Q<VisualElement>("White");
-                classname = "White--Fade";
-            break;
-        }
-
-        _fadePanel.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };;
-        _fadePanel.AddToClassList(classname);
-        yield return new WaitForSeconds(fadeOutTime);
-
-        endAction();
-    }
-
-    public void FadeIn(Action endAction, float fadeInTime = 0.5f, FadeKind fadeKind = FadeKind.Black)
-    {
-        StartCoroutine(C_FadeIn(endAction, fadeInTime, fadeKind));
-    }
-    IEnumerator C_FadeIn(Action endAction, float fadeInTime, FadeKind fadeKind)
-    {
-        _UIToolkit = GameObject.Find("UIToolkit-Fade");
-        if (_UIToolkit == null) yield break;
-
-        var root = _UIToolkit.GetComponent<UIDocument>().rootVisualElement;
-
-        string classname = "";
-
-        switch (fadeKind)
-        {
-            case FadeKind.Black:
-                _fadePanel = root.Q<VisualElement>("Black");
-                classname = "Black--Fade";
-            break;
-            case FadeKind.White:
-                _fadePanel = root.Q<VisualElement>("White");
-                classname = "White--Fade";
-            break;
-        }
-
-        _fadePanel.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };;
-        _fadePanel.RemoveFromClassList(classname);
-        yield return new WaitForSeconds(fadeInTime);
-
-        endAction();
+        fadePanel_2.style.transitionDuration = new List<TimeValue> { new (0.1f, TimeUnit.Second) };
+        fadePanel_2.RemoveFromClassList(classname_1);
+        fadePanel_2.RemoveFromClassList(classname_2);
     }
 
     [Button]
+    private void Diamond()
+    {
+        FadeInOut(() => {}, () => {}, FadeType.Diamond, 0.5f,0.1f,0.5f);
+    }
+    [Button]
     private void Out()
     {
-        FadeOut(() => Debug.Log("end"), 2, FadeKind.White);
+        FadeOut(() => {}, () => {}, FadeType.Black);
     }
     [Button]
     private void In()
     {
-        FadeIn(() => Debug.Log("end"), 1, FadeKind.White);
+        FadeIn(() => {}, () => {}, FadeType.Black);
     }
 }

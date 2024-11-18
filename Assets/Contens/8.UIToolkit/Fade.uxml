@@ -2,4 +2,6 @@
     <Style src="project://database/Assets/Contens/8.UIToolkit/FadeStyle.uss?fileID=7433441132597879392&amp;guid=cb18981cf74aa4241b3206835ea4de2c&amp;type=3#FadeStyle" />
     <ui:VisualElement name="Black" class="Black" style="transition-duration: 0.5s;" />
     <ui:VisualElement name="White" class="White" style="transition-duration: 0.5s;" />
+    <ui:VisualElement name="Diamond" class="Diamond" style="background-color: rgb(180, 200, 255); position: absolute; transition-timing-function: ease-out-cubic;" />
+    <ui:VisualElement name="Diamond_White" class="Diamond" style="background-color: rgb(255, 255, 255); position: absolute; transition-timing-function: ease-out-cubic;" />
 </ui:UXML>
