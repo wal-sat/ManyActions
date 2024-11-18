@@ -1,0 +1,50 @@
+.Card {
+    width: 30%;
+    height: 90%;
+    background-color: rgb(195, 195, 195);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.Card-mini {
+    width: 20%;
+    height: 70%;
+    background-color: rgb(200, 200, 200);
+    margin-left: 5%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.Card--Selected {
+    scale: 1.1 1.1;
+    background-color: rgb(238, 238, 238);
+}
