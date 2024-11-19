@@ -122,6 +122,94 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &71269723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71269726}
+  - component: {fileID: 71269725}
+  - component: {fileID: 71269728}
+  - component: {fileID: 71269727}
+  - component: {fileID: 71269724}
+  m_Layer: 0
+  m_Name: _SelectDifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &71269724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71269723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f1cbf6b7d808941a7a12e440d78df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIToolkit: {fileID: 1446331786}
+--- !u!114 &71269725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71269723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb120e0b95a5cd419ba4afd41975bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectDifficultyMenu: {fileID: 71269728}
+  selectDifficultyConfirm: {fileID: 71269727}
+--- !u!4 &71269726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71269723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.407408, z: -110}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71269727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71269723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07291b2a6357a6f4097883f02aad074a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectDifficultyUIToolkit: {fileID: 71269724}
+--- !u!114 &71269728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71269723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86604358d061b9b4c92285ff9ca8d81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectDifficultyUIToolkit: {fileID: 71269724}
 --- !u!1 &102449993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,3 +1203,4 @@ SceneRoots:
   - {fileID: 1384359698}
   - {fileID: 958451091}
   - {fileID: 804972567}
+  - {fileID: 71269726}

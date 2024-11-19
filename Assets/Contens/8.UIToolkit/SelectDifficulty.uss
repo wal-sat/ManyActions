@@ -48,3 +48,36 @@
     scale: 1.1 1.1;
     background-color: rgb(238, 238, 238);
 }
+
+.Options {
+    font-size: 40px;
+    width: 40%;
+    height: 40%;
+    -unity-text-align: middle-center;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+    color: rgb(80, 80, 80);
+}
+
+.Options--Selected {
+    font-size: 50px;
+    color: rgb(27, 27, 27);
+}
+
+.Panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    translate: 0 -100%;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.Panel--Open {
+    translate: 0 0;
+}
+
+.Card-mini--Selected {
+    scale: 1.3 1.3;
+    background-color: rgb(238, 238, 238);
+}
