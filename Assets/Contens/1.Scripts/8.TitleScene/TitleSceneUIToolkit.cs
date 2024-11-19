@@ -43,34 +43,14 @@ public class TitleSceneUIToolkit : MonoBehaviour
 
     public void MenuOptionsSelect(int index)
     {
-        for (int i = 0; i < _menuOptions.Length; i++) OptionUnselected(_menuOptions[i]);
+        for (int i = 0; i < _menuOptions.Length; i++) _menuOptions[i].RemoveFromClassList("Options--Selected");
 
-        if (0 <= index && index < _menuOptions.Length) OptionSelected(_menuOptions[index]);
+        if (0 <= index && index < _menuOptions.Length) _menuOptions[index].AddToClassList("Options--Selected");
     }
     public void ExitOptionsSelect(int index)
     {
-        for (int i = 0; i < _exitOptions.Length; i++) OptionUnselected(_exitOptions[i]);
+        for (int i = 0; i < _exitOptions.Length; i++) _exitOptions[i].RemoveFromClassList("exitOptions--Selected");
 
-        if (0 <= index && index < _exitOptions.Length) OptionSelected(_exitOptions[index]);
-    }
-
-    private void OptionSelected(VisualElement option)
-    {
-        option.AddToClassList("Options--Selected");
-    }
-    private void OptionUnselected(VisualElement option)
-    {
-        option.RemoveFromClassList("Options--Selected");
-    }
-
-    [Button]
-    public void zero()
-    {
-        OpenOrCloseSettingPanel(true);
-    }
-    [Button]
-    public void one()
-    {
-        OpenOrCloseSettingPanel(false);
+        if (0 <= index && index < _exitOptions.Length) _exitOptions[index].AddToClassList("exitOptions--Selected");
     }
 }

@@ -23,7 +23,6 @@ public class TitleSceneExit : MonoBehaviour
 
     private void Start()
     {   
-        //もしセーブデータがあるなら、１にする。
         exitIndex = 0;
     }
 
