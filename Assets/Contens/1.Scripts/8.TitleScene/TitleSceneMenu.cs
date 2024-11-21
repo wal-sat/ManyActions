@@ -41,6 +41,7 @@ public class TitleSceneMenu : MonoBehaviour
         {
             case 0:
                 //はじめから
+                S_LoadSceneSystem._instance.LoadScene(SceneName.selectDifficulty);
             break;
             case 1:
                 //つづきから
