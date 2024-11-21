@@ -82,7 +82,6 @@ public class SelectDifficultyMenu : MonoBehaviour
 
     private void LoadTitleScene()
     {
-        //タイトルシーンにもどる
-        Debug.Log("タイトルシーンへ");
+        S_LoadSceneSystem._instance.LoadScene(SceneName.title);
     }
 }

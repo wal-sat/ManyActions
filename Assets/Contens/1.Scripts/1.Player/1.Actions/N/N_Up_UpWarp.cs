@@ -10,8 +10,6 @@ public class N_Up_UpWarp : PlayerActionWarpBase
     [SerializeField] GameObject WarpPoint;
     [SerializeField] private float WARP_POINT_SPEED;
 
-    private bool _upWarpBlock;
-
     private void Start()
     {
         WarpPoint.gameObject.SetActive(false);
@@ -27,7 +25,6 @@ public class N_Up_UpWarp : PlayerActionWarpBase
         if (playerActionManager.NBlock && playerActionManager.NBlockPast) 
         {
             playerActionWarpManager.InUpWarp(WarpDirection.up);
-            Debug.Log("aaa");
             return;
         }
 
@@ -50,8 +47,6 @@ public class N_Up_UpWarp : PlayerActionWarpBase
     //N上のアップワープの処理
     public void InitUpWarp()
     {
-        _upWarpBlock = true;
-
         WarpPoint.gameObject.SetActive(true);
 
         WarpPoint.transform.position = Player.transform.position;
@@ -82,7 +77,5 @@ public class N_Up_UpWarp : PlayerActionWarpBase
         Player.transform.position = WarpPoint.transform.position;
 
         WarpPoint.gameObject.SetActive(false);
-        
-        _upWarpBlock = false;
     }
 }
