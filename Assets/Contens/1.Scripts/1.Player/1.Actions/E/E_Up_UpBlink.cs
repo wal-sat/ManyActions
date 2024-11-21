@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_Up_UpBlink : PlayerActionTimesLimitBase
+public class E_Up_UpBlink : PlayerActionBlinkBase
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float BLINK_SPEED;
@@ -35,10 +35,8 @@ public class E_Up_UpBlink : PlayerActionTimesLimitBase
         }
     }
 
-    public override void InitAction()
+    public override void Blink()
     {
-        if (_isBlinking || isLimited) return;
-
         _isBlinking = true;
         _blinkTimer = 0;
 
@@ -46,5 +44,12 @@ public class E_Up_UpBlink : PlayerActionTimesLimitBase
         playerMovement.isLockMoving = true;
 
         rb.velocity = new Vector3(0f, 0f, 0f);
+    }
+
+    public override void InitAction()
+    {
+        if (_isBlinking) return;
+
+        base.InitAction();
     }
 }
