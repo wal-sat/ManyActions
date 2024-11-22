@@ -12,7 +12,7 @@ public enum InputKind
     L, R
 }
 
-public class PlayerInput : MonoBehaviour
+public class GameSceneOnPlayInput : MonoBehaviour
 {
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public bool onUp;
@@ -69,14 +69,30 @@ public class PlayerInput : MonoBehaviour
     [HideInInspector] public bool onRPast;
     [HideInInspector] public bool onLPast;
 
-    //インゲームのところではこれが呼び出される
-    public void PlayerInputUpdate()
+    private bool _optionPast;
+
+    public void Initialize()
+    {
+        //全てのbool値をfalseにした方がいいのかな？わからん、、、
+    }
+
+    //GameSceneInputSystemのFixUpdate()から呼ばれる
+    public void OnPlayInputUpdate()
     {
         TracePast();
 
         direction = NormalizeDirection(S_InputSystem._instance.direction);
 
         CheckInput();
+
+        if (S_InputSystem._instance.isPushingOption && !_optionPast) Option();
+        else if (!S_InputSystem._instance.isPushingOption && _optionPast) _optionPast = false;
+    }
+
+    private void Option()
+    {
+        Debug.Log("option");
+        _optionPast = true;
     }
 
     private Vector2 NormalizeDirection(Vector2 direction)

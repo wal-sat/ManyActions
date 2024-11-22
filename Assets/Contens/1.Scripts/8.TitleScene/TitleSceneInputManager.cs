@@ -27,7 +27,7 @@ public class TitleSceneInputManager : MonoBehaviour
     private void Start()
     {
         S_InputSystem._instance.canInput = true;
-        S_InputSystem._instance.SwitchActionMap("UI");
+        S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
 
         _titleSceneStatus = TitleSceneStatus.menu;
     }

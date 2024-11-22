@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum ActionMapKind { Player, UI }
+
 public class S_InputSystem : Singleton<S_InputSystem>
 {
     [SerializeField] InputActionAsset inputActionAsset;
@@ -21,24 +23,33 @@ public class S_InputSystem : Singleton<S_InputSystem>
     [HideInInspector] public Vector2 move;
     [HideInInspector] public bool isPushingSelect;
     [HideInInspector] public bool isPushingCancel;
-    
-    protected override void Awake()
-    {
-        base.Awake();
-        
-        canInput = true; //後に消すかもね～～～！！！！
-        SwitchActionMap("Player");
-    }
 
-    public void SwitchActionMap(string actionMapName)
+    public void SwitchActionMap(ActionMapKind actionMap)
     {
         foreach (var map in inputActionAsset.actionMaps)
         {
             map.Disable();
         }
 
+        string actionMapName = "";
+        if (actionMap == ActionMapKind.Player) actionMapName = "Player";
+        if (actionMap == ActionMapKind.UI) actionMapName = "UI";
+
         InputActionMap selectedMap = inputActionAsset.FindActionMap(actionMapName);
         if (selectedMap != null) selectedMap.Enable();
+    }
+
+    public ActionMapKind CurrentActionMap()
+    {
+        foreach (var actionMap in inputActionAsset.actionMaps)
+        {
+            if (actionMap.enabled)
+            {
+                if (actionMap.name == "Player") return ActionMapKind.Player;
+                else if (actionMap.name == "UI") return ActionMapKind.UI;
+            }
+        }
+        return ActionMapKind.Player;
     }
 
     //ーーーーーPLayer Mapーーーーー
