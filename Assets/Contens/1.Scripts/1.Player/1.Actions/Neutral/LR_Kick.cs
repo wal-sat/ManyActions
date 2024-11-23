@@ -17,4 +17,8 @@ public class LR_Kick : PlayerActionBase
     {
         ;
     }
+    public override void Initialize()
+    {
+        ;
+    }
 }

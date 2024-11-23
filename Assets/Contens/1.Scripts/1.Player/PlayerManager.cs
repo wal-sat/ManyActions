@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerActionManager PlayerActionManager;
 
-    private bool _isMovingPlayer;
+    [HideInInspector] public bool _isMovingPlayer;
     private void FixedUpdate()
     {
         if (_isMovingPlayer) 
@@ -27,11 +27,5 @@ public class PlayerManager : MonoBehaviour
         playerMovement.Initialize(facingRight);
         playerAnimation.Initialize();
         PlayerActionManager.Initialize();
-    }
-
-    [Button]
-    private void aa()
-    {
-        _isMovingPlayer = true;
     }
 }

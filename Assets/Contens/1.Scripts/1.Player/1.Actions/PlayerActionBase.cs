@@ -18,4 +18,8 @@ public class PlayerActionBase : MonoBehaviour
     {
         ;
     }
+    public virtual void Initialize()
+    {
+        ;
+    }
 }

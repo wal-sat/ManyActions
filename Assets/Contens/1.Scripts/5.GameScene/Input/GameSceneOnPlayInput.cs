@@ -14,6 +14,8 @@ public enum InputKind
 
 public class GameSceneOnPlayInput : MonoBehaviour
 {
+    [SerializeField] StageManager stageManager;
+
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public bool onUp;
     [HideInInspector] public bool onDown;
@@ -81,7 +83,7 @@ public class GameSceneOnPlayInput : MonoBehaviour
     {
         TracePast();
 
-        direction = NormalizeDirection(S_InputSystem._instance.direction);
+        direction = S_InputSystem._instance.direction;
 
         CheckInput();
 
@@ -91,18 +93,8 @@ public class GameSceneOnPlayInput : MonoBehaviour
 
     private void Option()
     {
-        Debug.Log("option");
+        stageManager.OpenPausePanel(GameSceneStatus.onPlay);
         _optionPast = true;
-    }
-
-    private Vector2 NormalizeDirection(Vector2 direction)
-    {
-        if (direction.x > 0.5f) return Vector2.right;
-        if (direction.x < -0.5f) return Vector2.left;
-        if (direction.y > 0.5f) return Vector2.up;
-        if (direction.y < -0.5f) return Vector2.down;
-
-        return Vector2.zero;
     }
 
     private void CheckInput()

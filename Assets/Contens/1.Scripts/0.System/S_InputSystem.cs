@@ -37,6 +37,14 @@ public class S_InputSystem : Singleton<S_InputSystem>
 
         InputActionMap selectedMap = inputActionAsset.FindActionMap(actionMapName);
         if (selectedMap != null) selectedMap.Enable();
+
+        foreach (var _actionMap in inputActionAsset.actionMaps)
+        {
+            if (_actionMap.enabled)
+            {
+                Debug.Log("現在有効なAction Map: " + _actionMap.name);
+            }
+        }
     }
 
     public ActionMapKind CurrentActionMap()
@@ -57,7 +65,7 @@ public class S_InputSystem : Singleton<S_InputSystem>
     {
         if (context.performed)
         {
-            direction = context.ReadValue<Vector2>();
+            direction = NormalizeDirection( context.ReadValue<Vector2>() );
         }
         else if (context.canceled)
         {
@@ -119,7 +127,7 @@ public class S_InputSystem : Singleton<S_InputSystem>
     //ーーーーーUI Mapーーーーー
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed) move = context.ReadValue<Vector2>();
+        if (context.performed) move = NormalizeDirection( context.ReadValue<Vector2>() );
         else move = Vector2.zero;
 
         if (!canInput) move = Vector2.zero;
@@ -137,6 +145,17 @@ public class S_InputSystem : Singleton<S_InputSystem>
         else isPushingCancel = false;
 
         if (!canInput) isPushingCancel = false;
+    }
+
+    //ーーーーーVector2の正規化ーーーーー
+    private Vector2 NormalizeDirection(Vector2 direction)
+    {
+        if (direction.x > 0.5f) return Vector2.right;
+        if (direction.x < -0.5f) return Vector2.left;
+        if (direction.y > 0.5f) return Vector2.up;
+        if (direction.y < -0.5f) return Vector2.down;
+
+        return Vector2.zero;
     }
 }
 

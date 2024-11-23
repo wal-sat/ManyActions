@@ -43,6 +43,11 @@ public class N_Up_UpWarp : PlayerActionWarpBase
         if (playerActionManager.NBlock) playerActionWarpManager.InUpWarp(WarpDirection.up);
         else if (!playerActionManager.NBlock) playerActionWarpManager.EndUpWarp();
     }
+    public override void Initialize()
+    {
+        WarpPoint.gameObject.SetActive(false);
+        WarpPoint.transform.position = Player.transform.position;
+    }
 
     //N上のアップワープの処理
     public void InitUpWarp()

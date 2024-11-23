@@ -24,11 +24,15 @@ public class E_Down_Swoop : PlayerActionBase
 
             if (playerMovement.IsLanding())
             {
-                _isSwooping = false;
-                playerMovement.isLockMoving = false;
-                rb.gravityScale = _gravityScale;
+                EndSwoop();
             }
         }
+    }
+    private void EndSwoop()
+    {
+        _isSwooping = false;
+        playerMovement.isLockMoving = false;
+        rb.gravityScale = _gravityScale;
     }
 
     public override void InitAction()
@@ -38,5 +42,13 @@ public class E_Down_Swoop : PlayerActionBase
 
         rb.gravityScale = 0;
         rb.velocity = new Vector3(0f, 0f, 0f);
+    }
+    public override void EndAction()
+    {
+        EndSwoop();
+    }
+    public override void Initialize()
+    {
+        EndSwoop();
     }
 }

@@ -32,12 +32,16 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
 
             if (_blinkTimer > BLINK_TIME)
             {
-                _isBlinking = false;
-
-                rb.gravityScale = _gravityScale;
-                playerMovement.isLockMoving = false;
+                EndBackBlink();
             }
         }
+    }
+    private void EndBackBlink()
+    {
+        _isBlinking = false;
+
+        rb.gravityScale = _gravityScale;
+        playerMovement.isLockMoving = false;
     }
 
     public override void Blink()
@@ -63,6 +67,10 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
         
         if (base.assignedInput == InputKind.E_Left && playerMovement.isFacingRight) base.InitAction();
         else if (base.assignedInput == InputKind.E_Right && !playerMovement.isFacingRight) base.InitAction();
+    }
+    public override void Initialize()
+    {
+        EndBackBlink();
     }
 }
 

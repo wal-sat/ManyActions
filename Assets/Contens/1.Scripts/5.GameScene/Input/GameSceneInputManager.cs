@@ -10,7 +10,14 @@ public class GameSceneInputManager : MonoBehaviour
     [SerializeField] GameSceneMenuInput gameSceneMenuInput;
     [SerializeField] GameSceneAnyKeyInput gameSceneAnyKeyInput;
 
+    [SerializeField] StageManager stageManager;
+
     private GameSceneStatus _gameSceneStatus;
+
+    private void Awake()
+    {
+        stageManager.ChangeGameSceneStatus = ChangeGameSceneStatus;
+    }
 
     private void Start()
     {
@@ -20,7 +27,7 @@ public class GameSceneInputManager : MonoBehaviour
         _gameSceneStatus = GameSceneStatus.onPlay;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         switch (_gameSceneStatus)
         {
@@ -36,7 +43,7 @@ public class GameSceneInputManager : MonoBehaviour
         }
     }
 
-    public void ChangeGameSceneStatus(GameSceneStatus gameSceneStatus)
+    private void ChangeGameSceneStatus(GameSceneStatus gameSceneStatus)
     {
         _gameSceneStatus = gameSceneStatus;
         switch (_gameSceneStatus)
@@ -45,8 +52,10 @@ public class GameSceneInputManager : MonoBehaviour
                 S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
             break;
             case GameSceneStatus.menu:
-            case GameSceneStatus.anyKey:
                 S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
+            break;
+            case GameSceneStatus.anyKey:
+                S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
             break;
         }
     }

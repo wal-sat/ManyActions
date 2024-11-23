@@ -20,7 +20,7 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
 
             _wasFacingRight = playerMovement.isFacingRight;
 
-            if (playerMovement.IsLanding() && rb.velocity.y <= 0) EndAction();
+            if (playerMovement.IsLanding() && rb.velocity.y <= 0) JunpEnd();
         }
     }
 
@@ -36,16 +36,23 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
         playerMovement.isLockMoving = true;
         rb.velocity = new Vector3(_speed * Time.deltaTime, JUMP_POWER * Time.deltaTime, 0);
     }
+    private void JunpEnd()
+    {
+        _isBackJumping = false;
+        playerMovement.isLockMoving = false;
+    }
 
     public override void InitAction()
     {
         if (base.assignedInput == InputKind.S_Left && playerMovement.isFacingRight) base.InitAction();
         else if (base.assignedInput == InputKind.S_Right && !playerMovement.isFacingRight) base.InitAction();
     }
-    
     public override void EndAction()
     {
-        _isBackJumping = false;
-        playerMovement.isLockMoving = false;
+        JunpEnd();
+    }
+    public override void Initialize()
+    {
+        JunpEnd();
     }
 }

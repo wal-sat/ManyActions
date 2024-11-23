@@ -80,8 +80,10 @@ public class PlayerActionManager : MonoBehaviour
         {
             if (action == null) continue;
 
-            //全アクションの初期化処理を呼び出す
+            action.Initialize();
         }
+
+        AllBoolFalse();
     }
     //PlayerManagerからFixedUpdateで呼ばれる
     public void ActionUpdate()
@@ -335,5 +337,35 @@ public class PlayerActionManager : MonoBehaviour
 
             if (action.assignedInput == inputKind && action.isEnable) action.EndAction();
         }
+    }
+
+    private void AllBoolFalse()
+    {
+        _onUp = false;
+        _onDown = false;
+        _onLeft = false;
+        _onRight = false;
+        _onS = false;
+        _onS_Up = false;
+        _onS_Down = false;
+        _onS_Left = false;
+        _onS_Right = false;
+        _onE = false;
+        _onE_Up = false;
+        _onE_Down = false;
+        _onE_Left = false;
+        _onE_Right = false;
+        _onW = false;
+        _onW_Up = false;
+        _onW_Down = false;
+        _onW_Left = false;
+        _onW_Right = false;
+        _onN = false;
+        _onN_Up = false;
+        _onN_Down = false;
+        _onN_Left = false;
+        _onN_Right = false;
+        _onR = false;
+        _onL = false;
     }
 }

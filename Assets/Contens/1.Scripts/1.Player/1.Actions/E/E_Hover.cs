@@ -27,12 +27,15 @@ public class E_Hover : PlayerActionRequireCoolDownBase
 
             if (_hoverTimer > HOVER_TIME) 
             {
-                _isHovering = false;
-                rb.gravityScale = _gravityScale;
+                EndHover();
             }
         }
     }
-
+    private void EndHover()
+    {
+        _isHovering = false;
+        rb.gravityScale = _gravityScale;
+    }
 
     public override void InitAction()
     {
@@ -43,5 +46,9 @@ public class E_Hover : PlayerActionRequireCoolDownBase
         _hoverTimer = 0;
         _isHovering = true;
         rb.gravityScale = 0;
+    }
+    public override void Initialize()
+    {
+        EndHover();
     }
 }
