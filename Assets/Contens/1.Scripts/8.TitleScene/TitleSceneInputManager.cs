@@ -27,12 +27,14 @@ public class TitleSceneInputManager : MonoBehaviour
     private void Start()
     {
         S_InputSystem._instance.canInput = true;
-        S_InputSystem._instance.SwitchActionMap("UI");
+        S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
 
         _titleSceneStatus = TitleSceneStatus.menu;
+
+        Time.timeScale = 0;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (S_InputSystem._instance.isPushingSelect && !_selectPast) Select();
         else if (!S_InputSystem._instance.isPushingSelect && _selectPast) _selectPast = false;

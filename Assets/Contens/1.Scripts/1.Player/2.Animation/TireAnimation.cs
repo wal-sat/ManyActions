@@ -11,13 +11,14 @@ public class TireAnimation : MonoBehaviour
     private float _timer;
     private int _index;
 
-    private void FixedUpdate()
+    public void Initialize()
     {
-        // いづれどこかからこれを呼び出す
-        AnimationUpdate();
+        _timer = 0;
+        _index = 0;
+        spriteRenderer.sprite = sprites[_index];
     }
-
-    public void AnimationUpdate()
+    //PlayerAnimationからFixUpdate()で呼ばれる
+    public void TireUpdate()
     {
         _timer += Time.deltaTime;
 

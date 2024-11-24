@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum ActionMapKind { Player, UI }
+
 public class S_InputSystem : Singleton<S_InputSystem>
 {
     [SerializeField] InputActionAsset inputActionAsset;
@@ -21,24 +23,41 @@ public class S_InputSystem : Singleton<S_InputSystem>
     [HideInInspector] public Vector2 move;
     [HideInInspector] public bool isPushingSelect;
     [HideInInspector] public bool isPushingCancel;
-    
-    protected override void Awake()
-    {
-        base.Awake();
-        
-        canInput = true; //後に消すかもね～～～！！！！
-        SwitchActionMap("Player");
-    }
 
-    public void SwitchActionMap(string actionMapName)
+    public void SwitchActionMap(ActionMapKind actionMap)
     {
         foreach (var map in inputActionAsset.actionMaps)
         {
             map.Disable();
         }
 
+        string actionMapName = "";
+        if (actionMap == ActionMapKind.Player) actionMapName = "Player";
+        if (actionMap == ActionMapKind.UI) actionMapName = "UI";
+
         InputActionMap selectedMap = inputActionAsset.FindActionMap(actionMapName);
         if (selectedMap != null) selectedMap.Enable();
+
+        foreach (var _actionMap in inputActionAsset.actionMaps)
+        {
+            if (_actionMap.enabled)
+            {
+                Debug.Log("現在有効なAction Map: " + _actionMap.name);
+            }
+        }
+    }
+
+    public ActionMapKind CurrentActionMap()
+    {
+        foreach (var actionMap in inputActionAsset.actionMaps)
+        {
+            if (actionMap.enabled)
+            {
+                if (actionMap.name == "Player") return ActionMapKind.Player;
+                else if (actionMap.name == "UI") return ActionMapKind.UI;
+            }
+        }
+        return ActionMapKind.Player;
     }
 
     //ーーーーーPLayer Mapーーーーー
@@ -46,7 +65,7 @@ public class S_InputSystem : Singleton<S_InputSystem>
     {
         if (context.performed)
         {
-            direction = context.ReadValue<Vector2>();
+            direction = NormalizeDirection( context.ReadValue<Vector2>() );
         }
         else if (context.canceled)
         {
@@ -108,7 +127,7 @@ public class S_InputSystem : Singleton<S_InputSystem>
     //ーーーーーUI Mapーーーーー
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed) move = context.ReadValue<Vector2>();
+        if (context.performed) move = NormalizeDirection( context.ReadValue<Vector2>() );
         else move = Vector2.zero;
 
         if (!canInput) move = Vector2.zero;
@@ -126,6 +145,17 @@ public class S_InputSystem : Singleton<S_InputSystem>
         else isPushingCancel = false;
 
         if (!canInput) isPushingCancel = false;
+    }
+
+    //ーーーーーVector2の正規化ーーーーー
+    private Vector2 NormalizeDirection(Vector2 direction)
+    {
+        if (direction.x > 0.5f) return Vector2.right;
+        if (direction.x < -0.5f) return Vector2.left;
+        if (direction.y > 0.5f) return Vector2.up;
+        if (direction.y < -0.5f) return Vector2.down;
+
+        return Vector2.zero;
     }
 }
 

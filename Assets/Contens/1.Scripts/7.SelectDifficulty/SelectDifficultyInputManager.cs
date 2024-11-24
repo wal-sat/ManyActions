@@ -31,12 +31,12 @@ public class SelectDifficultyInputManager : MonoBehaviour
     private void Start()
     {
         S_InputSystem._instance.canInput = true;
-        S_InputSystem._instance.SwitchActionMap("UI");
+        S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
         
         _selectDifficultySceneStatus = SelectDifficultySceneStatus.menu;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (S_InputSystem._instance.isPushingSelect && !_selectPast) Select();
         else if (!S_InputSystem._instance.isPushingSelect && _selectPast) _selectPast = false;

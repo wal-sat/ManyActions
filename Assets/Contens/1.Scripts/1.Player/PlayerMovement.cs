@@ -19,9 +19,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        isFacingRight = true;
+        Initialize(true);
     }
-    private void FixedUpdate()
+
+    public void Initialize(bool facingRight)
+    {
+        isFacingRight = facingRight;
+        if (isFacingRight) this.transform.localScale = new Vector3(1f, this.transform.localScale.y, 1f);
+        else if (!isFacingRight) this.transform.localScale = new Vector3(-1f, this.transform.localScale.y, 1f);
+
+        rb.velocity = Vector3.zero;
+    }
+    
+    //PlayerManagerからFixedUpdateで呼ばれる
+    public void MovementUpdate()
     {
         if (Physics2D.OverlapCircle(SwapChecker.position, 0.1f, StageLayer) != null) 
         {

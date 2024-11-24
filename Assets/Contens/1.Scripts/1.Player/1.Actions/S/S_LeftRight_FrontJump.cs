@@ -20,7 +20,7 @@ public class S_LeftRight_FrontJump : PlayerActionJumpBase
 
             _wasFacingRight = playerMovement.isFacingRight;
 
-            if (playerMovement.IsLanding() && rb.velocity.y <= 0) EndAction();
+            if (playerMovement.IsLanding() && rb.velocity.y <= 0) JunpEnd();
         }
     }
 
@@ -36,6 +36,11 @@ public class S_LeftRight_FrontJump : PlayerActionJumpBase
         playerMovement.isLockMoving = true;
         rb.velocity = new Vector3(_speed * Time.deltaTime, JUMP_POWER * Time.deltaTime, 0);
     }
+    private void JunpEnd()
+    {
+        _isFrontJumping = false;
+        playerMovement.isLockMoving = false;
+    }
 
     public override void InitAction()
     {
@@ -45,7 +50,6 @@ public class S_LeftRight_FrontJump : PlayerActionJumpBase
     
     public override void EndAction()
     {
-        _isFrontJumping = false;
-        playerMovement.isLockMoving = false;
+        JunpEnd();
     }
 }

@@ -32,4 +32,15 @@ public class LeftRight_Accelerate : PlayerActionBase
             playerMovement.isRightAccelerate = false;
         }
     }
+    public override void Initialize()
+    {
+        if (base.assignedInput == InputKind.Left)
+        {
+            playerMovement.isLeftAccelerate = false;
+        }
+        if (base.assignedInput == InputKind.Right)
+        {
+            playerMovement.isRightAccelerate = false;
+        }
+    }
 }

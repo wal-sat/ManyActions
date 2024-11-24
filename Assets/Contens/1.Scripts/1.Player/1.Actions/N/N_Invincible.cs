@@ -9,6 +9,11 @@ public class N_Invincible : PlayerActionRequireCoolDownBase
     [SerializeField] public PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] private float INVINCIBLE_TIME;
 
+    private void EndInvincible()
+    {
+
+    }
+
     public override void InitAction()
     {
         if (playerActionManager.NBlock) 
@@ -23,7 +28,6 @@ public class N_Invincible : PlayerActionRequireCoolDownBase
 
         Debug.Log("Init無敵");
     }
-
     public override void InAction()
     {
         if (!playerActionWarpManager.isLimited)
@@ -37,7 +41,6 @@ public class N_Invincible : PlayerActionRequireCoolDownBase
 
         Debug.Log("In無敵");
     }
-
     public override void EndAction()
     {
         if (!playerActionWarpManager.isLimited)
@@ -55,5 +58,10 @@ public class N_Invincible : PlayerActionRequireCoolDownBase
         }
 
         Debug.Log("End無敵");
+        EndInvincible();
+    }
+    public override void Initialize()
+    {
+        EndInvincible();
     }
 }

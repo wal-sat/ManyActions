@@ -26,13 +26,17 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
 
             if (_blinkTimer > BLINK_TIME)
             {
-                _isBlinking = false;
-                rb.velocity = new Vector3(0f, rb.velocity.y / 2, 0f);
-
-                rb.gravityScale = _gravityScale;
-                playerMovement.isLockMoving = false;
+                EndUpBlink();
             }
         }
+    }
+    private void EndUpBlink()
+    {
+        _isBlinking = false;
+        rb.velocity = new Vector3(0f, rb.velocity.y / 2, 0f);
+
+        rb.gravityScale = _gravityScale;
+        playerMovement.isLockMoving = false;
     }
 
     public override void Blink()
@@ -51,5 +55,9 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
         if (_isBlinking) return;
 
         base.InitAction();
+    }
+    public override void Initialize()
+    {
+        EndUpBlink();
     }
 }

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerActionManager : MonoBehaviour
 {
-    [SerializeField] PlayerInput playerInput;
+    [SerializeField] GameSceneOnPlayInput gameSceneOnPlayInput;
     [SerializeField] PlayerActionBase[] playerActions;
-    [SerializeField] PlayerMovement playerMovement;
     [SerializeField] private float INPUT_BLOCK_TIME;
 
     private bool _onUp;
@@ -75,10 +74,20 @@ public class PlayerActionManager : MonoBehaviour
     [HideInInspector] public bool NBlock;
     [HideInInspector] public bool NBlockPast;
 
-    private void FixedUpdate()
+    public void Initialize()
     {
-        playerInput.PlayerInputUpdate();
+        foreach (var action in playerActions)
+        {
+            if (action == null) continue;
 
+            action.Initialize();
+        }
+
+        AllBoolFalse();
+    }
+    //PlayerManagerからFixedUpdateで呼ばれる
+    public void ActionUpdate()
+    {
         TracePast();
         
         InputAdjustment();
@@ -120,74 +129,74 @@ public class PlayerActionManager : MonoBehaviour
 
     private void InputAdjustment()
     {
-        _onUp = (playerInput.onUp | playerInput.onS_Up | playerInput.onE_Up | playerInput.onW_Up | playerInput.onN_Up);
-        _onLeft = (playerInput.onLeft | playerInput.onS_Left | playerInput.onE_Left | playerInput.onW_Left | playerInput.onN_Left);
-        _onRight = (playerInput.onRight | playerInput.onS_Right | playerInput.onE_Right | playerInput.onW_Right | playerInput.onN_Right);
-        _onDown = (playerInput.onDown | playerInput.onS_Down | playerInput.onE_Down | playerInput.onW_Down | playerInput.onN_Down);
+        _onUp = (gameSceneOnPlayInput.onUp | gameSceneOnPlayInput.onS_Up | gameSceneOnPlayInput.onE_Up | gameSceneOnPlayInput.onW_Up | gameSceneOnPlayInput.onN_Up);
+        _onLeft = (gameSceneOnPlayInput.onLeft | gameSceneOnPlayInput.onS_Left | gameSceneOnPlayInput.onE_Left | gameSceneOnPlayInput.onW_Left | gameSceneOnPlayInput.onN_Left);
+        _onRight = (gameSceneOnPlayInput.onRight | gameSceneOnPlayInput.onS_Right | gameSceneOnPlayInput.onE_Right | gameSceneOnPlayInput.onW_Right | gameSceneOnPlayInput.onN_Right);
+        _onDown = (gameSceneOnPlayInput.onDown | gameSceneOnPlayInput.onS_Down | gameSceneOnPlayInput.onE_Down | gameSceneOnPlayInput.onW_Down | gameSceneOnPlayInput.onN_Down);
 
-        if ((!playerInput.onS_Up && playerInput.onS_UpPast) || (!playerInput.onS_Left && playerInput.onS_LeftPast) || (!playerInput.onS_Right && playerInput.onS_RightPast) || (!playerInput.onS_Down && playerInput.onS_DownPast))
+        if ((!gameSceneOnPlayInput.onS_Up && gameSceneOnPlayInput.onS_UpPast) || (!gameSceneOnPlayInput.onS_Left && gameSceneOnPlayInput.onS_LeftPast) || (!gameSceneOnPlayInput.onS_Right && gameSceneOnPlayInput.onS_RightPast) || (!gameSceneOnPlayInput.onS_Down && gameSceneOnPlayInput.onS_DownPast))
         {
             _SBlock = true;
             _STimer = 0;
         }
-        if ((!playerInput.onE_Up && playerInput.onE_UpPast) || (!playerInput.onE_Left && playerInput.onE_LeftPast) || (!playerInput.onE_Right && playerInput.onE_RightPast) || (!playerInput.onE_Down && playerInput.onE_DownPast))
+        if ((!gameSceneOnPlayInput.onE_Up && gameSceneOnPlayInput.onE_UpPast) || (!gameSceneOnPlayInput.onE_Left && gameSceneOnPlayInput.onE_LeftPast) || (!gameSceneOnPlayInput.onE_Right && gameSceneOnPlayInput.onE_RightPast) || (!gameSceneOnPlayInput.onE_Down && gameSceneOnPlayInput.onE_DownPast))
         {
             _EBlock = true;
             _ETimer = 0;
         }
-        if ((!playerInput.onW_Up && playerInput.onW_UpPast) || (!playerInput.onW_Left && playerInput.onW_LeftPast) || (!playerInput.onW_Right && playerInput.onW_RightPast) || (!playerInput.onW_Down && playerInput.onW_DownPast))
+        if ((!gameSceneOnPlayInput.onW_Up && gameSceneOnPlayInput.onW_UpPast) || (!gameSceneOnPlayInput.onW_Left && gameSceneOnPlayInput.onW_LeftPast) || (!gameSceneOnPlayInput.onW_Right && gameSceneOnPlayInput.onW_RightPast) || (!gameSceneOnPlayInput.onW_Down && gameSceneOnPlayInput.onW_DownPast))
         {
             _WBlock = true;
             _WTimer = 0;
         }
 
-        _onS = playerInput.onS;
+        _onS = gameSceneOnPlayInput.onS;
         if (_SBlock)
         {
             _onS = false;
             _STimer += Time.deltaTime;
             if (_STimer > INPUT_BLOCK_TIME) _SBlock = false;
         }
-        _onS_Up = playerInput.onS_Up;
-        _onS_Left = playerInput.onS_Left;
-        _onS_Right = playerInput.onS_Right;
-        _onS_Down = playerInput.onS_Down;
+        _onS_Up = gameSceneOnPlayInput.onS_Up;
+        _onS_Left = gameSceneOnPlayInput.onS_Left;
+        _onS_Right = gameSceneOnPlayInput.onS_Right;
+        _onS_Down = gameSceneOnPlayInput.onS_Down;
 
-        _onE = playerInput.onE;
+        _onE = gameSceneOnPlayInput.onE;
         if (_EBlock)
         {
             _onE = false;
             _ETimer += Time.deltaTime;
             if (_ETimer > INPUT_BLOCK_TIME) _EBlock = false;
         }
-        _onE_Up = playerInput.onE_Up;
-        _onE_Left = playerInput.onE_Left;
-        _onE_Right = playerInput.onE_Right;
-        _onE_Down = playerInput.onE_Down;
+        _onE_Up = gameSceneOnPlayInput.onE_Up;
+        _onE_Left = gameSceneOnPlayInput.onE_Left;
+        _onE_Right = gameSceneOnPlayInput.onE_Right;
+        _onE_Down = gameSceneOnPlayInput.onE_Down;
 
-        _onW = playerInput.onW;
+        _onW = gameSceneOnPlayInput.onW;
         if (_WBlock)
         {
             _onW = false;
             _WTimer += Time.deltaTime;
             if (_WTimer > INPUT_BLOCK_TIME) _WBlock = false;
         }
-        _onW_Up = playerInput.onW_Up;
-        _onW_Left = playerInput.onW_Left;
-        _onW_Right = playerInput.onW_Right;
-        _onW_Down = playerInput.onW_Down;
+        _onW_Up = gameSceneOnPlayInput.onW_Up;
+        _onW_Left = gameSceneOnPlayInput.onW_Left;
+        _onW_Right = gameSceneOnPlayInput.onW_Right;
+        _onW_Down = gameSceneOnPlayInput.onW_Down;
 
-        _onN = playerInput.onN;
-        _onN_Up = playerInput.onN_Up;
-        _onN_Left = playerInput.onN_Left;
-        _onN_Right = playerInput.onN_Right;
-        _onN_Down = playerInput.onN_Down;
+        _onN = gameSceneOnPlayInput.onN;
+        _onN_Up = gameSceneOnPlayInput.onN_Up;
+        _onN_Left = gameSceneOnPlayInput.onN_Left;
+        _onN_Right = gameSceneOnPlayInput.onN_Right;
+        _onN_Down = gameSceneOnPlayInput.onN_Down;
         NLogicalDisjunction = (_onN || _onN_Up || _onN_Left || _onN_Right || _onN_Down);
         if (_onN_Up && !NBlock) NBlock = true;
         if (NBlock && !NLogicalDisjunction) NBlock = false;
 
-        _onL = playerInput.onL;
-        _onR = playerInput.onR;
+        _onL = gameSceneOnPlayInput.onL;
+        _onR = gameSceneOnPlayInput.onR;
     }
 
     private void Action()
@@ -328,5 +337,35 @@ public class PlayerActionManager : MonoBehaviour
 
             if (action.assignedInput == inputKind && action.isEnable) action.EndAction();
         }
+    }
+
+    private void AllBoolFalse()
+    {
+        _onUp = false;
+        _onDown = false;
+        _onLeft = false;
+        _onRight = false;
+        _onS = false;
+        _onS_Up = false;
+        _onS_Down = false;
+        _onS_Left = false;
+        _onS_Right = false;
+        _onE = false;
+        _onE_Up = false;
+        _onE_Down = false;
+        _onE_Left = false;
+        _onE_Right = false;
+        _onW = false;
+        _onW_Up = false;
+        _onW_Down = false;
+        _onW_Left = false;
+        _onW_Right = false;
+        _onN = false;
+        _onN_Up = false;
+        _onN_Down = false;
+        _onN_Left = false;
+        _onN_Right = false;
+        _onR = false;
+        _onL = false;
     }
 }

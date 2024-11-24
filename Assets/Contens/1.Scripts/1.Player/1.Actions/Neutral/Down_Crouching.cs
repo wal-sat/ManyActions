@@ -27,4 +27,10 @@ public class Down_Crouching : PlayerActionBase
         capsuleCollider2D.offset = new Vector2(0, -0.05f);
         capsuleCollider2D.size = new Vector2(0.4f, 0.9f);
     }
+    public override void Initialize()
+    {
+        spriteRenderer.sprite = main;
+        capsuleCollider2D.offset = new Vector2(0, -0.05f);
+        capsuleCollider2D.size = new Vector2(0.4f, 0.9f);
+    }
 }

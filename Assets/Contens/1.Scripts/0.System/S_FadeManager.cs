@@ -47,14 +47,14 @@ public class S_FadeManager : Singleton<S_FadeManager>
     {
         _blackPanel.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
         _blackPanel.AddToClassList("Black--Fade");
-        yield return new WaitForSeconds(fadeOutTime);
+        yield return new WaitForSecondsRealtime(fadeOutTime);
 
         inAction();
-        yield return new WaitForSeconds(fadeTime);
+        yield return new WaitForSecondsRealtime(fadeTime);
 
         _blackPanel.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
         _blackPanel.RemoveFromClassList("Black--Fade");
-        yield return new WaitForSeconds(fadeInTime);    
+        yield return new WaitForSecondsRealtime(fadeInTime);    
         
         endAction();
     }
@@ -63,14 +63,14 @@ public class S_FadeManager : Singleton<S_FadeManager>
     {
         _whitePanel.style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
         _whitePanel.AddToClassList("White--Fade");
-        yield return new WaitForSeconds(fadeOutTime);
+        yield return new WaitForSecondsRealtime(fadeOutTime);
 
         inAction();
-        yield return new WaitForSeconds(fadeTime);
+        yield return new WaitForSecondsRealtime(fadeTime);
 
         _whitePanel.style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
         _whitePanel.RemoveFromClassList("White--Fade");
-        yield return new WaitForSeconds(fadeInTime);    
+        yield return new WaitForSecondsRealtime(fadeInTime);    
         
         endAction();
     }
@@ -82,29 +82,29 @@ public class S_FadeManager : Singleton<S_FadeManager>
 
         _diamondPanel[0].style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
         _diamondPanel[0].AddToClassList("Diamond--Fade");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         _diamondPanel[1].style.transitionDuration = new List<TimeValue> { new (fadeOutTime, TimeUnit.Second) };
         _diamondPanel[1].AddToClassList("Diamond--Fade");
-        yield return new WaitForSeconds(fadeOutTime - 0.1f);
+        yield return new WaitForSecondsRealtime(fadeOutTime - 0.1f);
 
         inAction();
-        yield return new WaitForSeconds(fadeTime);
+        yield return new WaitForSecondsRealtime(fadeTime);
 
         _diamondPanel[1].style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
         _diamondPanel[1].AddToClassList("Diamond--End");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         _diamondPanel[0].style.transitionDuration = new List<TimeValue> { new (fadeInTime, TimeUnit.Second) };
         _diamondPanel[0].AddToClassList("Diamond--End");
-        yield return new WaitForSeconds(fadeInTime - 0.1f);
+        yield return new WaitForSecondsRealtime(fadeInTime - 0.1f);
 
         endAction();
 
         _diamondPanel[0].style.display = DisplayStyle.None;
         _diamondPanel[1].style.display = DisplayStyle.None;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         _diamondPanel[0].style.transitionDuration = new List<TimeValue> { new (0.1f, TimeUnit.Second) };
         _diamondPanel[0].RemoveFromClassList("Diamond--Fade");
