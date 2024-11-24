@@ -11,5 +11,6 @@ public class DisplayInEditorOnly : MonoBehaviour
         if (this.gameObject.activeSelf) this.gameObject.SetActive(false);
 
         if (_destroy) Destroy(this.gameObject);
+        else Destroy(this);
     }
 }

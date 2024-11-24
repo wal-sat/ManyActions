@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerActionManager PlayerActionManager;
+    [SerializeField] public GameObject Player;
 
     [HideInInspector] public bool _isMovingPlayer;
     private void FixedUpdate()

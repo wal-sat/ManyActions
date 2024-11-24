@@ -6,6 +6,7 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
+    [SerializeField] PlayerDiePartsManager playerDiePartsManager;
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
@@ -28,13 +29,32 @@ public class StageManager : MonoBehaviour
 
     public void Restart()
     {
+        StartCoroutine(CRestart());     
+    }
+    IEnumerator CRestart()
+    {
+        S_InputSystem._instance.canInput = false;
+
+        Vector3 playerPosition = playerManager.Player.transform.position;
+        playerManager.Player.SetActive(false);
+
         bool facingRight = savePointManager.TeleportRestartPosition();
         
         playerManager.Initialize(facingRight);
-        //爆発
-        //フェード
-        //開始処理
-        ChangeGameSceneStatus(GameSceneStatus.anyKey);
+        
+        playerDiePartsManager.Die(playerPosition);
+
+        yield return new WaitForSeconds(0.8f);
+
+        S_FadeManager._instance.Fade(
+            ()=>{
+                playerManager.Player.SetActive(true);
+                }, 
+            ()=>{
+                S_InputSystem._instance.canInput = true;
+                ChangeGameSceneStatus(GameSceneStatus.anyKey);
+            }, 
+            FadeType.Diamond, 0.5f,0.2f,0.5f);  
     }
 
     public void Clear()
