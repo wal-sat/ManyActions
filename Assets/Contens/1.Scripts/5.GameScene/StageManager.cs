@@ -7,6 +7,9 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
     [SerializeField] PlayerDiePartsManager playerDiePartsManager;
+    [SerializeField] PlayerExplosionAnimation playerExplosionAnimation;
+
+
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
@@ -38,13 +41,15 @@ public class StageManager : MonoBehaviour
         Vector3 playerPosition = playerManager.Player.transform.position;
         playerManager.Player.SetActive(false);
 
+        playerExplosionAnimation.AnimationStart(playerPosition);
+
         bool facingRight = savePointManager.TeleportRestartPosition();
         
         playerManager.Initialize(facingRight);
         
         playerDiePartsManager.Die(playerPosition);
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.1f);
 
         S_FadeManager._instance.Fade(
             ()=>{
@@ -54,7 +59,7 @@ public class StageManager : MonoBehaviour
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
             }, 
-            FadeType.Diamond, 0.5f,0.2f,0.5f);  
+            FadeType.Diamond, 0.4f,0.1f,0.4f);  
     }
 
     public void Clear()
