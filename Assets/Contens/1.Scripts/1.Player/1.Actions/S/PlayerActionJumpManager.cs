@@ -45,6 +45,16 @@ public class PlayerActionJumpManager : MonoBehaviour
             if (action.jumpKind == jumpKind && action.assignedInput == inputKind) action.Jump();
         }
     }
+
+    public void OnWallKickJump()
+    {
+        foreach (var action in jumpActions)
+        {
+            if (action == null) continue;
+
+            action.wasJumped = false;
+        }
+    }
 }
 
 

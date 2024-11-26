@@ -9,7 +9,7 @@ public class PlayerActionRequireCoolDownBase : PlayerActionBase
     private float _timer;
     private bool _onTimer;
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         if (_onTimer)
         {

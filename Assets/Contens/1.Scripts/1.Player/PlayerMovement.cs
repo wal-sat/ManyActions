@@ -36,8 +36,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(SwapChecker.position, 0.1f, StageLayer) != null) 
         {
-            // if (isHangingWall) HangWall();
-            // else Swap();
+            if (isKicking)
+            {
+                if (isFacingRight) WallKickJump_R();
+                else if (!isFacingRight) WallKickJump_L();
+            }
 
             Swap();
         }
@@ -75,4 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
         return speed;
     }
+
+    //ーーーキックーーー
+    [HideInInspector] public bool isKicking;
+    public Action WallKickJump_L;
+    public Action WallKickJump_R;
 }
