@@ -34,9 +34,9 @@ public class PlayerMovement : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void MovementUpdate()
     {
-        if (Physics2D.OverlapCircle(SwapChecker.position, 0.1f, StageLayer) != null) 
+        if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, 0.4f), CapsuleDirection2D.Vertical, 0, StageLayer) != null)
         {
-            if (isKicking)
+            if (isKicking && !IsLanding())
             {
                 if (isFacingRight) WallKickJump_R();
                 else if (!isFacingRight) WallKickJump_L();
