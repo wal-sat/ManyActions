@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SceneName { title, selectDifficulty, normalStage, extraStage }
+public enum SceneName { title, selectDifficulty, normalStage, extraStage, develop }
 
 public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
 {
@@ -29,6 +29,9 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
             break;
             case SceneName.extraStage:
                 SceneManager.LoadScene("ExtraStage");
+            break;
+            case SceneName.develop:
+                SceneManager.LoadScene("DevelopScene");
             break;
         }
     }

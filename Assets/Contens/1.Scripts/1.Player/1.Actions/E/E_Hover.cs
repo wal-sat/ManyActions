@@ -15,9 +15,9 @@ public class E_Hover : PlayerActionRequireCoolDownBase
         _gravityScale = rb.gravityScale;
     }
 
-    public override void Update()
+    public override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
 
         if (_isHovering)
         {

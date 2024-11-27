@@ -32,11 +32,15 @@ public class S_Up_BigJump : PlayerActionJumpBase
     private void JumpCancel()
     {
         _onTimer = false;
-        if (rb.velocity.y > 0) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
+        if (rb.velocity.y > 0 && wasJumped) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
+
+        wasJumped = false;
     }
 
     public override void Jump()
     {
+        wasJumped = true;
+
         _timer = 0;
         _onTimer = true;
         _canCancel = false;

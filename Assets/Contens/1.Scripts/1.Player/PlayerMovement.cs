@@ -34,10 +34,13 @@ public class PlayerMovement : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void MovementUpdate()
     {
-        if (Physics2D.OverlapCircle(SwapChecker.position, 0.1f, StageLayer) != null) 
+        if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, 0.4f), CapsuleDirection2D.Vertical, 0, StageLayer) != null)
         {
-            // if (isHangingWall) HangWall();
-            // else Swap();
+            if (isKicking && !IsLanding())
+            {
+                if (isFacingRight) WallKickJump_R();
+                else if (!isFacingRight) WallKickJump_L();
+            }
 
             Swap();
         }
@@ -75,4 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
         return speed;
     }
+
+    //ーーーキックーーー
+    [HideInInspector] public bool isKicking;
+    public Action WallKickJump_L;
+    public Action WallKickJump_R;
 }
