@@ -10,7 +10,6 @@ public class PlayerActionJumpManager : MonoBehaviour
     [HideInInspector] public int maxJumpTimes;
 
     private bool _isLanding;
-    private bool _wasLanding;
     private int _jumpTimes;
 
     private void Start()
@@ -25,11 +24,9 @@ public class PlayerActionJumpManager : MonoBehaviour
 
     private void Update()
     {
-        _wasLanding = _isLanding;
         _isLanding = playerMovement.IsLanding();
 
-        if (_isLanding && !_wasLanding) _jumpTimes = maxJumpTimes;
-        else if (!_isLanding && _wasLanding) _jumpTimes = maxJumpTimes - 1; 
+        if (_isLanding) _jumpTimes = maxJumpTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
@@ -53,6 +50,11 @@ public class PlayerActionJumpManager : MonoBehaviour
 
             action.wasJumped = false;
         }
+    }
+
+    public void Recure()
+    {
+        _jumpTimes = maxJumpTimes;
     }
 }
 

@@ -37,4 +37,9 @@ public class PlayerActionBlinkManager : MonoBehaviour
             if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Blink();
         }
     }
+
+    public void Recure()
+    {
+        _blinkTimes = maxBlinkTimes;
+    }
 }

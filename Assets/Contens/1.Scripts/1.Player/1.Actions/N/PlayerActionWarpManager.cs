@@ -45,7 +45,12 @@ public class PlayerActionWarpManager : MonoBehaviour
         }
     }
 
+    public void Recure()
+    {
+        _warpTimes = maxWarpTimes;
+    }
 
+    //ーーーUpWarpの処理ーーー
     [SerializeField] N_Up_UpWarp n_Up_UpWarp;
 
     public void InitUpWarp()

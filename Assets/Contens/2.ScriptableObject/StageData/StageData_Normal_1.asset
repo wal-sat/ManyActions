@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d93531e67374c4b93223e04559689d, type: 3}
   m_Name: StageData_Normal_1
   m_EditorClassIdentifier: 
-  MAX_JUMP_TIMES: 1
+  MAX_JUMP_TIMES: 2
   MAX_BLINK_TIMES: 0
   MAX_WARP_TIMES: 0
   LR_Swap: 1
