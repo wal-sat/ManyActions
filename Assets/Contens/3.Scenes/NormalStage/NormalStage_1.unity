@@ -778,6 +778,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &106119544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106119545}
+  m_Layer: 0
+  m_Name: Up_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &106119545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106119544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2050284337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &119653543
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1dfd4dabf760e4894117e22d168aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 9
   assignedInput: 7
   isEnable: 1
 --- !u!1 &139503761
@@ -979,7 +1011,7 @@ GameObject:
   - component: {fileID: 214158812}
   - component: {fileID: 214158813}
   m_Layer: 0
-  m_Name: N_LeftRightDown_FrontWarp
+  m_Name: N_LeftRightDown_Warp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,12 +1044,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106a200a050d4b419ca960790dce0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 22
   assignedInput: 24
   isEnable: 1
   playerActionManager: {fileID: 1195519186}
   playerActionWarpManager: {fileID: 1148719642}
   playerMovement: {fileID: 1573583785}
-  warpKind: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -1033,12 +1065,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106a200a050d4b419ca960790dce0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 22
   assignedInput: 23
   isEnable: 1
   playerActionManager: {fileID: 1195519186}
   playerActionWarpManager: {fileID: 1148719642}
   playerMovement: {fileID: 1573583785}
-  warpKind: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -1054,12 +1086,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106a200a050d4b419ca960790dce0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 22
   assignedInput: 22
   isEnable: 1
   playerActionManager: {fileID: 1195519186}
   playerActionWarpManager: {fileID: 1148719642}
   playerMovement: {fileID: 1573583785}
-  warpKind: 0
   Player: {fileID: 1573583779}
   rb: {fileID: 1573583782}
   WARP_DISTANCE: 5
@@ -3497,6 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7814980cd01d95f4f80ecdf9beadd8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageData: {fileID: 11400000, guid: cf629359d9a574b42ac94e63a04242d3, type: 2}
   playerManager: {fileID: 473427873}
   playerDiePartsManager: {fileID: 683782686}
   playerExplosionAnimation: {fileID: 1495753377}
@@ -3609,7 +3642,7 @@ MonoBehaviour:
   - {fileID: 1835445099}
   - {fileID: 1950953276}
   - {fileID: 1950953275}
-  MAX_JUMP_TIMES: 2
+  maxJumpTimes: 0
 --- !u!1 &413480300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4ac8b3a632194b94071d8bbb302a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 4
   assignedInput: 2
   isEnable: 1
   spriteRenderer: {fileID: 1573583783}
@@ -6008,6 +6042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e67a593acb164aaf6fc9724e886ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 20
   assignedInput: 20
   isEnable: 1
   COOL_DOWN_TIME: 2
@@ -6269,6 +6304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3300be3385b5444b8983218902fd848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 14
   assignedInput: 12
   isEnable: 1
   rb: {fileID: 1573583782}
@@ -6513,6 +6549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44f3eec5d9efb44dabad568673b1ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 1
   assignedInput: 26
   isEnable: 1
   rb: {fileID: 1573583782}
@@ -6533,6 +6570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44f3eec5d9efb44dabad568673b1ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 1
   assignedInput: 25
   isEnable: 1
   rb: {fileID: 1573583782}
@@ -7654,10 +7692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defdf1d84032ec04cb3a4521fafbc6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 6
   assignedInput: 6
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  jumpKind: 1
   wasJumped: 0
   rb: {fileID: 1573583782}
   JUMP_POWER: 1100
@@ -7716,7 +7754,7 @@ MonoBehaviour:
   - {fileID: 214158811}
   - {fileID: 214158812}
   - {fileID: 214158813}
-  MAX_WARP_TIMES: 2
+  maxWarpTimes: 0
   isLimited: 0
   n_Up_UpWarp: {fileID: 1782122846}
 --- !u!1 &1154291162
@@ -7849,6 +7887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneOnPlayInput: {fileID: 81421861}
+  playerActionJumpManager: {fileID: 375292993}
+  playerActionBlinkManager: {fileID: 1306926479}
+  playerActionWarpManager: {fileID: 1148719642}
   playerActions:
   - {fileID: 2003604619}
   - {fileID: 2003604620}
@@ -7857,8 +7898,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1910711608}
   - {fileID: 1910711607}
-  - {fileID: 594390627}
   - {fileID: 0}
+  - {fileID: 594390627}
   - {fileID: 0}
   - {fileID: 1507986358}
   - {fileID: 1110052077}
@@ -8046,7 +8087,7 @@ Transform:
   m_GameObject: {fileID: 1264594156}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.45, y: -1.29, z: 0}
+  m_LocalPosition: {x: -10.19, y: -3.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8256,7 +8297,7 @@ MonoBehaviour:
   - {fileID: 1736821644}
   - {fileID: 1793282361}
   - {fileID: 1793282360}
-  MAX_BLINK_TIMES: 2
+  maxBlinkTimes: 0
 --- !u!1 &1391044975
 GameObject:
   m_ObjectHideFlags: 0
@@ -8791,6 +8832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e475e17f361fa174a846006f077fe7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 10
   assignedInput: 10
   isEnable: 1
   COOL_DOWN_TIME: 0.5
@@ -8953,10 +8995,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b532b210856dbff4cb96ba920a63bcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 5
   assignedInput: 5
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  jumpKind: 0
   wasJumped: 0
   rb: {fileID: 1573583782}
   JUMP_POWER: 750
@@ -10151,10 +10193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9336df5f41666fb44b4f022db2616dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 11
   assignedInput: 11
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  blinkKind: 2
   rb: {fileID: 1573583782}
   BLINK_SPEED: 700
   BLINK_TIME: 0.4
@@ -10294,10 +10336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7e1b8b110e59f4d869a779be9b7f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 12
   assignedInput: 14
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  blinkKind: 0
   rb: {fileID: 1573583782}
   BLINK_SPEED: 700
   BLINK_TIME: 0.4
@@ -10313,10 +10355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7e1b8b110e59f4d869a779be9b7f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 12
   assignedInput: 13
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  blinkKind: 0
   rb: {fileID: 1573583782}
   BLINK_SPEED: 700
   BLINK_TIME: 0.4
@@ -10377,7 +10419,7 @@ GameObject:
   - component: {fileID: 1782122845}
   - component: {fileID: 1782122846}
   m_Layer: 0
-  m_Name: N_Up_Warp
+  m_Name: N_Up_UpWarp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10410,12 +10452,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addf44bd5758dc14bb7ff4f15ce7eb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 21
   assignedInput: 21
   isEnable: 1
   playerActionManager: {fileID: 1195519186}
   playerActionWarpManager: {fileID: 1148719642}
   playerMovement: {fileID: 1573583785}
-  warpKind: 1
   Player: {fileID: 1573583779}
   WarpPoint: {fileID: 668289881}
   WARP_POINT_SPEED: 10
@@ -10464,10 +10506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 13
   assignedInput: 14
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  blinkKind: 1
   rb: {fileID: 1573583782}
   BLINK_SPEED: 600
   BLINK_TIME: 0.2
@@ -10483,10 +10525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 13
   assignedInput: 13
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  blinkKind: 1
   rb: {fileID: 1573583782}
   BLINK_SPEED: 600
   BLINK_TIME: 0.2
@@ -10608,10 +10650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bb3d07ddacbc428b4decf8b184939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 7
   assignedInput: 9
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  jumpKind: 2
   wasJumped: 0
   rb: {fileID: 1573583782}
   JUMP_POWER: 600
@@ -10628,10 +10670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bb3d07ddacbc428b4decf8b184939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 7
   assignedInput: 8
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  jumpKind: 2
   wasJumped: 0
   rb: {fileID: 1573583782}
   JUMP_POWER: 600
@@ -10930,6 +10972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c0f7974f755334a8078105d8e1bf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 2
   assignedInput: 4
   isEnable: 1
   playerMovement: {fileID: 1573583785}
@@ -10945,6 +10988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c0f7974f755334a8078105d8e1bf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 2
   assignedInput: 3
   isEnable: 1
   playerMovement: {fileID: 1573583785}
@@ -11073,10 +11117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cde9708ed80c434582c4e44495bab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 8
   assignedInput: 9
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  jumpKind: 3
   wasJumped: 0
   rb: {fileID: 1573583782}
   JUMP_POWER: 675
@@ -11093,10 +11137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cde9708ed80c434582c4e44495bab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 8
   assignedInput: 8
   isEnable: 1
   playerMovement: {fileID: 1573583785}
-  jumpKind: 3
   wasJumped: 0
   rb: {fileID: 1573583782}
   JUMP_POWER: 675
@@ -11146,6 +11190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a7af40a583eda429828f1c47c38eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 0
   assignedInput: 25
   isEnable: 1
   playerMovement: {fileID: 1573583785}
@@ -11161,6 +11206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a7af40a583eda429828f1c47c38eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionKind: 0
   assignedInput: 26
   isEnable: 1
   playerMovement: {fileID: 1573583785}
@@ -11720,6 +11766,7 @@ Transform:
   - {fileID: 2003604618}
   - {fileID: 960248682}
   - {fileID: 1910711606}
+  - {fileID: 106119545}
   - {fileID: 594390626}
   m_Father: {fileID: 1195519184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

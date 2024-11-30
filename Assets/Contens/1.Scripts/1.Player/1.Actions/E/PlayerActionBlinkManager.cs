@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BlinkKind { Blink, BackBlink, UpBlink }
-
 public class PlayerActionBlinkManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionBlinkBase[] blinkActions;
-    [SerializeField] int MAX_BLINK_TIMES;
+    [HideInInspector] public int maxBlinkTimes;
 
     private int _blinkTimes;
 
@@ -24,10 +22,10 @@ public class PlayerActionBlinkManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding()) _blinkTimes = MAX_BLINK_TIMES;
+        if (playerMovement.IsLanding()) _blinkTimes = maxBlinkTimes;
     }
 
-    private void Init(InputKind inputKind, BlinkKind blinkKind)
+    private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (_blinkTimes <= 0) return;
         _blinkTimes --;
@@ -36,7 +34,7 @@ public class PlayerActionBlinkManager : MonoBehaviour
         {
             if (action == null) continue;
 
-            if (action.blinkKind == blinkKind && action.assignedInput == inputKind) action.Blink();
+            if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Blink();
         }
     }
 }

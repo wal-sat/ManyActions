@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
+    [SerializeField] StageData stageData;
+
     [SerializeField] PlayerManager playerManager;
     [SerializeField] PlayerDiePartsManager playerDiePartsManager;
     [SerializeField] PlayerExplosionAnimation playerExplosionAnimation;
@@ -21,6 +23,8 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         Initialize();
+
+        playerManager.PlayerActionManager.EnableActions(stageData);
     }
 
     public void Initialize()

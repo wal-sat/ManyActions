@@ -6,14 +6,13 @@ using UnityEngine;
 public class PlayerActionJumpBase : PlayerActionBase
 {
     [SerializeField] public PlayerMovement playerMovement;
-    [SerializeField] public JumpKind jumpKind;
 
     [HideInInspector] public bool wasJumped;
-    public Action<InputKind, JumpKind> init;
+    public Action<InputKind, ActionKind> init;
 
     public override void InitAction()
     {
-        init(assignedInput, jumpKind);
+        init(assignedInput, actionKind);
     }
 
     public virtual void Jump()

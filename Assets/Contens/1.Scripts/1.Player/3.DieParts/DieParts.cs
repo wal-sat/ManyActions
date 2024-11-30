@@ -12,7 +12,6 @@ public class DieParts : MonoBehaviour
     {
         if (Vector3.Distance(PlayerPosition.position, this.gameObject.transform.position) > DESTROY_DISTANCE)
         {
-            Debug.Log("falling");
             Destroy(this.gameObject);
         }
     }

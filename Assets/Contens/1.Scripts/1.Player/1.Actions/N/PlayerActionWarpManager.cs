@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WarpKind { Warp, UpWarp }
-
 public class PlayerActionWarpManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionWarpBase[] warpActions;
-    [SerializeField] int MAX_WARP_TIMES;
-
+    
+    [HideInInspector] public int maxWarpTimes;
     [HideInInspector] public bool isLimited;
 
     private int _warpTimes;
@@ -26,10 +24,10 @@ public class PlayerActionWarpManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding()) _warpTimes = MAX_WARP_TIMES;
+        if (playerMovement.IsLanding()) _warpTimes = maxWarpTimes;
     }
 
-    private void Init(InputKind inputKind, WarpKind warpKind)
+    private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (_warpTimes <= 0) 
         {
@@ -43,7 +41,7 @@ public class PlayerActionWarpManager : MonoBehaviour
         {
             if (action == null) continue;
 
-            if (action.warpKind == warpKind && action.assignedInput == inputKind) action.Warp();
+            if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Warp();
         }
     }
 
