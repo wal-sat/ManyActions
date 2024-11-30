@@ -55,7 +55,6 @@ public class SelectDifficultyConfirm : MonoBehaviour
 
     private void LoadGameScene(DifficultyLevel level)
     {
-        //ゲームシーンをロード
-        Debug.Log(level);
+        S_LoadSceneSystem._instance.LoadScene(SceneName.develop);
     }
 }

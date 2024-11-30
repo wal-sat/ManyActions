@@ -5,7 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SceneName { title, selectDifficulty, normalStage, extraStage, develop }
+public enum SceneName { 
+    title, selectDifficulty, 
+    normalStage_0, normalStage_1, normalStage_2, normalStage_3, normalStage_4, normalStage_5, normalStage_6, normalStage_7, normalStage_8, normalStage_9,  
+    extraStage, 
+    develop }
 
 public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
 {
@@ -24,8 +28,35 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
             case SceneName.selectDifficulty:
                 SceneManager.LoadScene("SelectDifficulty");
             break;
-            case SceneName.normalStage:
-                SceneManager.LoadScene("NormalStage");
+            case SceneName.normalStage_0:
+                SceneManager.LoadScene("NormalStage_0");
+            break;
+            case SceneName.normalStage_1:
+                SceneManager.LoadScene("NormalStage_1");
+            break;
+            case SceneName.normalStage_2:
+                SceneManager.LoadScene("NormalStage_2");
+            break;
+            case SceneName.normalStage_3:
+                SceneManager.LoadScene("NormalStage_3");
+            break;
+            case SceneName.normalStage_4:
+                SceneManager.LoadScene("NormalStage_4");
+            break;
+            case SceneName.normalStage_5:
+                SceneManager.LoadScene("NormalStage_5");
+            break;
+            case SceneName.normalStage_6:
+                SceneManager.LoadScene("NormalStage_6");
+            break;
+            case SceneName.normalStage_7:
+                SceneManager.LoadScene("NormalStage_7");
+            break;
+            case SceneName.normalStage_8:
+                SceneManager.LoadScene("NormalStage_8");
+            break;
+            case SceneName.normalStage_9:
+                SceneManager.LoadScene("NormalStage_9");
             break;
             case SceneName.extraStage:
                 SceneManager.LoadScene("ExtraStage");

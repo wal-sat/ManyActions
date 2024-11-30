@@ -15,7 +15,7 @@ public class SavePointManager : MonoBehaviour
 
     public void RegisterSavePoint(SavePoint newSavePoint)
     {
-        if (_savePoint.pointIndex <= newSavePoint.pointIndex)
+        if (_savePoint.savePointIndex <= newSavePoint.savePointIndex)
         {
             _savePoint = newSavePoint;
         }
@@ -23,12 +23,12 @@ public class SavePointManager : MonoBehaviour
 
     public void TeleportStartPosition()
     {
-        Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, 0f);
+        Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, Player.transform.position.z);
     }
 
     public bool TeleportRestartPosition()
     {
-        Player.transform.position = new Vector3(_savePoint.transform.position.x, _savePoint.transform.position.y, 0f);
+        Player.transform.position = new Vector3(_savePoint.transform.position.x, _savePoint.transform.position.y, Player.transform.position.z);
 
         return _savePoint.facingRight;
     }

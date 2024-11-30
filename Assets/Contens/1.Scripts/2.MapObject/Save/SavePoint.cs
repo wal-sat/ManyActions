@@ -7,10 +7,10 @@ public class SavePoint : MonoBehaviour
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] SavePointView savePointView;
     [SerializeField] SavePointArea savePointArea;
-    [SerializeField] public int pointIndex;
+    [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
 
-    private void Start()
+    private void Awake()
     {
         savePointArea.triggerEnter = triggerEnter;
     }

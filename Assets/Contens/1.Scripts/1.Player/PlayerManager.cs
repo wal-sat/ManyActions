@@ -10,10 +10,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerActionManager PlayerActionManager;
     [SerializeField] public GameObject Player;
 
-    [HideInInspector] public bool _isMovingPlayer;
+    [HideInInspector] public bool isMovingPlayer;
     private void FixedUpdate()
     {
-        if (_isMovingPlayer) 
+        if (isMovingPlayer) 
         {
             playerMovement.MovementUpdate();
             playerAnimation.AnimationUpdate();
@@ -23,10 +23,18 @@ public class PlayerManager : MonoBehaviour
 
     public void Initialize(bool facingRight)
     {
-        _isMovingPlayer = false;
+        isMovingPlayer = false;
 
         playerMovement.Initialize(facingRight);
         playerAnimation.Initialize();
+        PlayerActionManager.Initialize();
+    }
+
+    public void Door()
+    {
+        isMovingPlayer = false;
+
+        playerMovement.Initialize(playerMovement.isFacingRight);
         PlayerActionManager.Initialize();
     }
 }
