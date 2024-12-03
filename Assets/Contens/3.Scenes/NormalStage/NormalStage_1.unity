@@ -5742,8 +5742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c17ba596470367408f5108953c7509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: 2667544aa37ac6943bb3e7bf3e039d4e, type: 3}
-  disableSprite: {fileID: 21300000, guid: 21ec0dfc38726c74bbe7bef49b51e4c7, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 2d50bc94cb77e7e4c92f484cb3c481b3, type: 3}
+  disableSprite: {fileID: 21300000, guid: 8eb501a08bc0d1744a035fc74c75cb6c, type: 3}
 --- !u!114 &800715833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5803,7 +5803,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2667544aa37ac6943bb3e7bf3e039d4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d50bc94cb77e7e4c92f484cb3c481b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7168,7 +7168,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 49d250c2d1f33e04e852057856eb58d7, type: 3}
   - {fileID: 21300000, guid: 90de578183804eb49a5c4bd1bafb7e5d, type: 3}
   - {fileID: 21300000, guid: 67994a01c03f02a438baa0b579a1c9ed, type: 3}
-  - {fileID: 21300000, guid: 285dbbf6b9af46c40af65651b95c35c3, type: 3}
+  - {fileID: 21300000, guid: ceef00894a7abfd45866cf1d662efa65, type: 3}
   - {fileID: 21300000, guid: a6467b1e4bc2c7d43990f692b413dc42, type: 3}
   ANIMATION_TIME: 0.05
 --- !u!212 &1091041994
