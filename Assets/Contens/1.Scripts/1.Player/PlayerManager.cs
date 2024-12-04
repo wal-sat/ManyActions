@@ -13,10 +13,11 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector] public bool isMovingPlayer;
     private void FixedUpdate()
     {
+        playerAnimation.AnimationUpdate(isMovingPlayer);
+        
         if (isMovingPlayer) 
         {
             playerMovement.MovementUpdate();
-            playerAnimation.AnimationUpdate();
             PlayerActionManager.ActionUpdate();
         }
     }
