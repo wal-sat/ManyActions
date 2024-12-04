@@ -15,9 +15,10 @@ public class PlayerPreventStuck : MonoBehaviour
     public void Initialize()
     {
         _timer = 0;
+
+        positions.Clear();
     }
-    //public void PreventStuckUpdate()
-    private void FixedUpdate()
+    public void PreventStuckUpdate()
     {
         _timer += Time.deltaTime;
 
@@ -31,7 +32,7 @@ public class PlayerPreventStuck : MonoBehaviour
 
             if (positions.Count == RECORD_NUMBER && IsStuckCheck(positions))
             {
-                Debug.Log("スタックした : "+Vector2.Distance(positions[0], positions[1]));
+                Debug.Log("スタックした");
                 playerMovement.Swap();
             }
         }

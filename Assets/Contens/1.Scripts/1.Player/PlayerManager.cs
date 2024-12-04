@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] public PlayerActionManager PlayerActionManager;
+    [SerializeField] PlayerPreventStuck playerPreventStuck;
+
     [SerializeField] public GameObject Player;
 
     [HideInInspector] public bool isMovingPlayer;
@@ -19,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         {
             playerMovement.MovementUpdate();
             PlayerActionManager.ActionUpdate();
+            playerPreventStuck.PreventStuckUpdate();
         }
     }
 
@@ -29,6 +32,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement.Initialize(facingRight);
         playerAnimationManager.Initialize();
         PlayerActionManager.Initialize();
+        playerPreventStuck.Initialize();
     }
 
     public void Door()
