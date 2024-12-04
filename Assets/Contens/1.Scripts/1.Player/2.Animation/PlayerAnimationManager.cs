@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimationManager : MonoBehaviour
 {
-    [SerializeField] TireAnimation tireAnimation;
+    [SerializeField] PlayerTireAnimation playerTireAnimation;
 
     [SerializeField] PlayerSleepAnimation playerSleepAnimation;
     [SerializeField] PlayerZAnimation playerZAnimation;
@@ -13,7 +13,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Initialize()
     {
-        tireAnimation.Initialize();
+        playerTireAnimation.Initialize();
 
         _wasMoveingPast = true;
     }
@@ -29,7 +29,7 @@ public class PlayerAnimation : MonoBehaviour
                 playerZAnimation.ZEnd();
             }
 
-            tireAnimation.TireUpdate();
+            playerTireAnimation.TireUpdate();
         }
         else
         {

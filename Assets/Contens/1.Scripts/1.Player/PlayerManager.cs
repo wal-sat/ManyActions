@@ -6,14 +6,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] PlayerAnimation playerAnimation;
+    [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] public PlayerActionManager PlayerActionManager;
     [SerializeField] public GameObject Player;
 
     [HideInInspector] public bool isMovingPlayer;
     private void FixedUpdate()
     {
-        playerAnimation.AnimationUpdate(isMovingPlayer);
+        playerAnimationManager.AnimationUpdate(isMovingPlayer);
         
         if (isMovingPlayer) 
         {
@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         isMovingPlayer = false;
 
         playerMovement.Initialize(facingRight);
-        playerAnimation.Initialize();
+        playerAnimationManager.Initialize();
         PlayerActionManager.Initialize();
     }
 
