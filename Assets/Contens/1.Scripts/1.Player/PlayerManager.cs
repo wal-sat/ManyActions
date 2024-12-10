@@ -13,8 +13,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public GameObject Player;
 
     [HideInInspector] public bool isMovingPlayer;
+
+    private bool _isDoorEntering;
+
+
     private void FixedUpdate()
     {
+        if (_isDoorEntering) return;
+
         playerAnimationManager.AnimationUpdate(isMovingPlayer);
         
         if (isMovingPlayer) 
@@ -37,7 +43,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Door()
     {
-        isMovingPlayer = false;
+        _isDoorEntering = true;
 
         playerMovement.Initialize(playerMovement.isFacingRight);
         PlayerActionManager.Initialize();

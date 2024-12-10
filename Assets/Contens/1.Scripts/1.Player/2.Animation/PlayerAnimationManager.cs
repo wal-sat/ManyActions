@@ -14,6 +14,8 @@ public class PlayerAnimationManager : MonoBehaviour
     public void Initialize()
     {
         playerTireAnimation.Initialize();
+        playerSleepAnimation.SleepInitialize();
+        playerZAnimation.ZInitialize();
 
         _wasMoveingPast = true;
     }
@@ -33,12 +35,6 @@ public class PlayerAnimationManager : MonoBehaviour
         }
         else
         {
-            if (_wasMoveingPast)
-            {
-                playerSleepAnimation.SleepInitialize();
-                playerZAnimation.ZInitialize();
-            }
-
             playerSleepAnimation.SleepUpdate();
             playerZAnimation.ZUpdate();
         }

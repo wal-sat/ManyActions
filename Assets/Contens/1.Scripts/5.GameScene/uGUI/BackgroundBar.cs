@@ -12,11 +12,11 @@ public class BackgroundBar : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.gameObject.transform.position += new Vector3(-1 * SPEED * Time.deltaTime, 0f ,0f); 
+        this.gameObject.transform.localPosition += new Vector3(SPEED * Time.deltaTime, 0f ,0f); 
 
-        if (this.gameObject.transform.position.x < EndPosition.position.x)
+        if (this.gameObject.transform.localPosition.x > EndPosition.localPosition.x)
         {
-            this.gameObject.transform.position = StartPosition.position;
+            this.gameObject.transform.localPosition = StartPosition.localPosition;
         }   
     }
 }
