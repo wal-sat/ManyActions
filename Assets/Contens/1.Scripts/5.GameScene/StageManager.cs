@@ -55,10 +55,8 @@ public class StageManager : MonoBehaviour
         playerManager.Player.SetActive(false);
 
         playerExplosionAnimation.AnimationStart(playerPosition);
-
-        bool facingRight = savePointManager.TeleportRestartPosition();
         
-        playerManager.Initialize(facingRight);
+        playerManager.Initialize( savePointManager.savePoint.facingRight );
         
         playerDiePartsManager.Die(playerPosition);
 
@@ -66,6 +64,7 @@ public class StageManager : MonoBehaviour
 
         S_FadeManager._instance.Fade(
             ()=>{
+                savePointManager.TeleportRestartPosition();
                 playerManager.Player.SetActive(true);
                 }, 
             ()=>{

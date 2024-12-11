@@ -996,9 +996,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &214158809
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,7 +4052,7 @@ GameObject:
   - component: {fileID: 413480302}
   - component: {fileID: 413480301}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: uGUI-Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4228,9 +4229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &429090264
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,9 +5021,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &594390625
 GameObject:
   m_ObjectHideFlags: 0
@@ -5818,9 +5821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &728232105
 GameObject:
   m_ObjectHideFlags: 0
@@ -5909,9 +5913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &744319450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6000,9 +6005,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &783611870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,9 +6097,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &800715830
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,8 +6706,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967839399}
+  - component: {fileID: 967839401}
+  - component: {fileID: 967839400}
   m_Layer: 5
-  m_Name: StartPosition
+  m_Name: LeftTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6714,7 +6723,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967839398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6725,6 +6734,71 @@ RectTransform:
   m_AnchoredPosition: {x: -750, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &967839400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967839398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb430730fbc50704288576386b9988d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroy: 0
+--- !u!212 &967839401
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967839398}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &981264080
 GameObject:
   m_ObjectHideFlags: 0
@@ -7407,9 +7481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &1087304046
 GameObject:
   m_ObjectHideFlags: 0
@@ -7756,9 +7831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &1110052075
 GameObject:
   m_ObjectHideFlags: 0
@@ -8326,8 +8402,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1271294947}
+  - component: {fileID: 1271294949}
+  - component: {fileID: 1271294948}
   m_Layer: 5
-  m_Name: EndPosition
+  m_Name: RightTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8341,7 +8419,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271294946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8352,6 +8430,71 @@ RectTransform:
   m_AnchoredPosition: {x: 750, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1271294948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271294946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb430730fbc50704288576386b9988d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroy: 0
+--- !u!212 &1271294949
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271294946}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1306926477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10230,9 +10373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &1703928001
 GameObject:
   m_ObjectHideFlags: 0
@@ -10522,9 +10666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288a92340cd4af45a3ed0ca446c80e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 967839399}
-  EndPosition: {fileID: 1271294947}
-  SPEED: 100
+  playerMovement: {fileID: 1573583785}
+  LeftTransform: {fileID: 967839399}
+  RightTransform: {fileID: 1271294947}
+  SPEED: 120
 --- !u!1 &1736821642
 GameObject:
   m_ObjectHideFlags: 0
@@ -12214,5 +12359,5 @@ SceneRoots:
   - {fileID: 1154291163}
   - {fileID: 139503763}
   - {fileID: 1660486899}
-  - {fileID: 1209365606}
   - {fileID: 413480304}
+  - {fileID: 1209365606}

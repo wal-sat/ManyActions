@@ -6,18 +6,18 @@ public class SavePointManager : MonoBehaviour
 {
     [SerializeField] SavePoint _startPoint;
     [SerializeField] GameObject Player;
-    private SavePoint _savePoint;
+    [HideInInspector] public SavePoint savePoint;
 
     private void Start()
     {
-        _savePoint = _startPoint;
+        savePoint = _startPoint;
     }
 
     public void RegisterSavePoint(SavePoint newSavePoint)
     {
-        if (_savePoint.savePointIndex <= newSavePoint.savePointIndex)
+        if (savePoint.savePointIndex <= newSavePoint.savePointIndex)
         {
-            _savePoint = newSavePoint;
+            savePoint = newSavePoint;
         }
     }
 
@@ -26,10 +26,8 @@ public class SavePointManager : MonoBehaviour
         Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, Player.transform.position.z);
     }
 
-    public bool TeleportRestartPosition()
+    public void TeleportRestartPosition()
     {
-        Player.transform.position = new Vector3(_savePoint.transform.position.x, _savePoint.transform.position.y, Player.transform.position.z);
-
-        return _savePoint.facingRight;
+        Player.transform.position = new Vector3(savePoint.transform.position.x, savePoint.transform.position.y, Player.transform.position.z);
     }
 }
