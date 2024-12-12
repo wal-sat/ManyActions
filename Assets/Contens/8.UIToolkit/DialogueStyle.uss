@@ -1,0 +1,30 @@
+.Dialogue {
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    height: 20%;
+    left: 20%;
+    top: 7.5%;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/Contens/7.Font/YDWaosagi.otf?fileID=12800000&guid=702e835cea736254b992da370d889d70&type=3#YDWaosagi");
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    opacity: 0;
+    translate: 0 -50px;
+    transition-timing-function: ease-out-sine;
+    transition-duration: 2s;
+}
+
+.Dialogue--Display {
+    opacity: 1;
+    translate: 0 0;
+}

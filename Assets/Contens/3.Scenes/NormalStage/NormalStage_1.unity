@@ -906,6 +906,7 @@ Transform:
   - {fileID: 1184811521}
   - {fileID: 1258813394}
   - {fileID: 1004326364}
+  - {fileID: 574575858}
   - {fileID: 1547556790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4934,6 +4935,69 @@ MonoBehaviour:
   stageActionData: {fileID: 11400000, guid: 619216c04889639489ef42fa8ca9b14e, type: 2}
   savePointIndex: 0
   facingRight: 0
+--- !u!1 &574575857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574575858}
+  - component: {fileID: 574575859}
+  - component: {fileID: 574575860}
+  m_Layer: 5
+  m_Name: S_DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &574575858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574575857}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6268093, y: 7.520782, z: 0.007842273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 139503763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574575859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574575857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 65937ed7832c37a40bc3b3500dfe1709, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: ddec51f4a1167d84992460accc32c061, type: 3}
+  m_SortingOrder: 7
+--- !u!114 &574575860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574575857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775438473633a8b4fa002d69e76344c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIToolkit: {fileID: 574575859}
+  DISPLAY_TIME: 5
 --- !u!1 &577038652
 GameObject:
   m_ObjectHideFlags: 0
@@ -7176,6 +7240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 473427873}
+  playerActionJumpManager: {fileID: 375292993}
+  playerActionBlinkManager: {fileID: 1306926479}
+  playerActionWarpManager: {fileID: 1148719642}
   stageObjectCollisionArea: {fileID: 1973690014}
   actionCassetteView: {fileID: 986747391}
   stageActionData: {fileID: 11400000, guid: cf629359d9a574b42ac94e63a04242d3, type: 2}
@@ -10404,7 +10471,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 65937ed7832c37a40bc3b3500dfe1709, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 947a1d77428186d4b94f84fdecd70635, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 8
 --- !u!4 &1660486899
 Transform:
   m_ObjectHideFlags: 0

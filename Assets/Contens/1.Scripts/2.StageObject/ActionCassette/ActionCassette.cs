@@ -5,6 +5,9 @@ using UnityEngine;
 public class ActionCassette : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
+    [SerializeField] PlayerActionJumpManager playerActionJumpManager;
+    [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
+    [SerializeField] PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] ActionCassetteView actionCassetteView;
     [SerializeField] StageActionData stageActionData;
@@ -18,7 +21,7 @@ public class ActionCassette : MonoBehaviour
     private void Awake()
     {
         _isEnable = true;
-        
+
         stageObjectCollisionArea.triggerEnter = triggerEnter;
     }
     private void FixedUpdate()
@@ -44,7 +47,11 @@ public class ActionCassette : MonoBehaviour
 
             actionCassetteView.OnRecure(COOL_TIME);
 
-           playerManager.PlayerActionManager.EnableActions(stageActionData);
+            playerManager.PlayerActionManager.EnableActions(stageActionData);
+
+            playerActionJumpManager.Recure();
+            playerActionBlinkManager.Recure();
+            playerActionWarpManager.Recure();
         }
     }
 }
