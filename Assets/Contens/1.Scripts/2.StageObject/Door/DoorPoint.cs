@@ -5,12 +5,12 @@ using UnityEngine;
 public class DoorPoint : MonoBehaviour
 {
     [SerializeField] StageManager stageManager;
-    [SerializeField] DoorPointArea doorPointArea;
+    [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] SceneName sceneName;
 
     private void Awake()
     {
-        doorPointArea.triggerEnter = triggerEnter;
+        stageObjectCollisionArea.triggerEnter = triggerEnter;
     }
 
     private void triggerEnter()

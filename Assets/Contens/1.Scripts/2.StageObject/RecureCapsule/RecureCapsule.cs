@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Recure : MonoBehaviour
 {
-    [SerializeField] RecureCapsuleArea recureCapsuleArea;
+    [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] RecureCapsuleView recureCapsuleView;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
     [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
@@ -20,7 +20,7 @@ public class Recure : MonoBehaviour
     {
         _canRecure = true;
 
-        recureCapsuleArea.triggerEnter = TriggerEnter;
+        stageObjectCollisionArea.triggerEnter = TriggerEnter;
     }
     private void FixedUpdate()
     {

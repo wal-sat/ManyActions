@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SavePointArea : MonoBehaviour
+public class StageObjectCollisionArea : MonoBehaviour
 {
     public Action triggerEnter;
 

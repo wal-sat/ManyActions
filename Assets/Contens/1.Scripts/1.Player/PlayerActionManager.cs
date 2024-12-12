@@ -381,9 +381,9 @@ public class PlayerActionManager : MonoBehaviour
         _onL = false;
     }
 
-    public void EnableActions(StageData stageData)
+    public void EnableActions(StageActionData stageActionData)
     {
-        Dictionary<ActionKind, bool> availableActions = stageData.availableActions;
+        Dictionary<ActionKind, bool> availableActions = stageActionData.availableActions;
 
         foreach (var action in playerActions)
         {
@@ -405,8 +405,8 @@ public class PlayerActionManager : MonoBehaviour
             }
         }
 
-        playerActionJumpManager.maxJumpTimes = stageData.MAX_JUMP_TIMES;
-        playerActionBlinkManager.maxBlinkTimes = stageData.MAX_BLINK_TIMES;
-        playerActionWarpManager.maxWarpTimes = stageData.MAX_WARP_TIMES;
+        playerActionJumpManager.maxJumpTimes = stageActionData.MAX_JUMP_TIMES;
+        playerActionBlinkManager.maxBlinkTimes = stageActionData.MAX_BLINK_TIMES;
+        playerActionWarpManager.maxWarpTimes = stageActionData.MAX_WARP_TIMES;
     }
 }

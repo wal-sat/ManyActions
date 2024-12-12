@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/StageData", fileName = "StageData_")]
+[CreateAssetMenu(menuName = "ScriptableObject/StageActionData", fileName = "StageActionData_")]
 
-public class StageData : ScriptableObject
+public class StageActionData : ScriptableObject
 {
     [SerializeField] public int MAX_JUMP_TIMES;
     [SerializeField] public int MAX_BLINK_TIMES;

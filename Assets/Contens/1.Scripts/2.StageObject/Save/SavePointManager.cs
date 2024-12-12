@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SavePointManager : MonoBehaviour
 {
+    [SerializeField] PlayerManager playerManager;
     [SerializeField] SavePoint _startPoint;
     [SerializeField] GameObject Player;
     [HideInInspector] public SavePoint savePoint;
@@ -24,10 +25,14 @@ public class SavePointManager : MonoBehaviour
     public void TeleportStartPosition()
     {
         Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, Player.transform.position.z);
+
+        playerManager.PlayerActionManager.EnableActions(_startPoint.stageActionData);
     }
 
     public void TeleportRestartPosition()
     {
         Player.transform.position = new Vector3(savePoint.transform.position.x, savePoint.transform.position.y, Player.transform.position.z);
+
+        playerManager.PlayerActionManager.EnableActions(savePoint.stageActionData);
     }
 }
