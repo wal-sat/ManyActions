@@ -62,7 +62,7 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
                 SceneManager.LoadScene("ExtraStage");
             break;
             case SceneName.develop:
-                SceneManager.LoadScene("DevelopScene");
+                SceneManager.LoadScene("Develop");
             break;
         }
     }
