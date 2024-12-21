@@ -11,6 +11,7 @@ public class StageManager : MonoBehaviour
 
 
     [SerializeField] SavePointManager savePointManager;
+    [SerializeField] GearManager gearManager;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
     public Action<GameSceneStatus> ChangeGameSceneStatus;
@@ -62,6 +63,8 @@ public class StageManager : MonoBehaviour
             ()=>{
                 savePointManager.TeleportRestartPosition();
                 playerManager.Player.SetActive(true);
+
+                gearManager.Initialize();
                 }, 
             ()=>{
                 S_InputSystem._instance.canInput = true;
@@ -73,6 +76,8 @@ public class StageManager : MonoBehaviour
     public void Door(SceneName sceneName)
     {
         playerManager.Door();
+        gearManager.OnSave();
+
         S_LoadSceneSystem._instance.LoadScene(sceneName);
     }
 
