@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerActionBase : MonoBehaviour
 {
+    [SerializeField] public ActionKind actionKind;
     [SerializeField] public InputKind assignedInput;
     [HideInInspector] public bool isEnable = true;
 

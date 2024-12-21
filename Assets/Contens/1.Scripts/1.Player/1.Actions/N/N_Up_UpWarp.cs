@@ -79,7 +79,7 @@ public class N_Up_UpWarp : PlayerActionWarpBase
     {
         if (playerActionWarpManager.isLimited) return;
 
-        Player.transform.position = WarpPoint.transform.position;
+        Player.transform.position = new Vector3(WarpPoint.transform.position.x, WarpPoint.transform.position.y, Player.transform.position.z);
 
         WarpPoint.gameObject.SetActive(false);
     }

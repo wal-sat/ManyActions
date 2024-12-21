@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum JumpKind { Jump, BigJump, FrontJump, BackJump }
-
 public class PlayerActionJumpManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionJumpBase[] jumpActions;
-    [SerializeField] int MAX_JUMP_TIMES;
+
+    [HideInInspector] public int maxJumpTimes;
 
     private bool _isLanding;
-    private bool _wasLanding;
     private int _jumpTimes;
 
     private void Start()
@@ -26,14 +24,12 @@ public class PlayerActionJumpManager : MonoBehaviour
 
     private void Update()
     {
-        _wasLanding = _isLanding;
         _isLanding = playerMovement.IsLanding();
 
-        if (_isLanding && !_wasLanding) _jumpTimes = MAX_JUMP_TIMES;
-        else if (!_isLanding && _wasLanding) _jumpTimes = MAX_JUMP_TIMES - 1; 
+        if (_isLanding) _jumpTimes = maxJumpTimes;
     }
 
-    private void Init(InputKind inputKind, JumpKind jumpKind)
+    private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (_jumpTimes <= 0) return;
         _jumpTimes --;
@@ -42,7 +38,7 @@ public class PlayerActionJumpManager : MonoBehaviour
         {
             if (action == null) continue;
 
-            if (action.jumpKind == jumpKind && action.assignedInput == inputKind) action.Jump();
+            if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Jump();
         }
     }
 
@@ -54,6 +50,11 @@ public class PlayerActionJumpManager : MonoBehaviour
 
             action.wasJumped = false;
         }
+    }
+
+    public void Recure()
+    {
+        _jumpTimes = maxJumpTimes;
     }
 }
 

@@ -6,12 +6,11 @@ using UnityEngine;
 public class PlayerActionBlinkBase : PlayerActionBase
 {
     [SerializeField] public PlayerMovement playerMovement;
-    [SerializeField] public BlinkKind blinkKind;
-    public Action<InputKind, BlinkKind> init;
+    public Action<InputKind, ActionKind> init;
 
     public override void InitAction()
     {
-        init(assignedInput, blinkKind);
+        init(assignedInput, actionKind);
     }
 
     public virtual void Blink()

@@ -30,8 +30,6 @@ public class TitleSceneInputManager : MonoBehaviour
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
 
         _titleSceneStatus = TitleSceneStatus.menu;
-
-        Time.timeScale = 0;
     }
 
     private void Update()

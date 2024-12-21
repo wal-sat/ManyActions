@@ -2,9 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ActionKind 
+{
+    LR_Swap, LR_Kick, LeftRight_Accelerate, Up_, Down_Crouch, 
+    S_Jump, S_BigJump, S_FrontJump, S_BackJump, S_GoDown,
+    E_Hover, E_UpBlink, E_Blink, E_BackBlink, E_Swoop,
+    W_, W_Up, W_Left, W_Right, W_Down,
+    N_Invincible, N_UpWarp, N_Warp
+}
+
 public class PlayerActionManager : MonoBehaviour
 {
     [SerializeField] GameSceneOnPlayInput gameSceneOnPlayInput;
+    [SerializeField] PlayerActionJumpManager playerActionJumpManager;
+    [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
+    [SerializeField] PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] PlayerActionBase[] playerActions;
     [SerializeField] private float INPUT_BLOCK_TIME;
 
@@ -367,5 +379,34 @@ public class PlayerActionManager : MonoBehaviour
         _onN_Right = false;
         _onR = false;
         _onL = false;
+    }
+
+    public void EnableActions(StageActionData stageActionData)
+    {
+        Dictionary<ActionKind, bool> availableActions = stageActionData.availableActions;
+
+        foreach (var action in playerActions)
+        {
+            if (action != null) action.isEnable = false;
+        }
+
+        foreach (var availableAction in availableActions)
+        {
+            if (availableAction.Value)
+            {
+                foreach (var action in playerActions)
+                {
+                    if (action == null) continue;
+                    if (action.actionKind == availableAction.Key)
+                    {
+                        action.isEnable = true;
+                    }
+                }
+            }
+        }
+
+        playerActionJumpManager.maxJumpTimes = stageActionData.MAX_JUMP_TIMES;
+        playerActionBlinkManager.maxBlinkTimes = stageActionData.MAX_BLINK_TIMES;
+        playerActionWarpManager.maxWarpTimes = stageActionData.MAX_WARP_TIMES;
     }
 }

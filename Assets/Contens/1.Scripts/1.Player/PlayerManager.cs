@@ -6,27 +6,46 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] PlayerAnimation playerAnimation;
-    [SerializeField] PlayerActionManager PlayerActionManager;
+    [SerializeField] PlayerAnimationManager playerAnimationManager;
+    [SerializeField] public PlayerActionManager PlayerActionManager;
+    [SerializeField] PlayerPreventStuck playerPreventStuck;
+
     [SerializeField] public GameObject Player;
 
-    [HideInInspector] public bool _isMovingPlayer;
+    [HideInInspector] public bool isMovingPlayer;
+
+    private bool _isDoorEntering;
+
+
     private void FixedUpdate()
     {
-        if (_isMovingPlayer) 
+        if (_isDoorEntering) return;
+
+        playerAnimationManager.AnimationUpdate(isMovingPlayer);
+        
+        if (isMovingPlayer) 
         {
             playerMovement.MovementUpdate();
-            playerAnimation.AnimationUpdate();
             PlayerActionManager.ActionUpdate();
+            playerPreventStuck.PreventStuckUpdate();
         }
     }
 
     public void Initialize(bool facingRight)
     {
-        _isMovingPlayer = false;
+        isMovingPlayer = false;
 
         playerMovement.Initialize(facingRight);
-        playerAnimation.Initialize();
+        playerAnimationManager.Initialize();
+        PlayerActionManager.Initialize();
+        playerPreventStuck.Initialize();
+    }
+
+    public void Door()
+    {
+        _isDoorEntering = true;
+
+        playerMovement.Initialize(playerMovement.isFacingRight);
         PlayerActionManager.Initialize();
     }
 }

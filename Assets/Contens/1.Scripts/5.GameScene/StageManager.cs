@@ -30,6 +30,15 @@ public class StageManager : MonoBehaviour
         savePointManager.TeleportStartPosition();
     }
 
+    //ーーー起動時の処理ーーー
+    //このメソッド名がKidouなのは、僕の歴史やatmosphereによるものだ
+    public void Kidou()
+    {
+        playerManager.isMovingPlayer = true;
+        ChangeGameSceneStatus(GameSceneStatus.onPlay);
+    }
+
+    //ーーーやられた時の処理ーーー
     public void Restart()
     {
         StartCoroutine(CRestart());     
@@ -42,10 +51,8 @@ public class StageManager : MonoBehaviour
         playerManager.Player.SetActive(false);
 
         playerExplosionAnimation.AnimationStart(playerPosition);
-
-        bool facingRight = savePointManager.TeleportRestartPosition();
         
-        playerManager.Initialize(facingRight);
+        playerManager.Initialize( savePointManager.savePoint.facingRight );
         
         playerDiePartsManager.Die(playerPosition);
 
@@ -53,6 +60,7 @@ public class StageManager : MonoBehaviour
 
         S_FadeManager._instance.Fade(
             ()=>{
+                savePointManager.TeleportRestartPosition();
                 playerManager.Player.SetActive(true);
                 }, 
             ()=>{
@@ -62,11 +70,19 @@ public class StageManager : MonoBehaviour
             FadeType.Diamond, 0.4f,0.1f,0.4f);  
     }
 
+    public void Door(SceneName sceneName)
+    {
+        playerManager.Door();
+        S_LoadSceneSystem._instance.LoadScene(sceneName);
+    }
+
+    //ーーークリア時の処理ーーー
     public void Clear()
     {
 
     }
 
+    //ーーーポーズ時の処理ーーー
     public void OpenPausePanel(GameSceneStatus currentStatus)
     {
         _gameSceneStatusPast = currentStatus;
@@ -83,12 +99,5 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1.0f;
         ChangeGameSceneStatus(_gameSceneStatusPast);
         gameScenePauseUIToolkit.RootSetActive(false);
-    }
-
-    //このメソッド名がKidouなのは、僕の歴史やatmosphereによるものだ
-    public void Kidou()
-    {
-        playerManager._isMovingPlayer = true;
-        ChangeGameSceneStatus(GameSceneStatus.onPlay);
     }
 }
