@@ -12882,6 +12882,8 @@ MonoBehaviour:
   Manager: {fileID: 2300920440726808232}
   PlayerLandingChecker: {fileID: 2557183836531739375}
   selfCollider: {fileID: 4558008294302262172}
+  OFFSET_Y: 0.25
+  BUFFER_TIME: 0.1
   onS_Down: 0
 --- !u!114 &1653573898748727572
 MonoBehaviour:
@@ -12932,7 +12934,7 @@ GameObject:
   - component: {fileID: 4075461102287044319}
   - component: {fileID: 5889131888457724845}
   - component: {fileID: 8693089006956194725}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: OneWayFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12964,14 +12966,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6928336716567274956}
-  StageLayer:
+  GroundLayer:
     serializedVersion: 2
     m_Bits: 256
+  ThroughGroundLayer:
+    serializedVersion: 2
+    m_Bits: 512
   SwapChecker: {fileID: 7420896259515844523}
   LandingChecker: {fileID: 2557183836531739375}
   SPEED: 250
   PLUS_SPEED: 100
-  TERMINAL_VELOCITY: 650
+  TERMINAL_VELOCITY: 550
   isFacingRight: 0
   isLockMoving: 0
   isRightAccelerate: 0
@@ -13649,7 +13654,7 @@ GameObject:
   - component: {fileID: 144204151323019418}
   - component: {fileID: 7725015790985004520}
   - component: {fileID: 4767813139837836768}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: OneWayFloor-right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15112,7 +15117,7 @@ GameObject:
   - component: {fileID: 1830722613074285363}
   - component: {fileID: 8096518320282295873}
   - component: {fileID: 6431972216729421385}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: OneWayFloor-center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15311,7 +15316,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15322,7 +15327,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &4560028987985342795
 MonoBehaviour:
@@ -15463,6 +15468,8 @@ MonoBehaviour:
   Manager: {fileID: 2300920440726808232}
   PlayerLandingChecker: {fileID: 2557183836531739375}
   selfCollider: {fileID: 7725015790985004520}
+  OFFSET_Y: 0.25
+  BUFFER_TIME: 0.1
   onS_Down: 0
 --- !u!114 &4768663252127383427
 MonoBehaviour:
@@ -15937,7 +15944,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15948,7 +15955,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.2}
   m_EdgeRadius: 0
 --- !u!58 &6007029294299092552
 CircleCollider2D:
@@ -16214,7 +16221,7 @@ MonoBehaviour:
   isEnable: 1
   rb: {fileID: 6928336716567274956}
   playerMovement: {fileID: 1770091002004297346}
-  SWOOP_SPEED: 700
+  SWOOP_SPEED: 550
 --- !u!212 &6230123581236621038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16339,6 +16346,8 @@ MonoBehaviour:
   Manager: {fileID: 2300920440726808232}
   PlayerLandingChecker: {fileID: 2557183836531739375}
   selfCollider: {fileID: 8096518320282295873}
+  OFFSET_Y: 0.25
+  BUFFER_TIME: 0.1
   onS_Down: 0
 --- !u!50 &6447602021602682846
 Rigidbody2D:
@@ -17328,7 +17337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8747517986750895235}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: _OneWayFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17422,7 +17431,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17433,7 +17442,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.2}
   m_EdgeRadius: 0
 --- !u!50 &7735930814839666036
 Rigidbody2D:
@@ -17582,7 +17591,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17593,7 +17602,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 0.2}
   m_EdgeRadius: 0
 --- !u!212 &8113386771515267327
 SpriteRenderer:
@@ -17917,7 +17926,7 @@ GameObject:
   - component: {fileID: 6230123581236621038}
   - component: {fileID: 4558008294302262172}
   - component: {fileID: 1612047048979463060}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: OneWayFloor-left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17954,6 +17963,8 @@ MonoBehaviour:
   Manager: {fileID: 2300920440726808232}
   PlayerLandingChecker: {fileID: 2557183836531739375}
   selfCollider: {fileID: 5889131888457724845}
+  OFFSET_Y: 0.25
+  BUFFER_TIME: 0.1
   onS_Down: 0
 --- !u!4 &8733627692486308464
 Transform:

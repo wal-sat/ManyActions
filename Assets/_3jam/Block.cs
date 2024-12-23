@@ -5,7 +5,7 @@ using TMPro;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] Camera camera;
+    [SerializeField] Camera mainCamera;
     [SerializeField] GameObject particle;
     [SerializeField] TMP_Text text;
     [SerializeField] int DEFAULT_HP;
@@ -39,8 +39,8 @@ public class Block : MonoBehaviour
         text.text = _hp.ToString();
 
         // 画面のワールド座標の範囲を取得
-        Vector3 screenBottomLeft = camera.ScreenToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
-        Vector3 screenTopRight = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.nearClipPlane));
+        Vector3 screenBottomLeft = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
+        Vector3 screenTopRight = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.nearClipPlane));
 
         // スポーン範囲を計算
         float minX = screenBottomLeft.x + 2f;
