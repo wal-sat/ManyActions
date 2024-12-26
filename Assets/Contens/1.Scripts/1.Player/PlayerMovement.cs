@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(rb.velocity.x, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
 
-        if (IsLanding() && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
+        if (IsLanding() && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 10f, 0f);
     }
 
     private void Move()
@@ -68,8 +68,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsLanding()
     {
-        if (Physics2D.OverlapCircle(LandingChecker.position, 0.1f, GroundLayer) != null) return true;
-        if (Physics2D.OverlapCircle(LandingChecker.position, 0.1f, ThroughGroundLayer) != null) return true;
+        if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, GroundLayer) != null) return true;
+        if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, ThroughGroundLayer) != null) return true;
         return false;
     }
 
