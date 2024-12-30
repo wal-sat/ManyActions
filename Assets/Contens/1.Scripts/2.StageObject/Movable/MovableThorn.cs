@@ -28,6 +28,18 @@ public class MovableThorn : AttackableBase, IMovable
             case MovableDirection.right:
                 rb.velocity = new Vector2(_speed * Time.deltaTime, 0);
             break;
+            case MovableDirection.up_left:
+                rb.velocity = new Vector2(-1 * _speed * Time.deltaTime, _speed * Time.deltaTime);
+            break;
+            case MovableDirection.up_right:
+                rb.velocity = new Vector2(_speed * Time.deltaTime, _speed * Time.deltaTime);
+            break;
+            case MovableDirection.down_left:
+                rb.velocity = new Vector2(-1 * _speed * Time.deltaTime, -1 * _speed * Time.deltaTime);
+            break;
+            case MovableDirection.down_right:
+                rb.velocity = new Vector2(_speed * Time.deltaTime, -1 * _speed * Time.deltaTime);
+            break;
             default:
                 rb.velocity = Vector2.zero;
             break;
