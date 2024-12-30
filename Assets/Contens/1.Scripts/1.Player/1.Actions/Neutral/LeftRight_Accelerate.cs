@@ -5,6 +5,12 @@ using UnityEngine;
 public class LeftRight_Accelerate : PlayerActionBase
 {
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] float PLUS_SPEED;
+
+    private void Start()
+    {
+        playerMovement._plusSpeed = PLUS_SPEED;
+    }
 
     public override void InitAction()
     {
