@@ -12,6 +12,7 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] GearManager gearManager;
+    [SerializeField] ButtonManager buttonManager;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
     public Action<GameSceneStatus> ChangeGameSceneStatus;
@@ -65,6 +66,7 @@ public class StageManager : MonoBehaviour
                 playerManager.Player.SetActive(true);
 
                 gearManager.Initialize();
+                buttonManager.Initialize();
                 }, 
             ()=>{
                 S_InputSystem._instance.canInput = true;
