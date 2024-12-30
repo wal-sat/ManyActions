@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ActionCassetteMovement : MonoBehaviour
+public class StageObjectMovement : MonoBehaviour
 {
     [SerializeField] float MOVE_DISTANCE;
     [SerializeField] float MOVE_TIME;

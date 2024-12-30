@@ -6,12 +6,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] LayerMask StageLayer;
+    [SerializeField] LayerMask GroundLayer;
+    [SerializeField] LayerMask ThroughGroundLayer;
     [SerializeField] Transform SwapChecker;
     [SerializeField] Transform LandingChecker;
-    [SerializeField] private float SPEED = 200;
-    [SerializeField] private float PLUS_SPEED = 200;
-    [SerializeField] private float TERMINAL_VELOCITY = 400;
+    [SerializeField] private float SPEED;
+    [SerializeField] private float PLUS_SPEED;
+    [SerializeField] private float TERMINAL_VELOCITY;
 
     [HideInInspector] public bool isFacingRight;
     [HideInInspector] public bool isLockMoving;
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void MovementUpdate()
     {
-        if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, 0.4f), CapsuleDirection2D.Vertical, 0, StageLayer) != null)
+        if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, 0.35f), CapsuleDirection2D.Vertical, 0, GroundLayer) != null)
         {
             if (isKicking && !IsLanding())
             {
@@ -46,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(!isLockMoving) Move();
+
+        if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(rb.velocity.x, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
+
+        if (IsLanding() && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 10f, 0f);
     }
 
     private void Move()
@@ -55,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
         _speed = Accelerate(_speed);
 
         rb.velocity = new Vector3(_speed * Time.deltaTime, rb.velocity.y, 0f);
-        if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(_speed * Time.deltaTime, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
     }
     public void Swap()
     {
@@ -64,7 +68,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsLanding()
     {
-        if (Physics2D.OverlapCircle(LandingChecker.position, 0.1f, StageLayer) != null) return true;
+        if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, GroundLayer) != null) return true;
+        if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, ThroughGroundLayer) != null) return true;
         return false;
     }
 

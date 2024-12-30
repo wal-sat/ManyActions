@@ -20,5 +20,7 @@ public class SavePoint : MonoBehaviour
     {
         savePointManager.RegisterSavePoint(this);
         savePointView.OnSave();
+
+
     }
 }
