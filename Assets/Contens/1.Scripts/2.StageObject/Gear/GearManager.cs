@@ -38,11 +38,6 @@ public class GearManager : MonoBehaviour
 
         for (int i = 0; i < gearInfo.Length; i++)
         {
-            Debug.Log(gearInfo[i]);
-        }
-
-        for (int i = 0; i < gearInfo.Length; i++)
-        {
             if (gearInfo[i]) gears[i].Initialize(GearStatus.acquired);
             else if (!gearInfo[i]) gears[i].Initialize(GearStatus.unacquired);
         }
