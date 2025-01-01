@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] public PlayerActionManager PlayerActionManager;
     [SerializeField] PlayerPreventStuck playerPreventStuck;
+    [SerializeField] PlayerOutCameraDie PlayerOutCameraDie;
 
     [SerializeField] public GameObject Player;
 
@@ -28,6 +29,7 @@ public class PlayerManager : MonoBehaviour
             playerMovement.MovementUpdate();
             PlayerActionManager.ActionUpdate();
             playerPreventStuck.PreventStuckUpdate();
+            PlayerOutCameraDie.OutCameraUpdate();
         }
     }
 
