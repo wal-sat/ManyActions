@@ -53,6 +53,17 @@ public class BreakableBlock : MonoBehaviour
         breakableBlockView.SpriteChange(false);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Kick")
+        {
+            _isTimer = false;
+            _timer = 0;
+
+            Break();
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
