@@ -5465,14 +5465,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928145024}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.92, y: 0.82, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: -6.5, y: -4.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1173091278}
   m_Father: {fileID: 6557088156094323695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!114 &928145026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5488,7 +5488,7 @@ MonoBehaviour:
   stageObjectCollisionArea: {fileID: 1173091279}
   Player: {fileID: 271704846149492077}
   playerActionManager: {fileID: 2436734435027148315}
-  JUMP_POWER: 600
+  JUMP_POWER: 20
 --- !u!212 &928145027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9801,6 +9801,7 @@ MonoBehaviour:
   RECORD_NUMBER: 3
   RECORD_TIME: 0.1
   THRESHOLD: 0.01
+  isPreventingStuck: 0
 --- !u!70 &189142910891732555
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
