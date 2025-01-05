@@ -8,6 +8,9 @@ public class PlayerPreventStuck : MonoBehaviour
     [SerializeField] int RECORD_NUMBER;
     [SerializeField] float RECORD_TIME;
     [SerializeField] float THRESHOLD;
+
+    [HideInInspector] public bool isPreventingStuck;
+
     private List<Vector2> positions = new List<Vector2>();
 
     private float _timer;
@@ -32,8 +35,11 @@ public class PlayerPreventStuck : MonoBehaviour
 
             if (positions.Count == RECORD_NUMBER && IsStuckCheck(positions))
             {
-                Debug.Log("スタックした");
-                playerMovement.Swap();
+                if (isPreventingStuck)
+                {
+                    Debug.Log("スタックした");
+                    playerMovement.Swap();
+                }
             }
         }
     }
