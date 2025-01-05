@@ -7,19 +7,20 @@ public class Barrel : MonoBehaviour
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] GameObject Player;
     [SerializeField] PlayerActionManager playerActionManager;
+    [SerializeField] PlayerActionJumpManager playerActionJumpManager;
+    [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
+    [SerializeField] PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] float JUMP_POWER;
 
-    private const float COOL_DOWN_TIME = 0.1f;
+    private const float COOL_DOWN_TIME = 0.3f;
     private const float STAY_TIME = 0.5f;
 
     private Rigidbody2D rb;
     private PlayerMovement playerMovement;
     private PlayerPreventStuck playerPreventStuck;
-    private float _angle;
+    private Vector2 _direction;
     private bool _isBoost;
     private bool _canBarrelBoost;
-    private float _timer;
-    private bool _onTimer;
 
     private void Awake()
     {
@@ -29,7 +30,10 @@ public class Barrel : MonoBehaviour
 
         stageObjectCollisionArea.triggerEnter = triggerEnter;
 
-        _angle = ( this.gameObject.transform.localEulerAngles.z + 360 ) % 360;
+        float _angle = ( this.gameObject.transform.localEulerAngles.z + 360 ) % 360;
+        float radians = _angle * Mathf.Deg2Rad;
+        _direction = new Vector2(-1 * Mathf.Sin(radians), Mathf.Cos(radians));
+
         _canBarrelBoost = true;
     }
 
@@ -39,23 +43,12 @@ public class Barrel : MonoBehaviour
         {
             if (playerMovement.IsLanding() && rb.velocity.y <= 0) Landing();
         }
-
-        if (_onTimer)
-        {
-            _timer += Time.deltaTime;
-
-            if (_timer > COOL_DOWN_TIME)
-            {
-                _onTimer = false;
-                _canBarrelBoost = true;
-            }
-        }
     }
 
     private void Landing()
     {
         _isBoost = false;
-        playerMovement.isLockMoving = false;
+        playerMovement.isBlownUpByBarrel = false;
     }
 
     private void triggerEnter()
@@ -67,28 +60,26 @@ public class Barrel : MonoBehaviour
     }
     IEnumerator CBarrel()
     {
-        playerActionManager.Initialize();
-
         playerPreventStuck.isPreventingStuck = false;
 
-        S_InputSystem._instance.canInput = false;
-
-        Player.transform.position = this.transform.position;
+        Player.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, Player.transform.position.z);
         Player.SetActive(false);
 
-        playerMovement.isLockMoving = true;
+        playerMovement.isBlownUpByBarrel = true;
 
         yield return new WaitForSeconds(STAY_TIME);
 
         Player.SetActive(true);
-        S_InputSystem._instance.canInput = true;
 
-        float radians = _angle * Mathf.Deg2Rad;
-        Vector2 forceDirection = new Vector2(-1 * Mathf.Sin(radians), Mathf.Cos(radians));
-        rb.AddForce(forceDirection * JUMP_POWER, ForceMode2D.Impulse);
+        playerActionJumpManager.Recure();
+        playerActionBlinkManager.Recure();
+        playerActionWarpManager.Recure();
 
-        _onTimer = true;
-        _timer = 0;
+        rb.velocity = new Vector3(_direction.x * JUMP_POWER, _direction.y * JUMP_POWER, 0);
+
+        yield return new WaitForSeconds(COOL_DOWN_TIME);
+
+        _canBarrelBoost = true;
 
         playerPreventStuck.isPreventingStuck = true;
     }

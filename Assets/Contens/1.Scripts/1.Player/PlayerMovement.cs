@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public bool isFacingRight;
     [HideInInspector] public bool isLockMoving;
+    [HideInInspector] public bool isBlownUpByBarrel;
+
     private float _speed;
 
     private void Start()
@@ -49,10 +51,12 @@ public class PlayerMovement : MonoBehaviour
                 isLandingConveyor_right = false;
             }
 
+            if (isBlownUpByBarrel) isBlownUpByBarrel = false;
+
             Swap();
         }
 
-        if(!isLockMoving) Move();
+        if(!isLockMoving && !isBlownUpByBarrel) Move();
 
         if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(rb.velocity.x, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
 
