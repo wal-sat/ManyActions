@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class WarpPointView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Sprite defaultSprite;
+    [SerializeField] Sprite disableSprite;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
     {
-        
+        spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = defaultSprite;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnRecure(float coolTime)
     {
-        
+        StartCoroutine(CRecureEffect(coolTime));
+    }
+
+    IEnumerator CRecureEffect(float coolTime)
+    {
+        spriteRenderer.sprite = disableSprite;
+
+        yield return new WaitForSeconds(coolTime);
+
+        spriteRenderer.sprite = defaultSprite;
     }
 }

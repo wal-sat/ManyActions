@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class WarpPointRotation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float ROTATE_SPEED;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        this.gameObject.transform.Rotate(0, 0, ROTATE_SPEED * Time.deltaTime);
     }
 }

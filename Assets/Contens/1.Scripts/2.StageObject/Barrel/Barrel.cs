@@ -6,10 +6,6 @@ public class Barrel : MonoBehaviour
 {
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] GameObject Player;
-    [SerializeField] PlayerActionManager playerActionManager;
-    [SerializeField] PlayerActionJumpManager playerActionJumpManager;
-    [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
-    [SerializeField] PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] float JUMP_POWER;
 
     private const float COOL_DOWN_TIME = 0.3f;
@@ -70,10 +66,6 @@ public class Barrel : MonoBehaviour
         yield return new WaitForSeconds(STAY_TIME);
 
         Player.SetActive(true);
-
-        playerActionJumpManager.Recure();
-        playerActionBlinkManager.Recure();
-        playerActionWarpManager.Recure();
 
         rb.velocity = new Vector3(_direction.x * JUMP_POWER, _direction.y * JUMP_POWER, 0);
 
