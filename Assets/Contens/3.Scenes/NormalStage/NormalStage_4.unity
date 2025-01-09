@@ -13246,7 +13246,7 @@ MonoBehaviour:
     m_Bits: 512
   SwapChecker: {fileID: 7420896259515844523}
   LandingChecker: {fileID: 2557183836531739375}
-  SPEED: 250
+  SPEED: 225
   TERMINAL_VELOCITY: 550
   isFacingRight: 0
   isLockMoving: 0
@@ -13861,8 +13861,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5046661653090383992}
+  m_Children: []
   m_Father: {fileID: 1480386259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2436734435027148315
@@ -15829,21 +15828,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8747517986750895235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &5046661653090383992
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662671793142517450}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2427136381027371325}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5106237417119333386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16525,7 +16509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savePointManager: {fileID: 1765428128}
-  stageObjectCollisionArea: {fileID: 8152082813506624149}
+  stageObjectCollisionArea: {fileID: 0}
   savePointView: {fileID: 1888403890302729340}
   stageActionData: {fileID: 11400000, guid: c25a6a9fd4a3158429ac55569c7118f6, type: 2}
   savePointIndex: 0
@@ -17027,24 +17011,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &6662671793142517450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5046661653090383992}
-  - component: {fileID: 6953136065507692579}
-  - component: {fileID: 8152082813506624149}
-  m_Layer: 0
-  m_Name: SavePointArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &6690153826771846915
 GameObject:
   m_ObjectHideFlags: 0
@@ -17256,41 +17222,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &6953136065507692579
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662671793142517450}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!4 &6992961649381453249
 Transform:
   m_ObjectHideFlags: 0
@@ -18082,18 +18013,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7678128136610619586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8152082813506624149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662671793142517450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 821953df9cc908e4bb104414d28cbed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &8172781678568052304
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

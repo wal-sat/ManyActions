@@ -13,14 +13,12 @@ public class SavePoint : MonoBehaviour
 
     private void Awake()
     {
-        stageObjectCollisionArea.triggerEnter = triggerEnter;
+        if (stageObjectCollisionArea != null) stageObjectCollisionArea.triggerEnter = triggerEnter;
     }
 
     private void triggerEnter()
     {
         savePointManager.RegisterSavePoint(this);
         savePointView.OnSave();
-
-
     }
 }
