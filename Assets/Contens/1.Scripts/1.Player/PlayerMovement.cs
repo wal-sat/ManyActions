@@ -20,11 +20,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float _speed;
 
-    private void Start()
-    {
-        Initialize(true);
-    }
-
     public void Initialize(bool facingRight)
     {
         isFacingRight = facingRight;

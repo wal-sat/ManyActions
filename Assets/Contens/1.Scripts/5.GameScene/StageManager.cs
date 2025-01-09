@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
         savePointManager.TeleportStartPosition();
+        playerManager.Initialize( savePointManager.savePoint.facingRight );
     }
 
     //ーーー起動時の処理ーーー

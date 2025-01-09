@@ -12,7 +12,7 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     private bool _isBlinking;
     private float _gravityScale;
 
-    private void Start()
+    private void Awake()
     {
         _gravityScale = rb.gravityScale;
     }

@@ -11,7 +11,7 @@ public class E_Down_Swoop : PlayerActionBase
     private bool _isSwooping;
     private float _gravityScale;
 
-    private void Start()
+    private void Awake()
     {
         _gravityScale = rb.gravityScale;
     }

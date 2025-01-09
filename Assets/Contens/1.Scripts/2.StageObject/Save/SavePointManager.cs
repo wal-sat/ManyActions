@@ -10,7 +10,7 @@ public class SavePointManager : MonoBehaviour
     [SerializeField] GameObject Player;
     [HideInInspector] public SavePoint savePoint;
 
-    private void Start()
+    private void Awake()
     {
         savePoint = _startPoint;
     }

@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Contens/3.Scenes/Develop.unity
     guid: da9bcbfae67c7a946b205201f827e981
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_0.unity
+    path: Assets/Contens/3.Scenes/N_Archive/N_0.unity
     guid: 74213c3e48b61cf479ae6ebba0cb8952
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_1.unity
+    path: Assets/Contens/3.Scenes/N_Archive/N_1.unity
     guid: 9b0feda4f71a37c48ac6ce515f352b85
   m_configObjects: {}
