@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
+    [SerializeField] public Rigidbody2D rb;
     [SerializeField] LayerMask GroundLayer;
     [SerializeField] LayerMask ThroughGroundLayer;
     [SerializeField] Transform SwapChecker;
     [SerializeField] Transform LandingChecker;
+    [SerializeField] Transform OverheadChecker;
     [SerializeField] private float SPEED;
     [SerializeField] private float TERMINAL_VELOCITY;
 
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void MovementUpdate()
     {
-        if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, 0.35f), CapsuleDirection2D.Vertical, 0, GroundLayer) != null)
+        if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, swapCapsuleSizeY), CapsuleDirection2D.Vertical, 0, GroundLayer) != null)
         {
             if (isKicking && !IsLanding())
             {
@@ -50,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
             Swap();
         }
+
+        if (Physics2D.OverlapCircle(OverheadChecker.position, 0.05f, GroundLayer) != null && rb.velocity.y > -0f) rb.velocity = new Vector3(rb.velocity.x, (float) Math.Sqrt(rb.velocity.y), 0f);
 
         if(!isLockMoving && !isBlownUpByBarrel) Move();
 
@@ -96,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
 
         return speed;
     }
+
+    //ーーーしゃがみーーー
+    [HideInInspector] public float swapCapsuleSizeY = 0.35f;
 
     //ーーーキックーーー
     [HideInInspector] public bool isKicking;

@@ -127,41 +127,41 @@ public class GameSceneOnPlayInput : MonoBehaviour
         if (S_InputSystem._instance.isPushingSouth)
         {
             if (direction == Vector2.up) onS_Up = true;
-            else if (direction == Vector2.down) onS_Down = true;
-            else if (direction == Vector2.left) onS_Left = true;
-            else if (direction == Vector2.right) onS_Right = true;
-            else onS = true;
+            if (direction == Vector2.down) onS_Down = true;
+            if (direction == Vector2.left) onS_Left = true;
+            if (direction == Vector2.right) onS_Right = true;
+            onS = true;
         }
         else if (S_InputSystem._instance.isPushingEast)
         {
             if (direction == Vector2.up) onE_Up = true;
-            else if (direction == Vector2.down) onE_Down = true;
-            else if (direction == Vector2.left) onE_Left = true;
-            else if (direction == Vector2.right) onE_Right = true;
-            else onE = true;
+            if (direction == Vector2.down) onE_Down = true;
+            if (direction == Vector2.left) onE_Left = true;
+            if (direction == Vector2.right) onE_Right = true;
+            onE = true;
         }
         else if (S_InputSystem._instance.isPushingWest) 
         {
             if (direction == Vector2.up) onW_Up = true;
-            else if (direction == Vector2.down) onW_Down = true;
-            else if (direction == Vector2.left) onW_Left = true;
-            else if (direction == Vector2.right) onW_Right = true;
-            else onW = true;
+            if (direction == Vector2.down) onW_Down = true;
+            if (direction == Vector2.left) onW_Left = true;
+            if (direction == Vector2.right) onW_Right = true;
+            onW = true;
         }
         else if (S_InputSystem._instance.isPushingNorth)
         {
             if (direction == Vector2.up) onN_Up = true;
-            else if (direction == Vector2.down) onN_Down = true;
-            else if (direction == Vector2.left) onN_Left = true;
-            else if (direction == Vector2.right) onN_Right = true;
-            else onN = true;
+            if (direction == Vector2.down) onN_Down = true;
+            if (direction == Vector2.left) onN_Left = true;
+            if (direction == Vector2.right) onN_Right = true;
+            onN = true;
         }
         else
         {
             if (direction == Vector2.up) onUp = true;
-            else if (direction == Vector2.down) onDown = true;
-            else if (direction == Vector2.left) onLeft = true;
-            else if (direction == Vector2.right) onRight = true;
+            if (direction == Vector2.down) onDown = true;
+            if (direction == Vector2.left) onLeft = true;
+            if (direction == Vector2.right) onRight = true;
         }
 
         onR = S_InputSystem._instance.isPushingR;

@@ -24,9 +24,7 @@ public class PlayerActionJumpManager : MonoBehaviour
 
     private void Update()
     {
-        _isLanding = playerMovement.IsLanding();
-
-        if (_isLanding) _jumpTimes = maxJumpTimes;
+        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 0.1f) _jumpTimes = maxJumpTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)

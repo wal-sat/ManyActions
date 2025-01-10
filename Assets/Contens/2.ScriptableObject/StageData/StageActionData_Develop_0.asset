@@ -24,7 +24,7 @@ MonoBehaviour:
   S_BigJump: 1
   S_FrontJump: 1
   S_BackJump: 1
-  S_GoDown: 1
+  S_GoDown: 0
   E_Hover: 0
   E_UpBlink: 0
   E_Blink: 0

@@ -20,6 +20,8 @@ public class PlayerActionManager : MonoBehaviour
     [SerializeField] PlayerActionBase[] playerActions;
     [SerializeField] private float INPUT_BLOCK_TIME;
 
+    private Dictionary<ActionKind, bool> _availableActions;
+
     private bool _onUp;
     private bool _onDown;
     private bool _onLeft;
@@ -141,6 +143,8 @@ public class PlayerActionManager : MonoBehaviour
 
     private void InputAdjustment()
     {
+        AllBoolFalse();
+
         _onUp = (gameSceneOnPlayInput.onUp | gameSceneOnPlayInput.onS_Up | gameSceneOnPlayInput.onE_Up | gameSceneOnPlayInput.onW_Up | gameSceneOnPlayInput.onN_Up);
         _onLeft = (gameSceneOnPlayInput.onLeft | gameSceneOnPlayInput.onS_Left | gameSceneOnPlayInput.onE_Left | gameSceneOnPlayInput.onW_Left | gameSceneOnPlayInput.onN_Left);
         _onRight = (gameSceneOnPlayInput.onRight | gameSceneOnPlayInput.onS_Right | gameSceneOnPlayInput.onE_Right | gameSceneOnPlayInput.onW_Right | gameSceneOnPlayInput.onN_Right);
@@ -162,47 +166,47 @@ public class PlayerActionManager : MonoBehaviour
             _WTimer = 0;
         }
 
-        _onS = gameSceneOnPlayInput.onS;
+        if (gameSceneOnPlayInput.onS_Up && _availableActions[ActionKind.S_BigJump]) _onS_Up = true;
+        else if (gameSceneOnPlayInput.onS_Left && ( _availableActions[ActionKind.S_FrontJump] || _availableActions[ActionKind.S_BackJump] ) ) _onS_Left = true;
+        else if (gameSceneOnPlayInput.onS_Right && ( _availableActions[ActionKind.S_FrontJump] || _availableActions[ActionKind.S_BackJump] ) ) _onS_Right = true;
+        else if (gameSceneOnPlayInput.onS_Down && _availableActions[ActionKind.S_GoDown]) _onS_Down = true;
+        else if (gameSceneOnPlayInput.onS && _availableActions[ActionKind.S_Jump]) _onS = true;
         if (_SBlock)
         {
             _onS = false;
             _STimer += Time.deltaTime;
             if (_STimer > INPUT_BLOCK_TIME) _SBlock = false;
         }
-        _onS_Up = gameSceneOnPlayInput.onS_Up;
-        _onS_Left = gameSceneOnPlayInput.onS_Left;
-        _onS_Right = gameSceneOnPlayInput.onS_Right;
-        _onS_Down = gameSceneOnPlayInput.onS_Down;
 
-        _onE = gameSceneOnPlayInput.onE;
+        if (gameSceneOnPlayInput.onE_Up && _availableActions[ActionKind.E_UpBlink]) _onE_Up = true;
+        else if (gameSceneOnPlayInput.onE_Left && ( _availableActions[ActionKind.E_Blink] || _availableActions[ActionKind.E_BackBlink] ) ) _onE_Left = true;
+        else if (gameSceneOnPlayInput.onE_Right && ( _availableActions[ActionKind.E_Blink] || _availableActions[ActionKind.E_BackBlink] ) ) _onE_Right = true;
+        else if (gameSceneOnPlayInput.onE_Down && _availableActions[ActionKind.E_Swoop]) _onE_Down = true;
+        else if (gameSceneOnPlayInput.onE && _availableActions[ActionKind.E_Hover]) _onE = true;
         if (_EBlock)
         {
             _onE = false;
             _ETimer += Time.deltaTime;
             if (_ETimer > INPUT_BLOCK_TIME) _EBlock = false;
         }
-        _onE_Up = gameSceneOnPlayInput.onE_Up;
-        _onE_Left = gameSceneOnPlayInput.onE_Left;
-        _onE_Right = gameSceneOnPlayInput.onE_Right;
-        _onE_Down = gameSceneOnPlayInput.onE_Down;
 
-        _onW = gameSceneOnPlayInput.onW;
+        if (gameSceneOnPlayInput.onW_Up && _availableActions[ActionKind.W_Up]) _onW_Up = true;
+        else if (gameSceneOnPlayInput.onW_Left && ( _availableActions[ActionKind.W_Left] || _availableActions[ActionKind.W_Right] ) ) _onW_Left = true;
+        else if (gameSceneOnPlayInput.onW_Right && ( _availableActions[ActionKind.W_Left] || _availableActions[ActionKind.W_Right] ) ) _onW_Right = true;
+        else if (gameSceneOnPlayInput.onW_Down && _availableActions[ActionKind.W_Down]) _onW_Down = true;
+        else if (gameSceneOnPlayInput.onW && _availableActions[ActionKind.W_]) _onW = true;
         if (_WBlock)
         {
             _onW = false;
             _WTimer += Time.deltaTime;
             if (_WTimer > INPUT_BLOCK_TIME) _WBlock = false;
         }
-        _onW_Up = gameSceneOnPlayInput.onW_Up;
-        _onW_Left = gameSceneOnPlayInput.onW_Left;
-        _onW_Right = gameSceneOnPlayInput.onW_Right;
-        _onW_Down = gameSceneOnPlayInput.onW_Down;
 
-        _onN = gameSceneOnPlayInput.onN;
-        _onN_Up = gameSceneOnPlayInput.onN_Up;
-        _onN_Left = gameSceneOnPlayInput.onN_Left;
-        _onN_Right = gameSceneOnPlayInput.onN_Right;
-        _onN_Down = gameSceneOnPlayInput.onN_Down;
+        if (gameSceneOnPlayInput.onN_Up && _availableActions[ActionKind.N_UpWarp]) _onW_Up = true;
+        else if (gameSceneOnPlayInput.onN_Left && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Left = true;
+        else if (gameSceneOnPlayInput.onN_Right && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Right = true;
+        else if (gameSceneOnPlayInput.onN_Down && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Down = true;
+        else if (gameSceneOnPlayInput.onN && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Invincible] ) ) _onN = true;
         NLogicalDisjunction = (_onN || _onN_Up || _onN_Left || _onN_Right || _onN_Down);
         if (_onN_Up && !NBlock) NBlock = true;
         if (NBlock && !NLogicalDisjunction) NBlock = false;
@@ -383,14 +387,14 @@ public class PlayerActionManager : MonoBehaviour
 
     public void EnableActions(StageActionData stageActionData)
     {
-        Dictionary<ActionKind, bool> availableActions = stageActionData.availableActions;
+        _availableActions = stageActionData.availableActions;
 
         foreach (var action in playerActions)
         {
             if (action != null) action.isEnable = false;
         }
 
-        foreach (var availableAction in availableActions)
+        foreach (var availableAction in _availableActions)
         {
             if (availableAction.Value)
             {
