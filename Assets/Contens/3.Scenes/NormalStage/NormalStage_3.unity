@@ -11496,8 +11496,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!114 &74029193528378128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11510,8 +11512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 1
 --- !u!114 &101058166707892349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11732,8 +11736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!1 &622806027871783468
 GameObject:
   m_ObjectHideFlags: 0
@@ -12685,8 +12691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!114 &1983097549933832112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14710,6 +14718,7 @@ GameObject:
   - component: {fileID: 7451618491122375524}
   - component: {fileID: 4026378843595162636}
   - component: {fileID: 6722927046584104894}
+  - component: {fileID: 7451618491122375525}
   m_Layer: 8
   m_Name: JumpRamp
   m_TagString: Untagged
@@ -15064,8 +15073,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!483693784 &5127421067791072829
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -16249,8 +16260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!114 &6900925443894187916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16638,8 +16651,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!114 &7363529427935169129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16794,6 +16809,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6557088156094323695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7451618491122375525
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249654099034110869}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &7536159837314365909
 GameObject:
   m_ObjectHideFlags: 0
@@ -17540,8 +17600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b63bff2ee8600d4aa1a5a7f9a42eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 3995886599538046452}
-  DESTROY_DISTANCE: 30
+  mainCamera: {fileID: 2041490403}
+  TopLeftTransform: {fileID: 1891753800}
+  BottomRightTransform: {fileID: 2045258648}
+  isFace: 0
 --- !u!4 &8891157685719212282
 Transform:
   m_ObjectHideFlags: 0
