@@ -9,7 +9,6 @@ public class MovableGenerator : MonoBehaviour
     [SerializeField] float GENERATE_TIME;
     [SerializeField] MovableDirection GENERATE_DIRECTION;
 
-    [SerializeField] float GENERATE_SPEED;
 
     private void Start()
     {
@@ -23,6 +22,6 @@ public class MovableGenerator : MonoBehaviour
     {
         GameObject generatedObject = Instantiate(GeneratedObject, new Vector3(this.transform.position.x, this.transform.position.y, 1f), Quaternion.identity);
         generatedObject.SetActive(true);
-        generatedObject.GetComponent<IMovable>().Init(GENERATE_DIRECTION, GENERATE_SPEED);
+        generatedObject.GetComponent<IMovable>().Init(GENERATE_DIRECTION);
     }
 }

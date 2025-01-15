@@ -6,6 +6,6 @@ public enum MovableDirection { up, down, left, right, up_left, up_right, down_le
 
 public interface IMovable
 {
-    public void Init(MovableDirection movableDirection, float speed);
+    public void Init(MovableDirection movableDirection);
     public void Curve(MovableDirection movableDirection);
 }
