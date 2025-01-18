@@ -9,11 +9,11 @@ public class StageManager : MonoBehaviour
     [SerializeField] PlayerDiePartsManager playerDiePartsManager;
     [SerializeField] PlayerExplosionAnimation playerExplosionAnimation;
 
-
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] GearManager gearManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
     public Action<GameSceneStatus> ChangeGameSceneStatus;
@@ -32,6 +32,8 @@ public class StageManager : MonoBehaviour
 
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
+
+        gameSceneUI.UpdateDeathCount();
     }
 
     //ーーー起動時の処理ーーー
@@ -63,15 +65,20 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
 
         S_FadeManager._instance.Fade(
-            ()=>{
+            ()=>
+            {
                 savePointManager.TeleportRestartPosition();
                 playerManager.Player.SetActive(true);
 
                 gearManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
-                }, 
-            ()=>{
+
+                S_GameInfo._instance.DeathCountIncrement();
+                gameSceneUI.UpdateDeathCount();
+            }, 
+            ()=>
+            {
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
             }, 
@@ -103,11 +110,15 @@ public class StageManager : MonoBehaviour
         gameScenePauseUIToolkit.RootSetActive(true);
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
         gameScenePauseUIToolkit.OpenOrCloseSettingPanel(false);
+
+        S_GameInfo._instance.onTimer = false;
     }
     public void ClosePausePanel()
     {
         Time.timeScale = 1.0f;
         ChangeGameSceneStatus(_gameSceneStatusPast);
         gameScenePauseUIToolkit.RootSetActive(false);
+
+        S_GameInfo._instance.onTimer = true;
     }
 }

@@ -5,12 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SceneName { 
+public enum SceneName
+{ 
     title, selectDifficulty, 
     normalStage_0, normalStage_1, normalStage_2, normalStage_3, normalStage_4, normalStage_5, normalStage_6, normalStage_7, normalStage_8, normalStage_9,
     normalStage_10, normalStage_11, normalStage_12, normalStage_13, normalStage_14, normalStage_15, normalStage_16, normalStage_17, normalStage_18, normalStage_19,
     extraStage, 
-    develop }
+    develop 
+}
 
 public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
 {

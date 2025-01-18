@@ -11,8 +11,11 @@ public class ActionCassette : MonoBehaviour
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] ActionCassetteView actionCassetteView;
     [SerializeField] StageActionData stageActionData;
-
+    [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] float COOL_TIME;
+    [SerializeField] string actionName;
+    [SerializeField] Sprite actionIcon;
+
 
     private float _timer;
     private bool _onTimer;
@@ -42,6 +45,7 @@ public class ActionCassette : MonoBehaviour
     {
         if (_isEnable)
         {
+            _timer = 0;
             _onTimer = true;
             _isEnable = false;
 
@@ -52,6 +56,8 @@ public class ActionCassette : MonoBehaviour
             playerActionJumpManager.Recure();
             playerActionBlinkManager.Recure();
             playerActionWarpManager.Recure();
+
+            gameSceneUI.MakeActionCard(true, actionName, actionIcon);
         }
     }
 }

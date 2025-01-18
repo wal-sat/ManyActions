@@ -53,7 +53,10 @@ MonoBehaviour:
   stageObjectCollisionArea: {fileID: 5483778493039153341}
   actionCassetteView: {fileID: 9183968041488844716}
   stageActionData: {fileID: 11400000, guid: e58bb6f10fbfad045812212494fe05bb, type: 2}
-  COOL_TIME: 3
+  gameSceneUI: {fileID: 0}
+  COOL_TIME: 4
+  actionName: "\u30B8\u30E3\u30F3\u30D7"
+  actionIcon: {fileID: 21300000, guid: d7572d5067bd9c6498b296b100a04674, type: 3}
 --- !u!1 &6105065299163302952
 GameObject:
   m_ObjectHideFlags: 0

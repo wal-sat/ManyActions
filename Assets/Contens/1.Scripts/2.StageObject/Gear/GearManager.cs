@@ -7,6 +7,8 @@ public enum GearStatus { unacquired, temporaryGet, acquired }
 
 public class GearManager : MonoBehaviour
 {
+    [SerializeField] GameSceneUI gameSceneUI;
+
     private SceneName _sceneName;
     private List<Gear> gears = new List<Gear>();
 
@@ -23,6 +25,10 @@ public class GearManager : MonoBehaviour
         gears.Add(gear);
     }
 
+    public void OnGet()
+    {
+        gameSceneUI.ChangeGearCount( GetTemporaryGetGearCount() );
+    }
     public void OnSave()
     {
         for (int i = 0; i < gears.Count; i++)
@@ -33,6 +39,8 @@ public class GearManager : MonoBehaviour
                 S_GameInfo._instance.RegisterGearInfo(_sceneName, i, true);
             }
         }
+
+        gameSceneUI.ChangeGearCount( GetTemporaryGetGearCount() );
     }
     public void Initialize()
     {
@@ -43,5 +51,17 @@ public class GearManager : MonoBehaviour
             if (gearInfo[i]) gears[i].Initialize(GearStatus.acquired);
             else if (!gearInfo[i]) gears[i].Initialize(GearStatus.unacquired);
         }
+
+        gameSceneUI.ChangeGearCount( GetTemporaryGetGearCount() );
+    }
+
+    private int GetTemporaryGetGearCount()
+    {
+        int count = 0;
+        foreach (var gear in gears)
+        {
+            if (gear.gearStatus == GearStatus.temporaryGet) count ++;
+        }
+        return count;
     }
 }

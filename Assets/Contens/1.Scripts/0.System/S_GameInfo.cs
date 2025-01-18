@@ -32,4 +32,35 @@ public class S_GameInfo : Singleton<S_GameInfo>
         }
         return count;
     }
+
+    //ーーーーーデス数ーーーーー
+    public int deathCount = 0;
+    public int DeathCountIncrement()
+    {
+        deathCount ++;
+        return deathCount;
+    }
+    public int DeathCountReset()
+    {
+        deathCount = 0;
+        return deathCount;
+    }
+
+    //ーーーーータイムーーーーー
+    public bool onTimer;
+    private float time;
+
+    private void FixedUpdate()
+    {
+        if (onTimer) time += Time.deltaTime;
+    }
+    public int[] GetMiniteAndSecond()
+    {
+        int[] ints = new int[2];
+
+        ints[0] = (int) time / 60;
+        ints[1] = (int) time % 60;
+
+        return ints;
+    }
 }
