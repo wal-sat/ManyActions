@@ -18,6 +18,7 @@ MonoBehaviour:
   LR_Swap: 0
   LR_Kick: 0
   LeftRight_Accelerate: 0
+  LeftRight_Decelerate: 0
   Up_: 0
   Down_Crouch: 0
   S_Jump: 0

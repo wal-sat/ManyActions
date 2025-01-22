@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1dfd4dabf760e4894117e22d168aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 9
+  actionKind: 10
   assignedInput: 7
   isEnable: 1
 --- !u!1 &682094262694193504
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e475e17f361fa174a846006f077fe7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 10
+  actionKind: 11
   assignedInput: 10
   isEnable: 1
   COOL_DOWN_TIME: 0.5
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9336df5f41666fb44b4f022db2616dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 11
+  actionKind: 12
   assignedInput: 11
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -211,6 +211,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9006119778546155357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &979388478832438261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3213727103253217918}
+  - component: {fileID: 572473860126325612}
+  - component: {fileID: 7347642044738993028}
+  m_Layer: 0
+  m_Name: LeftRight_Decelerate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3213727103253217918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979388478832438261}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4060696804797362425}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &572473860126325612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979388478832438261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b70b4d9c1f40024a8514dd8a68e3f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionKind: 3
+  assignedInput: 3
+  isEnable: 1
+  playerMovement: {fileID: 0}
+  MINUS_SPEED: 75
+--- !u!114 &7347642044738993028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979388478832438261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b70b4d9c1f40024a8514dd8a68e3f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionKind: 3
+  assignedInput: 4
+  isEnable: 1
+  playerMovement: {fileID: 0}
+  MINUS_SPEED: 75
 --- !u!1 &1339817409602769439
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defdf1d84032ec04cb3a4521fafbc6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 6
+  actionKind: 7
   assignedInput: 6
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -375,6 +442,7 @@ Transform:
   - {fileID: 513364614720891655}
   - {fileID: 5112596804369845868}
   - {fileID: 6276780575095017062}
+  - {fileID: 3213727103253217918}
   - {fileID: 2347161179043301645}
   - {fileID: 6252521629442420351}
   m_Father: {fileID: 9006119778546155357}
@@ -539,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106a200a050d4b419ca960790dce0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 22
+  actionKind: 23
   assignedInput: 24
   isEnable: 1
   playerActionManager: {fileID: 6856885008630579151}
@@ -560,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106a200a050d4b419ca960790dce0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 22
+  actionKind: 23
   assignedInput: 23
   isEnable: 1
   playerActionManager: {fileID: 6856885008630579151}
@@ -581,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106a200a050d4b419ca960790dce0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 22
+  actionKind: 23
   assignedInput: 22
   isEnable: 1
   playerActionManager: {fileID: 6856885008630579151}
@@ -701,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4ac8b3a632194b94071d8bbb302a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 4
+  actionKind: 5
   assignedInput: 2
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -755,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7e1b8b110e59f4d869a779be9b7f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 12
+  actionKind: 13
   assignedInput: 13
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -774,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7e1b8b110e59f4d869a779be9b7f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 12
+  actionKind: 13
   assignedInput: 14
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -893,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bb3d07ddacbc428b4decf8b184939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 7
+  actionKind: 8
   assignedInput: 8
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -913,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515bb3d07ddacbc428b4decf8b184939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 7
+  actionKind: 8
   assignedInput: 9
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -966,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cde9708ed80c434582c4e44495bab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 8
+  actionKind: 9
   assignedInput: 8
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -986,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cde9708ed80c434582c4e44495bab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 8
+  actionKind: 9
   assignedInput: 9
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -1039,7 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 13
+  actionKind: 14
   assignedInput: 13
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -1058,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 13
+  actionKind: 14
   assignedInput: 14
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -1109,7 +1177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e67a593acb164aaf6fc9724e886ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 20
+  actionKind: 21
   assignedInput: 20
   isEnable: 1
   COOL_DOWN_TIME: 2
@@ -1161,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b532b210856dbff4cb96ba920a63bcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 5
+  actionKind: 6
   assignedInput: 5
   isEnable: 1
   playerMovement: {fileID: 0}
@@ -1213,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addf44bd5758dc14bb7ff4f15ce7eb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 21
+  actionKind: 22
   assignedInput: 21
   isEnable: 1
   playerActionManager: {fileID: 6856885008630579151}
@@ -1283,9 +1351,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 8086918356260947096}
   - {fileID: 1999662930292029623}
-  - {fileID: 0}
+  - {fileID: 572473860126325612}
+  - {fileID: 7347642044738993028}
   - {fileID: 2524841005290399944}
-  - {fileID: 0}
   - {fileID: 1651849363126381672}
   - {fileID: 4046448498535773001}
   - {fileID: 2232986677297543202}
@@ -1358,7 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3300be3385b5444b8983218902fd848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionKind: 14
+  actionKind: 15
   assignedInput: 12
   isEnable: 1
   rb: {fileID: 0}

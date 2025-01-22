@@ -7,7 +7,7 @@ public enum GearStatus { unacquired, temporaryGet, acquired }
 
 public class GearManager : MonoBehaviour
 {
-    [SerializeField] GameSceneUI gameSceneUI;
+    [HideInInspector] public GameSceneUI gameSceneUI;
 
     private SceneName _sceneName;
     private List<Gear> gears = new List<Gear>();

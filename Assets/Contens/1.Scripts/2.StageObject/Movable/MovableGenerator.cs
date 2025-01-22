@@ -20,7 +20,7 @@ public class MovableGenerator : MonoBehaviour
 
     private void InstantiateObject()
     {
-        GameObject generatedObject = Instantiate(GeneratedObject, new Vector3(this.transform.position.x, this.transform.position.y, 1f), Quaternion.identity);
+        GameObject generatedObject = Instantiate(GeneratedObject, new Vector3(this.transform.position.x, this.transform.position.y, -1f), Quaternion.identity);
         generatedObject.SetActive(true);
         generatedObject.GetComponent<IMovable>().Init(GENERATE_DIRECTION);
     }

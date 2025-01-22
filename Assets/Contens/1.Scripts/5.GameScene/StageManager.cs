@@ -21,6 +21,11 @@ public class StageManager : MonoBehaviour
 
     private GameSceneStatus _gameSceneStatusPast;
 
+    private void Awake()
+    {
+        gearManager.gameSceneUI = gameSceneUI;
+    }
+
     private void Start()
     {
         Initialize();
@@ -42,6 +47,8 @@ public class StageManager : MonoBehaviour
     {
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
+
+        playerManager.playerKidouUI.SetActiveFalse();
     }
 
     //ーーーやられた時の処理ーーー

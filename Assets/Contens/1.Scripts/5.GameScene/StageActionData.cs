@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/StageActionData", fileName = "StageActionData_")]
+[CreateAssetMenu(menuName = "ScriptableObject/StageActionData", fileName = "SAD_")]
 
 public class StageActionData : ScriptableObject
 {
@@ -12,6 +12,7 @@ public class StageActionData : ScriptableObject
     [SerializeField] bool LR_Swap;
     [SerializeField] bool LR_Kick;
     [SerializeField] bool LeftRight_Accelerate;
+    [SerializeField] bool LeftRight_Decelerate;
     [SerializeField] bool Up_;
     [SerializeField] bool Down_Crouch; 
     [SerializeField] bool S_Jump;
@@ -40,6 +41,7 @@ public class StageActionData : ScriptableObject
         availableActions.Add(ActionKind.LR_Swap, LR_Swap);
         availableActions.Add(ActionKind.LR_Kick, LR_Kick);
         availableActions.Add(ActionKind.LeftRight_Accelerate, LeftRight_Accelerate);
+        availableActions.Add(ActionKind.LeftRight_Decelerate, LeftRight_Decelerate);
         availableActions.Add(ActionKind.Up_, Up_);
         availableActions.Add(ActionKind.Down_Crouch, Down_Crouch);
         availableActions.Add(ActionKind.S_Jump, S_Jump);

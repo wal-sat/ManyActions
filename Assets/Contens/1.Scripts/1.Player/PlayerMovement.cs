@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         _speed = SPEED;
         if (!isFacingRight) _speed *= -1;
         _speed = Accelerate(_speed);
+        _speed = Decelerate(_speed);
         _speed = ConveyorAcclerate(_speed);
 
         rb.velocity = new Vector3(_speed * Time.deltaTime, rb.velocity.y, 0f);
@@ -94,11 +95,22 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool isLeftAccelerate;
     private float Accelerate(float speed)
     {
-        if (isRightAccelerate) speed += _plusSpeed;
-        if (isLeftAccelerate) speed -= _plusSpeed;
+        if (isRightAccelerate && isFacingRight) speed += _plusSpeed;
+        if (isLeftAccelerate && !isFacingRight) speed -= _plusSpeed;
 
         return speed;
     }
+    [HideInInspector] public float _minusSpeed;
+    [HideInInspector] public bool isRightDecelerate;
+    [HideInInspector] public bool isLeftDecelerate;
+    private float Decelerate(float speed)
+    {
+        if (isRightDecelerate && !isFacingRight) speed += _minusSpeed;
+        if (isLeftDecelerate && isFacingRight) speed -= _minusSpeed;
+
+        return speed;
+    }
+    
 
     //ーーーしゃがみーーー
     [HideInInspector] public float swapCapsuleSizeY = 0.35f;
