@@ -7901,7 +7901,7 @@ GameObject:
   - component: {fileID: 1660486899}
   - component: {fileID: 1660486898}
   m_Layer: 0
-  m_Name: UIToolkit-PoseMenu
+  m_Name: UIToolkit-PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

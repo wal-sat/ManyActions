@@ -28,7 +28,8 @@ public class DieParts : MonoBehaviour
 
         if (!isFace)
         {
-            StartCoroutine(CDestroy());
+            //顔以外消えるようにする
+            //StartCoroutine(CDestroy());
         }
     }
 
