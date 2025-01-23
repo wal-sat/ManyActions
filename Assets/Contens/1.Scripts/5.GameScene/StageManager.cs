@@ -48,6 +48,8 @@ public class StageManager : MonoBehaviour
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
 
+        savePointManager.DisappearSafetyArea();
+
         playerManager.playerKidouUI.SetActiveFalse();
     }
 

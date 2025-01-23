@@ -149,6 +149,7 @@ MonoBehaviour:
   savePointManager: {fileID: 0}
   stageObjectCollisionArea: {fileID: 5316957648901483724}
   savePointView: {fileID: 7763669409660514829}
+  safetyArea: {fileID: 3243323182650589540}
   stageActionData: {fileID: 11400000, guid: 619216c04889639489ef42fa8ca9b14e, type: 2}
   savePointIndex: 0
   facingRight: 0
