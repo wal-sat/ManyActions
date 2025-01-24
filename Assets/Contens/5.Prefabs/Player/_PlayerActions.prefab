@@ -260,7 +260,7 @@ MonoBehaviour:
   assignedInput: 3
   isEnable: 1
   playerMovement: {fileID: 0}
-  MINUS_SPEED: 75
+  MINUS_SPEED: 50
 --- !u!114 &7347642044738993028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   assignedInput: 4
   isEnable: 1
   playerMovement: {fileID: 0}
-  MINUS_SPEED: 75
+  MINUS_SPEED: 50
 --- !u!1 &1339817409602769439
 GameObject:
   m_ObjectHideFlags: 0

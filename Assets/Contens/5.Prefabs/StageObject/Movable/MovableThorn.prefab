@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1481404897057077147}
   - component: {fileID: 3479444297223727035}
   - component: {fileID: 3146844738638400732}
+  - component: {fileID: 4724287216095627104}
   - component: {fileID: 156108115428560577}
   - component: {fileID: 812601452509455023}
   m_Layer: 0
@@ -117,6 +118,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ROTATE_SPEED: 150
+--- !u!114 &4724287216095627104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534846410234768063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb430730fbc50704288576386b9988d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroy: 0
 --- !u!50 &156108115428560577
 Rigidbody2D:
   serializedVersion: 4

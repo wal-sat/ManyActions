@@ -121,55 +121,55 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
                 sceneName = SceneName.normalStage_2;
             break;
             case "NormalStage_3":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_3;
             break;
             case "NormalStage_4":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_4;
             break;
             case "NormalStage_5":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_5;
             break;
             case "NormalStage_6":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_6;
             break;
             case "NormalStage_7":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_7;
             break;
             case "NormalStage_8":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_8;
             break;
             case "NormalStage_9":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_9;
             break;
             case "NormalStage_10":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_10;
             break;
             case "NormalStage_11":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_11;
             break;
             case "NormalStage_12":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_12;
             break;
             case "NormalStage_13":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_13;
             break;
             case "NormalStage_14":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_14;
             break;
             case "NormalStage_15":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_15;
             break;
             case "NormalStage_16":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_16;
             break;
             case "NormalStage_17":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_17;
             break;
             case "NormalStage_18":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_18;
             break;
             case "NormalStage_19":
-                sceneName = SceneName.normalStage_2;
+                sceneName = SceneName.normalStage_19;
             break;
             case "ExtraStage":
                 sceneName = SceneName.extraStage;
