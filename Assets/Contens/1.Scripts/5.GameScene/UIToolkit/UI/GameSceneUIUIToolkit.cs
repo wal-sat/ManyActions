@@ -45,8 +45,8 @@ public class GameSceneUIUIToolkit : MonoBehaviour
         Label _titleLabel = actionCard.Q<Label>("TitleLabel");
         Label _actionLabel = actionCard.Q<Label>("ActionLabel");
 
-        if (isAcquired) _timeLabel.text = "習得";
-        else _timeLabel.text = "喪失";
+        if (isAcquired) _titleLabel.text = "習\n\n得";
+        else _titleLabel.text = "喪\n\n失";
 
         _actionLabel.text = actionName;
         _actionIcon.style.backgroundImage = new StyleBackground(actionIcon);
