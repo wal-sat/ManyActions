@@ -10,8 +10,15 @@ public class AttackableBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Die();
-        }    
+            if (collision.gameObject.activeSelf) Die();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("SafetyArea"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public virtual void Die()

@@ -14,7 +14,7 @@ public class E_LeftRight_Blink : PlayerActionBlinkBase
     private float _gravityScale;
     private bool _wasFacingRight;
 
-    private void Start()
+    private void Awake()
     {
         _gravityScale = rb.gravityScale;
     }

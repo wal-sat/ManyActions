@@ -18,9 +18,15 @@ public class Gear : MonoBehaviour
 
     private void triggerEnter()
     {
-        gearView.SpriteChange(false);
+        if (gearStatus == GearStatus.unacquired)
+        {
+            gearView.SpriteChange(false);
 
-        gearStatus = GearStatus.temporaryGet;
+            gearStatus = GearStatus.temporaryGet;
+
+            gearManager.OnGet();
+        }
+
     }
 
     public void Initialize(GearStatus status)

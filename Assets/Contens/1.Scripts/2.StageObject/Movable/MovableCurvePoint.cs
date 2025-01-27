@@ -26,6 +26,18 @@ public class MovableCurvePoint : MonoBehaviour
                 case MovableDirection.right:
                     if (other.transform.position.x < this.transform.position.x) movableObject.Curve(movableDirection);
                 break;
+                case MovableDirection.up_left:
+                    if (other.transform.position.y < this.transform.position.y && other.transform.position.x < this.transform.position.x) movableObject.Curve(movableDirection);
+                break;
+                case MovableDirection.up_right:
+                    if (other.transform.position.y < this.transform.position.y && other.transform.position.x > this.transform.position.x) movableObject.Curve(movableDirection);
+                break;
+                case MovableDirection.down_left:
+                    if (other.transform.position.y > this.transform.position.y && other.transform.position.x < this.transform.position.x) movableObject.Curve(movableDirection);
+                break;
+                case MovableDirection.down_right:
+                    if (other.transform.position.y > this.transform.position.y && other.transform.position.x > this.transform.position.x) movableObject.Curve(movableDirection);
+                break;
             }
         } 
     }

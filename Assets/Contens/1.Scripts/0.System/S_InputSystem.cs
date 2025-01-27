@@ -37,14 +37,6 @@ public class S_InputSystem : Singleton<S_InputSystem>
 
         InputActionMap selectedMap = inputActionAsset.FindActionMap(actionMapName);
         if (selectedMap != null) selectedMap.Enable();
-
-        foreach (var _actionMap in inputActionAsset.actionMaps)
-        {
-            if (_actionMap.enabled)
-            {
-                Debug.Log("現在有効なAction Map: " + _actionMap.name);
-            }
-        }
     }
 
     public ActionMapKind CurrentActionMap()

@@ -8,14 +8,33 @@ public class PlayerZAnimation : MonoBehaviour
     [SerializeField] Sprite[] sprites;
     [SerializeField] private float ANIMATION_TIME;
 
+    private float _positionX;
+    private float _scaleX;
     private float _timer;
     private int _index;
 
-    public void ZInitialize()
+    private void Awake()
+    {
+        _positionX = this.transform.localPosition.x;
+        _scaleX = this.transform.localScale.x;
+    }
+
+    public void ZInitialize(bool isFacingRight)
     {
         _timer = 0;
         _index = 0;
         spriteRenderer.sprite = sprites[_index];
+
+        if (isFacingRight) 
+        {
+            this.transform.localPosition = new Vector3(_positionX, this.transform.localPosition.y, this.transform.localPosition.z);
+            this.transform.localScale = new Vector3(_scaleX, this.transform.localScale.y, this.transform.localScale.z);
+        }
+        else 
+        {
+            this.transform.localPosition = new Vector3(-_positionX, this.transform.localPosition.y, this.transform.localPosition.z);
+            this.transform.localScale = new Vector3(-_scaleX, this.transform.localScale.y, this.transform.localScale.z);
+        }
 
         this.gameObject.SetActive(true);
     }

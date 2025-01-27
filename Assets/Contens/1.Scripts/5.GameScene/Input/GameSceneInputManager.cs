@@ -23,8 +23,6 @@ public class GameSceneInputManager : MonoBehaviour
     {
         S_InputSystem._instance.canInput = true;
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
-
-        _gameSceneStatus = GameSceneStatus.onPlay;
     }
 
     private void Update()

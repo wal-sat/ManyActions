@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSceneAnyKeyInput : MonoBehaviour
 {
     [SerializeField] StageManager stageManager;
-    private bool _southPast;
+    private bool _upPast;
     private bool _optionPast;
 
     public void Initialize()
@@ -16,8 +16,8 @@ public class GameSceneAnyKeyInput : MonoBehaviour
     //GameSceneInputManagerのUpdate()から呼ばれる
     public void AnyKeyInputUpdate()
     {
-        if (S_InputSystem._instance.isPushingSouth && !_southPast) AnyKey();
-        else if (!S_InputSystem._instance.isPushingSouth && _southPast) _southPast = false;
+        if (S_InputSystem._instance.direction == Vector2.up && !_upPast) AnyKey();
+        else if (S_InputSystem._instance.direction != Vector2.up && _upPast) _upPast = false;
 
         if (S_InputSystem._instance.isPushingOption && !_optionPast) Option();
         else if (!S_InputSystem._instance.isPushingOption && _optionPast) _optionPast = false;
@@ -26,7 +26,7 @@ public class GameSceneAnyKeyInput : MonoBehaviour
     private void AnyKey()
     {
         stageManager.Kidou();
-        _southPast = true;
+        _upPast = true;
     }
     private void Option()
     {

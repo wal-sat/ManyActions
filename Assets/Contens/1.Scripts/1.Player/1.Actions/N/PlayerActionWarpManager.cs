@@ -50,6 +50,13 @@ public class PlayerActionWarpManager : MonoBehaviour
         _warpTimes = maxWarpTimes;
     }
 
+    public void ChangeMaxTimes(int times)
+    {
+        if (times < maxWarpTimes) _warpTimes -= maxWarpTimes - times;
+
+        maxWarpTimes = times;
+    }
+
     //ーーーUpWarpの処理ーーー
     [SerializeField] N_Up_UpWarp n_Up_UpWarp;
 

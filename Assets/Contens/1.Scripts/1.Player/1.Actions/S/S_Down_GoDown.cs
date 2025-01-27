@@ -21,6 +21,13 @@ public class S_Down_GoDown : PlayerActionBase
             oneWayFloor.onS_Down = false;
         }
     }
+    public override void Initialize()
+    {
+        foreach (var oneWayFloor in _oneWayFloors)
+        {
+            oneWayFloor.onS_Down = false;
+        }
+    }
 
     public void Register(OneWayFloor oneWayFloor)
     {

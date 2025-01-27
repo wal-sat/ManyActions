@@ -10,7 +10,7 @@ public class E_Hover : PlayerActionRequireCoolDownBase
     private bool _isHovering;
     private float _gravityScale;
 
-    private void Start()
+    private void Awake()
     {
         _gravityScale = rb.gravityScale;
     }

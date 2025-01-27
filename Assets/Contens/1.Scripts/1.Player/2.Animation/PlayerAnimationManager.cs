@@ -11,11 +11,11 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private bool _wasMoveingPast;
 
-    public void Initialize()
+    public void Initialize(bool isFacingRight)
     {
         playerTireAnimation.Initialize();
         playerSleepAnimation.SleepInitialize();
-        playerZAnimation.ZInitialize();
+        playerZAnimation.ZInitialize(isFacingRight);
 
         _wasMoveingPast = true;
     }
