@@ -409,8 +409,8 @@ public class PlayerActionManager : MonoBehaviour
             }
         }
 
-        playerActionJumpManager.maxJumpTimes = stageActionData.MAX_JUMP_TIMES;
-        playerActionBlinkManager.maxBlinkTimes = stageActionData.MAX_BLINK_TIMES;
-        playerActionWarpManager.maxWarpTimes = stageActionData.MAX_WARP_TIMES;
+        playerActionJumpManager.ChangeMaxTimes(stageActionData.MAX_JUMP_TIMES);
+        playerActionBlinkManager.ChangeMaxTimes(stageActionData.MAX_BLINK_TIMES);
+        playerActionWarpManager.ChangeMaxTimes(stageActionData.MAX_WARP_TIMES);
     }
 }

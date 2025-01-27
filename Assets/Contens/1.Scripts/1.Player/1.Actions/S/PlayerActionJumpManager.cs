@@ -54,6 +54,13 @@ public class PlayerActionJumpManager : MonoBehaviour
     {
         _jumpTimes = maxJumpTimes;
     }
+
+    public void ChangeMaxTimes(int times)
+    {
+        if (times < maxJumpTimes) _jumpTimes -= maxJumpTimes - times;
+
+        maxJumpTimes = times;
+    }
 }
 
 

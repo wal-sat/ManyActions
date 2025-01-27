@@ -42,4 +42,11 @@ public class PlayerActionBlinkManager : MonoBehaviour
     {
         _blinkTimes = maxBlinkTimes;
     }
+
+    public void ChangeMaxTimes(int times)
+    {
+        if (times < maxBlinkTimes) _blinkTimes -= maxBlinkTimes - times;
+
+        maxBlinkTimes = times;
+    }
 }

@@ -53,9 +53,9 @@ public class ActionCassette : MonoBehaviour
 
             playerManager.PlayerActionManager.EnableActions(stageActionData);
 
-            playerActionJumpManager.Recure();
-            playerActionBlinkManager.Recure();
-            playerActionWarpManager.Recure();
+            // playerActionJumpManager.Recure();
+            // playerActionBlinkManager.Recure();
+            // playerActionWarpManager.Recure();
 
             gameSceneUI.MakeActionCard(true, actionName, actionIcon);
         }
