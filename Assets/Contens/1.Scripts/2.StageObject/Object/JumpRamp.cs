@@ -12,8 +12,11 @@ public class JumpRamp : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player")) 
         {
+            if (PlayerLandingChecker == null) PlayerLandingChecker = other.gameObject.transform.Find("_LandingChecker").gameObject.transform;
+            if (rb == null) rb = other.gameObject.GetComponent<Rigidbody2D>();
+            
             if (this.transform.position.y + this.gameObject.transform.localScale.y / 2 - OFFSET <= PlayerLandingChecker.position.y) 
             {
                 rb.velocity = new Vector3(rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);

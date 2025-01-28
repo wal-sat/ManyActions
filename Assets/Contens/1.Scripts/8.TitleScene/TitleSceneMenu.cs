@@ -15,6 +15,12 @@ public class TitleSceneMenu : MonoBehaviour
         get => _menuIndex;
         set
         {
+            //つづきからを消すため
+            if (value == 1) {
+                if (_menuIndex == 0) value = 2;
+                if (_menuIndex == 2) value = 0;
+            }
+
             _menuIndex = Mathf.Clamp(value, 0, 3);
 
             titleSceneUIToolkit.MenuOptionsSelect(_menuIndex);

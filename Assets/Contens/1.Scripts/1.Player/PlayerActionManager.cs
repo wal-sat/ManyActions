@@ -327,7 +327,7 @@ public class PlayerActionManager : MonoBehaviour
         else if (!_onN_Right && _onN_RightPast) CallEndAction(InputKind.N_Right);
     }
 
-    private void CallInitAction(InputKind inputKind)
+    public void CallInitAction(InputKind inputKind)
     {
         foreach (var action in playerActions)
         {
@@ -336,7 +336,7 @@ public class PlayerActionManager : MonoBehaviour
             if (action.assignedInput == inputKind && action.isEnable) action.InitAction();
         }
     }
-    private void CallInAction(InputKind inputKind)
+    public void CallInAction(InputKind inputKind)
     {
         foreach (var action in playerActions)
         {
@@ -345,7 +345,7 @@ public class PlayerActionManager : MonoBehaviour
             if (action.assignedInput == inputKind && action.isEnable) action.InAction();
         }
     }
-    private void CallEndAction(InputKind inputKind)
+    public void CallEndAction(InputKind inputKind)
     {
         foreach (var action in playerActions)
         {
