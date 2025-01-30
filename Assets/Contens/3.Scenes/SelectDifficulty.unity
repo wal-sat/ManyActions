@@ -155,6 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 1446331786}
+  normalStageIcon_sleep: {fileID: 21300000, guid: 9ef5a1f79c6580e4bbaafcf5c133aa6a, type: 3}
+  normalStageIcon_selected: {fileID: 21300000, guid: eb1d514e645b0d841acf162b0cd67aa8, type: 3}
+  extraStageIcon_sleep: {fileID: 21300000, guid: f280e4034fc3f194fab990b7e90a921a, type: 3}
+  extraStageIcon_selected: {fileID: 21300000, guid: ee83b662ef26c2d4fbce269fd3f6869d, type: 3}
 --- !u!114 &71269725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804c954bd30bc7d4399812a249480521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCount: 0
+  onTimer: 0
 --- !u!1 &958451088
 GameObject:
   m_ObjectHideFlags: 0
