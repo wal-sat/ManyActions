@@ -1169,8 +1169,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_VOLUME: 0.8
   SEList:
-  - name: jump
-    audioClip: {fileID: 8300000, guid: f996c72bd946d9a4f9cbb8b0dbedca52, type: 3}
+  - name: p_land
+    audioClip: {fileID: 8300000, guid: 02be672f820d2264e81562ef00ce2a74, type: 3}
+  - name: p_swap
+    audioClip: {fileID: 8300000, guid: 9dd43c81df90e3b44b30c22dc3ef10a7, type: 3}
+  - name: p_kick
+    audioClip: {fileID: 8300000, guid: f627160599a04ec4a98d634406ab9f70, type: 3}
+  - name: p_crouch
+    audioClip: {fileID: 8300000, guid: 3c44aa69763109741a892bcd264edbe0, type: 3}
+  - name: p_explosion
+    audioClip: {fileID: 8300000, guid: d262af70361f9434e8d1578eb607b89e, type: 3}
+  - name: p_jump
+    audioClip: {fileID: 8300000, guid: bf5acbcde8e473140820fa5b234d57b2, type: 3}
+  - name: p_airJump
+    audioClip: {fileID: 8300000, guid: 3ce2027772d711340997e9ea58da4562, type: 3}
+  - name: p_frontJump
+    audioClip: {fileID: 8300000, guid: e5ff13d8b7ec5ab41a40a32c782a6c5b, type: 3}
+  - name: p_bigJump
+    audioClip: {fileID: 8300000, guid: 290a9c58d18aafa4e817276ad27f07c5, type: 3}
+  - name: p_backJump
+    audioClip: {fileID: 8300000, guid: 06c4ee44d2e814f48b11ea2ea8ab126e, type: 3}
+  - name: p_hover
+    audioClip: {fileID: 8300000, guid: b6c5da666227677489f63e6b8903a06d, type: 3}
+  - name: p_blink
+    audioClip: {fileID: 8300000, guid: 8737a965ee8c0e4449fc470611639aed, type: 3}
+  - name: p_upBlink
+    audioClip: {fileID: 8300000, guid: 16d2462c9306da6469c1bbcb8c4c8be9, type: 3}
 --- !u!1 &458571579
 GameObject:
   m_ObjectHideFlags: 0
