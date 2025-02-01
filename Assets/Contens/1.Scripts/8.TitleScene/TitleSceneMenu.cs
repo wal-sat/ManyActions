@@ -31,6 +31,8 @@ public class TitleSceneMenu : MonoBehaviour
     {   
         //もしセーブデータがあるなら、１にする。
         menuIndex = 0;
+
+        S_BGMManager._instance.Play("title",1f);
     }
 
     public void CursorUp()
