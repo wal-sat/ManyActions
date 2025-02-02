@@ -23,6 +23,8 @@ public class SavePoint : MonoBehaviour
     {
         savePointManager.RegisterSavePoint(this);
         savePointView.OnSave();
+
+        S_SEManager._instance.Play("s_savePoint");
     }
 
     public void SetActiveSafetyArea(bool isActive)

@@ -25,6 +25,8 @@ public class Gear : MonoBehaviour
             gearStatus = GearStatus.temporaryGet;
 
             gearManager.OnGet();
+
+            S_SEManager._instance.Play("s_getGear");
         }
 
     }

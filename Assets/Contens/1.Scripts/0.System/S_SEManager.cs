@@ -66,15 +66,4 @@ public class S_SEManager : Singleton<S_SEManager>
  
         return null;
     }
-
-    [Button]
-    private void sasasa()
-    {
-        ChangeVolume(0.5f);
-    }
-    [Button]
-    private void asfawe()
-    {
-        Play("jump");
-    }
 }

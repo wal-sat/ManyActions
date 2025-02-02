@@ -87,7 +87,7 @@ public class SelectDifficultyInputManager : MonoBehaviour
                 selectDifficultyMenu.CursorCancel();
             break;
             case SelectDifficultySceneStatus.confirm:
-                selectDifficultyConfirm.CursorCancel();
+                selectDifficultyConfirm.CursorCancel(_difficultyLevel);
             break;
         }
         _cancelPast = true;

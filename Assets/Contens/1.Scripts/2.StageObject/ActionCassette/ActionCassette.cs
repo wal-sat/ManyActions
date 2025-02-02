@@ -58,6 +58,8 @@ public class ActionCassette : MonoBehaviour
             // playerActionWarpManager.Recure();
 
             gameSceneUI.MakeActionCard(true, actionName, actionIcon);
+
+            S_SEManager._instance.Play("s_getActionCassette");
         }
     }
 }

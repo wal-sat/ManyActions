@@ -11,6 +11,8 @@ public class S_Jump : PlayerActionJumpBase
     {
         wasJumped = true;
         rb.velocity = new Vector3(rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);
+        
+        S_SEManager._instance.Play("p_jump");
     }
 
     public override void EndAction()

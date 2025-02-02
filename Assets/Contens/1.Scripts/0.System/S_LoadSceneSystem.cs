@@ -18,7 +18,7 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
 {
     public void LoadScene(SceneName sceneName)
     {
-        S_FadeManager._instance.Fade(() => Load(sceneName), () => {}, FadeType.Black, 0.5f,1f,0.5f);
+        S_FadeManager._instance.Fade(() => Load(sceneName), () => {}, FadeType.Black, 0.5f,2f,0.5f);
     }
 
     private void Load(SceneName sceneName)

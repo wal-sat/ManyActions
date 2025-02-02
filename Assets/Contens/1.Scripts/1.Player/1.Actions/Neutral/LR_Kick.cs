@@ -53,6 +53,8 @@ public class LR_Kick : PlayerActionBase
         playerKickAnimation.AnimationStart();
 
         playerMovement.isKicking = true;
+
+        S_SEManager._instance.Play("p_kick");
     }
     private void EndKick()
     {

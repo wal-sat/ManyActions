@@ -29,19 +29,21 @@ public class TitleSceneMenu : MonoBehaviour
 
     private void Start()
     {   
-        //もしセーブデータがあるなら、１にする。
+        Time.timeScale = 1;
         menuIndex = 0;
 
-        S_BGMManager._instance.Play("stage",1f);
+        S_BGMManager._instance.Play("title",1f);
     }
 
     public void CursorUp()
     {
         menuIndex --;
+        S_SEManager._instance.Play("u_cursor");
     }   
     public void CursorDown()
     {
         menuIndex ++;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void CursorSelect()
     {
@@ -55,13 +57,17 @@ public class TitleSceneMenu : MonoBehaviour
                 //つづきから
             break;
             case 2:
-                ChangeStatus(TitleSceneStatus.setting);
-                titleSceneUIToolkit.OpenOrCloseSettingPanel(true);
+                S_DialogueManager._instance.DisplayDialogue("coming soon");
+                // ChangeStatus(TitleSceneStatus.setting);
+                // titleSceneUIToolkit.OpenOrCloseSettingPanel(true);
             break;
             case 3:
                 ChangeStatus(TitleSceneStatus.exit);
+                titleSceneUIToolkit.MenuOptionsUnSelected();
                 titleSceneUIToolkit.OpenOrCloseExitPanel(true);
             break;
         }
+
+        S_SEManager._instance.Play("u_select");
     }
 }

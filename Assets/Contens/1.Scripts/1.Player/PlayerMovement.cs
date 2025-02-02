@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool isBlownUpByBarrel;
 
     private float _speed;
+    private bool _isLanding;
+    private float _landingTimer;
+    private const float LANDING_BUFFER = 0.2f;
 
     public void Initialize(bool facingRight)
     {
@@ -33,9 +37,17 @@ public class PlayerMovement : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void MovementUpdate()
     {
+        _isLanding = IsLanding();
+        if (_isLanding)
+        {
+            if (_landingTimer > LANDING_BUFFER) S_SEManager._instance.Play("p_land");
+            _landingTimer = 0;
+        }
+        else _landingTimer += Time.deltaTime;
+
         if (Physics2D.OverlapCapsule(SwapChecker.position, new Vector2(0.1f, swapCapsuleSizeY), CapsuleDirection2D.Vertical, 0, GroundLayer) != null)
         {
-            if (isKicking && !IsLanding())
+            if (isKicking && !_isLanding)
             {
                 if (isFacingRight) WallKickJump_R();
                 else if (!isFacingRight) WallKickJump_L();
@@ -58,9 +70,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(rb.velocity.x, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
 
-        if (IsLanding() && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 10f, 0f);
+        if (_isLanding && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 10f, 0f);
 
-        if (IsLanding() && !isLandingConveyor)
+        if (_isLanding && !isLandingConveyor)
         {
             isLandingConveyor_left = false;
             isLandingConveyor_right = false;
@@ -81,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
     {
         this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, 1f);
         isFacingRight = !isFacingRight;
+
+        S_SEManager._instance.Play("p_swap");
     }
     public bool IsLanding()
     {

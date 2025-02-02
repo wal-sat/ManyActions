@@ -34,6 +34,8 @@ public class Down_Crouching : PlayerActionBase
         spriteRenderer.sprite = crouch;
         capsuleCollider2D.offset = CROUCHING_OFFSET;
         capsuleCollider2D.size = CROUCHING_SIZE;
+
+        S_SEManager._instance.Play("p_crouch");
     }
     public override void InAction()
     {

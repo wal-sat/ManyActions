@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
@@ -54,14 +55,28 @@ public class SelectDifficultyUIToolkit : MonoBehaviour
     }
     public void CardSelect(int x, int y)
     {
+        StopAllCoroutines();
         _cards[0][0].RemoveFromClassList("Card--Selected");
         _cards[1][0].RemoveFromClassList("Card--Selected");
         _cards[0][1].RemoveFromClassList("Card-mini--Selected");
         _cards[1][1].RemoveFromClassList("Card-mini--Selected");
+        _cards[0][0].RemoveFromClassList("Card--Selected--Animate");
+        _cards[1][0].RemoveFromClassList("Card--Selected--Animate");
+        _cards[0][1].RemoveFromClassList("Card-mini--Selected--Animate");
+        _cards[1][1].RemoveFromClassList("Card-mini--Selected--Animate");
+
         if (0 <= x && x < _cards.Length)
         {
-            if (y == 0) _cards[x][y].AddToClassList("Card--Selected");
-            else if (y == 1) _cards[x][y].AddToClassList("Card-mini--Selected");
+            if (y == 0)
+            {
+                _cards[x][y].AddToClassList("Card--Selected");
+                StartCoroutine(CInvokeRealtime( () => _cards[x][y].ToggleInClassList("Card--Selected--Animate") ));
+            }
+            else if (y == 1)
+            {
+                _cards[x][y].AddToClassList("Card-mini--Selected");
+                StartCoroutine(CInvokeRealtime( () => _cards[x][y].ToggleInClassList("Card-mini--Selected--Animate") ));
+            }
         }
 
         _normalStageIconSleep.RemoveFromClassList("StageIcon--off");
@@ -79,10 +94,48 @@ public class SelectDifficultyUIToolkit : MonoBehaviour
             _extraStageIconSelected.RemoveFromClassList("StageIcon--off");
         }
     }
+    public void CardUnSelect()
+    {
+        StopAllCoroutines();
+        _cards[0][0].RemoveFromClassList("Card--Selected");
+        _cards[1][0].RemoveFromClassList("Card--Selected");
+        _cards[0][1].RemoveFromClassList("Card-mini--Selected");
+        _cards[1][1].RemoveFromClassList("Card-mini--Selected");
+        _cards[0][0].RemoveFromClassList("Card--Selected--Animate");
+        _cards[1][0].RemoveFromClassList("Card--Selected--Animate");
+        _cards[0][1].RemoveFromClassList("Card-mini--Selected--Animate");
+        _cards[1][1].RemoveFromClassList("Card-mini--Selected--Animate");
+    }
+
     public void ConfirmOptionsSelect(int index)
     {
-        for (int i = 0; i < _confirmOptions.Length; i++) _confirmOptions[i].RemoveFromClassList("Options--Selected");
+        StopAllCoroutines();
+        for (int i = 0; i < _confirmOptions.Length; i++) 
+        {
+            _confirmOptions[i].RemoveFromClassList("Options--Selected");
+            _confirmOptions[i].RemoveFromClassList("Options--Selected--Animate");
+        }
 
-        if (0 <= index && index < _confirmOptions.Length) _confirmOptions[index].AddToClassList("Options--Selected");
+        if (0 <= index && index < _confirmOptions.Length) 
+        {
+            _confirmOptions[index].AddToClassList("Options--Selected");
+            StartCoroutine(CInvokeRealtime( () => _confirmOptions[index].ToggleInClassList("Options--Selected--Animate") ));
+        }
+    }
+    public void ConfirmOptionsUnSelect()
+    {
+        StopAllCoroutines();
+        for (int i = 0; i < _confirmOptions.Length; i++) 
+        {
+            _confirmOptions[i].RemoveFromClassList("Options--Selected");
+            _confirmOptions[i].RemoveFromClassList("Options--Selected--Animate");
+        }
+    }
+
+    private IEnumerator CInvokeRealtime(Action action)
+    {
+        yield return new WaitForSecondsRealtime(1.0f);
+        if (action != null) action();
+        StartCoroutine(CInvokeRealtime(action));
     }
 }

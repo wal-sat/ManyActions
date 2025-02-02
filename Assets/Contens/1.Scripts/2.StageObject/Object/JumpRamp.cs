@@ -20,6 +20,8 @@ public class JumpRamp : MonoBehaviour
             if (this.transform.position.y + this.gameObject.transform.localScale.y / 2 - OFFSET <= PlayerLandingChecker.position.y) 
             {
                 rb.velocity = new Vector3(rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);
+
+                S_SEManager._instance.Play("s_jumpRamp");
             }
         }
     }

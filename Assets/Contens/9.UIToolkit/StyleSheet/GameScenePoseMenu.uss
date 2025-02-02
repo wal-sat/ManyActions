@@ -2,15 +2,21 @@
     -unity-text-align: middle-center;
     font-size: 45px;
     color: rgb(80, 80, 80);
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out-cubic;
+    transition-duration: 0.2s, 1s;
+    transition-timing-function: ease-out-cubic, ease-in-out;
     width: 40%;
     height: 20%;
+    transition-property: all, rotate;
 }
 
 .Options--Selected {
     font-size: 60px;
     color: rgb(27, 27, 27);
+    rotate: 7deg;
+}
+
+.Options--Selected--Animate {
+    rotate: -7deg;
 }
 
 .Panel {

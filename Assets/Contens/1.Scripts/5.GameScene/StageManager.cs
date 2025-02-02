@@ -6,7 +6,7 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
-    [SerializeField] PlayerDiePartsManager playerDiePartsManager;
+    [SerializeField] public PlayerDiePartsManager playerDiePartsManager;
     [SerializeField] PlayerExplosionAnimation playerExplosionAnimation;
 
     [SerializeField] SavePointManager savePointManager;
@@ -51,6 +51,8 @@ public class StageManager : MonoBehaviour
         savePointManager.DisappearSafetyArea();
 
         playerManager.playerKidouUI.SetActiveFalse();
+
+        S_SEManager._instance.Play("p_kidou");
     }
 
     //ーーーやられた時の処理ーーー
@@ -71,8 +73,11 @@ public class StageManager : MonoBehaviour
         
         playerDiePartsManager.Die(playerPosition);
 
+        S_SEManager._instance.Play("p_explosion");
+
         yield return new WaitForSeconds(1.1f);
 
+        S_SEManager._instance.Play("u_restart");
         S_FadeManager._instance.Fade(
             ()=>
             {
@@ -100,6 +105,8 @@ public class StageManager : MonoBehaviour
         gearManager.OnSave();
 
         S_LoadSceneSystem._instance.LoadScene(sceneName);
+
+        S_SEManager._instance.Play("s_door");
     }
 
     //ーーークリア時の処理ーーー
@@ -121,6 +128,8 @@ public class StageManager : MonoBehaviour
         gameScenePauseUIToolkit.OpenOrCloseSettingPanel(false);
 
         S_GameInfo._instance.onTimer = false;
+
+        S_SEManager._instance.Play("u_pause");
     }
     public void ClosePausePanel()
     {

@@ -74,6 +74,8 @@ public class BreakableBlock : MonoBehaviour
                 {
                     _isTimer = true;
                     _timer = 0;
+
+                    S_SEManager._instance.Play("s_breakableBlock");
                 }
             }
         }

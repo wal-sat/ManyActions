@@ -59,6 +59,8 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
         _wasFacingRight = playerMovement.isFacingRight;
 
         rb.velocity = new Vector3(0f, 0f, 0f);
+
+        S_SEManager._instance.Play("p_blink");
     }
 
     public override void InitAction()

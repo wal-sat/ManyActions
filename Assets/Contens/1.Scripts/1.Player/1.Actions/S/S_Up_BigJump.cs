@@ -47,6 +47,8 @@ public class S_Up_BigJump : PlayerActionJumpBase
         _inputCancel = false;
 
         rb.velocity = new Vector3(rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);
+
+        S_SEManager._instance.Play("p_bigJump");
     }
     public override void EndAction()
     {

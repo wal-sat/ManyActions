@@ -13,7 +13,7 @@
     margin-left: 0;
     height: 100px;
     width: 300px;
-    transition-duration: 0.2s, 2s;
+    transition-duration: 0.2s, 1s;
     transition-timing-function: ease-out-cubic, ease-in-out;
     color: rgb(80, 80, 80);
     transition-property: all, rotate;
@@ -48,12 +48,18 @@
     height: 40%;
     font-size: 40px;
     -unity-text-align: middle-center;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out-cubic;
+    transition-duration: 0.2s, 1s;
+    transition-timing-function: ease-out-cubic, ease-in-out;
     color: rgb(80, 80, 80);
+    transition-property: all, rotate;
 }
 
 .exitOptions--Selected {
     font-size: 60px;
     color: rgb(27, 27, 27);
+    rotate: 7deg;
+}
+
+.exitOptions--Selected--Animate {
+    rotate: -7deg;
 }

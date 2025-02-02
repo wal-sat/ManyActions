@@ -46,6 +46,8 @@ public class E_Hover : PlayerActionRequireCoolDownBase
         _hoverTimer = 0;
         _isHovering = true;
         rb.gravityScale = 0;
+
+        S_SEManager._instance.Play("p_hover");
     }
     public override void Initialize()
     {

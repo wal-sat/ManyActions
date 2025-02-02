@@ -49,6 +49,8 @@ public class WarpPoint : MonoBehaviour
             warpPointView.OnRecure(COOL_TIME);
 
             StartCoroutine(CWarp());
+
+            S_SEManager._instance.Play("s_warpPoint");
         }
     }
 
