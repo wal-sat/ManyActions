@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Contens/3.Scenes/SelectDifficulty.unity
     guid: d7720ff5f08ce464aba557bbb6d27994
   - enabled: 1
-    path: Assets/Contens/3.Scenes/Archive/Arc_Develop.unity
-    guid: da9bcbfae67c7a946b205201f827e981
-  - enabled: 1
     path: Assets/Contens/3.Scenes/NormalStage/NormalStage_0.unity
     guid: f66ca6ae3cbf1d64c84611794ea9f66d
   - enabled: 1
@@ -58,23 +55,56 @@ EditorBuildSettings:
     guid: 8d6c48f9f1197b9439a48afcdec4c35d
   - enabled: 1
     path: Assets/Contens/3.Scenes/NormalStage/NormalStage_14.unity
-    guid: f22c3919be97ee94ea14bd0f94d07c2b
+    guid: 5258acd7e54500a44ae071d9104069cf
   - enabled: 1
     path: Assets/Contens/3.Scenes/NormalStage/NormalStage_15.unity
-    guid: 20974d4eb6631934285cf099ed879dc9
+    guid: 3de4fadf041488448afa48cd05a1cdcb
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_16.unity
-    guid: 4f6bbdfafd43e014cab608230c2a2a3e
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_0.unity
+    guid: ebc845523371536419e7513be5227357
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_17.unity
-    guid: bd24da89cb8d1fc4cbcfac7e598a62f9
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_1.unity
+    guid: 4d5b7202d22858141973767bdc35bbda
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_18.unity
-    guid: b20c0b4dc26c6984dae2dc60e0c4fc3a
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_2.unity
+    guid: 672b00a15ca102f4e8e619847541bd6c
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_19.unity
-    guid: 7684bc5847dd2cd468864b46b3b8a335
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_3.unity
+    guid: c8126bdee8e07bb4cadac62541585bc8
   - enabled: 1
-    path: Assets/Contens/3.Scenes/NormalStage/NormalStage_20.unity
-    guid: c39dcb98326ff00458c1e8a02bbc0b48
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_4.unity
+    guid: 2037b618240c82b4b82748581303e645
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_5.unity
+    guid: c65ac91215cb20c42b47fe7832cb7cba
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_6.unity
+    guid: d07b665729217a54a9fea7ef2d98f5ba
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_7.unity
+    guid: ee88cf2980d5fae4abc8fa26b58b4d8d
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_8.unity
+    guid: 12996196f1cad214892e81ad84cefe71
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_9.unity
+    guid: c86a72502e6ef9f4db539a7d14d68feb
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_10.unity
+    guid: cd1de32bdbe16ef4cb658131d4df68d8
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_11.unity
+    guid: 4a81887476b52a748a6ce9049474968a
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_12.unity
+    guid: dd28ba4000b308e49a0785c6903e4560
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_13.unity
+    guid: 22ddae2c93da8724b89b6d22ca52ffaf
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_14.unity
+    guid: 440bea1d22df7e34d9dd943342721f78
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/ExtraStage/ExtraStage_15.unity
+    guid: 37d32379492d69b46970dc30855c173f
   m_configObjects: {}

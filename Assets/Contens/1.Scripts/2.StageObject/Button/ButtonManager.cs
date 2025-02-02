@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] Button[] buttons;
+    private List<Button> _buttons = new List<Button>();
+
+    public void Register(Button button)
+    {
+        _buttons.Add(button);
+    }
 
     public void Initialize()
     {
-        if (buttons == null) return;
-        foreach (var button in buttons)
+        if (_buttons == null) return;
+        foreach (var button in _buttons)
         {
             button.Init();
         }

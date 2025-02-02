@@ -58,6 +58,8 @@ public class ActionCassetteMinus : MonoBehaviour
             playerActionWarpManager.Recure();
 
             gameSceneUI.MakeActionCard(false, actionName, actionIcon);
+
+            S_SEManager._instance.Play("s_getActionMinusCassette");
         }
     }
 }

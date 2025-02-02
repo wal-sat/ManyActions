@@ -32,7 +32,6 @@ public class PlayerDiePartsManager : MonoBehaviour
         _parts.Remove(dieParts);
     }
 
-    [Button]
     public void DestroyDieParts()
     {
         foreach (var part in _parts)

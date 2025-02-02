@@ -51,6 +51,8 @@ public class BreakableBlock : MonoBehaviour
         col.enabled = false;
 
         breakableBlockView.SpriteChange(false);
+
+        S_SEManager._instance.Play("s_breakableBlock");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

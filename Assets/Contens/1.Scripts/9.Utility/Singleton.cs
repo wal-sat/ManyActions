@@ -8,7 +8,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
 	public static T _instance = default;
 
-	protected virtual void Awake()
+	public virtual void Awake()
 	{
 		if (_instance)
 		{

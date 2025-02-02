@@ -16,7 +16,7 @@ public class GameScenePauseMenu : MonoBehaviour
         get => _menuIndex;
         set
         {
-            _menuIndex = Mathf.Clamp(value, 0, 2);
+            _menuIndex = Mathf.Clamp(value, 0, 3);
 
             gameScenePauseUIToolkit.MenuOptionsSelect(_menuIndex);
         }
@@ -29,38 +29,45 @@ public class GameScenePauseMenu : MonoBehaviour
         gameScenePauseUIToolkit.RootSetActive(false);
     }
 
-    private void ClosePauseMenuPanel()
-    {
-        stageManager.ClosePausePanel();
-    }
-
     public void CursorUp()
     {
         menuIndex --;
+        S_SEManager._instance.Play("u_cursor");
     }   
     public void CursorDown()
     {
         menuIndex ++;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void CursorSelect()
     {
         switch (menuIndex)
         {
             case 0:
-                ClosePauseMenuPanel();
+                stageManager.ClosePausePanel();
+                S_SEManager._instance.Play("u_back");
             break;
             case 1:
-                gameScenePauseUIToolkit.OpenOrCloseSettingPanel(true);
-                ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseSetting);
+                stageManager.ClosePausePanel();
+                stageManager.Restart();
+                //S_SEManager._instance.Play("u_select");
             break;
             case 2:
+                stageManager.playerDiePartsManager.DestroyDieParts();
+                S_SEManager._instance.Play("u_select");
+            break;
+            case 3:
+                gameScenePauseUIToolkit.MenuOptionsUnSelected();
+                gameScenePauseUIToolkit.ConfirmOptionsSelect(0);
                 gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(true);
                 ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseConfirm);
+                S_SEManager._instance.Play("u_select");
             break;
         }
     }
     public void CursorCancel()
     {
-        ClosePauseMenuPanel();
+        stageManager.ClosePausePanel();
+        S_SEManager._instance.Play("u_back");
     }
 }

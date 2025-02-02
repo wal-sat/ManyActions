@@ -29,10 +29,12 @@ public class TitleSceneExit : MonoBehaviour
     public void CursorLeft()
     {
         exitIndex --;
+        S_SEManager._instance.Play("u_cursor");
     }   
     public void CursorRight()
     {
         exitIndex ++;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void CursorSelect()
     {
@@ -40,7 +42,9 @@ public class TitleSceneExit : MonoBehaviour
         {
             case 0:
                 ChangeStatus(TitleSceneStatus.menu);
+                titleSceneUIToolkit.MenuOptionsSelect(3);
                 titleSceneUIToolkit.OpenOrCloseExitPanel(false);
+                S_SEManager._instance.Play("u_back");
             break;
             case 1:
                 #if UNITY_EDITOR

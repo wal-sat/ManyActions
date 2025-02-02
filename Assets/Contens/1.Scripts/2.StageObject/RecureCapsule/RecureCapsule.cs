@@ -48,6 +48,8 @@ public class Recure : MonoBehaviour
             playerActionJumpManager.Recure();
             playerActionBlinkManager.Recure();
             playerActionWarpManager.Recure();
+
+            S_SEManager._instance.Play("s_recureCapsule");
         }
     }
 }

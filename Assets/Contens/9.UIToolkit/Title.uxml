@@ -1,15 +1,16 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Contens/9.UIToolkit/TitleStyle.uss?fileID=7433441132597879392&amp;guid=fb17943a6fcf352408c35de94b9a56a0&amp;type=3#TitleStyle" />
+    <Style src="project://database/Assets/Contens/9.UIToolkit/StyleSheet/TitleStyle.uss?fileID=7433441132597879392&amp;guid=fb17943a6fcf352408c35de94b9a56a0&amp;type=3#TitleStyle" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0); flex-direction: column; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
         <ui:VisualElement name="Menu" style="flex-grow: 1; visibility: visible; overflow: visible; position: absolute; width: 100%; height: 100%;">
             <ui:VisualElement style="flex-grow: 1; height: 40%; -unity-text-align: upper-left; white-space: normal; flex-direction: column; flex-wrap: nowrap; justify-content: center; align-self: auto; align-items: center;">
-                <ui:Label tabindex="-1" text="～ROBOROBI&apos;s Adventure～" parse-escape-sequences="true" display-tooltip-when-elided="true" name="titleText" style="font-size: 60px; -unity-text-align: middle-center; -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 0; letter-spacing: -10px; translate: 0 -100%; color: rgba(135, 78, 110, 0.9);" />
+                <ui:Label tabindex="-1" text="～鬼畜系２Dアクションゲーム～" parse-escape-sequences="true" display-tooltip-when-elided="true" name="titleText" style="font-size: 60px; -unity-text-align: middle-center; -unity-text-outline-color: rgb(255, 255, 255); -unity-text-outline-width: 0; letter-spacing: -10px; translate: 0 -175%; color: rgba(135, 78, 110, 0.9); display: flex;" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1; height: 60%; justify-content: flex-end; align-items: center;">
-                <ui:Label tabindex="-1" text="はじめから" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions0" class="Options" style="margin-bottom: 15px;" />
-                <ui:Label tabindex="-1" text="つづきから" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions1" class="Options" style="display: flex; margin-bottom: 15px;" />
+                <ui:Label tabindex="-1" text="はじめる" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions0" class="Options" style="margin-bottom: 15px;" />
+                <ui:Label tabindex="-1" text="つづきから" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions1" class="Options" style="display: none; margin-bottom: 15px;" />
                 <ui:Label tabindex="-1" text="せってい" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions2" class="Options" style="margin-bottom: 15px; display: flex;" />
-                <ui:Label tabindex="-1" text="おわりにする" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions3" class="Options" style="margin-bottom: 100px; display: flex;" />
+                <ui:Label tabindex="-1" text="おわりにする" parse-escape-sequences="true" display-tooltip-when-elided="true" name="menuOptions3" class="Options" style="margin-bottom: 7%; display: flex;" />
+                <ui:VisualElement />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Setting" class="Panel" style="transition-duration: 1s;">
