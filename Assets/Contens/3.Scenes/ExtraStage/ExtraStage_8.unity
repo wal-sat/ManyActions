@@ -20088,10 +20088,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7563675110063168, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 2427558494516665699, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 2775292144755996691, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 3213616153504851977, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 3534894485518596842, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 4674604150701910160, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 5459127648391589774, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 6300854419681583555, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
     - target: {fileID: 6383435841227923988, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
       propertyPath: m_Name
       value: _BackgroundInverse
       objectReference: {fileID: 0}
+    - target: {fileID: 7583054496889122944, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 8561281880619822756, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1345375194179284592}
     - target: {fileID: 8914477384108032582, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20132,6 +20172,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9057439082543328885, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: virtualCamera
+      value: 
+      objectReference: {fileID: 1888588626}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
