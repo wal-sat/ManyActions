@@ -69,6 +69,8 @@ public class Barrel : MonoBehaviour
 
         rb.velocity = new Vector3(_direction.x * JUMP_POWER, _direction.y * JUMP_POWER, 0);
 
+        S_SEManager._instance.Play("s_barrel");
+
         yield return new WaitForSeconds(COOL_DOWN_TIME);
 
         _canBarrelBoost = true;

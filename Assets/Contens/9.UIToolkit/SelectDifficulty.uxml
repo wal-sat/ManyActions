@@ -10,6 +10,7 @@
                     <ui:Label tabindex="-1" text="ノーマルモード" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="font-size: 45px;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; height: 50%;">
+                    <ui:VisualElement style="background-color: rgb(150, 150, 150); position: absolute; width: 60%; height: 100%; left: 20%;" />
                     <ui:VisualElement style="background-color: rgba(255, 255, 255, 0); height: 100%; width: 50%; top: 0; left: 25%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/NormalStageIcon.png?fileID=2800000&amp;guid=848c52e78c4f936449dde1d1ff0b4fb4&amp;type=3#NormalStageIcon&quot;); position: absolute;" />
                     <ui:VisualElement name="NormalStageIcon_sleep" class="StageIcon--on" />
                     <ui:VisualElement name="NormalStageIcon_selected" class="StageIcon--on" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/NormalStageIcon_selected.png?fileID=2800000&amp;guid=eb1d514e645b0d841acf162b0cd67aa8&amp;type=3#NormalStageIcon_selected&quot;);" />
@@ -23,6 +24,7 @@
                     <ui:Label tabindex="-1" text="エキストラモード" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 45px;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; height: 50%;">
+                    <ui:VisualElement style="background-color: rgb(150, 150, 150); position: absolute; width: 60%; height: 100%; left: 20%;" />
                     <ui:VisualElement style="background-color: rgba(255, 255, 255, 0); height: 100%; width: 50%; top: 0; left: 25%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/ExtraStageIcon.png?fileID=2800000&amp;guid=3586aa7cb92cb624896a4049a77332d9&amp;type=3#ExtraStageIcon&quot;); position: absolute;" />
                     <ui:VisualElement name="ExtraStageIcon_sleep" class="StageIcon--on" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/ExtraStageIcon_sleep.png?fileID=2800000&amp;guid=f280e4034fc3f194fab990b7e90a921a&amp;type=3#ExtraStageIcon_sleep&quot;);" />
                     <ui:VisualElement name="ExtraStageIcon_selected" class="StageIcon--on" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/ExtraStageIcon_selected.png?fileID=2800000&amp;guid=ee83b662ef26c2d4fbce269fd3f6869d&amp;type=3#ExtraStageIcon_selected&quot;);" />

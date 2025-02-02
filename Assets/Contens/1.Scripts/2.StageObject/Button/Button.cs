@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class Button : MonoBehaviour
 {
+    [SerializeField] ButtonManager buttonManager;
     [SerializeField] ButtonView buttonView;
     [SerializeField] GameObject movedObject;
     [SerializeField] Vector2 movePoint;
@@ -18,6 +19,8 @@ public class Button : MonoBehaviour
 
     private void Start()
     {
+        buttonManager.Register(this);
+        
         _defaultPosition = movedObject.transform.position;
 
         Init();
@@ -32,6 +35,9 @@ public class Button : MonoBehaviour
 
                 buttonView.SpriteChange(false);
                 Move();
+
+                S_SEManager._instance.Play("s_button");
+                S_SEManager._instance.Play("s_movable");
             }
         }
     }

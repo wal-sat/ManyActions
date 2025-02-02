@@ -30,8 +30,6 @@ public class SavePointManager : MonoBehaviour
         Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, Player.transform.position.z);
 
         playerManager.PlayerActionManager.EnableActions(_startPoint.stageActionData);
-
-        savePoint.SetActiveSafetyArea(true);
     }
 
     public void TeleportRestartPosition()
@@ -39,12 +37,5 @@ public class SavePointManager : MonoBehaviour
         Player.transform.position = new Vector3(savePoint.transform.position.x, savePoint.transform.position.y, Player.transform.position.z);
 
         playerManager.PlayerActionManager.EnableActions(savePoint.stageActionData);
-
-        savePoint.SetActiveSafetyArea(true);
-    }
-
-    public void DisappearSafetyArea()
-    {
-        savePoint.SetActiveSafetyArea(false);
     }
 }

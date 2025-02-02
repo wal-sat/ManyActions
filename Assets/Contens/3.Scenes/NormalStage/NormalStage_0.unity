@@ -166,8 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3300be54df04b84bb6927af72f8b4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 503716941}
 --- !u!1 &81421860
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +637,14 @@ PrefabInstance:
     - target: {fileID: 6902267775025112862, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
       propertyPath: m_Name
       value: _Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4054,17 +4060,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8309438469108763445, guid: 7023f26e789b93c43a01145c43ef58f9, type: 3}
   m_PrefabInstance: {fileID: 1977263565}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &503716941 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 435346797729477196, guid: 7023f26e789b93c43a01145c43ef58f9, type: 3}
-  m_PrefabInstance: {fileID: 1977263565}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27116cd7c48f4464a9f81099d4d59ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &512051610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201701764766777044, guid: d580e7a9f56d216468baaa2ef16439ef, type: 3}
@@ -7043,6 +7038,10 @@ PrefabInstance:
       propertyPath: movedObject
       value: 
       objectReference: {fileID: 1204027397}
+    - target: {fileID: 435346797729477196, guid: 7023f26e789b93c43a01145c43ef58f9, type: 3}
+      propertyPath: buttonManager
+      value: 
+      objectReference: {fileID: 34064991}
     - target: {fileID: 7115212103006112064, guid: 7023f26e789b93c43a01145c43ef58f9, type: 3}
       propertyPath: m_Name
       value: Button

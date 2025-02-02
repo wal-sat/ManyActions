@@ -32,6 +32,16 @@ public class S_GameInfo : Singleton<S_GameInfo>
         }
         return count;
     }
+    public void GearCountReset()
+    {
+        foreach (bool[] info in gearInfo.Values)
+        {
+            for (int i = 0; i < info.Length; i++)
+            {
+                info[i] = false;
+            }
+        }
+    }
 
     //ーーーーーデス数ーーーーー
     public int deathCount = 0;
@@ -62,5 +72,9 @@ public class S_GameInfo : Singleton<S_GameInfo>
         ints[1] = (int) time % 60;
 
         return ints;
+    }
+    public void TimeReset()
+    {
+        time = 0;
     }
 }

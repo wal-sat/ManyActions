@@ -7,7 +7,6 @@ public class SavePoint : MonoBehaviour
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] SavePointView savePointView;
-    [SerializeField] GameObject safetyArea;
     [SerializeField] public StageActionData stageActionData;
     [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
@@ -15,8 +14,6 @@ public class SavePoint : MonoBehaviour
     private void Awake()
     {
         if (stageObjectCollisionArea != null) stageObjectCollisionArea.triggerEnter = triggerEnter;
-
-        safetyArea.SetActive(false);
     }
 
     private void triggerEnter()
@@ -25,10 +22,5 @@ public class SavePoint : MonoBehaviour
         savePointView.OnSave();
 
         S_SEManager._instance.Play("s_savePoint");
-    }
-
-    public void SetActiveSafetyArea(bool isActive)
-    {
-        safetyArea.SetActive(isActive);
     }
 }

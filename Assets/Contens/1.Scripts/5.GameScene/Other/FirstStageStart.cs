@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class FirstStageStart : MonoBehaviour
 {
+    private void Awake()
+    {
+        S_GameInfo._instance.GearCountReset();
+        S_GameInfo._instance.DeathCountReset();
+        S_GameInfo._instance.TimeReset();
+    }
     private void Start()
     {
         S_GameInfo._instance.onTimer = true;
