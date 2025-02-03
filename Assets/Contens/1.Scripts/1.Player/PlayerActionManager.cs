@@ -389,22 +389,15 @@ public class PlayerActionManager : MonoBehaviour
     {
         _availableActions = stageActionData.availableActions;
 
-        foreach (var action in playerActions)
-        {
-            if (action != null) action.isEnable = false;
-        }
-
         foreach (var availableAction in _availableActions)
         {
-            if (availableAction.Value)
+            foreach (var action in playerActions)
             {
-                foreach (var action in playerActions)
+                if (action == null) continue;
+                if (action.actionKind == availableAction.Key)
                 {
-                    if (action == null) continue;
-                    if (action.actionKind == availableAction.Key)
-                    {
-                        action.isEnable = true;
-                    }
+                    if (action.isEnable && !availableAction.Value) action.Initialize();
+                    action.isEnable = availableAction.Value;
                 }
             }
         }

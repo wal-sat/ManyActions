@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d93531e67374c4b93223e04559689d, type: 3}
   m_Name: SAD_N_11
   m_EditorClassIdentifier: 
-  MAX_JUMP_TIMES: 2
+  MAX_JUMP_TIMES: 0
   MAX_BLINK_TIMES: 0
   MAX_WARP_TIMES: 0
   LR_Swap: 1
@@ -21,11 +21,11 @@ MonoBehaviour:
   LeftRight_Decelerate: 1
   Up_: 0
   Down_Crouch: 1
-  S_Jump: 1
+  S_Jump: 0
   S_BigJump: 0
   S_FrontJump: 0
   S_BackJump: 0
-  S_GoDown: 0
+  S_GoDown: 1
   E_Hover: 0
   E_UpBlink: 0
   E_Blink: 0

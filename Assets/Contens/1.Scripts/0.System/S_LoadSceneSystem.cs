@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +19,8 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
 {
     public void LoadScene(SceneName sceneName)
     {
-        S_FadeManager._instance.Fade(() => Load(sceneName), () => {}, FadeType.Black, 0.5f,2f,0.5f);
+        S_InputSystem._instance.canInput = false;
+        S_FadeManager._instance.Fade(() => Load(sceneName), () => S_InputSystem._instance.canInput = true, FadeType.Black, 0.5f,2f,0.5f);
     }
 
     private void Load(SceneName sceneName)

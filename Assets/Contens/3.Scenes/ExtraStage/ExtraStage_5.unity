@@ -17142,11 +17142,11 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
-    - target: {fileID: 2775292144755996691, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+    - target: {fileID: 2427558494516665699, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
-    - target: {fileID: 2427558494516665699, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+    - target: {fileID: 2775292144755996691, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
@@ -17182,10 +17182,6 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
-    - target: {fileID: 9057439082543328885, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
-      propertyPath: virtualCamera
-      value: 
-      objectReference: {fileID: 1888588626}
     - target: {fileID: 8914477384108032582, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17226,6 +17222,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9057439082543328885, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+      propertyPath: virtualCamera
+      value: 
+      objectReference: {fileID: 1888588626}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18841,7 +18841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1600290974627411599, guid: aa0cfa3fd2636eb4bb0091a38ab3a3b6, type: 3}
       propertyPath: sceneName
-      value: 8
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1600290974627411599, guid: aa0cfa3fd2636eb4bb0091a38ab3a3b6, type: 3}
       propertyPath: stageManager

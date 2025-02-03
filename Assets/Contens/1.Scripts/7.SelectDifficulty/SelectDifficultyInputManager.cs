@@ -30,7 +30,6 @@ public class SelectDifficultyInputManager : MonoBehaviour
     }
     private void Start()
     {
-        S_InputSystem._instance.canInput = true;
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
         
         _selectDifficultySceneStatus = SelectDifficultySceneStatus.menu;

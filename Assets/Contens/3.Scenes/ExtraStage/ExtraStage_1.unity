@@ -4491,6 +4491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OneWayFloor-center
       objectReference: {fileID: 0}
+    - target: {fileID: 3157761721388320240, guid: 4a6ef9bfd162cf249a47e00f78f80a8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5118274174466920466, guid: 4a6ef9bfd162cf249a47e00f78f80a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4813,7 +4817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1600290974627411599, guid: aa0cfa3fd2636eb4bb0091a38ab3a3b6, type: 3}
       propertyPath: sceneName
-      value: 4
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1600290974627411599, guid: aa0cfa3fd2636eb4bb0091a38ab3a3b6, type: 3}
       propertyPath: stageManager
@@ -4915,6 +4919,10 @@ PrefabInstance:
     - target: {fileID: 2594567505523603356, guid: ada91b2f1f6fce147ade3155bf304d20, type: 3}
       propertyPath: m_Name
       value: OneWayFloor-right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594567505523603356, guid: ada91b2f1f6fce147ade3155bf304d20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2815463146502554665, guid: ada91b2f1f6fce147ade3155bf304d20, type: 3}
       propertyPath: Manager
@@ -6038,6 +6046,10 @@ PrefabInstance:
     - target: {fileID: 3009691330459665681, guid: db01e9752984af949ae3ec12f779f07e, type: 3}
       propertyPath: m_Name
       value: OneWayFloor-left
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009691330459665681, guid: db01e9752984af949ae3ec12f779f07e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
