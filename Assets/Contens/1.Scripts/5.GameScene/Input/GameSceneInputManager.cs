@@ -22,7 +22,7 @@ public class GameSceneInputManager : MonoBehaviour
     private void Start()
     {
         
-        S_InputSystem._instance.canInput = true; // 後でこれを消す！！！
+        //S_InputSystem._instance.canInput = true; // 後でこれを消す！！！
 
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
     }
