@@ -15,12 +15,12 @@ MonoBehaviour:
   MAX_JUMP_TIMES: 2
   MAX_BLINK_TIMES: 0
   MAX_WARP_TIMES: 0
-  LR_Swap: 0
+  LR_Swap: 1
   LR_Kick: 0
   LeftRight_Accelerate: 1
   LeftRight_Decelerate: 1
   Up_: 0
-  Down_Crouch: 1
+  Down_Crouch: 0
   S_Jump: 1
   S_BigJump: 0
   S_FrontJump: 0

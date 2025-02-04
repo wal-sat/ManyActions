@@ -690,7 +690,7 @@ MonoBehaviour:
   - name: p_frontJump
     audioClip: {fileID: 8300000, guid: e5ff13d8b7ec5ab41a40a32c782a6c5b, type: 3}
   - name: p_bigJump
-    audioClip: {fileID: 8300000, guid: 3ce2027772d711340997e9ea58da4562, type: 3}
+    audioClip: {fileID: 8300000, guid: 290a9c58d18aafa4e817276ad27f07c5, type: 3}
   - name: p_backJump
     audioClip: {fileID: 8300000, guid: 06c4ee44d2e814f48b11ea2ea8ab126e, type: 3}
   - name: p_hover

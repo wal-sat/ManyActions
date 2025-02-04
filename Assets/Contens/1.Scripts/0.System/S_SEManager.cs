@@ -63,7 +63,8 @@ public class S_SEManager : Singleton<S_SEManager>
         {
             if (_audioSourceList[i].isPlaying == false) return _audioSourceList[i];
         }
- 
+
+        Debug.Log("audioSourceがない");
         return null;
     }
 }
