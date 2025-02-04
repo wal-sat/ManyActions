@@ -9,6 +9,13 @@ public class MovableBlock : MonoBehaviour, IMovable
     [SerializeField] float SPEED;
 
     private MovableDirection _movableDirection;
+    private bool isGenerated;
+
+    private void Start()
+    {
+        if (isGenerated) return;
+        _movableDirection = INIT_DIRECTION;
+    }
 
     private void FixedUpdate()
     {
@@ -46,6 +53,7 @@ public class MovableBlock : MonoBehaviour, IMovable
 
     public void Init(MovableDirection movableDirection)
     {
+        isGenerated = true;
         _movableDirection = movableDirection;
     }
     public void Curve(MovableDirection movableDirection)

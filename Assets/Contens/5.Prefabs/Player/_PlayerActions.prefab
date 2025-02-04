@@ -1378,7 +1378,7 @@ MonoBehaviour:
   - {fileID: 356955492048859291}
   - {fileID: 8199578423201165310}
   - {fileID: 6000031846314369399}
-  INPUT_BLOCK_TIME: 0.02
+  INPUT_BLOCK_TIME: 0.05
   NLogicalDisjunction: 0
   NBlock: 0
   NBlockPast: 0
