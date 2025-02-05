@@ -35,8 +35,6 @@ public class S_SEManager : Singleton<S_SEManager>
         {
             _soundDictionary.Add(SEInfo.name, SEInfo);
         }
-
-        ChangeVolume(0.8f);
     }
 
     public void Play(string name)

@@ -22,6 +22,7 @@ public class TitleSceneInputManager : MonoBehaviour
     private void Awake()
     {
         titleSceneMenu.ChangeStatus = ChangeStatus;
+        titleSceneSetting.ChangeStatus = ChangeStatus;
         titleSceneExit.ChangeStatus = ChangeStatus;
     }
     private void Start()
@@ -66,6 +67,7 @@ public class TitleSceneInputManager : MonoBehaviour
                 titleSceneMenu.CursorSelect();
             break;
             case TitleSceneStatus.setting:
+                titleSceneSetting.CursorSelect();
             break;
             case TitleSceneStatus.exit:
                 titleSceneExit.CursorSelect();
@@ -76,6 +78,18 @@ public class TitleSceneInputManager : MonoBehaviour
     }
     private void Cancel()
     {
+        switch (_titleSceneStatus)
+        {
+            case TitleSceneStatus.menu:
+            break;
+            case TitleSceneStatus.setting:
+                titleSceneSetting.CursorCancel();
+            break;
+            case TitleSceneStatus.exit:
+                titleSceneExit.CursorCancel();
+            break;
+        }
+        
         _cancelPast = true;
     }
     private void Up()
@@ -86,6 +100,7 @@ public class TitleSceneInputManager : MonoBehaviour
                 titleSceneMenu.CursorUp();
             break;
             case TitleSceneStatus.setting:
+                titleSceneSetting.CursorUp();
             break;
             case TitleSceneStatus.exit:
             break;
@@ -100,6 +115,7 @@ public class TitleSceneInputManager : MonoBehaviour
                 titleSceneMenu.CursorDown();
             break;
             case TitleSceneStatus.setting:
+                titleSceneSetting.CursorDown();
             break;
             case TitleSceneStatus.exit:
             break;
@@ -113,6 +129,7 @@ public class TitleSceneInputManager : MonoBehaviour
             case TitleSceneStatus.menu:
             break;
             case TitleSceneStatus.setting:
+                titleSceneSetting.CursorLeft();
             break;
             case TitleSceneStatus.exit:
                 titleSceneExit.CursorLeft();
@@ -127,6 +144,7 @@ public class TitleSceneInputManager : MonoBehaviour
             case TitleSceneStatus.menu:
             break;
             case TitleSceneStatus.setting:
+                titleSceneSetting.CursorRight();
             break;
             case TitleSceneStatus.exit:
                 titleSceneExit.CursorRight();

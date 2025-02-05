@@ -1,0 +1,50 @@
+.settingOptions {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 40px;
+    -unity-text-align: middle-center;
+    color: rgb(80, 80, 80);
+    width: 100%;
+    height: 25%;
+    transition-timing-function: ease-in-out-cubic, ease-in-out;
+    transition-duration: 0.2s, 1s;
+    transition-property: all, rotate;
+}
+
+.settingOptions--Selected {
+    color: rgb(27, 27, 7);
+    font-size: 60px;
+    rotate: 7deg;
+}
+
+.settingOptions--Selected--Animate {
+    rotate: -7deg;
+}
+
+.settingPanel {
+    flex-grow: 1;
+    flex-direction: row;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&guid=702e835cea736254b992da370d889d70&type=3#YDWaosagi");
+    translate: 0 -100%;
+    transition-timing-function: ease-out-cubic;
+    transition-duration: 1s;
+}
+
+.settingPanel--Open {
+    translate: 0 0;
+}
+
+.BarValue {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}

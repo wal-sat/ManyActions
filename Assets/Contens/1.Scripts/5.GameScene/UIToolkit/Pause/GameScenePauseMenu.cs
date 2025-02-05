@@ -16,7 +16,7 @@ public class GameScenePauseMenu : MonoBehaviour
         get => _menuIndex;
         set
         {
-            _menuIndex = Mathf.Clamp(value, 0, 3);
+            _menuIndex = Mathf.Clamp(value, 0, 4);
 
             gameScenePauseUIToolkit.MenuOptionsSelect(_menuIndex);
         }
@@ -57,6 +57,12 @@ public class GameScenePauseMenu : MonoBehaviour
                 S_SEManager._instance.Play("u_select");
             break;
             case 3:
+                gameScenePauseUIToolkit.MenuOptionsUnSelected();
+                S_SettingInfo._instance.OpenOrCloseSettingPanel(true);
+                ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseSetting);
+                S_SEManager._instance.Play("u_select");
+            break;
+            case 4:
                 gameScenePauseUIToolkit.MenuOptionsUnSelected();
                 gameScenePauseUIToolkit.ConfirmOptionsSelect(0);
                 gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(true);

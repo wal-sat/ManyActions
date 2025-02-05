@@ -52,7 +52,7 @@ public class GameScenePauseConfirm : MonoBehaviour
     {
         confirmIndex = 0;
         gameScenePauseUIToolkit.ConfirmOptionsUnSelected();
-        gameScenePauseUIToolkit.MenuOptionsSelect(3);
+        gameScenePauseUIToolkit.MenuOptionsSelect(4);
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
         ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
         S_SEManager._instance.Play("u_back");

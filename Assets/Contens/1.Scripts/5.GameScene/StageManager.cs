@@ -123,7 +123,7 @@ public class StageManager : MonoBehaviour
         ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
         gameScenePauseUIToolkit.RootSetActive(true);
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
-        gameScenePauseUIToolkit.OpenOrCloseSettingPanel(false);
+        S_SettingInfo._instance.OpenOrCloseSettingPanel(false);
 
         S_GameInfo._instance.onTimer = false;
 
