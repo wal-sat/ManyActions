@@ -99,10 +99,18 @@ public class StageManager : MonoBehaviour
 
     public void Door(SceneName sceneName)
     {
+        StartCoroutine(CDoor(sceneName));
+    }
+    IEnumerator CDoor(SceneName sceneName)
+    {
         playerManager.Door();
         gearManager.OnSave();
 
+        yield return new WaitForSeconds(0.2f);
+
         S_LoadSceneSystem._instance.LoadScene(sceneName);
+
+        yield return new WaitForSeconds(0.5f);
 
         S_SEManager._instance.Play("s_door");
     }

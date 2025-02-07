@@ -7,6 +7,8 @@ public class Gear : MonoBehaviour
     [SerializeField] GearManager gearManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] GearView gearView;
+    [SerializeField] GameObject ParticleDefault;
+    [SerializeField] GameObject ParticleBurst;
 
     [HideInInspector] public GearStatus gearStatus;
 
@@ -26,6 +28,9 @@ public class Gear : MonoBehaviour
 
             gearManager.OnGet();
 
+            ParticleDefault.SetActive(false);
+            Instantiate(ParticleBurst, new Vector3(this.transform.position.x, this.transform.position.y, 5), Quaternion.identity);
+
             S_SEManager._instance.Play("s_getGear");
         }
 
@@ -34,6 +39,8 @@ public class Gear : MonoBehaviour
     public void Initialize(GearStatus status)
     {
         gearStatus = status;
+
+        ParticleDefault.SetActive(true);
 
         if (gearStatus == GearStatus.acquired) gearView.SpriteChange(false);
         else if (gearStatus == GearStatus.unacquired) gearView.SpriteChange(true);
