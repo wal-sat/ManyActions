@@ -331,7 +331,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5387372506816540632}
         m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
-        m_MethodName: Direction
+        m_MethodName: LeftDirection
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -503,6 +503,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1f137693-b311-4982-8673-f7b5f323d496
     m_ActionName: UI/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5387372506816540632}
+        m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
+        m_MethodName: RightDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 356c83a5-dffd-4e60-a32c-db7c52494b62
+    m_ActionName: Player/RightDirection[/DualShock4GamepadHID/rightStick,/Keyboard/leftCtrl,/Keyboard/rightCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -522,7 +538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActionAsset: {fileID: -944628639613478452, guid: a8265c32add3dd749973564872269f42, type: 3}
   canInput: 0
-  direction: {x: 0, y: 0}
+  leftDirection: {x: 0, y: 0}
+  rightDirection: {x: 0, y: 0}
   isPushingSouth: 0
   isPushingEast: 0
   isPushingWest: 0

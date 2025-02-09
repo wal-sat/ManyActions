@@ -5225,6 +5225,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &870840963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1707555741629004432, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1951874850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &888485864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5430,17 +5435,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3263031049370437570, guid: 54c89a3adb5c30f4b8d53f499a96fe6c, type: 3}
   m_PrefabInstance: {fileID: 1192369371}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1075319432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8823937015244094316, guid: 51d16ac274c8e0f45a3585e01e169001, type: 3}
-  m_PrefabInstance: {fileID: 339341367}
+--- !u!1 &954707144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5479416546194193714, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1951874850}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2436ef1528effde458232b06178b2250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+--- !u!1 &1005902861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7179356699841457430, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1951874850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1080914936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3263031049370437570, guid: 54c89a3adb5c30f4b8d53f499a96fe6c, type: 3}
@@ -7759,6 +7763,14 @@ PrefabInstance:
       propertyPath: UIToolkit
       value: 
       objectReference: {fileID: 1660486897}
+    - target: {fileID: 2394312228686893510, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 870840963}
+    - target: {fileID: 2394312228686893510, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: sleepCamera
+      value: 
+      objectReference: {fileID: 1005902861}
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: Player
       value: 
@@ -7766,7 +7778,7 @@ PrefabInstance:
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerKidouUI
       value: 
-      objectReference: {fileID: 1075319432}
+      objectReference: {fileID: 0}
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerMovement
       value: 
@@ -7803,6 +7815,10 @@ PrefabInstance:
       propertyPath: playerExplosionAnimation
       value: 
       objectReference: {fileID: 4779076903709503272}
+    - target: {fileID: 5539538364885643231, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: followedObject
+      value: 
+      objectReference: {fileID: 2109416776}
     - target: {fileID: 6307263501562715720, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: m_Name
       value: _System
@@ -7868,6 +7884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Background
       objectReference: {fileID: 0}
+    - target: {fileID: 8857804419759106943, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+      propertyPath: mianCamera
+      value: 
+      objectReference: {fileID: 954707144}
     - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -7921,6 +7941,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+--- !u!1 &2109416776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9096105003473629182, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1951874850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2127271607
 PrefabInstance:
   m_ObjectHideFlags: 0

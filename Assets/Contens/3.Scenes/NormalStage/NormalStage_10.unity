@@ -4508,6 +4508,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d16ac274c8e0f45a3585e01e169001, type: 3}
+--- !u!1 &408329595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5479416546194193714, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1150177841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &418022018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5034,6 +5039,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
+--- !u!1 &697319969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7179356699841457430, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1150177841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &698824362 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 807373423503148999, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
@@ -5142,6 +5152,14 @@ PrefabInstance:
       propertyPath: UIToolkit
       value: 
       objectReference: {fileID: 1660486897}
+    - target: {fileID: 2394312228686893510, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1394504299}
+    - target: {fileID: 2394312228686893510, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: sleepCamera
+      value: 
+      objectReference: {fileID: 697319969}
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: Player
       value: 
@@ -5149,7 +5167,7 @@ PrefabInstance:
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerKidouUI
       value: 
-      objectReference: {fileID: 1075319432}
+      objectReference: {fileID: 0}
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerMovement
       value: 
@@ -5186,6 +5204,10 @@ PrefabInstance:
       propertyPath: playerExplosionAnimation
       value: 
       objectReference: {fileID: 4779076903709503272}
+    - target: {fileID: 5539538364885643231, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: followedObject
+      value: 
+      objectReference: {fileID: 1664195421}
     - target: {fileID: 6307263501562715720, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: m_Name
       value: _System
@@ -5483,17 +5505,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada91b2f1f6fce147ade3155bf304d20, type: 3}
---- !u!114 &1075319432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8823937015244094316, guid: 51d16ac274c8e0f45a3585e01e169001, type: 3}
-  m_PrefabInstance: {fileID: 339341367}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2436ef1528effde458232b06178b2250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1150177841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6010,6 +6021,11 @@ MonoBehaviour:
   Player: {fileID: 271704846149492077}
   warpPoint: {fileID: 112859519}
   COOL_TIME: 1
+--- !u!1 &1394504299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1707555741629004432, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1150177841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1417047030 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6353006825012215195, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
@@ -6390,6 +6406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Background
       objectReference: {fileID: 0}
+    - target: {fileID: 8857804419759106943, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+      propertyPath: mianCamera
+      value: 
+      objectReference: {fileID: 408329595}
     - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -6916,6 +6936,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1664195421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9096105003473629182, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1150177841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1678065093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6616730771796138759, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}

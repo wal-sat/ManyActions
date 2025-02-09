@@ -469,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Background
       objectReference: {fileID: 0}
+    - target: {fileID: 8857804419759106943, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+      propertyPath: mianCamera
+      value: 
+      objectReference: {fileID: 1302843980}
     - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -522,6 +526,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+--- !u!1 &219127863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9096105003473629182, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1260957845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226387694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3273,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
+--- !u!1 &315890072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1707555741629004432, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1260957845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &418022018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4235,17 +4249,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d16ac274c8e0f45a3585e01e169001, type: 3}
---- !u!114 &809834864 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8823937015244094316, guid: 51d16ac274c8e0f45a3585e01e169001, type: 3}
-  m_PrefabInstance: {fileID: 809834863}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2436ef1528effde458232b06178b2250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &811765302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4398708174910552444, guid: c2e8d0f4467037a429ddaa411220a18a, type: 3}
@@ -5042,6 +5045,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2155408597523248871, guid: a0c9dacd6c0c3c34794e9a6271bc0614, type: 3}
   m_PrefabInstance: {fileID: 280098187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1302843980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5479416546194193714, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1260957845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340329189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5098,6 +5106,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8615487712633009161, guid: 963792ccaad99894aab0837ce393eb92, type: 3}
   m_PrefabInstance: {fileID: 706692722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1388884187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7179356699841457430, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 1260957845}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1417047030 stripped
 MonoBehaviour:
@@ -6351,6 +6364,14 @@ PrefabInstance:
       propertyPath: UIToolkit
       value: 
       objectReference: {fileID: 1660486897}
+    - target: {fileID: 2394312228686893510, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 315890072}
+    - target: {fileID: 2394312228686893510, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: sleepCamera
+      value: 
+      objectReference: {fileID: 1388884187}
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: Player
       value: 
@@ -6358,7 +6379,7 @@ PrefabInstance:
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerKidouUI
       value: 
-      objectReference: {fileID: 809834864}
+      objectReference: {fileID: 0}
     - target: {fileID: 2591147512170374797, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerMovement
       value: 
@@ -6395,6 +6416,10 @@ PrefabInstance:
       propertyPath: playerExplosionAnimation
       value: 
       objectReference: {fileID: 4779076903709503272}
+    - target: {fileID: 5539538364885643231, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: followedObject
+      value: 
+      objectReference: {fileID: 219127863}
     - target: {fileID: 6307263501562715720, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: m_Name
       value: _System

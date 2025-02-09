@@ -6,6 +6,7 @@ public class PlayerActionJumpManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionJumpBase[] jumpActions;
+    [SerializeField] float RESTRICTE_JUMP_SPEED;
 
     [HideInInspector] public int maxJumpTimes;
 
@@ -24,11 +25,12 @@ public class PlayerActionJumpManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 0.1f) _jumpTimes = maxJumpTimes;
+        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _jumpTimes = maxJumpTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
+        if (playerMovement.rb.velocity.y > RESTRICTE_JUMP_SPEED) return;
         if (_jumpTimes <= 0) return;
         _jumpTimes --;
 
@@ -62,5 +64,6 @@ public class PlayerActionJumpManager : MonoBehaviour
         maxJumpTimes = times;
     }
 }
+
 
 

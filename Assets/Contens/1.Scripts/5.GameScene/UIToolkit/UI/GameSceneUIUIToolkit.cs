@@ -10,8 +10,10 @@ public class GameSceneUIUIToolkit : MonoBehaviour
     [SerializeField] private GameObject UIToolkit;
     [SerializeField] VisualTreeAsset ActionCardTemplate;
 
+    private VisualElement _root;
+    private VisualElement _kidouUI;
+    private VisualElement _sleepCameraUI;
     private VisualElement _actionCardInventory;
-    private List<VisualElement> _actionCards = new List<VisualElement>();
 
     private Label _gearLabel;
     private Label _gearPlusLabel;
@@ -22,6 +24,9 @@ public class GameSceneUIUIToolkit : MonoBehaviour
     {
         var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
 
+        _root = root.Q<VisualElement>("Root");
+        _kidouUI = root.Q<VisualElement>("KidouUI");
+        _sleepCameraUI = root.Q<VisualElement>("SleepCameraUI");
         _actionCardInventory = root.Q<VisualElement>("ActionCardInventory");
 
         _gearLabel = root.Q<Label>("GearLabel");
@@ -97,5 +102,21 @@ public class GameSceneUIUIToolkit : MonoBehaviour
     {
         _gearPlusLabel.style.visibility = Visibility.Hidden;
         if (isActive) _gearPlusLabel.style.visibility = Visibility.Visible;
+    }
+
+    public void RootFade(bool isVisible)
+    {
+        if (isVisible) _root.RemoveFromClassList("Unvisible");
+        else if (!isVisible) _root.AddToClassList("Unvisible");
+    }
+    public void KidouUIFade(bool isVisible)
+    {
+        if (isVisible) _kidouUI.RemoveFromClassList("Unvisible");
+        else if (!isVisible) _kidouUI.AddToClassList("Unvisible");
+    }
+    public void SleepCameraUIFade(bool isVisible)
+    {
+        if (isVisible) _sleepCameraUI.RemoveFromClassList("Unvisible");
+        else if (!isVisible) _sleepCameraUI.AddToClassList("Unvisible");
     }
 }

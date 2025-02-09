@@ -24,7 +24,7 @@ public class PlayerActionWarpManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding()) _warpTimes = maxWarpTimes;
+        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _warpTimes = maxWarpTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)

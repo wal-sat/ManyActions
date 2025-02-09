@@ -37,8 +37,9 @@ public class StageManager : MonoBehaviour
 
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
-
+        
         gameSceneUI.UpdateDeathCount();
+        gameSceneUI.SwitchKidouUIVisible(true);
     }
 
     //ーーー起動時の処理ーーー
@@ -48,7 +49,7 @@ public class StageManager : MonoBehaviour
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
 
-        playerManager.playerKidouUI.SetActiveFalse();
+        gameSceneUI.SwitchKidouUIVisible(false);
 
         S_SEManager._instance.Play("p_kidou");
     }
@@ -88,6 +89,7 @@ public class StageManager : MonoBehaviour
 
                 S_GameInfo._instance.DeathCountIncrement();
                 gameSceneUI.UpdateDeathCount();
+                gameSceneUI.SwitchUIVisible(true);
             }, 
             ()=>
             {

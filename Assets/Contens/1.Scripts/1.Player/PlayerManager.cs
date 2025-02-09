@@ -8,7 +8,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] public PlayerActionManager PlayerActionManager;
-    [SerializeField] public PlayerKidouUI playerKidouUI;
     [SerializeField] PlayerPreventStuck playerPreventStuck;
     [SerializeField] PlayerOutCameraDie PlayerOutCameraDie;
 
@@ -42,8 +41,6 @@ public class PlayerManager : MonoBehaviour
         playerAnimationManager.Initialize(isFacingRight);
         PlayerActionManager.Initialize();
         playerPreventStuck.Initialize();
-
-        playerKidouUI.SetActiveTrue(isFacingRight);
     }
 
     public void Door()

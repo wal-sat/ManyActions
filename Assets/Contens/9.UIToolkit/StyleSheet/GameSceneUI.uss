@@ -64,3 +64,14 @@
 .ActionCard--off {
     height: 0;
 }
+
+.Visible {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.Unvisible {
+    opacity: 0;
+}
