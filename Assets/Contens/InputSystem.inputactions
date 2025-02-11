@@ -443,6 +443,28 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "1b94a363-1be8-4f66-bca2-5acbee9e2b6a",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a534135a-e137-4039-8758-ffc317e08a01",
+                    "path": "<Gamepad>/DPad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WASD",
                     "id": "9c890952-1bbd-4010-8a8e-1231780aecd3",
                     "path": "Dpad",

@@ -16,17 +16,9 @@ public class WarpPointView : MonoBehaviour
         spriteRenderer.sprite = defaultSprite;
     }
 
-    public void OnRecure(float coolTime)
+    public void EnableView(bool isEnable)
     {
-        StartCoroutine(CRecureEffect(coolTime));
-    }
-
-    IEnumerator CRecureEffect(float coolTime)
-    {
-        spriteRenderer.sprite = disableSprite;
-
-        yield return new WaitForSeconds(coolTime);
-
-        spriteRenderer.sprite = defaultSprite;
+        if (isEnable) spriteRenderer.sprite = defaultSprite;
+        else spriteRenderer.sprite = disableSprite;
     }
 }

@@ -628,6 +628,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2d5bd83ab2f02334c917eb380c312245, type: 2}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
+    - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: playerActionJumpManager
       value: 
       objectReference: {fileID: 5417854417328118719}
@@ -1816,6 +1820,10 @@ PrefabInstance:
       propertyPath: stageActionData
       value: 
       objectReference: {fileID: 11400000, guid: f9c33f9553991ea4f94aa32554642fe2, type: 2}
+    - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: playerActionJumpManager
       value: 
@@ -14994,6 +15002,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 473427873}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
+    - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: playerActionJumpManager
       value: 
       objectReference: {fileID: 5417854417328118719}
@@ -16317,6 +16329,10 @@ PrefabInstance:
       propertyPath: stageActionData
       value: 
       objectReference: {fileID: 11400000, guid: 27b3edfcdd0404847b50c1e849660a5a, type: 2}
+    - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: playerActionJumpManager
       value: 
@@ -20070,6 +20086,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b2eb13e1a279f2543b8d814e095b3d19, type: 2}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
+    - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: playerActionJumpManager
       value: 
       objectReference: {fileID: 5417854417328118719}
@@ -20908,6 +20928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c730c639a9d5ab408bf0fa7e3b8e2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warpPointManager: {fileID: 2112290333}
   stageObjectCollisionArea: {fileID: 1971221488}
   warpPointView: {fileID: 1594209075}
   Player: {fileID: 3543489456596304473}
@@ -22188,6 +22209,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f9c33f9553991ea4f94aa32554642fe2, type: 2}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
+    - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: playerActionJumpManager
       value: 
       objectReference: {fileID: 5417854417328118719}
@@ -22771,6 +22796,10 @@ PrefabInstance:
       propertyPath: stageActionData
       value: 
       objectReference: {fileID: 11400000, guid: f9c33f9553991ea4f94aa32554642fe2, type: 2}
+    - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: playerActionJumpManager
       value: 
@@ -23581,6 +23610,10 @@ PrefabInstance:
       propertyPath: stageActionData
       value: 
       objectReference: {fileID: 11400000, guid: 2d5bd83ab2f02334c917eb380c312245, type: 2}
+    - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: playerActionJumpManager
       value: 
@@ -25733,6 +25766,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 27b3edfcdd0404847b50c1e849660a5a, type: 2}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
+    - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: playerActionJumpManager
       value: 
       objectReference: {fileID: 5417854417328118719}
@@ -26007,6 +26044,10 @@ PrefabInstance:
       propertyPath: stageActionData
       value: 
       objectReference: {fileID: 11400000, guid: c8e372d28a4625b4faa3e65d43dbfa92, type: 2}
+    - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: playerActionJumpManager
       value: 
@@ -27652,6 +27693,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+--- !u!114 &2112290331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 646695612612677693, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+  m_PrefabInstance: {fileID: 2112290330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5c38d847d6cef44876e3e013bab5b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2112290332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7757875943116494195, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+  m_PrefabInstance: {fileID: 2112290330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670db8026d8bb6c48bbd42c88fb44932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2112290333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044327520386478067, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+  m_PrefabInstance: {fileID: 2112290330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42f5a1f9bfd5794ab16c531f81ea22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2118937034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28221,6 +28295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecureCapsule
       objectReference: {fileID: 0}
+    - target: {fileID: 8332625396456518124, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
+      propertyPath: recureCapsuleManager
+      value: 
+      objectReference: {fileID: 2112290332}
     - target: {fileID: 8332625396456518124, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
       propertyPath: playerActionJumpManager
       value: 
@@ -29365,6 +29443,10 @@ PrefabInstance:
       propertyPath: warpPoint
       value: 
       objectReference: {fileID: 1340329191}
+    - target: {fileID: 3331295524506930516, guid: 1916af9027f4e1142b04364f17e8c457, type: 3}
+      propertyPath: warpPointManager
+      value: 
+      objectReference: {fileID: 2112290333}
     - target: {fileID: 4461918522583363509, guid: 1916af9027f4e1142b04364f17e8c457, type: 3}
       propertyPath: m_Name
       value: WarpPoint
@@ -29507,6 +29589,10 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 473427873}
+    - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
+      propertyPath: actionCassetteManager
+      value: 
+      objectReference: {fileID: 2112290331}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: playerActionJumpManager
       value: 

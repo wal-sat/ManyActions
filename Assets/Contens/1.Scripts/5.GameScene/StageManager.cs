@@ -11,8 +11,11 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] GearManager gearManager;
+    [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] RecureCapsuleManager recureCapsuleManager;
+    [SerializeField] WarpPointManager warpPointManager;
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
@@ -84,8 +87,11 @@ public class StageManager : MonoBehaviour
                 playerManager.Player.SetActive(true);
 
                 gearManager.Initialize();
+                actionCassetteManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
+                recureCapsuleManager.Initialize();
+                warpPointManager.Initialize();
 
                 S_GameInfo._instance.DeathCountIncrement();
                 gameSceneUI.UpdateDeathCount();
