@@ -22,7 +22,7 @@ public class PlayerActionBlinkManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 0) _blinkTimes = maxBlinkTimes;
+        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _blinkTimes = maxBlinkTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)

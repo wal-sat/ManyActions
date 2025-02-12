@@ -32,4 +32,15 @@ public class GameSceneUI : MonoBehaviour
     {
         gameSceneUIUIToolkit.MakeActionCard( isAcquired, actionName, actionIcon);
     }
+
+    public void SwitchUIVisible(bool isVisible)
+    {
+        gameSceneUIUIToolkit.RootFade(isVisible);
+        gameSceneUIUIToolkit.KidouUIFade(isVisible);
+        gameSceneUIUIToolkit.SleepCameraUIFade(!isVisible);
+    }
+    public void SwitchKidouUIVisible(bool isVisible)
+    {
+        gameSceneUIUIToolkit.KidouUIFade(isVisible);
+    }
 }

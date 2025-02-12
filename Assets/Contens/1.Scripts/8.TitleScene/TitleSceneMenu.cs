@@ -57,12 +57,13 @@ public class TitleSceneMenu : MonoBehaviour
                 //つづきから
             break;
             case 2:
-                S_DialogueManager._instance.DisplayDialogue("coming soon");
-                // ChangeStatus(TitleSceneStatus.setting);
-                // titleSceneUIToolkit.OpenOrCloseSettingPanel(true);
+                ChangeStatus(TitleSceneStatus.setting);
+                titleSceneUIToolkit.MenuOptionsUnSelected();
+                S_SettingInfo._instance.OpenOrCloseSettingPanel(true);
             break;
             case 3:
                 ChangeStatus(TitleSceneStatus.exit);
+                titleSceneUIToolkit.ExitOptionsSelect(0);
                 titleSceneUIToolkit.MenuOptionsUnSelected();
                 titleSceneUIToolkit.OpenOrCloseExitPanel(true);
             break;

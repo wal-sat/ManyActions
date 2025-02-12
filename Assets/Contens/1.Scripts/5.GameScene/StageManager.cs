@@ -11,8 +11,12 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] SavePointManager savePointManager;
     [SerializeField] GearManager gearManager;
+    [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] RecureCapsuleManager recureCapsuleManager;
+    [SerializeField] WarpPointManager warpPointManager;
+    [SerializeField] BackgroundManager backgroundManager;
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
@@ -37,8 +41,9 @@ public class StageManager : MonoBehaviour
 
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
-
+        
         gameSceneUI.UpdateDeathCount();
+        gameSceneUI.SwitchKidouUIVisible(true);
     }
 
     //ーーー起動時の処理ーーー
@@ -48,7 +53,7 @@ public class StageManager : MonoBehaviour
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
 
-        playerManager.playerKidouUI.SetActiveFalse();
+        gameSceneUI.SwitchKidouUIVisible(false);
 
         S_SEManager._instance.Play("p_kidou");
     }
@@ -83,11 +88,16 @@ public class StageManager : MonoBehaviour
                 playerManager.Player.SetActive(true);
 
                 gearManager.Initialize();
+                actionCassetteManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
+                recureCapsuleManager.Initialize();
+                warpPointManager.Initialize();
+                backgroundManager.Initialize();
 
                 S_GameInfo._instance.DeathCountIncrement();
                 gameSceneUI.UpdateDeathCount();
+                gameSceneUI.SwitchUIVisible(true);
             }, 
             ()=>
             {
@@ -97,20 +107,23 @@ public class StageManager : MonoBehaviour
             FadeType.Diamond, 0.4f,0.1f,0.4f);  
     }
 
+    //ーーークリアした時の処理ーーー
     public void Door(SceneName sceneName)
+    {
+        StartCoroutine(CDoor(sceneName));
+    }
+    IEnumerator CDoor(SceneName sceneName)
     {
         playerManager.Door();
         gearManager.OnSave();
 
+        yield return new WaitForSeconds(0.2f);
+
         S_LoadSceneSystem._instance.LoadScene(sceneName);
 
+        yield return new WaitForSeconds(0.5f);
+
         S_SEManager._instance.Play("s_door");
-    }
-
-    //ーーークリア時の処理ーーー
-    public void Clear()
-    {
-
     }
 
     //ーーーポーズ時の処理ーーー
@@ -123,7 +136,7 @@ public class StageManager : MonoBehaviour
         ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
         gameScenePauseUIToolkit.RootSetActive(true);
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
-        gameScenePauseUIToolkit.OpenOrCloseSettingPanel(false);
+        S_SettingInfo._instance.OpenOrCloseSettingPanel(false);
 
         S_GameInfo._instance.onTimer = false;
 

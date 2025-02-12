@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageManager: {fileID: 0}
   stageObjectCollisionArea: {fileID: 7855771179331355288}
+  ParticleBurst: {fileID: 2681352572169142542, guid: 20b0149a4a804c546b56a63578605d9c, type: 3}
   sceneName: 2
 --- !u!1 &2293274201734878956
 GameObject:

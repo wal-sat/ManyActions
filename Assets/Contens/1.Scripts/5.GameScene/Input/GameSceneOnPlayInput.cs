@@ -83,7 +83,7 @@ public class GameSceneOnPlayInput : MonoBehaviour
     {
         TracePast();
 
-        direction = S_InputSystem._instance.direction;
+        direction = S_InputSystem._instance.leftDirection;
 
         CheckInput();
 

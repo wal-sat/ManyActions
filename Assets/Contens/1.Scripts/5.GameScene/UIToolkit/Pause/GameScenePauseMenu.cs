@@ -50,10 +50,11 @@ public class GameScenePauseMenu : MonoBehaviour
             case 1:
                 stageManager.ClosePausePanel();
                 stageManager.Restart();
-                //S_SEManager._instance.Play("u_select");
             break;
             case 2:
-                stageManager.playerDiePartsManager.DestroyDieParts();
+                gameScenePauseUIToolkit.MenuOptionsUnSelected();
+                S_SettingInfo._instance.OpenOrCloseSettingPanel(true);
+                ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseSetting);
                 S_SEManager._instance.Play("u_select");
             break;
             case 3:

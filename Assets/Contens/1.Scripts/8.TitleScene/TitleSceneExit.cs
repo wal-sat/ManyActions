@@ -41,8 +41,10 @@ public class TitleSceneExit : MonoBehaviour
         switch (exitIndex)
         {
             case 0:
+                exitIndex = 0;
                 ChangeStatus(TitleSceneStatus.menu);
                 titleSceneUIToolkit.MenuOptionsSelect(3);
+                titleSceneUIToolkit.ExitOptionsUnSelect();
                 titleSceneUIToolkit.OpenOrCloseExitPanel(false);
                 S_SEManager._instance.Play("u_back");
             break;
@@ -54,5 +56,14 @@ public class TitleSceneExit : MonoBehaviour
                 #endif
             break;
         }
+    }
+    public void CursorCancel()
+    {
+        exitIndex = 0;
+        ChangeStatus(TitleSceneStatus.menu);
+        titleSceneUIToolkit.MenuOptionsSelect(3);
+        titleSceneUIToolkit.ExitOptionsUnSelect();
+        titleSceneUIToolkit.OpenOrCloseExitPanel(false);
+        S_SEManager._instance.Play("u_back");
     }
 }

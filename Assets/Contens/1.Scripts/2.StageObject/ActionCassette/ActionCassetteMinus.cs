@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActionCassetteMinus : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
+    [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
     [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
     [SerializeField] PlayerActionWarpManager playerActionWarpManager;
@@ -25,6 +26,7 @@ public class ActionCassetteMinus : MonoBehaviour
     {
         _isEnable = true;
 
+        actionCassetteManager.RegisterMinus(this);
         stageObjectCollisionArea.triggerEnter = triggerEnter;
     }
     private void FixedUpdate()
@@ -37,6 +39,7 @@ public class ActionCassetteMinus : MonoBehaviour
             {
                 _onTimer = false;
                 _isEnable = true;
+                actionCassetteView.EnableView(true);
             }
         }
     }
@@ -49,17 +52,20 @@ public class ActionCassetteMinus : MonoBehaviour
             _onTimer = true;
             _isEnable = false;
 
-            actionCassetteView.OnRecure(COOL_TIME);
+            actionCassetteView.EnableView(false);
 
             playerManager.PlayerActionManager.EnableActions(stageActionData);
-
-            playerActionJumpManager.Recure();
-            playerActionBlinkManager.Recure();
-            playerActionWarpManager.Recure();
 
             gameSceneUI.MakeActionCard(false, actionName, actionIcon);
 
             S_SEManager._instance.Play("s_getActionMinusCassette");
         }
+    }
+    
+    public void Initialize()
+    {
+        _onTimer = false;
+        _isEnable = true;
+        actionCassetteView.EnableView(true);
     }
 }

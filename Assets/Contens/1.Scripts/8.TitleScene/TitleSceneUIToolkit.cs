@@ -8,7 +8,6 @@ public class TitleSceneUIToolkit : MonoBehaviour
 {
     [SerializeField] private GameObject UIToolkit;
 
-    private VisualElement _settingPanel;
     private VisualElement _exitPanel;
 
     private VisualElement[] _menuOptions = new VisualElement[4];
@@ -18,7 +17,6 @@ public class TitleSceneUIToolkit : MonoBehaviour
     {
         var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
 
-        _settingPanel = root.Q<VisualElement>("Setting");
         _exitPanel = root.Q<VisualElement>("Exit");
 
         _menuOptions[0] = root.Q<VisualElement>("menuOptions0");
@@ -30,11 +28,6 @@ public class TitleSceneUIToolkit : MonoBehaviour
         _exitOptions[1] = root.Q<VisualElement>("exitOptions1");
     }
 
-    public void OpenOrCloseSettingPanel(bool open)
-    {
-        if (open) _settingPanel.AddToClassList("Panel--Open");
-        else _settingPanel.RemoveFromClassList("Panel--Open");
-    }
     public void OpenOrCloseExitPanel(bool open)
     {
         if (open) _exitPanel.AddToClassList("Panel--Open");
@@ -85,6 +78,15 @@ public class TitleSceneUIToolkit : MonoBehaviour
             InvokeRepeating("AnimateExitOptions", 0.1f, 1f);
         }
         else CancelInvoke("AnimateExitOptions");
+    }
+    public void ExitOptionsUnSelect()
+    {
+        for (int i = 0; i < _exitOptions.Length; i++) 
+        {
+            CancelInvoke("AnimateExitOptions");
+            _exitOptions[i].RemoveFromClassList("exitOptions--Selected");
+            _exitOptions[i].RemoveFromClassList("exitOptions--Selected--Animate");
+        }
     }
 
     private void AnimateMenuOptions()

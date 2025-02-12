@@ -5320,6 +5320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ac736b41f16ac4daab6679088ae97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleSceneUIToolkit: {fileID: 1257457617}
 --- !u!114 &1257457621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6511,6 +6512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Background
       objectReference: {fileID: 0}
+    - target: {fileID: 8857804419759106943, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+      propertyPath: mianCamera
+      value: 
+      objectReference: {fileID: 1621994631}
     - target: {fileID: 9000961829263837004, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2

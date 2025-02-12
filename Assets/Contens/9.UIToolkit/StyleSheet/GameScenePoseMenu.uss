@@ -5,7 +5,7 @@
     transition-duration: 0.2s, 1s;
     transition-timing-function: ease-out-cubic, ease-in-out;
     width: 40%;
-    height: 20%;
+    height: 15%;
     transition-property: all, rotate;
 }
 

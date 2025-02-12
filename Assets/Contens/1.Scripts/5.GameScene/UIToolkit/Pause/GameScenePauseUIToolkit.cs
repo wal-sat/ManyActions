@@ -10,7 +10,6 @@ public class GameScenePauseUIToolkit : MonoBehaviour
 
     private VisualElement _root;
 
-    private VisualElement _settingPanel;
     private VisualElement _confirmPanel;
 
     private VisualElement[] _menuOptions = new VisualElement[4];
@@ -22,7 +21,6 @@ public class GameScenePauseUIToolkit : MonoBehaviour
 
         _root = root.Q<VisualElement>("Root");
 
-        _settingPanel = root.Q<VisualElement>("SettingPanel");
         _confirmPanel = root.Q<VisualElement>("ConfirmPanel");
 
         _menuOptions[0] = root.Q<VisualElement>("MenuOptions0");
@@ -34,11 +32,6 @@ public class GameScenePauseUIToolkit : MonoBehaviour
         _confirmOptions[1] = root.Q<VisualElement>("ConfirmOptions1");
     }
 
-    public void OpenOrCloseSettingPanel(bool open)
-    {
-        if (open) _settingPanel.AddToClassList("Panel--Open");
-        else _settingPanel.RemoveFromClassList("Panel--Open");
-    }
     public void OpenOrCloseConfirmPanel(bool open)
     {
         if (open) _confirmPanel.AddToClassList("Panel--Open");

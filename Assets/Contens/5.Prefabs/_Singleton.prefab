@@ -112,6 +112,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 968976278531036980}
+--- !u!1 &2166549876427760062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6912858030946957038}
+  - component: {fileID: 4775928681073172851}
+  m_Layer: 0
+  m_Name: UIDocument-Setting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6912858030946957038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166549876427760062}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3542790041133739413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4775928681073172851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166549876427760062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 65937ed7832c37a40bc3b3500dfe1709, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: e6d318e361f8e1248a4198253c4466df, type: 3}
+  m_SortingOrder: 10
 --- !u!1 &2429799559260048103
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +189,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6912858030946957038}
   m_Father: {fileID: 4254814470230363570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8738445410275414960
@@ -156,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d32f06875ea711439c53f24b597e696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIToolkit: {fileID: 2166549876427760062}
 --- !u!1 &2471632272467045595
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +331,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5387372506816540632}
         m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
-        m_MethodName: Direction
+        m_MethodName: LeftDirection
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -453,6 +503,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1f137693-b311-4982-8673-f7b5f323d496
     m_ActionName: UI/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5387372506816540632}
+        m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
+        m_MethodName: RightDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 356c83a5-dffd-4e60-a32c-db7c52494b62
+    m_ActionName: Player/RightDirection[/DualShock4GamepadHID/rightStick,/Keyboard/leftCtrl,/Keyboard/rightCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -472,7 +538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActionAsset: {fileID: -944628639613478452, guid: a8265c32add3dd749973564872269f42, type: 3}
   canInput: 0
-  direction: {x: 0, y: 0}
+  leftDirection: {x: 0, y: 0}
+  rightDirection: {x: 0, y: 0}
   isPushingSouth: 0
   isPushingEast: 0
   isPushingWest: 0
@@ -671,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89fc695671343e4d8bd5353400d3075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_VOLUME: 1
+  MAX_VOLUME: 0.7
   SEList:
   - name: p_kidou
     audioClip: {fileID: 8300000, guid: 1c94aeb9b12fff54bbc774c0df5112ca, type: 3}

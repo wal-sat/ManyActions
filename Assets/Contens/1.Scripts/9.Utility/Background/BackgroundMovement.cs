@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BackgroundMovement : MonoBehaviour
 {
-    [SerializeField] GameObject virtualCamera;
+    [SerializeField] GameObject mianCamera;
 
     private void FixedUpdate()
     {
-        if (virtualCamera == null) return;
-        this.gameObject.transform.position = new Vector3 (virtualCamera.transform.position.x, virtualCamera.transform.position.y, this.gameObject.transform.position.z);   
+        if (mianCamera == null) return;
+        this.gameObject.transform.position = new Vector3 (mianCamera.transform.position.x, mianCamera.transform.position.y, this.gameObject.transform.position.z);   
     }
 }
