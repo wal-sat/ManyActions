@@ -16,6 +16,7 @@ public class GameSceneAnyKeyInput : MonoBehaviour
     private bool _upPast;
     private bool _optionPast;
     private bool _eastPast;
+    private bool _southPast;
 
     public void Initialize()
     {
@@ -36,6 +37,9 @@ public class GameSceneAnyKeyInput : MonoBehaviour
 
                 if (S_InputSystem._instance.leftDirection == Vector2.up && !_upPast) AnyKey();
                 else if (S_InputSystem._instance.leftDirection != Vector2.up && _upPast) _upPast = false;
+
+                if (S_InputSystem._instance.isPushingSouth && !_southPast) DestroyDieParts();
+                else if (!S_InputSystem._instance.isPushingSouth && _southPast) _southPast = false;
             }
             break;
             case AnyKeyStatus.observe:
@@ -62,6 +66,15 @@ public class GameSceneAnyKeyInput : MonoBehaviour
 
         gameSceneUI.SwitchUIVisible(false);
     }
+
+    private void DestroyDieParts()
+    {
+        stageManager.playerDiePartsManager.DestroyDieParts();
+        _southPast = true;
+
+        S_SEManager._instance.Play("u_back");
+    }
+
     private void AnyKey()
     {
         stageManager.Kidou();

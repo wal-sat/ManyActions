@@ -5053,7 +5053,7 @@ GameObject:
   - component: {fileID: 6097292005144442494}
   - component: {fileID: 8857804419759106943}
   m_Layer: 0
-  m_Name: _VisualCameraFollowing
+  m_Name: _VirtualCameraFollowing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5091,7 +5091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fa6c4a35f756f4895480c2ea62b714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
+  mianCamera: {fileID: 0}
 --- !u!1 &4093033498080514233
 GameObject:
   m_ObjectHideFlags: 0
@@ -5603,6 +5603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9000961829263837004}
+  - component: {fileID: 1584583765352322926}
   m_Layer: 0
   m_Name: _Background
   m_TagString: Untagged
@@ -5636,6 +5637,30 @@ Transform:
   - {fileID: 219982639273554701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584583765352322926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902267775025112862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0c896d44d5f349a31332a3f4f12bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCameraFollowing: {fileID: 2844287532386923542}
+  backgroundBar:
+  - {fileID: 7468883128011329737}
+  - {fileID: 5597216343903646600}
+  - {fileID: 2725204925359886150}
+  - {fileID: 8077484545368257916}
+  - {fileID: 2353512124637073410}
+  - {fileID: 7411074816927006616}
+  - {fileID: 8908262890894166923}
+  - {fileID: 6097535608121426499}
+  - {fileID: 4093033498080514233}
+  - {fileID: 8075670335965765164}
 --- !u!1 &7411074816927006616
 GameObject:
   m_ObjectHideFlags: 0

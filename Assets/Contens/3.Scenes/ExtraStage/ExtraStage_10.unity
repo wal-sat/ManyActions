@@ -6338,6 +6338,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6136088961019887839}
     - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: backgroundManager
+      value: 
+      objectReference: {fileID: 1544046543}
+    - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerDiePartsManager
       value: 
       objectReference: {fileID: 6488727186378470576}
@@ -6514,6 +6518,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+--- !u!114 &1544046543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1584583765352322926, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+  m_PrefabInstance: {fileID: 1544046542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0c896d44d5f349a31332a3f4f12bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1545201459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6856,10 +6871,10 @@ PrefabInstance:
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: d7572d5067bd9c6498b296b100a04674, type: 3}
+      objectReference: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionName
-      value: "\u7A7A\u4E2D\u30B8\u30E3\u30F3\u30D7"
+      value: "\u4E8C\u6BB5\u30B8\u30E3\u30F3\u30D7"
       objectReference: {fileID: 0}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: gameSceneUI

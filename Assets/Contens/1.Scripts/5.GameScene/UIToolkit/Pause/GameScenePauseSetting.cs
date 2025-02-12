@@ -34,7 +34,7 @@ public class GameScenePauseSetting : MonoBehaviour
         if ( S_SettingInfo._instance.CursorSelect() )
         {
             ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
-            gameScenePauseUIToolkit.MenuOptionsSelect(3);
+            gameScenePauseUIToolkit.MenuOptionsSelect(2);
             S_SEManager._instance.Play("u_back");
             return;
         }
@@ -44,7 +44,7 @@ public class GameScenePauseSetting : MonoBehaviour
     {
         S_SettingInfo._instance.CursorCancel();
         ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
-        gameScenePauseUIToolkit.MenuOptionsSelect(3);
+        gameScenePauseUIToolkit.MenuOptionsSelect(2);
         S_SEManager._instance.Play("u_back");
     }
 }

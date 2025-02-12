@@ -15088,6 +15088,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6136088961019887839}
     - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: backgroundManager
+      value: 
+      objectReference: {fileID: 1803829730}
+    - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerDiePartsManager
       value: 
       objectReference: {fileID: 6488727186378470576}
@@ -19655,6 +19659,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+--- !u!114 &1803829730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1342864754388062820, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+  m_PrefabInstance: {fileID: 1803829729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0c896d44d5f349a31332a3f4f12bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1813640932
 PrefabInstance:
   m_ObjectHideFlags: 0

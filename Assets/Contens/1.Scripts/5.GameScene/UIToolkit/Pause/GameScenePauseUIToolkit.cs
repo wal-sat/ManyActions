@@ -12,7 +12,7 @@ public class GameScenePauseUIToolkit : MonoBehaviour
 
     private VisualElement _confirmPanel;
 
-    private VisualElement[] _menuOptions = new VisualElement[5];
+    private VisualElement[] _menuOptions = new VisualElement[4];
     private VisualElement[] _confirmOptions = new VisualElement[2];
 
     private void Start()
@@ -27,7 +27,6 @@ public class GameScenePauseUIToolkit : MonoBehaviour
         _menuOptions[1] = root.Q<VisualElement>("MenuOptions1");
         _menuOptions[2] = root.Q<VisualElement>("MenuOptions2");
         _menuOptions[3] = root.Q<VisualElement>("MenuOptions3");
-        _menuOptions[4] = root.Q<VisualElement>("MenuOptions4");
 
         _confirmOptions[0] = root.Q<VisualElement>("ConfirmOptions0");
         _confirmOptions[1] = root.Q<VisualElement>("ConfirmOptions1");

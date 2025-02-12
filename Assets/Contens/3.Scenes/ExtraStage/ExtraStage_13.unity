@@ -610,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 3d683adfcbf3655468312d047145dfc4, type: 3}
+      objectReference: {fileID: 21300000, guid: d09ebe1d547eef248909531426ef351d, type: 3}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionName
       value: "\u964D\u308A\u308B"
@@ -1803,10 +1803,10 @@ PrefabInstance:
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: d7572d5067bd9c6498b296b100a04674, type: 3}
+      objectReference: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionName
-      value: "\u7A7A\u4E2D\u30B8\u30E3\u30F3\u30D7"
+      value: "\u4E8C\u6BB5\u30B8\u30E3\u30F3\u30D7"
       objectReference: {fileID: 0}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: gameSceneUI
@@ -12786,6 +12786,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+--- !u!114 &298872116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1342864754388062820, guid: cdb64994496520349a4e7d0f7e2d77f6, type: 3}
+  m_PrefabInstance: {fileID: 298872115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0c896d44d5f349a31332a3f4f12bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &304656588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16312,7 +16323,7 @@ PrefabInstance:
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: d7572d5067bd9c6498b296b100a04674, type: 3}
+      objectReference: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionName
       value: "\u30B8\u30E3\u30F3\u30D7"
@@ -20068,7 +20079,7 @@ PrefabInstance:
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: e1c6494d026b5b647a739d609d14b0f3, type: 3}
+      objectReference: {fileID: 21300000, guid: c1f7a639039f8764985265ffc45d0425, type: 3}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionName
       value: "\u53CD\u8EE2"
@@ -22191,7 +22202,7 @@ PrefabInstance:
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: e1c6494d026b5b647a739d609d14b0f3, type: 3}
+      objectReference: {fileID: 21300000, guid: c1f7a639039f8764985265ffc45d0425, type: 3}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionName
       value: "\u53CD\u8EE2"
@@ -22779,7 +22790,7 @@ PrefabInstance:
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 3d683adfcbf3655468312d047145dfc4, type: 3}
+      objectReference: {fileID: 21300000, guid: d09ebe1d547eef248909531426ef351d, type: 3}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionName
       value: "\u964D\u308A\u308B"
@@ -23593,7 +23604,7 @@ PrefabInstance:
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 3d683adfcbf3655468312d047145dfc4, type: 3}
+      objectReference: {fileID: 21300000, guid: d09ebe1d547eef248909531426ef351d, type: 3}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionName
       value: "\u964D\u308A\u308B"
@@ -25748,10 +25759,10 @@ PrefabInstance:
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: d7572d5067bd9c6498b296b100a04674, type: 3}
+      objectReference: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionName
-      value: "\u7A7A\u4E2D\u30B8\u30E3\u30F3\u30D7"
+      value: "\u4E8C\u6BB5\u30B8\u30E3\u30F3\u30D7"
       objectReference: {fileID: 0}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: gameSceneUI
@@ -26027,7 +26038,7 @@ PrefabInstance:
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: d7572d5067bd9c6498b296b100a04674, type: 3}
+      objectReference: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
     - target: {fileID: 2590994268932314372, guid: 1c65737b50c59bb468df1841578e76c0, type: 3}
       propertyPath: actionName
       value: "\u30B8\u30E3\u30F3\u30D7"
@@ -27628,6 +27639,10 @@ PrefabInstance:
       propertyPath: _startPoint
       value: 
       objectReference: {fileID: 6136088961019887839}
+    - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: backgroundManager
+      value: 
+      objectReference: {fileID: 298872116}
     - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerDiePartsManager
       value: 

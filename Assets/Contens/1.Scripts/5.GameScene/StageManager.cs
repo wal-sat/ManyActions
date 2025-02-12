@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] BreakableBlockManager breakableBlockManager;
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] WarpPointManager warpPointManager;
+    [SerializeField] BackgroundManager backgroundManager;
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
@@ -92,6 +93,7 @@ public class StageManager : MonoBehaviour
                 breakableBlockManager.Initialize();
                 recureCapsuleManager.Initialize();
                 warpPointManager.Initialize();
+                backgroundManager.Initialize();
 
                 S_GameInfo._instance.DeathCountIncrement();
                 gameSceneUI.UpdateDeathCount();
@@ -105,6 +107,7 @@ public class StageManager : MonoBehaviour
             FadeType.Diamond, 0.4f,0.1f,0.4f);  
     }
 
+    //ーーークリアした時の処理ーーー
     public void Door(SceneName sceneName)
     {
         StartCoroutine(CDoor(sceneName));
@@ -121,12 +124,6 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         S_SEManager._instance.Play("s_door");
-    }
-
-    //ーーークリア時の処理ーーー
-    public void Clear()
-    {
-
     }
 
     //ーーーポーズ時の処理ーーー

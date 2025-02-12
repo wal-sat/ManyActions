@@ -3347,6 +3347,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6965fe93e2d0b9f42816c875780cd7df, type: 3}
+--- !u!114 &423658848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1584583765352322926, guid: 5bc86962032e0f74a9ab853f4cbf338e, type: 3}
+  m_PrefabInstance: {fileID: 188990711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0c896d44d5f349a31332a3f4f12bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &440102625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6432,6 +6443,10 @@ PrefabInstance:
       propertyPath: _startPoint
       value: 
       objectReference: {fileID: 6136088961019887839}
+    - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: backgroundManager
+      value: 
+      objectReference: {fileID: 423658848}
     - target: {fileID: 2975278555070478909, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: playerDiePartsManager
       value: 
