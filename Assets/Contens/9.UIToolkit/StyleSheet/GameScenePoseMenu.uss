@@ -31,3 +31,36 @@
 .Panel--Open {
     translate: 0 0;
 }
+
+.ActionCard {
+    width: 252px;
+    height: 120px;
+    justify-content: flex-start;
+    align-self: center;
+    flex-direction: column-reverse;
+}
+
+.ActionIcon {
+    height: 100%;
+    width: 100%;
+    background-image: url("project://database/Assets/Contens/4.Sprites/UI/action.png?fileID=2800000&guid=856a52e9dfadfd64d9766b4da5372b03&type=3#action");
+    position: absolute;
+}
+
+.ActionLabel {
+    height: 30%;
+    width: 95%;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 32px;
+    -unity-text-align: middle-center;
+    color: rgb(22, 22, 22);
+    bottom: auto;
+    left: 2.5%;
+    margin-top: 0;
+}

@@ -20,7 +20,7 @@ public class PlayerActionManager : MonoBehaviour
     [SerializeField] PlayerActionBase[] playerActions;
     [SerializeField] private float INPUT_BLOCK_TIME;
 
-    private Dictionary<ActionKind, bool> _availableActions;
+    [HideInInspector] public Dictionary<ActionKind, bool> _availableActions;
 
     private bool _onUp;
     private bool _onDown;

@@ -1,11 +1,142 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Contens/9.UIToolkit/StyleSheet/GameScenePoseMenu.uss?fileID=7433441132597879392&amp;guid=a0b3035f2baf937408cfadb4850960c8&amp;type=3#GameScenePoseMenu" />
-    <ui:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.59); -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); visibility: hidden;">
-        <ui:VisualElement style="width: 40%; height: 40%; left: 30%; top: 30%; background-color: rgb(230, 230, 230); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; align-items: center; justify-content: space-around; align-self: auto; position: absolute; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+    <ui:VisualElement name="Root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.59); -unity-font-definition: initial; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); visibility: visible;">
+        <ui:VisualElement style="width: 18%; height: 50%; left: 3%; top: 25%; background-color: rgb(230, 230, 230); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; align-items: center; justify-content: space-around; align-self: auto; position: absolute; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+            <ui:VisualElement style="height: 5%;" />
             <ui:Label tabindex="-1" text="再開する" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MenuOptions0" class="Options" />
             <ui:Label tabindex="-1" text="自爆する" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MenuOptions1" class="Options" />
             <ui:Label tabindex="-1" text="せってい" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MenuOptions2" class="Options" />
             <ui:Label tabindex="-1" text="タイトルへ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MenuOptions3" class="Options" />
+            <ui:VisualElement style="height: 5%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" style="width: 74%; height: 74%; left: 23%; top: 13%; background-color: rgba(230, 230, 230, 0.71); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-around;">
+            <ui:VisualElement style="height: 16%; width: 100%; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="ActionCard_Title" style="translate: 0 0; width: 532px; height: 120px; justify-content: flex-start; align-self: center; flex-direction: column;">
+                    <ui:Label tabindex="-1" text="習得アクション一覧" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" style="height: 60%; width: 90%; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 36px; -unity-text-align: middle-center; color: rgb(22, 22, 22); left: 5%; margin-top: 0; top: 20%; border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; background-color: rgb(230, 230, 230);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_LR_Swap" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_LR.png?fileID=2800000&amp;guid=c1f7a639039f8764985265ffc45d0425&amp;type=3#ActionCard_LR&quot;);" />
+                    <ui:Label tabindex="-1" text="反転" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_LR_Kick" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_LR.png?fileID=2800000&amp;guid=c1f7a639039f8764985265ffc45d0425&amp;type=3#ActionCard_LR&quot;);" />
+                    <ui:Label tabindex="-1" text="キック" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_LR_Interaction" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_LR.png?fileID=2800000&amp;guid=c1f7a639039f8764985265ffc45d0425&amp;type=3#ActionCard_LR&quot;);" />
+                    <ui:Label tabindex="-1" text="インタラクション" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 16%; width: 100%; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="ActionCard_S_Jump" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_S.png?fileID=2800000&amp;guid=3a789a67d032a784da9bd4d5249c9fb1&amp;type=3#ActionCard_S&quot;);" />
+                    <ui:Label tabindex="-1" text="ジャンプ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_Up" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_Up.png?fileID=2800000&amp;guid=2dccefbc24de3f74b8a86a6df6eb37e6&amp;type=3#ActionCard_Up&quot;);" />
+                    <ui:Label tabindex="-1" text="調べる" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_Front" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_LeftRight.png?fileID=2800000&amp;guid=7298dec69ddba7347a1b7b87ea69e46b&amp;type=3#ActionCard_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="加速" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_Back" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_LeftRight.png?fileID=2800000&amp;guid=7298dec69ddba7347a1b7b87ea69e46b&amp;type=3#ActionCard_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="減速" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_Down" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_Down.png?fileID=2800000&amp;guid=f41c24fb3f2d4f24f8e1578613924ee5&amp;type=3#ActionCard_Down&quot;);" />
+                    <ui:Label tabindex="-1" text="しゃがむ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" enable-rich-text="false" class="ActionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 16%; width: 100%; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="ActionCard_S_DoubleJump" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_S.png?fileID=2800000&amp;guid=3a789a67d032a784da9bd4d5249c9fb1&amp;type=3#ActionCard_S&quot;);" />
+                    <ui:Label tabindex="-1" text="二段ジャンプ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_S_Up" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_S_Up.png?fileID=2800000&amp;guid=18af266de8e35e345a3b6efcba2879e4&amp;type=3#ActionCard_S_Up&quot;);" />
+                    <ui:Label tabindex="-1" text="大ジャンプ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_S_Front" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_S_LeftRight.png?fileID=2800000&amp;guid=4add9f650fe704d4199b62a875e3d184&amp;type=3#ActionCard_S_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="飛び込み" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_S_Back" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_S_LeftRight.png?fileID=2800000&amp;guid=4add9f650fe704d4199b62a875e3d184&amp;type=3#ActionCard_S_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="バックステップ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_S_Down" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_S_Down.png?fileID=2800000&amp;guid=d09ebe1d547eef248909531426ef351d&amp;type=3#ActionCard_S_Down&quot;);" />
+                    <ui:Label tabindex="-1" text="降りる" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 16%; width: 100%; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="ActionCard_E" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_E.png?fileID=2800000&amp;guid=ab6d0e4eb993104408dbaa35e8217949&amp;type=3#ActionCard_E&quot;);" />
+                    <ui:Label tabindex="-1" text="ホバー" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_E_Up" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_E_Up.png?fileID=2800000&amp;guid=0eb4aaac6f6fe72478cf2d58ac7f7c81&amp;type=3#ActionCard_E_Up&quot;);" />
+                    <ui:Label tabindex="-1" text="アップブリンク" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_E_Front" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_E_LeftRight.png?fileID=2800000&amp;guid=74e6f89903046e349afeb8d60b01ce80&amp;type=3#ActionCard_E_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="ブリンク" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_E_Back" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_E_LeftRight.png?fileID=2800000&amp;guid=74e6f89903046e349afeb8d60b01ce80&amp;type=3#ActionCard_E_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="バックブリンク" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_E_Down" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_E_Down.png?fileID=2800000&amp;guid=6f5ea9308ae8bdc418bfa80768f65e84&amp;type=3#ActionCard_E_Down&quot;);" />
+                    <ui:Label tabindex="-1" text="急降下" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 16%; width: 100%; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="ActionCard_W" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_W.png?fileID=2800000&amp;guid=3e16e1172d344a34da9afd1f8b8a8048&amp;type=3#ActionCard_W&quot;);" />
+                    <ui:Label tabindex="-1" text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_W_Up" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_W_Up.png?fileID=2800000&amp;guid=c9a522cea5b1bac4ebea00b9f511565b&amp;type=3#ActionCard_W_Up&quot;);" />
+                    <ui:Label tabindex="-1" text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_W_Front" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_W_LeftRight.png?fileID=2800000&amp;guid=7e7e6e7d5d04b0c48954930fbfcb01fd&amp;type=3#ActionCard_W_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_W_Back" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_W_LeftRight.png?fileID=2800000&amp;guid=7e7e6e7d5d04b0c48954930fbfcb01fd&amp;type=3#ActionCard_W_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_W_Down" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_W_Down.png?fileID=2800000&amp;guid=e10ec5fe220031245a00f7250a4b0cb0&amp;type=3#ActionCard_W_Down&quot;);" />
+                    <ui:Label tabindex="-1" text="-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="height: 16%; width: 100%; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="ActionCard_N" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_N.png?fileID=2800000&amp;guid=5c3c9703f47bbc049bc90624cd7c7a1a&amp;type=3#ActionCard_N&quot;);" />
+                    <ui:Label tabindex="-1" text="我慢" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_N_Up" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_N_Up.png?fileID=2800000&amp;guid=b63edcedf2d0c784dae3a4f21732b8c2&amp;type=3#ActionCard_N_Up&quot;);" />
+                    <ui:Label tabindex="-1" text="ポイントワープ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_N_Front" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_N_LeftRight.png?fileID=2800000&amp;guid=9c238860fe4c0054ba0d131456a086f7&amp;type=3#ActionCard_N_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="フロントワープ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_N_Back" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_N_LeftRight.png?fileID=2800000&amp;guid=9c238860fe4c0054ba0d131456a086f7&amp;type=3#ActionCard_N_LeftRight&quot;);" />
+                    <ui:Label tabindex="-1" text="バックワープ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ActionCard_N_Down" class="ActionCard">
+                    <ui:VisualElement name="ActionIcon" class="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/ActionIcon/ActionCard_N_Down.png?fileID=2800000&amp;guid=d7ae090bf7c72ea48b304d35720330d8&amp;type=3#ActionCard_N_Down&quot;);" />
+                    <ui:Label tabindex="-1" text="ダウンワープ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionLabel" class="ActionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="ConfirmPanel" class="Panel">
             <ui:VisualElement style="flex-grow: 0; width: 56%; height: 30%; margin-left: 0; padding-top: 0; margin-top: 0; background-color: rgb(230, 230, 230); flex-shrink: 0; margin-bottom: 0; margin-right: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; left: 22%; top: 35%; flex-direction: column; align-items: stretch; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px;">
