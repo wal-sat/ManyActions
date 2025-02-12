@@ -6751,6 +6751,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1345375194179284592}
     - target: {fileID: 579504073700405380, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: gameSceneUI
+      value: 
+      objectReference: {fileID: 698824362}
+    - target: {fileID: 579504073700405380, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
@@ -6758,6 +6762,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 1210245566329461512, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: gameSceneUI
+      value: 
+      objectReference: {fileID: 698824362}
     - target: {fileID: 1210245566329461512, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: playerMovement
       value: 
@@ -6858,6 +6866,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1345375194179284592}
+    - target: {fileID: 5715358549148932901, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: gameSceneUI
+      value: 
+      objectReference: {fileID: 698824362}
     - target: {fileID: 5715358549148932901, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: playerMovement
       value: 

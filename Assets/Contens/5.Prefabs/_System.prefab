@@ -54,6 +54,7 @@ MonoBehaviour:
   breakableBlockManager: {fileID: 6353006825012215195}
   recureCapsuleManager: {fileID: 7757875943116494195}
   warpPointManager: {fileID: 4044327520386478067}
+  backgroundManager: {fileID: 0}
   gameSceneUI: {fileID: 807373423503148999}
   gameScenePauseUIToolkit: {fileID: 856116540364350291}
 --- !u!1 &3260309678775942176
@@ -781,6 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 0}
   ActionCardTemplate: {fileID: 9197481963319205126, guid: 195b22ca409e95c4cb03bbb834dab9c2, type: 3}
+  isVisibleActionCount: 0
 --- !u!1 &8778883079044138257
 GameObject:
   m_ObjectHideFlags: 0

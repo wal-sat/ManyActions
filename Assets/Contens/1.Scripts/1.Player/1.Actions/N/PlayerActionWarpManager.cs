@@ -5,12 +5,22 @@ using UnityEngine;
 public class PlayerActionWarpManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] PlayerActionWarpBase[] warpActions;
     
     [HideInInspector] public int maxWarpTimes;
     [HideInInspector] public bool isLimited;
 
     private int _warpTimes;
+    int warpTimes
+    {
+        get => _warpTimes;
+        set
+        {
+            _warpTimes = value;
+            if (gameSceneUI != null) gameSceneUI.ChangeActionCount(ActionKind.N_Warp, value);
+        }
+    }
 
     private void Start()
     {
@@ -24,17 +34,17 @@ public class PlayerActionWarpManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _warpTimes = maxWarpTimes;
+        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) warpTimes = maxWarpTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
-        if (_warpTimes <= 0) 
+        if (warpTimes <= 0) 
         {
             isLimited = true;
             return;
         }
-        _warpTimes --;
+        warpTimes --;
         isLimited = false;
 
         foreach (var action in warpActions)
@@ -47,14 +57,18 @@ public class PlayerActionWarpManager : MonoBehaviour
 
     public void Recure()
     {
-        _warpTimes = maxWarpTimes;
+        warpTimes = maxWarpTimes;
     }
 
     public void ChangeMaxTimes(int times)
     {
-        if (times < maxWarpTimes) _warpTimes -= maxWarpTimes - times;
+        if (times < maxWarpTimes) warpTimes -= maxWarpTimes - times;
 
         maxWarpTimes = times;
+
+        if (gameSceneUI == null) return;
+        if (times == 0) gameSceneUI.VisibleActionCount(ActionKind.N_Warp, false);
+        else gameSceneUI.VisibleActionCount(ActionKind.N_Warp, true);
     }
 
     //ーーーUpWarpの処理ーーー

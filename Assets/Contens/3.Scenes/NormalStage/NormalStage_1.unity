@@ -6115,6 +6115,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1770091002004297346}
     - target: {fileID: 1210245566329461512, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: gameSceneUI
+      value: 
+      objectReference: {fileID: 698824362}
+    - target: {fileID: 1210245566329461512, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1770091002004297346}
