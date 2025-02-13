@@ -54,7 +54,9 @@ MonoBehaviour:
   breakableBlockManager: {fileID: 6353006825012215195}
   recureCapsuleManager: {fileID: 7757875943116494195}
   warpPointManager: {fileID: 4044327520386478067}
+  backgroundManager: {fileID: 0}
   gameSceneUI: {fileID: 807373423503148999}
+  gameScenePauseMenu: {fileID: 1679779317379847249}
   gameScenePauseUIToolkit: {fileID: 856116540364350291}
 --- !u!1 &3260309678775942176
 GameObject:

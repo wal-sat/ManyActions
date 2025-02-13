@@ -11,7 +11,7 @@ public class GameScenePauseMenu : MonoBehaviour
     public Action<GameSceneMenuStatus> ChangeGameSceneMenuStatus;
 
     private int _menuIndex;
-    int menuIndex
+    public int menuIndex
     {
         get => _menuIndex;
         set
@@ -25,8 +25,9 @@ public class GameScenePauseMenu : MonoBehaviour
     private void Start()
     {
         menuIndex = 0;
-
+        
         gameScenePauseUIToolkit.RootSetActive(false);
+        gameScenePauseUIToolkit.MenuOptionsUnSelect();
     }
 
     public void CursorUp()
@@ -52,13 +53,13 @@ public class GameScenePauseMenu : MonoBehaviour
                 stageManager.Restart();
             break;
             case 2:
-                gameScenePauseUIToolkit.MenuOptionsUnSelected();
+                gameScenePauseUIToolkit.MenuOptionsUnSelect();
                 S_SettingInfo._instance.OpenOrCloseSettingPanel(true);
                 ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseSetting);
                 S_SEManager._instance.Play("u_select");
             break;
             case 3:
-                gameScenePauseUIToolkit.MenuOptionsUnSelected();
+                gameScenePauseUIToolkit.MenuOptionsUnSelect();
                 gameScenePauseUIToolkit.ConfirmOptionsSelect(0);
                 gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(true);
                 ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseConfirm);

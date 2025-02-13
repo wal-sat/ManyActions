@@ -53,7 +53,7 @@ public class GameScenePauseUIToolkit : MonoBehaviour
             StartCoroutine(CInvokeRealtime( () => _menuOptions[index].ToggleInClassList("Options--Selected--Animate") ));
         }
     }
-    public void MenuOptionsUnSelected()
+    public void MenuOptionsUnSelect()
     {
         for (int i = 0; i < _menuOptions.Length; i++) 
         {

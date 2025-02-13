@@ -18,6 +18,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] WarpPointManager warpPointManager;
     [SerializeField] BackgroundManager backgroundManager;
     [SerializeField] GameSceneUI gameSceneUI;
+    [SerializeField] GameScenePauseMenu gameScenePauseMenu;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
     public Action<GameSceneStatus> ChangeGameSceneStatus;
@@ -121,7 +122,7 @@ public class StageManager : MonoBehaviour
 
         S_LoadSceneSystem._instance.LoadScene(sceneName);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.45f);
 
         S_SEManager._instance.Play("s_door");
     }
@@ -135,6 +136,7 @@ public class StageManager : MonoBehaviour
         ChangeGameSceneStatus(GameSceneStatus.menu);
         ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
         gameScenePauseUIToolkit.RootSetActive(true);
+        gameScenePauseUIToolkit.MenuOptionsSelect(gameScenePauseMenu.menuIndex);
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
         S_SettingInfo._instance.OpenOrCloseSettingPanel(false);
 
@@ -147,6 +149,7 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1.0f;
         ChangeGameSceneStatus(_gameSceneStatusPast);
         gameScenePauseUIToolkit.RootSetActive(false);
+        gameScenePauseUIToolkit.MenuOptionsUnSelect();
 
         S_GameInfo._instance.onTimer = true;
     }
