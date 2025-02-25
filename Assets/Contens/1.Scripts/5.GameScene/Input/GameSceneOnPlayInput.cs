@@ -78,7 +78,7 @@ public class GameSceneOnPlayInput : MonoBehaviour
         //全てのbool値をfalseにした方がいいのかな？わからん、、、
     }
 
-    //GameSceneInputSystemのFixUpdate()から呼ばれる
+    //GameSceneInputManagerのFixUpdate()から呼ばれる
     public void OnPlayInputUpdate()
     {
         TracePast();

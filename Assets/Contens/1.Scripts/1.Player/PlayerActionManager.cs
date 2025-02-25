@@ -202,7 +202,7 @@ public class PlayerActionManager : MonoBehaviour
             if (_WTimer > INPUT_BLOCK_TIME) _WBlock = false;
         }
 
-        if (gameSceneOnPlayInput.onN_Up && _availableActions[ActionKind.N_UpWarp]) _onW_Up = true;
+        if (gameSceneOnPlayInput.onN_Up && _availableActions[ActionKind.N_UpWarp]) _onN_Up = true;
         else if (gameSceneOnPlayInput.onN_Left && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Left = true;
         else if (gameSceneOnPlayInput.onN_Right && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Right = true;
         else if (gameSceneOnPlayInput.onN_Down && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Down = true;
