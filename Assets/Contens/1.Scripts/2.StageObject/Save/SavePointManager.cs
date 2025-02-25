@@ -5,11 +5,12 @@ using UnityEngine;
 public class SavePointManager : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
+    [SerializeField] GearManager gearManager;
     [SerializeField] SavePoint _startPoint;
     [SerializeField] GameObject Player;
     [HideInInspector] public SavePoint savePoint;
 
-    private void Start()
+    private void Awake()
     {
         savePoint = _startPoint;
     }
@@ -20,6 +21,8 @@ public class SavePointManager : MonoBehaviour
         {
             savePoint = newSavePoint;
         }
+
+        gearManager.OnSave();
     }
 
     public void TeleportStartPosition()

@@ -17,14 +17,11 @@ public class N_LeftRightDown_Warp : PlayerActionWarpBase
         if (assignedInput == InputKind.N_Down)
         {
             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y - _distance, Player.transform.position.z);
-            rb.velocity = new Vector2(0f, 0f);
-
             return;
         }
         else if (assignedInput == InputKind.N_Left) _distance *= -1;
 
         Player.transform.position = new Vector3(Player.transform.position.x + _distance, Player.transform.position.y, Player.transform.position.z);
-        rb.velocity = new Vector2(0f, 0f);   
     }
 
     public override void InitAction()

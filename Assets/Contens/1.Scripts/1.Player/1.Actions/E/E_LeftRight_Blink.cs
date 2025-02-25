@@ -14,7 +14,7 @@ public class E_LeftRight_Blink : PlayerActionBlinkBase
     private float _gravityScale;
     private bool _wasFacingRight;
 
-    private void Start()
+    private void Awake()
     {
         _gravityScale = rb.gravityScale;
     }
@@ -59,6 +59,8 @@ public class E_LeftRight_Blink : PlayerActionBlinkBase
         _wasFacingRight = playerMovement.isFacingRight;
 
         rb.velocity = new Vector3(0f, 0f, 0f);
+
+        S_SEManager._instance.Play("p_blink");
     }
 
     public override void InitAction()

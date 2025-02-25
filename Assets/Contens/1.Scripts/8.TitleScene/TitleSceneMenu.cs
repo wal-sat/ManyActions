@@ -15,6 +15,12 @@ public class TitleSceneMenu : MonoBehaviour
         get => _menuIndex;
         set
         {
+            //つづきからを消すため
+            if (value == 1) {
+                if (_menuIndex == 0) value = 2;
+                if (_menuIndex == 2) value = 0;
+            }
+
             _menuIndex = Mathf.Clamp(value, 0, 3);
 
             titleSceneUIToolkit.MenuOptionsSelect(_menuIndex);
@@ -23,17 +29,21 @@ public class TitleSceneMenu : MonoBehaviour
 
     private void Start()
     {   
-        //もしセーブデータがあるなら、１にする。
+        Time.timeScale = 1;
         menuIndex = 0;
+
+        S_BGMManager._instance.Play("title",1f);
     }
 
     public void CursorUp()
     {
         menuIndex --;
+        S_SEManager._instance.Play("u_cursor");
     }   
     public void CursorDown()
     {
         menuIndex ++;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void CursorSelect()
     {
@@ -48,12 +58,17 @@ public class TitleSceneMenu : MonoBehaviour
             break;
             case 2:
                 ChangeStatus(TitleSceneStatus.setting);
-                titleSceneUIToolkit.OpenOrCloseSettingPanel(true);
+                titleSceneUIToolkit.MenuOptionsUnSelected();
+                S_SettingInfo._instance.OpenOrCloseSettingPanel(true);
             break;
             case 3:
                 ChangeStatus(TitleSceneStatus.exit);
+                titleSceneUIToolkit.ExitOptionsSelect(0);
+                titleSceneUIToolkit.MenuOptionsUnSelected();
                 titleSceneUIToolkit.OpenOrCloseExitPanel(true);
             break;
         }
+
+        S_SEManager._instance.Play("u_select");
     }
 }

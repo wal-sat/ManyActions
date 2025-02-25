@@ -30,7 +30,6 @@ public class SelectDifficultyInputManager : MonoBehaviour
     }
     private void Start()
     {
-        S_InputSystem._instance.canInput = true;
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
         
         _selectDifficultySceneStatus = SelectDifficultySceneStatus.menu;
@@ -87,7 +86,7 @@ public class SelectDifficultyInputManager : MonoBehaviour
                 selectDifficultyMenu.CursorCancel();
             break;
             case SelectDifficultySceneStatus.confirm:
-                selectDifficultyConfirm.CursorCancel();
+                selectDifficultyConfirm.CursorCancel(_difficultyLevel);
             break;
         }
         _cancelPast = true;

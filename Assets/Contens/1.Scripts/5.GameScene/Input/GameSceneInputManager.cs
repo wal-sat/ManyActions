@@ -21,10 +21,12 @@ public class GameSceneInputManager : MonoBehaviour
 
     private void Start()
     {
-        S_InputSystem._instance.canInput = true;
-        S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
+        
+        #if UNITY_EDITOR
+            S_InputSystem._instance.canInput = true;
+        #endif
 
-        _gameSceneStatus = GameSceneStatus.onPlay;
+        S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
     }
 
     private void Update()
@@ -56,6 +58,7 @@ public class GameSceneInputManager : MonoBehaviour
             break;
             case GameSceneStatus.anyKey:
                 S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
+                gameSceneAnyKeyInput.Initialize();
             break;
         }
     }

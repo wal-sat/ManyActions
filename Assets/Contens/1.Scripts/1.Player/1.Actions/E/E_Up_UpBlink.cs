@@ -12,7 +12,7 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     private bool _isBlinking;
     private float _gravityScale;
 
-    private void Start()
+    private void Awake()
     {
         _gravityScale = rb.gravityScale;
     }
@@ -48,6 +48,8 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
         playerMovement.isLockMoving = true;
 
         rb.velocity = new Vector3(0f, 0f, 0f);
+
+        S_SEManager._instance.Play("p_upBlink");
     }
 
     public override void InitAction()

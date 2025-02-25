@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] public PlayerActionManager PlayerActionManager;
     [SerializeField] PlayerPreventStuck playerPreventStuck;
+    [SerializeField] PlayerOutCameraDie PlayerOutCameraDie;
 
     [SerializeField] public GameObject Player;
 
@@ -28,15 +29,16 @@ public class PlayerManager : MonoBehaviour
             playerMovement.MovementUpdate();
             PlayerActionManager.ActionUpdate();
             playerPreventStuck.PreventStuckUpdate();
+            PlayerOutCameraDie.OutCameraUpdate();
         }
     }
 
-    public void Initialize(bool facingRight)
+    public void Initialize(bool isFacingRight)
     {
         isMovingPlayer = false;
 
-        playerMovement.Initialize(facingRight);
-        playerAnimationManager.Initialize();
+        playerMovement.Initialize(isFacingRight);
+        playerAnimationManager.Initialize(isFacingRight);
         PlayerActionManager.Initialize();
         playerPreventStuck.Initialize();
     }

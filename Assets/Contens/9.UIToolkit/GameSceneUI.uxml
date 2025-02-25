@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Contens/9.UIToolkit/StyleSheet/GameSceneUI.uss?fileID=7433441132597879392&amp;guid=d09468ae015505e41a2b75dc66897bb9&amp;type=3#GameSceneUI" />
+    <ui:VisualElement name="Root" class="Visible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
+        <ui:VisualElement style="height: 80%; flex-direction: row;">
+            <ui:VisualElement style="width: 33%;">
+                <ui:VisualElement name="GearCount" class="Card">
+                    <ui:VisualElement name="Bar" class="CardBar" />
+                    <ui:VisualElement name="GearIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/Stage/gear_default.PNG?fileID=2800000&amp;guid=561a9dbff312faa4591b483d9f084dee&amp;type=3#gear_default&quot;);" />
+                    <ui:Label tabindex="-1" text="02" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GearLabel" class="CardLabel" style="width: 30%;" />
+                    <ui:Label tabindex="-1" text="(+2)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GearPlusLabel" class="CardLabel" style="width: 30%; margin-left: 0; font-size: 28px; -unity-text-align: lower-left; height: 60%; top: 20%;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="DeathCount" class="Card">
+                    <ui:VisualElement name="Bar" class="CardBar" />
+                    <ui:VisualElement name="DeathIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/Player/Die_Parts/die_parts_0.png?fileID=2800000&amp;guid=d51e9d226926554409b3858eae42cd6a&amp;type=3#die_parts_0&quot;); scale: 2 2;" />
+                    <ui:Label tabindex="-1" text="32" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DeathLabel" class="CardLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="align-items: center; width: 34%;">
+                <ui:VisualElement name="TimeCount" class="Card" style="margin-left: 0;">
+                    <ui:VisualElement name="Bar" class="CardBar" style="background-color: rgba(135, 78, 110, 0);" />
+                    <ui:VisualElement name="TimeIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/TimeIcon.PNG?fileID=2800000&amp;guid=4ce8354bd22393c469bceb9c162ee091&amp;type=3#TimeIcon&quot;); scale: 2 2;" />
+                    <ui:Label tabindex="-1" text="00:32" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TimeLabel" class="CardLabel" />
+                    <ui:VisualElement name="Bar" class="CardBar" style="background-color: rgb(135, 78, 110); position: absolute; width: 106%; left: -3%; height: 15%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 33%;">
+                <ui:VisualElement name="ActionCardInventory" style="width: 98%; height: 98%; margin-top: 2%; margin-right: 2%; align-items: flex-end;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="height: 20%;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="KidouUI" class="Visible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/KidouUI.png?fileID=2800000&amp;guid=afdaa9e7eb283fe4da79369e819d9b5e&amp;type=3#KidouUI&quot;);" />
+    <ui:VisualElement name="SleepCameraUI" class="Visible Unvisible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/SleepCameraUI.png?fileID=2800000&amp;guid=10443a9399ffa0746a00e6e489063f92&amp;type=3#SleepCameraUI&quot;);" />
+</ui:UXML>

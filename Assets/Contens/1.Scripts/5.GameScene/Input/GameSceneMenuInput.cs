@@ -7,7 +7,7 @@ public enum GameSceneMenuStatus { pauseMenu, pauseSetting, pauseConfirm, clear }
 public class GameSceneMenuInput : MonoBehaviour
 {
     [SerializeField] GameScenePauseMenu gameScenePauseMenu;
-    [SerializeField] GameScenePauseSetting GameScenePauseSetting;
+    [SerializeField] GameScenePauseSetting gameScenePauseSetting;
     [SerializeField] GameScenePauseConfirm gameScenePauseConfirm;
 
     [SerializeField] StageManager stageManager;
@@ -24,6 +24,7 @@ public class GameSceneMenuInput : MonoBehaviour
     private void Awake()
     {
         gameScenePauseMenu.ChangeGameSceneMenuStatus = ChangeStatus;
+        gameScenePauseSetting.ChangeGameSceneMenuStatus = ChangeStatus;
         gameScenePauseConfirm.ChangeGameSceneMenuStatus = ChangeStatus;
 
         stageManager.ChangeGameSceneMenuStatus = ChangeStatus;
@@ -69,6 +70,7 @@ public class GameSceneMenuInput : MonoBehaviour
                 gameScenePauseMenu.CursorSelect();
             break;
             case GameSceneMenuStatus.pauseSetting:
+                gameScenePauseSetting.CursorSelect();
             break;
             case GameSceneMenuStatus.pauseConfirm:
                 gameScenePauseConfirm.CursorSelect();
@@ -86,6 +88,7 @@ public class GameSceneMenuInput : MonoBehaviour
                 gameScenePauseMenu.CursorCancel();
             break;
             case GameSceneMenuStatus.pauseSetting:
+                gameScenePauseSetting.CursorCancel();
             break;
             case GameSceneMenuStatus.pauseConfirm:
                 gameScenePauseConfirm.CursorCancel();
@@ -103,6 +106,7 @@ public class GameSceneMenuInput : MonoBehaviour
                 gameScenePauseMenu.CursorUp();
             break;
             case GameSceneMenuStatus.pauseSetting:
+                gameScenePauseSetting.CursorUp();
             break;
             case GameSceneMenuStatus.pauseConfirm:
             break;
@@ -119,6 +123,7 @@ public class GameSceneMenuInput : MonoBehaviour
                 gameScenePauseMenu.CursorDown();
             break;
             case GameSceneMenuStatus.pauseSetting:
+                gameScenePauseSetting.CursorDown();
             break;
             case GameSceneMenuStatus.pauseConfirm:
             break;
@@ -134,6 +139,7 @@ public class GameSceneMenuInput : MonoBehaviour
             case GameSceneMenuStatus.pauseMenu:
             break;
             case GameSceneMenuStatus.pauseSetting:
+                gameScenePauseSetting.CursorLeft();
             break;
             case GameSceneMenuStatus.pauseConfirm:
                 gameScenePauseConfirm.CursorLeft();
@@ -150,6 +156,7 @@ public class GameSceneMenuInput : MonoBehaviour
             case GameSceneMenuStatus.pauseMenu:
             break;
             case GameSceneMenuStatus.pauseSetting:
+                gameScenePauseSetting.CursorRight();
             break;
             case GameSceneMenuStatus.pauseConfirm:
                 gameScenePauseConfirm.CursorRight();

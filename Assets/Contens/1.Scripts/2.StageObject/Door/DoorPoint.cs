@@ -6,6 +6,7 @@ public class DoorPoint : MonoBehaviour
 {
     [SerializeField] StageManager stageManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
+    [SerializeField] GameObject ParticleBurst;
     [SerializeField] SceneName sceneName;
 
     private void Awake()
@@ -15,6 +16,10 @@ public class DoorPoint : MonoBehaviour
 
     private void triggerEnter()
     {
+        Instantiate(ParticleBurst, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 5), Quaternion.Euler(-90, 0, 0));
+
+        S_SEManager._instance.Play("s_savePoint");
+        
         stageManager.Door(sceneName);
     }
 }

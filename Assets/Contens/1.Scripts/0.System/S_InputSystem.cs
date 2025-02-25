@@ -11,7 +11,8 @@ public class S_InputSystem : Singleton<S_InputSystem>
 
     [HideInInspector] public bool canInput;
 
-    [HideInInspector] public Vector2 direction;
+    [HideInInspector] public Vector2 leftDirection;
+    [HideInInspector] public Vector2 rightDirection;
     [HideInInspector] public bool isPushingSouth;
     [HideInInspector] public bool isPushingEast;
     [HideInInspector] public bool isPushingWest;
@@ -37,14 +38,6 @@ public class S_InputSystem : Singleton<S_InputSystem>
 
         InputActionMap selectedMap = inputActionAsset.FindActionMap(actionMapName);
         if (selectedMap != null) selectedMap.Enable();
-
-        foreach (var _actionMap in inputActionAsset.actionMaps)
-        {
-            if (_actionMap.enabled)
-            {
-                Debug.Log("現在有効なAction Map: " + _actionMap.name);
-            }
-        }
     }
 
     public ActionMapKind CurrentActionMap()
@@ -61,18 +54,31 @@ public class S_InputSystem : Singleton<S_InputSystem>
     }
 
     //ーーーーーPLayer Mapーーーーー
-    public void Direction(InputAction.CallbackContext context)
+    public void LeftDirection(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            direction = NormalizeDirection( context.ReadValue<Vector2>() );
+            leftDirection = NormalizeDirection( context.ReadValue<Vector2>() );
         }
         else if (context.canceled)
         {
-            direction = Vector2.zero;
+            leftDirection = Vector2.zero;
         }
 
-        if (!canInput) direction = Vector2.zero;
+        if (!canInput) leftDirection = Vector2.zero;
+    }
+    public void RightDirection(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            rightDirection = NormalizeDirection( context.ReadValue<Vector2>() );
+        }
+        else if (context.canceled)
+        {
+            rightDirection = Vector2.zero;
+        }
+
+        if (!canInput) rightDirection = Vector2.zero;
     }
     public void ActionSouth(InputAction.CallbackContext context)
     {
@@ -151,9 +157,9 @@ public class S_InputSystem : Singleton<S_InputSystem>
     private Vector2 NormalizeDirection(Vector2 direction)
     {
         if (direction.x > 0.5f) return Vector2.right;
-        if (direction.x < -0.5f) return Vector2.left;
-        if (direction.y > 0.5f) return Vector2.up;
-        if (direction.y < -0.5f) return Vector2.down;
+        else if (direction.x < -0.5f) return Vector2.left;
+        else if (direction.y > 0.5f) return Vector2.up;
+        else if (direction.y < -0.5f) return Vector2.down;
 
         return Vector2.zero;
     }

@@ -6,17 +6,30 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
-    [SerializeField] PlayerDiePartsManager playerDiePartsManager;
+    [SerializeField] public PlayerDiePartsManager playerDiePartsManager;
     [SerializeField] PlayerExplosionAnimation playerExplosionAnimation;
 
-
     [SerializeField] SavePointManager savePointManager;
+    [SerializeField] GearManager gearManager;
+    [SerializeField] ActionCassetteManager actionCassetteManager;
+    [SerializeField] ButtonManager buttonManager;
+    [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] RecureCapsuleManager recureCapsuleManager;
+    [SerializeField] WarpPointManager warpPointManager;
+    [SerializeField] BackgroundManager backgroundManager;
+    [SerializeField] GameSceneUI gameSceneUI;
+    [SerializeField] GameScenePauseMenu gameScenePauseMenu;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
 
     public Action<GameSceneStatus> ChangeGameSceneStatus;
     public Action<GameSceneMenuStatus> ChangeGameSceneMenuStatus;
 
     private GameSceneStatus _gameSceneStatusPast;
+
+    private void Awake()
+    {
+        gearManager.gameSceneUI = gameSceneUI;
+    }
 
     private void Start()
     {
@@ -28,6 +41,10 @@ public class StageManager : MonoBehaviour
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
         savePointManager.TeleportStartPosition();
+        playerManager.Initialize( savePointManager.savePoint.facingRight );
+        
+        gameSceneUI.UpdateDeathCount();
+        gameSceneUI.SwitchKidouUIVisible(true);
     }
 
     //ーーー起動時の処理ーーー
@@ -36,6 +53,10 @@ public class StageManager : MonoBehaviour
     {
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
+
+        gameSceneUI.SwitchKidouUIVisible(false);
+
+        S_SEManager._instance.Play("p_kidou");
     }
 
     //ーーーやられた時の処理ーーー
@@ -56,30 +77,54 @@ public class StageManager : MonoBehaviour
         
         playerDiePartsManager.Die(playerPosition);
 
+        S_SEManager._instance.Play("p_explosion");
+
         yield return new WaitForSeconds(1.1f);
 
+        S_SEManager._instance.Play("u_restart");
         S_FadeManager._instance.Fade(
-            ()=>{
+            ()=>
+            {
                 savePointManager.TeleportRestartPosition();
                 playerManager.Player.SetActive(true);
-                }, 
-            ()=>{
+
+                gearManager.Initialize();
+                actionCassetteManager.Initialize();
+                buttonManager.Initialize();
+                breakableBlockManager.Initialize();
+                recureCapsuleManager.Initialize();
+                warpPointManager.Initialize();
+                backgroundManager.Initialize();
+
+                S_GameInfo._instance.DeathCountIncrement();
+                gameSceneUI.UpdateDeathCount();
+                gameSceneUI.SwitchUIVisible(true);
+            }, 
+            ()=>
+            {
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
             }, 
             FadeType.Diamond, 0.4f,0.1f,0.4f);  
     }
 
+    //ーーークリアした時の処理ーーー
     public void Door(SceneName sceneName)
     {
-        playerManager.Door();
-        S_LoadSceneSystem._instance.LoadScene(sceneName);
+        StartCoroutine(CDoor(sceneName));
     }
-
-    //ーーークリア時の処理ーーー
-    public void Clear()
+    IEnumerator CDoor(SceneName sceneName)
     {
+        playerManager.Door();
+        gearManager.OnSave();
 
+        yield return new WaitForSeconds(0.2f);
+
+        S_LoadSceneSystem._instance.LoadScene(sceneName);
+
+        yield return new WaitForSeconds(0.45f);
+
+        S_SEManager._instance.Play("s_door");
     }
 
     //ーーーポーズ時の処理ーーー
@@ -91,13 +136,21 @@ public class StageManager : MonoBehaviour
         ChangeGameSceneStatus(GameSceneStatus.menu);
         ChangeGameSceneMenuStatus(GameSceneMenuStatus.pauseMenu);
         gameScenePauseUIToolkit.RootSetActive(true);
+        gameScenePauseUIToolkit.MenuOptionsSelect(gameScenePauseMenu.menuIndex);
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
-        gameScenePauseUIToolkit.OpenOrCloseSettingPanel(false);
+        S_SettingInfo._instance.OpenOrCloseSettingPanel(false);
+
+        S_GameInfo._instance.onTimer = false;
+
+        S_SEManager._instance.Play("u_pause");
     }
     public void ClosePausePanel()
     {
         Time.timeScale = 1.0f;
         ChangeGameSceneStatus(_gameSceneStatusPast);
         gameScenePauseUIToolkit.RootSetActive(false);
+        gameScenePauseUIToolkit.MenuOptionsUnSelect();
+
+        S_GameInfo._instance.onTimer = true;
     }
 }

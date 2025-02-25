@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Contens/8.UIToolkit/SelectDifficulty.uss?fileID=7433441132597879392&amp;guid=c1264c9a2157b3b4182149e19f9fff8b&amp;type=3#SelectDifficulty" />
-    <ui:VisualElement name="VisualElement" style="background-color: rgb(0, 0, 0); width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/7.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
+    <Style src="project://database/Assets/Contens/9.UIToolkit/StyleSheet/SelectDifficulty.uss?fileID=7433441132597879392&amp;guid=c1264c9a2157b3b4182149e19f9fff8b&amp;type=3#SelectDifficulty" />
+    <ui:VisualElement name="VisualElement" style="background-color: rgb(0, 0, 0); width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
         <ui:VisualElement style="flex-grow: 1; width: 100%; height: 30%; align-items: center; justify-content: center;">
             <ui:Label tabindex="-1" text="モードのせんたく" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 60px; color: rgb(238, 238, 238); -unity-font-style: normal; transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s;" />
         </ui:VisualElement>
@@ -10,10 +10,13 @@
                     <ui:Label tabindex="-1" text="ノーマルモード" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="font-size: 45px;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; height: 50%;">
-                    <ui:VisualElement name="VisualElement" style="background-color: rgb(0, 0, 0); height: 100%; width: 50%; top: 0; left: 25%;" />
+                    <ui:VisualElement style="background-color: rgb(150, 150, 150); position: absolute; width: 60%; height: 100%; left: 20%;" />
+                    <ui:VisualElement style="background-color: rgba(255, 255, 255, 0); height: 100%; width: 50%; top: 0; left: 25%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/NormalStageIcon.png?fileID=2800000&amp;guid=848c52e78c4f936449dde1d1ff0b4fb4&amp;type=3#NormalStageIcon&quot;); position: absolute;" />
+                    <ui:VisualElement name="NormalStageIcon_sleep" class="StageIcon--on" />
+                    <ui:VisualElement name="NormalStageIcon_selected" class="StageIcon--on" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/NormalStageIcon_selected.png?fileID=2800000&amp;guid=eb1d514e645b0d841acf162b0cd67aa8&amp;type=3#NormalStageIcon_selected&quot;);" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; height: 25%; align-items: center; justify-content: center;">
-                    <ui:Label tabindex="-1" text="はじめてあそぶ人向け" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 35px;" />
+                    <ui:Label tabindex="-1" text="たのしくプレイしたい人向け" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 35px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Card_1" class="Card" style="margin-left: 5%;">
@@ -21,7 +24,10 @@
                     <ui:Label tabindex="-1" text="エキストラモード" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 45px;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; height: 50%;">
-                    <ui:VisualElement name="VisualElement" style="background-color: rgb(0, 0, 0); height: 100%; width: 50%; top: 0; left: 25%;" />
+                    <ui:VisualElement style="background-color: rgb(150, 150, 150); position: absolute; width: 60%; height: 100%; left: 20%;" />
+                    <ui:VisualElement style="background-color: rgba(255, 255, 255, 0); height: 100%; width: 50%; top: 0; left: 25%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/ExtraStageIcon.png?fileID=2800000&amp;guid=3586aa7cb92cb624896a4049a77332d9&amp;type=3#ExtraStageIcon&quot;); position: absolute;" />
+                    <ui:VisualElement name="ExtraStageIcon_sleep" class="StageIcon--on" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/ExtraStageIcon_sleep.png?fileID=2800000&amp;guid=f280e4034fc3f194fab990b7e90a921a&amp;type=3#ExtraStageIcon_sleep&quot;);" />
+                    <ui:VisualElement name="ExtraStageIcon_selected" class="StageIcon--on" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/SelectDifficulty/ExtraStageIcon_selected.png?fileID=2800000&amp;guid=ee83b662ef26c2d4fbce269fd3f6869d&amp;type=3#ExtraStageIcon_selected&quot;);" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; height: 25%; align-items: center; justify-content: center;">
                     <ui:Label tabindex="-1" text="むずかしさを求める人向け" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 35px;" />

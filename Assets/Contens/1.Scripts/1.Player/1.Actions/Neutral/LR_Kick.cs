@@ -7,9 +7,14 @@ public class LR_Kick : PlayerActionBase
     [SerializeField] Rigidbody2D rb;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
+    [SerializeField] GameObject kick;
+    [SerializeField] LR_Swap lr_Swap;
     [SerializeField] float WALLKICKJUMP_POWER;
     [SerializeField] private float JUMP_CANCEL_POWER;
     [SerializeField] float BUFFER_TIME;
+
+    private PlayerKickAnimation playerKickAnimation;
+    private Collider2D kickBall;
 
     private float _timer;
     private bool _onTimer;
@@ -19,6 +24,11 @@ public class LR_Kick : PlayerActionBase
     {
         if (base.assignedInput == InputKind.L) playerMovement.WallKickJump_L = WallKickJump;
         if (base.assignedInput == InputKind.R) playerMovement.WallKickJump_R = WallKickJump;
+
+        playerKickAnimation = kick.GetComponent<PlayerKickAnimation>();
+        kickBall = kick.GetComponent<Collider2D>();
+
+        kickBall.enabled = false;
     }
     private void FixedUpdate()
     {
@@ -39,10 +49,17 @@ public class LR_Kick : PlayerActionBase
         _timer = 0;
         _onTimer = true;
 
+        kickBall.enabled = true;
+        playerKickAnimation.AnimationStart();
+
         playerMovement.isKicking = true;
+
+        S_SEManager._instance.Play("p_kick");
     }
     private void EndKick()
     {
+        kickBall.enabled = false;
+
         playerMovement.isKicking = false;
     }
 
@@ -56,6 +73,8 @@ public class LR_Kick : PlayerActionBase
 
     public override void InitAction()
     {
+        if (lr_Swap.isSwaping) return;
+
         if (base.assignedInput == InputKind.L && !playerMovement.isFacingRight) InitKick();
         if (base.assignedInput == InputKind.R && playerMovement.isFacingRight) InitKick();
     }

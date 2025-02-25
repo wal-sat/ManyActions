@@ -5,14 +5,18 @@ using UnityEngine;
 public class ActionCassette : MonoBehaviour
 {
     [SerializeField] PlayerManager playerManager;
+    [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
     [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
     [SerializeField] PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] ActionCassetteView actionCassetteView;
     [SerializeField] StageActionData stageActionData;
-
+    [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] float COOL_TIME;
+    [SerializeField] string actionName;
+    [SerializeField] Sprite actionIcon;
+
 
     private float _timer;
     private bool _onTimer;
@@ -22,6 +26,7 @@ public class ActionCassette : MonoBehaviour
     {
         _isEnable = true;
 
+        actionCassetteManager.Register(this);
         stageObjectCollisionArea.triggerEnter = triggerEnter;
     }
     private void FixedUpdate()
@@ -34,6 +39,7 @@ public class ActionCassette : MonoBehaviour
             {
                 _onTimer = false;
                 _isEnable = true;
+                actionCassetteView.EnableView(true);
             }
         }
     }
@@ -42,16 +48,24 @@ public class ActionCassette : MonoBehaviour
     {
         if (_isEnable)
         {
+            _timer = 0;
             _onTimer = true;
             _isEnable = false;
 
-            actionCassetteView.OnRecure(COOL_TIME);
+            actionCassetteView.EnableView(false);
 
             playerManager.PlayerActionManager.EnableActions(stageActionData);
 
-            playerActionJumpManager.Recure();
-            playerActionBlinkManager.Recure();
-            playerActionWarpManager.Recure();
+            gameSceneUI.MakeActionCard(true, actionName, actionIcon);
+
+            S_SEManager._instance.Play("s_getActionCassette");
         }
+    }
+
+    public void Initialize()
+    {
+        _onTimer = false;
+        _isEnable = true;
+        actionCassetteView.EnableView(true);
     }
 }

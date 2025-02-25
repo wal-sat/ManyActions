@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Recure : MonoBehaviour
+public class RecureCapsule : MonoBehaviour
 {
+    [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] RecureCapsuleView recureCapsuleView;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
@@ -20,6 +21,7 @@ public class Recure : MonoBehaviour
     {
         _canRecure = true;
 
+        recureCapsuleManager.Register(this);
         stageObjectCollisionArea.triggerEnter = TriggerEnter;
     }
     private void FixedUpdate()
@@ -32,6 +34,7 @@ public class Recure : MonoBehaviour
             {
                 _onTimer = false;
                 _canRecure = true;
+                recureCapsuleView.EnableView(true);
             }
         }
     }
@@ -40,14 +43,24 @@ public class Recure : MonoBehaviour
     {
         if (_canRecure)
         {
+            _timer = 0;
             _onTimer = true;
             _canRecure = false;
 
-            recureCapsuleView.OnRecure(COOL_TIME);
+            recureCapsuleView.EnableView(false);
 
             playerActionJumpManager.Recure();
             playerActionBlinkManager.Recure();
             playerActionWarpManager.Recure();
+
+            S_SEManager._instance.Play("s_recureCapsule");
         }
+    }
+
+    public void Initialize()
+    {
+        _onTimer = false;
+        _canRecure = true;
+        recureCapsuleView.EnableView(true);
     }
 }

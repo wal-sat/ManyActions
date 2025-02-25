@@ -35,6 +35,8 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
 
         playerMovement.isLockMoving = true;
         rb.velocity = new Vector3(_speed * Time.deltaTime, JUMP_POWER * Time.deltaTime, 0);
+
+        S_SEManager._instance.Play("p_backJump");
     }
     private void JunpEnd()
     {

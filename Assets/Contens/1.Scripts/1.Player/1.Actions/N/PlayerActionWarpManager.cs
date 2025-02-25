@@ -24,7 +24,7 @@ public class PlayerActionWarpManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsLanding()) _warpTimes = maxWarpTimes;
+        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _warpTimes = maxWarpTimes;
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
@@ -48,6 +48,13 @@ public class PlayerActionWarpManager : MonoBehaviour
     public void Recure()
     {
         _warpTimes = maxWarpTimes;
+    }
+
+    public void ChangeMaxTimes(int times)
+    {
+        if (times < maxWarpTimes) _warpTimes -= maxWarpTimes - times;
+
+        maxWarpTimes = times;
     }
 
     //ーーーUpWarpの処理ーーー

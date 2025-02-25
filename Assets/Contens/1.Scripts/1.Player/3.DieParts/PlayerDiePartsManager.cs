@@ -16,6 +16,7 @@ public class PlayerDiePartsManager : MonoBehaviour
         {
             GameObject newPart = Instantiate(part, new Vector3(playerPosition.x, playerPosition.y, -4f), Quaternion.identity);
             newPart.SetActive(true);
+            newPart.GetComponent<DieParts>().Init(OnDestory);
             Rigidbody2D rb = newPart.GetComponent<Rigidbody2D>();
 
             float randomAngle = Random.Range(0, 180) * Mathf.Deg2Rad;
@@ -26,7 +27,11 @@ public class PlayerDiePartsManager : MonoBehaviour
         }
     }
 
-    [Button]
+    private void OnDestory(GameObject dieParts)
+    {
+        _parts.Remove(dieParts);
+    }
+
     public void DestroyDieParts()
     {
         foreach (var part in _parts)
