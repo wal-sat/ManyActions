@@ -15,7 +15,7 @@ public class GameScenePauseUIToolkit : MonoBehaviour
     private VisualElement[] _menuOptions = new VisualElement[4];
     private VisualElement[] _confirmOptions = new VisualElement[2];
 
-    private void Start()
+    private void Awake()
     {
         var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
 

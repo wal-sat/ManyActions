@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9d93531e67374c4b93223e04559689d, type: 3}
-  m_Name: StageActionData_Develop_0
+  m_Name: SAD_Develop_0
   m_EditorClassIdentifier: 
   MAX_JUMP_TIMES: 2
   MAX_BLINK_TIMES: 2
@@ -25,17 +25,17 @@ MonoBehaviour:
   S_BigJump: 1
   S_FrontJump: 1
   S_BackJump: 1
-  S_GoDown: 0
-  E_Hover: 0
-  E_UpBlink: 0
-  E_Blink: 0
-  E_BackBlink: 0
-  E_Swoop: 0
-  W_: 0
-  W_Up: 0
-  W_Left: 0
-  W_Right: 0
-  W_Down: 0
-  N_Invincible: 0
-  N_UpWarp: 0
-  N_Warp: 0
+  S_GoDown: 1
+  E_Hover: 1
+  E_UpBlink: 1
+  E_Blink: 1
+  E_BackBlink: 1
+  E_Swoop: 1
+  W_: 1
+  W_Up: 1
+  W_Left: 1
+  W_Right: 1
+  W_Down: 1
+  N_Invincible: 1
+  N_UpWarp: 1
+  N_Warp: 1

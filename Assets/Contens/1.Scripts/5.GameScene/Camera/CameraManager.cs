@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
 
     private Dictionary<CameraKind, GameObject> cameras = new Dictionary<CameraKind, GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         cameras.Add(CameraKind.main, mainCamera);
         cameras.Add(CameraKind.sleep, sleepCamera);

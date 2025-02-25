@@ -22,7 +22,9 @@ public class GameSceneInputManager : MonoBehaviour
     private void Start()
     {
         
-        //S_InputSystem._instance.canInput = true; // 後でこれを消す！！！
+        #if UNITY_EDITOR
+            S_InputSystem._instance.canInput = true;
+        #endif
 
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
     }
