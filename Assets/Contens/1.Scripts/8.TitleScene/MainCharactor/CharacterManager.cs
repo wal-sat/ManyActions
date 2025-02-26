@@ -28,7 +28,7 @@ public class CharacterManager : MonoBehaviour
 
         playerAnimationManager.AnimationUpdate(false);
 
-        playerActionManager.EnableActions(stageActionData);
+        playerActionManager.SetAvailableActions(stageActionData);
     }
 
     private void FixedUpdate()

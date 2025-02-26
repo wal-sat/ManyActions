@@ -827,3 +827,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5c38d847d6cef44876e3e013bab5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionCardInfo:
+  - actionName: "\u53CD\u8EE2"
+    actionIcon: {fileID: 21300000, guid: 5fe794e623ec4524e9fc0ee0672150f7, type: 3}
+  - actionName: "\u30AD\u30C3\u30AF"
+    actionIcon: {fileID: 21300000, guid: 5fe794e623ec4524e9fc0ee0672150f7, type: 3}
+  - actionName: "\u30A4\u30F3\u30BF\u30E9\u30AF\u30C8"
+    actionIcon: {fileID: 21300000, guid: 15492398078e55b4da1496cad0e848ed, type: 3}
+  - actionName: "\u52A0\u901F"
+    actionIcon: {fileID: 21300000, guid: 7298dec69ddba7347a1b7b87ea69e46b, type: 3}
+  - actionName: "\u6E1B\u901F"
+    actionIcon: {fileID: 21300000, guid: 7298dec69ddba7347a1b7b87ea69e46b, type: 3}
+  - actionName: "\u4E0A"
+    actionIcon: {fileID: 21300000, guid: 2dccefbc24de3f74b8a86a6df6eb37e6, type: 3}
+  - actionName: "\u3057\u3083\u304C\u307F"
+    actionIcon: {fileID: 21300000, guid: f41c24fb3f2d4f24f8e1578613924ee5, type: 3}
+  - actionName: "\u30B8\u30E3\u30F3\u30D7"
+    actionIcon: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
+  - actionName: "\u5927\u30B8\u30E3\u30F3\u30D7"
+    actionIcon: {fileID: 21300000, guid: 18af266de8e35e345a3b6efcba2879e4, type: 3}
+  - actionName: "\u30D5\u30ED\u30F3\u30C8\u30B8\u30E3\u30F3\u30D7"
+    actionIcon: {fileID: 21300000, guid: 4add9f650fe704d4199b62a875e3d184, type: 3}
+  - actionName: "\u30D0\u30C3\u30AF\u30B8\u30E3\u30F3\u30D7"
+    actionIcon: {fileID: 21300000, guid: 4add9f650fe704d4199b62a875e3d184, type: 3}
+  - actionName: "\u964D\u308A\u308B"
+    actionIcon: {fileID: 21300000, guid: d09ebe1d547eef248909531426ef351d, type: 3}
+  - actionName: "\u30C0\u30D6\u30EB\u30B8\u30E3\u30F3\u30D7"
+    actionIcon: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
+  - actionName: "\u7121\u9650\u30B8\u30E3\u30F3\u30D7"
+    actionIcon: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
+  - actionName: "\u30DB\u30D0\u30FC"
+    actionIcon: {fileID: 21300000, guid: ab6d0e4eb993104408dbaa35e8217949, type: 3}
+  - actionName: "\u4E0A\u30D6\u30EA\u30F3\u30AF"
+    actionIcon: {fileID: 21300000, guid: 0eb4aaac6f6fe72478cf2d58ac7f7c81, type: 3}
+  - actionName: "\u30D6\u30EA\u30F3\u30AF"
+    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+  - actionName: "\u5F8C\u308D\u30D6\u30EA\u30F3\u30AF"
+    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+  - actionName: "\u6025\u964D\u4E0B"
+    actionIcon: {fileID: 21300000, guid: 6f5ea9308ae8bdc418bfa80768f65e84, type: 3}
+  - actionName: "\u30C0\u30D6\u30EB\u30D6\u30EA\u30F3\u30AF"
+    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+  - actionName: "\u7121\u9650\u30D6\u30EA\u30F3\u30AF"
+    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+  - actionName: W
+    actionIcon: {fileID: 21300000, guid: 3e16e1172d344a34da9afd1f8b8a8048, type: 3}
+  - actionName: W_Up
+    actionIcon: {fileID: 21300000, guid: c9a522cea5b1bac4ebea00b9f511565b, type: 3}
+  - actionName: W_Left
+    actionIcon: {fileID: 21300000, guid: 7e7e6e7d5d04b0c48954930fbfcb01fd, type: 3}
+  - actionName: W_Right
+    actionIcon: {fileID: 21300000, guid: 7e7e6e7d5d04b0c48954930fbfcb01fd, type: 3}
+  - actionName: W_Doun
+    actionIcon: {fileID: 21300000, guid: e10ec5fe220031245a00f7250a4b0cb0, type: 3}
+  - actionName: W_Double
+    actionIcon: {fileID: 21300000, guid: 3e16e1172d344a34da9afd1f8b8a8048, type: 3}
+  - actionName: W_Infinite
+    actionIcon: {fileID: 21300000, guid: 3e16e1172d344a34da9afd1f8b8a8048, type: 3}
+  - actionName: "\u6211\u6162"
+    actionIcon: {fileID: 21300000, guid: 5c3c9703f47bbc049bc90624cd7c7a1a, type: 3}
+  - actionName: "\u30A2\u30C3\u30D7\u30EF\u30FC\u30D7"
+    actionIcon: {fileID: 21300000, guid: b63edcedf2d0c784dae3a4f21732b8c2, type: 3}
+  - actionName: "\u30EF\u30FC\u30D7"
+    actionIcon: {fileID: 21300000, guid: 9c238860fe4c0054ba0d131456a086f7, type: 3}
+  - actionName: "\u30C0\u30D6\u30EB\u30EF\u30FC\u30D7"
+    actionIcon: {fileID: 21300000, guid: 5c3c9703f47bbc049bc90624cd7c7a1a, type: 3}
+  - actionName: "\u7121\u9650\u30EF\u30FC\u30D7"
+    actionIcon: {fileID: 21300000, guid: 5c3c9703f47bbc049bc90624cd7c7a1a, type: 3}

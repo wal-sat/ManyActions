@@ -13,29 +13,38 @@ MonoBehaviour:
   m_Name: SAD_Develop_0
   m_EditorClassIdentifier: 
   MAX_JUMP_TIMES: 2
-  MAX_BLINK_TIMES: 2
-  MAX_WARP_TIMES: 2
+  MAX_BLINK_TIMES: 0
+  MAX_WARP_TIMES: 0
   LR_Swap: 1
   LR_Kick: 1
+  LR_Interact: 1
   LeftRight_Accelerate: 1
   LeftRight_Decelerate: 1
   Up_: 1
   Down_Crouch: 1
   S_Jump: 1
-  S_BigJump: 1
-  S_FrontJump: 1
-  S_BackJump: 1
-  S_GoDown: 1
-  E_Hover: 1
-  E_UpBlink: 1
-  E_Blink: 1
-  E_BackBlink: 1
-  E_Swoop: 1
-  W_: 1
-  W_Up: 1
-  W_Left: 1
-  W_Right: 1
-  W_Down: 1
-  N_Invincible: 1
-  N_UpWarp: 1
-  N_Warp: 1
+  S_BigJump: 0
+  S_FrontJump: 0
+  S_BackJump: 0
+  S_GoDown: 0
+  S_DoubleJump: 0
+  S_InfiniteJump: 0
+  E_Hover: 0
+  E_UpBlink: 0
+  E_Blink: 0
+  E_BackBlink: 0
+  E_Swoop: 0
+  E_DoubleBlink: 0
+  E_InfiniteBlink: 0
+  W_: 0
+  W_Up: 0
+  W_Left: 0
+  W_Right: 0
+  W_Down: 0
+  W_Double: 0
+  W_Infinite: 0
+  N_Invincible: 0
+  N_UpWarp: 0
+  N_Warp: 0
+  N_DoubleWarp: 0
+  N_InfiniteWarp: 0

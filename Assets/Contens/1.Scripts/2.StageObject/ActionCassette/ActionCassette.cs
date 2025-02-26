@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class ActionCassette : MonoBehaviour
 {
+    enum ActionCassetteState { enable, disable }
+
     [SerializeField] PlayerManager playerManager;
     [SerializeField] ActionCassetteManager actionCassetteManager;
-    [SerializeField] PlayerActionJumpManager playerActionJumpManager;
-    [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
-    [SerializeField] PlayerActionWarpManager playerActionWarpManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] ActionCassetteView actionCassetteView;
-    [SerializeField] StageActionData stageActionData;
     [SerializeField] GameSceneUI gameSceneUI;
-    [SerializeField] float COOL_TIME;
-    [SerializeField] string actionName;
-    [SerializeField] Sprite actionIcon;
+    [SerializeField] ActionKind actionKind;
+    [SerializeField] ActionCassetteState actionCassetteState;
+    [SerializeField] float COOL_TIME = 4f;
 
 
     private float _timer;
@@ -54,9 +52,10 @@ public class ActionCassette : MonoBehaviour
 
             actionCassetteView.EnableView(false);
 
-            playerManager.PlayerActionManager.EnableActions(stageActionData);
+            if (actionCassetteState == ActionCassetteState.enable) playerManager.PlayerActionManager.EnableAction(actionKind, true);
+            else if (actionCassetteState == ActionCassetteState.disable) playerManager.PlayerActionManager.EnableAction(actionKind, false);
 
-            gameSceneUI.MakeActionCard(true, actionName, actionIcon);
+            gameSceneUI.MakeActionCard(true, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
 
             S_SEManager._instance.Play("s_getActionCassette");
         }
