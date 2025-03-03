@@ -15,10 +15,10 @@ public class Gear : MonoBehaviour
     private void Awake()
     {
         gearManager.Register(this);
-        stageObjectCollisionArea.triggerEnter = triggerEnter;
+        stageObjectCollisionArea.triggerEnter = TriggerEnter;
     }
 
-    private void triggerEnter()
+    private void TriggerEnter()
     {
         if (gearStatus == GearStatus.unacquired)
         {

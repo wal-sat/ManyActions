@@ -20,7 +20,7 @@ MonoBehaviour:
   LR_Interact: 1
   LeftRight_Accelerate: 1
   LeftRight_Decelerate: 1
-  Up_: 1
+  Up_Grab: 1
   Down_Crouch: 1
   S_Jump: 1
   S_BigJump: 0

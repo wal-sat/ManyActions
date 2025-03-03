@@ -14,7 +14,7 @@ public class StageActionData : ScriptableObject
     [SerializeField] bool LR_Interact;
     [SerializeField] bool LeftRight_Accelerate;
     [SerializeField] bool LeftRight_Decelerate;
-    [SerializeField] bool Up_;
+    [SerializeField] bool Up_Grab;
     [SerializeField] bool Down_Crouch; 
     [SerializeField] bool S_Jump;
     [SerializeField] bool S_BigJump;
@@ -52,7 +52,7 @@ public class StageActionData : ScriptableObject
         availableActions.Add(ActionKind.LR_Interact, LR_Interact);
         availableActions.Add(ActionKind.LeftRight_Accelerate, LeftRight_Accelerate);
         availableActions.Add(ActionKind.LeftRight_Decelerate, LeftRight_Decelerate);
-        availableActions.Add(ActionKind.Up_, Up_);
+        availableActions.Add(ActionKind.Up_Grab, Up_Grab);
         availableActions.Add(ActionKind.Down_Crouch, Down_Crouch);
         availableActions.Add(ActionKind.S_Jump, S_Jump);
         availableActions.Add(ActionKind.S_BigJump, S_BigJump);

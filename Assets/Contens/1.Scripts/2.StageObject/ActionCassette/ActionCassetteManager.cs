@@ -26,7 +26,7 @@ public class ActionCassetteManager : MonoBehaviour
         actionCardInfos.Add(ActionKind.LR_Interact, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.LeftRight_Accelerate, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.LeftRight_Decelerate, actionCardInfo[index++]);
-        actionCardInfos.Add(ActionKind.Up_, actionCardInfo[index++]);
+        actionCardInfos.Add(ActionKind.Up_Grab, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.Down_Crouch, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.S_Jump, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.S_BigJump, actionCardInfo[index++]);

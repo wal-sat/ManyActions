@@ -56,7 +56,7 @@ public class Barrel : MonoBehaviour
     }
     IEnumerator CBarrel()
     {
-        playerPreventStuck.isPreventingStuck = false;
+        playerPreventStuck.isPreventStuck = false;
 
         Player.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, Player.transform.position.z);
         Player.SetActive(false);
@@ -75,6 +75,6 @@ public class Barrel : MonoBehaviour
 
         _canBarrelBoost = true;
 
-        playerPreventStuck.isPreventingStuck = true;
+        playerPreventStuck.isPreventStuck = true;
     }
 }

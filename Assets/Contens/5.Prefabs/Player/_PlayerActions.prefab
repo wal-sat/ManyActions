@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2347161179043301645}
+  - component: {fileID: 6232374540234396176}
   m_Layer: 0
-  m_Name: Up_
+  m_Name: Up_Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4060696804797362425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6232374540234396176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182181046108707262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d17e2508551cb468de19b9336a019e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionKind: 5
+  assignedInput: 1
+  isEnable: 1
+  spriteRenderer: {fileID: 0}
+  main: {fileID: 21300000, guid: 9a3edafa92177444fa751610969fec03, type: 3}
+  grab: {fileID: 21300000, guid: 8ad1b3d5a591d9f418a900ec70339739, type: 3}
+  isOverlapRope: 0
 --- !u!1 &551734685404975338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,7 +1369,7 @@ MonoBehaviour:
   - {fileID: 1175443744855976773}
   - {fileID: 7213859818863113658}
   - {fileID: 61035403029027193}
-  - {fileID: 0}
+  - {fileID: 6232374540234396176}
   - {fileID: 8086918356260947096}
   - {fileID: 1999662930292029623}
   - {fileID: 572473860126325612}

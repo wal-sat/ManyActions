@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ActionKind 
 {
-    LR_Swap, LR_Kick, LR_Interact, LeftRight_Accelerate, LeftRight_Decelerate, Up_, Down_Crouch, 
+    LR_Swap, LR_Kick, LR_Interact, LeftRight_Accelerate, LeftRight_Decelerate, Up_Grab, Down_Crouch, 
     S_Jump, S_BigJump, S_FrontJump, S_BackJump, S_GoDown, S_DoubleJump, S_InfiniteJump,
     E_Hover, E_UpBlink, E_Blink, E_BackBlink, E_Swoop, E_DoubleBlink, E_InfiniteBlink,
     W_, W_Up, W_Left, W_Right, W_Down, W_Double, W_Infinite,
