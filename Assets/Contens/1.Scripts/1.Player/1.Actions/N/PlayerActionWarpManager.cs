@@ -11,6 +11,7 @@ public class PlayerActionWarpManager : MonoBehaviour
     [HideInInspector] public bool isLimited;
 
     private int _warpTimes;
+    private int _maxWarpTimes;
 
     private void Start()
     {
@@ -22,19 +23,14 @@ public class PlayerActionWarpManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _warpTimes = maxWarpTimes;
-    }
-
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
-        if (_warpTimes <= 0) 
+        if (_warpTimes == 0) 
         {
             isLimited = true;
             return;
         }
-        _warpTimes --;
+        if (_warpTimes != -1) _warpTimes --;
         isLimited = false;
 
         foreach (var action in warpActions)
@@ -47,14 +43,53 @@ public class PlayerActionWarpManager : MonoBehaviour
 
     public void Recure()
     {
-        _warpTimes = maxWarpTimes;
+        _maxWarpTimes = SetMaxWarpTimes();
+        _warpTimes = _maxWarpTimes;
+    }
+    private int SetMaxWarpTimes()
+    {
+        int maxWarpTimes = 0;
+        foreach (var action in warpActions)
+        {
+            switch (action.actionKind)
+            {
+                case ActionKind.N_UpWarp:
+                case ActionKind.N_Warp:
+                    if (action.isEnable && maxWarpTimes == 0) maxWarpTimes = 1;
+                    break;
+                case ActionKind.N_DoubleWarp:
+                    if (action.isEnable && ( maxWarpTimes == 0 || maxWarpTimes == 1 ) ) maxWarpTimes = 2;
+                    break;
+                case ActionKind.N_InfiniteWarp:
+                    if (action.isEnable) maxWarpTimes = -1;
+                    break;
+            }
+        }
+        return maxWarpTimes;
     }
 
-    public void ChangeMaxTimes(int times)
+    public void ChangeWarpTimes()
     {
-        if (times < maxWarpTimes) _warpTimes -= maxWarpTimes - times;
-
-        maxWarpTimes = times;
+        int maxWarpTimes = 0;
+        foreach (var action in warpActions)
+        {
+            switch (action.actionKind)
+            {
+                case ActionKind.N_UpWarp:
+                case ActionKind.N_Warp:
+                    if (action.isEnable && maxWarpTimes == 0) maxWarpTimes = 1;
+                    break;
+                case ActionKind.N_DoubleWarp:
+                    if (action.isEnable && ( maxWarpTimes == 0 || maxWarpTimes == 1 ) ) maxWarpTimes = 2;
+                    break;
+                case ActionKind.N_InfiniteWarp:
+                    if (action.isEnable) maxWarpTimes = -1;
+                    break;
+            }
+        }
+        
+        if (maxWarpTimes == -1) _warpTimes = -1;
+        else _warpTimes -= _maxWarpTimes - maxWarpTimes;
     }
 
     //ーーーUpWarpの処理ーーー

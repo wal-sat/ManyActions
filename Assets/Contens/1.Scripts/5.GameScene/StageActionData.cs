@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class StageActionData : ScriptableObject
 {
-    [SerializeField] public int MAX_JUMP_TIMES;
-    [SerializeField] public int MAX_BLINK_TIMES;
-    [SerializeField] public int MAX_WARP_TIMES;
     [SerializeField] bool LR_Swap;
     [SerializeField] bool LR_Kick;
     [SerializeField] bool LR_Interact;

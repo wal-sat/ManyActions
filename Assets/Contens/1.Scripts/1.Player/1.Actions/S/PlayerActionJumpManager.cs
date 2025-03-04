@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,8 @@ public class PlayerActionJumpManager : MonoBehaviour
     [SerializeField] PlayerActionJumpBase[] jumpActions;
     [SerializeField] float RESTRICTE_JUMP_SPEED;
 
-    [HideInInspector] public int maxJumpTimes;
-
-    private bool _isLanding;
     private int _jumpTimes;
+    private int _maxJumpTimes;
 
     private void Start()
     {
@@ -23,16 +22,11 @@ public class PlayerActionJumpManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 10f) _jumpTimes = maxJumpTimes;
-    }
-
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (playerMovement.rb.velocity.y > RESTRICTE_JUMP_SPEED) return;
-        if (_jumpTimes <= 0) return;
-        _jumpTimes --;
+        if (_jumpTimes == 0) return;
+        if (_jumpTimes != -1) _jumpTimes --;
 
         foreach (var action in jumpActions)
         {
@@ -54,14 +48,57 @@ public class PlayerActionJumpManager : MonoBehaviour
 
     public void Recure()
     {
-        _jumpTimes = maxJumpTimes;
+        _maxJumpTimes = SetMaxJumpTimes();
+        _jumpTimes = _maxJumpTimes;
+    }
+    private int SetMaxJumpTimes()
+    {
+        int maxJumpTimes = 0;
+        foreach (var action in jumpActions)
+        {
+            switch (action.actionKind)
+            {
+                case ActionKind.S_Jump:
+                case ActionKind.S_BigJump:
+                case ActionKind.S_FrontJump:
+                case ActionKind.S_BackJump:
+                    if (action.isEnable && maxJumpTimes == 0) maxJumpTimes = 1;
+                    break;
+                case ActionKind.S_DoubleJump:
+                    if (action.isEnable && ( maxJumpTimes == 0 || maxJumpTimes == 1 ) ) maxJumpTimes = 2;
+                    break;
+                case ActionKind.S_InfiniteJump:
+                    if (action.isEnable) maxJumpTimes = -1;
+                    break;
+            }
+        }
+        return maxJumpTimes;
     }
 
-    public void ChangeMaxTimes(int times)
+    public void ChangeJumpTimes()
     {
-        if (times < maxJumpTimes) _jumpTimes -= maxJumpTimes - times;
+        int maxJumpTimes = 0;
+        foreach (var action in jumpActions)
+        {
+            switch (action.actionKind)
+            {
+                case ActionKind.S_Jump:
+                case ActionKind.S_BigJump:
+                case ActionKind.S_FrontJump:
+                case ActionKind.S_BackJump:
+                    if (action.isEnable && maxJumpTimes == 0) maxJumpTimes = 1;
+                    break;
+                case ActionKind.S_DoubleJump:
+                    if (action.isEnable && ( maxJumpTimes == 0 || maxJumpTimes == 1 ) ) maxJumpTimes = 2;
+                    break;
+                case ActionKind.S_InfiniteJump:
+                    if (action.isEnable) maxJumpTimes = -1;
+                    break;
+            }
+        }
 
-        maxJumpTimes = times;
+        if (maxJumpTimes == -1) _jumpTimes = -1;
+        else _jumpTimes -= _maxJumpTimes - maxJumpTimes;
     }
 }
 

@@ -6,9 +6,9 @@ public class PlayerActionBlinkManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionBlinkBase[] blinkActions;
-    [HideInInspector] public int maxBlinkTimes;
 
     private int _blinkTimes;
+    private int _maxBlinkTimes;
 
     private void Start()
     {
@@ -20,15 +20,10 @@ public class PlayerActionBlinkManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (playerMovement.IsLanding() && playerMovement.rb.velocity.y <= 5f) _blinkTimes = maxBlinkTimes;
-    }
-
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
-        if (_blinkTimes <= 0) return;
-        _blinkTimes --;
+        if (_blinkTimes == 0) return;
+        if (_blinkTimes != -1) _blinkTimes --;
 
         foreach (var action in blinkActions)
         {
@@ -40,13 +35,54 @@ public class PlayerActionBlinkManager : MonoBehaviour
 
     public void Recure()
     {
-        _blinkTimes = maxBlinkTimes;
+        _maxBlinkTimes = SetMaxBlinkTimes();
+        _blinkTimes = _maxBlinkTimes;
+    }
+    private int SetMaxBlinkTimes()
+    {
+        int maxBlinkTimes = 0;
+        foreach (var action in blinkActions)
+        {
+            switch (action.actionKind)
+            {
+                case ActionKind.E_Blink:
+                case ActionKind.E_UpBlink:
+                case ActionKind.E_BackBlink:
+                    if (action.isEnable && maxBlinkTimes == 0) maxBlinkTimes = 1;
+                    break;
+                case ActionKind.E_DoubleBlink:
+                    if (action.isEnable && ( maxBlinkTimes == 0 || maxBlinkTimes == 1 ) ) maxBlinkTimes = 2;
+                    break;
+                case ActionKind.E_InfiniteBlink:
+                    if (action.isEnable) maxBlinkTimes = -1;
+                    break;
+            }
+        }
+        return maxBlinkTimes;
     }
 
-    public void ChangeMaxTimes(int times)
+    public void ChangeBlinkTimes()
     {
-        if (times < maxBlinkTimes) _blinkTimes -= maxBlinkTimes - times;
-
-        maxBlinkTimes = times;
+        int maxBlinkTimes = 0;
+        foreach (var action in blinkActions)
+        {
+            switch (action.actionKind)
+            {
+                case ActionKind.E_Blink:
+                case ActionKind.E_UpBlink:
+                case ActionKind.E_BackBlink:
+                    if (action.isEnable && maxBlinkTimes == 0) maxBlinkTimes = 1;
+                    break;
+                case ActionKind.E_DoubleBlink:
+                    if (action.isEnable && ( maxBlinkTimes == 0 || maxBlinkTimes == 1 ) ) maxBlinkTimes = 2;
+                    break;
+                case ActionKind.E_InfiniteBlink:
+                    if (action.isEnable) maxBlinkTimes = -1;
+                    break;
+            }
+        }
+        
+        if (maxBlinkTimes == -1) _blinkTimes = -1;
+        else _blinkTimes -= _maxBlinkTimes - maxBlinkTimes;
     }
 }

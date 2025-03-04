@@ -14,6 +14,7 @@ public enum ActionKind
 public class PlayerActionManager : MonoBehaviour
 {
     [SerializeField] GameSceneOnPlayInput gameSceneOnPlayInput;
+    [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
     [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
     [SerializeField] PlayerActionWarpManager playerActionWarpManager;
@@ -102,6 +103,8 @@ public class PlayerActionManager : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void ActionUpdate()
     {
+        if (playerMovement.IsLanding()) Recure();
+
         TracePast();
         
         InputAdjustment();
@@ -109,6 +112,12 @@ public class PlayerActionManager : MonoBehaviour
         Action();
     }
 
+    private void Recure()
+    {
+        playerActionJumpManager.Recure();
+        playerActionBlinkManager.Recure();
+        playerActionWarpManager.Recure();
+    }
     private void TracePast()
     {
         _onUpPast = _onUp;
@@ -140,7 +149,6 @@ public class PlayerActionManager : MonoBehaviour
 
         NBlockPast = NBlock;
     }
-
     private void InputAdjustment()
     {
         AllBoolFalse();
@@ -214,7 +222,6 @@ public class PlayerActionManager : MonoBehaviour
         _onL = gameSceneOnPlayInput.onL;
         _onR = gameSceneOnPlayInput.onR;
     }
-
     private void Action()
     {
         //ーーーNeutralーーー
@@ -387,7 +394,7 @@ public class PlayerActionManager : MonoBehaviour
 
     public void SetAvailableActions(StageActionData stageActionData)
     {
-        _availableActions = stageActionData.availableActions;
+        _availableActions = new Dictionary<ActionKind, bool>( stageActionData.availableActions );
 
         foreach (var availableAction in _availableActions)
         {
@@ -399,12 +406,12 @@ public class PlayerActionManager : MonoBehaviour
                     if (action.isEnable && !availableAction.Value) action.Initialize();
                     action.isEnable = availableAction.Value;
                 }
+                if (action.actionKind == ActionKind.S_DoubleJump) Debug.Log(action.isEnable);
             }
         }
 
-        playerActionJumpManager.ChangeMaxTimes(stageActionData.MAX_JUMP_TIMES);
-        playerActionBlinkManager.ChangeMaxTimes(stageActionData.MAX_BLINK_TIMES);
-        playerActionWarpManager.ChangeMaxTimes(stageActionData.MAX_WARP_TIMES);
+
+        Recure();
     }
     public void EnableAction(ActionKind actionKind, bool isEnable)
     {
@@ -421,5 +428,9 @@ public class PlayerActionManager : MonoBehaviour
                 action.isEnable = isEnable;
             }
         }
+
+        playerActionJumpManager.ChangeJumpTimes();
+        playerActionBlinkManager.ChangeBlinkTimes();
+        playerActionWarpManager.ChangeWarpTimes();
     }
 }

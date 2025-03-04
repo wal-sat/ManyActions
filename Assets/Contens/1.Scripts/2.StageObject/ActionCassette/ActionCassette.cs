@@ -52,12 +52,20 @@ public class ActionCassette : MonoBehaviour
 
             actionCassetteView.EnableView(false);
 
-            if (actionCassetteState == ActionCassetteState.enable) playerManager.PlayerActionManager.EnableAction(actionKind, true);
-            else if (actionCassetteState == ActionCassetteState.disable) playerManager.PlayerActionManager.EnableAction(actionKind, false);
+            if (actionCassetteState == ActionCassetteState.enable) 
+            {
+                playerManager.PlayerActionManager.EnableAction(actionKind, true);
+                gameSceneUI.MakeActionCard(true, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
+                S_SEManager._instance.Play("s_getActionCassette");
+            }
+            else if (actionCassetteState == ActionCassetteState.disable)
+            {
+                playerManager.PlayerActionManager.EnableAction(actionKind, false);
+                gameSceneUI.MakeActionCard(false, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
+                S_SEManager._instance.Play("s_getActionMinusCassette");
+            }
 
-            gameSceneUI.MakeActionCard(true, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
 
-            S_SEManager._instance.Play("s_getActionCassette");
         }
     }
 
