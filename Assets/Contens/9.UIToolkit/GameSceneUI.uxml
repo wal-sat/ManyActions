@@ -2,10 +2,10 @@
     <Style src="project://database/Assets/Contens/9.UIToolkit/StyleSheet/GameSceneUI.uss?fileID=7433441132597879392&amp;guid=d09468ae015505e41a2b75dc66897bb9&amp;type=3#GameSceneUI" />
     <ui:VisualElement name="Root" class="Visible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
         <ui:VisualElement style="height: 80%; flex-direction: row;">
-            <ui:VisualElement style="width: 33%;">
+            <ui:VisualElement name="VisualElement" style="width: 33%;">
                 <ui:VisualElement name="GearCount" class="Card">
                     <ui:VisualElement name="Bar" class="CardBar" />
-                    <ui:VisualElement name="GearIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/Stage/gear_default.PNG?fileID=2800000&amp;guid=561a9dbff312faa4591b483d9f084dee&amp;type=3#gear_default&quot;);" />
+                    <ui:VisualElement name="GearIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/gearIcon.png?fileID=2800000&amp;guid=4af441c23fea6fd48afafb06c27033e8&amp;type=3#gearIcon&quot;);" />
                     <ui:Label tabindex="-1" text="02" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GearLabel" class="CardLabel" style="width: 30%;" />
                     <ui:Label tabindex="-1" text="(+2)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GearPlusLabel" class="CardLabel" style="width: 30%; margin-left: 0; font-size: 28px; -unity-text-align: lower-left; height: 60%; top: 20%;" />
                 </ui:VisualElement>
@@ -29,6 +29,6 @@
         </ui:VisualElement>
         <ui:VisualElement style="height: 20%;" />
     </ui:VisualElement>
-    <ui:VisualElement name="KidouUI" class="Visible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/KidouUI.png?fileID=2800000&amp;guid=afdaa9e7eb283fe4da79369e819d9b5e&amp;type=3#KidouUI&quot;);" />
-    <ui:VisualElement name="SleepCameraUI" class="Visible Unvisible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/SleepCameraUI.png?fileID=2800000&amp;guid=10443a9399ffa0746a00e6e489063f92&amp;type=3#SleepCameraUI&quot;);" />
+    <ui:VisualElement name="KidouUI" class="Visible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/KidouUI.png?fileID=21300000&amp;guid=f2f381770259f104daa678faceacb124&amp;type=3#KidouUI&quot;);" />
+    <ui:VisualElement name="SleepCameraUI" class="Visible Unvisible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/SleepCameraUI.png?fileID=21300000&amp;guid=b63c24eef9166a247acca8c8c4286818&amp;type=3#SleepCameraUI&quot;);" />
 </ui:UXML>
