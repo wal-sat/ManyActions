@@ -4,16 +4,17 @@ using UnityEngine;
 
 public enum ActionKind 
 {
-    LR_Swap, LR_Kick, LeftRight_Accelerate, LeftRight_Decelerate, Up_, Down_Crouch, 
-    S_Jump, S_BigJump, S_FrontJump, S_BackJump, S_GoDown,
-    E_Hover, E_UpBlink, E_Blink, E_BackBlink, E_Swoop,
-    W_, W_Up, W_Left, W_Right, W_Down,
-    N_Invincible, N_UpWarp, N_Warp
+    LR_Swap, LR_Kick, LR_Interact, LeftRight_Accelerate, LeftRight_Decelerate, Up_Grab, Down_Crouch, 
+    S_Jump, S_BigJump, S_FrontJump, S_BackJump, S_GoDown, S_DoubleJump, S_InfiniteJump,
+    E_Hover, E_UpBlink, E_Blink, E_BackBlink, E_Swoop, E_DoubleBlink, E_InfiniteBlink,
+    W_, W_Up, W_Left, W_Right, W_Down, W_Double, W_Infinite,
+    N_Invincible, N_UpWarp, N_Warp, N_DoubleWarp, N_InfiniteWarp,
 }
 
 public class PlayerActionManager : MonoBehaviour
 {
     [SerializeField] GameSceneOnPlayInput gameSceneOnPlayInput;
+    [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionJumpManager playerActionJumpManager;
     [SerializeField] PlayerActionBlinkManager playerActionBlinkManager;
     [SerializeField] PlayerActionWarpManager playerActionWarpManager;
@@ -102,6 +103,8 @@ public class PlayerActionManager : MonoBehaviour
     //PlayerManagerからFixedUpdateで呼ばれる
     public void ActionUpdate()
     {
+        if (playerMovement.IsLanding()) Recure();
+
         TracePast();
         
         InputAdjustment();
@@ -109,6 +112,12 @@ public class PlayerActionManager : MonoBehaviour
         Action();
     }
 
+    private void Recure()
+    {
+        playerActionJumpManager.Recure();
+        playerActionBlinkManager.Recure();
+        playerActionWarpManager.Recure();
+    }
     private void TracePast()
     {
         _onUpPast = _onUp;
@@ -140,7 +149,6 @@ public class PlayerActionManager : MonoBehaviour
 
         NBlockPast = NBlock;
     }
-
     private void InputAdjustment()
     {
         AllBoolFalse();
@@ -202,7 +210,7 @@ public class PlayerActionManager : MonoBehaviour
             if (_WTimer > INPUT_BLOCK_TIME) _WBlock = false;
         }
 
-        if (gameSceneOnPlayInput.onN_Up && _availableActions[ActionKind.N_UpWarp]) _onW_Up = true;
+        if (gameSceneOnPlayInput.onN_Up && _availableActions[ActionKind.N_UpWarp]) _onN_Up = true;
         else if (gameSceneOnPlayInput.onN_Left && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Left = true;
         else if (gameSceneOnPlayInput.onN_Right && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Right = true;
         else if (gameSceneOnPlayInput.onN_Down && ( _availableActions[ActionKind.N_UpWarp] || _availableActions[ActionKind.N_Warp] ) ) _onN_Down = true;
@@ -214,7 +222,6 @@ public class PlayerActionManager : MonoBehaviour
         _onL = gameSceneOnPlayInput.onL;
         _onR = gameSceneOnPlayInput.onR;
     }
-
     private void Action()
     {
         //ーーーNeutralーーー
@@ -385,9 +392,9 @@ public class PlayerActionManager : MonoBehaviour
         _onL = false;
     }
 
-    public void EnableActions(StageActionData stageActionData)
+    public void SetAvailableActions(StageActionData stageActionData)
     {
-        _availableActions = stageActionData.availableActions;
+        _availableActions = new Dictionary<ActionKind, bool>( stageActionData.availableActions );
 
         foreach (var availableAction in _availableActions)
         {
@@ -399,11 +406,31 @@ public class PlayerActionManager : MonoBehaviour
                     if (action.isEnable && !availableAction.Value) action.Initialize();
                     action.isEnable = availableAction.Value;
                 }
+                if (action.actionKind == ActionKind.S_DoubleJump) Debug.Log(action.isEnable);
             }
         }
 
-        playerActionJumpManager.ChangeMaxTimes(stageActionData.MAX_JUMP_TIMES);
-        playerActionBlinkManager.ChangeMaxTimes(stageActionData.MAX_BLINK_TIMES);
-        playerActionWarpManager.ChangeMaxTimes(stageActionData.MAX_WARP_TIMES);
+
+        Recure();
+    }
+    public void EnableAction(ActionKind actionKind, bool isEnable)
+    {
+        if (_availableActions[actionKind] == isEnable) return;
+
+        _availableActions[actionKind] = isEnable;
+
+        foreach (var action in playerActions)
+        {
+            if (action == null) continue;
+            if (action.actionKind == actionKind)
+            {
+                if (action.isEnable && !isEnable) action.Initialize();
+                action.isEnable = isEnable;
+            }
+        }
+
+        playerActionJumpManager.ChangeJumpTimes();
+        playerActionBlinkManager.ChangeBlinkTimes();
+        playerActionWarpManager.ChangeWarpTimes();
     }
 }

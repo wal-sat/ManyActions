@@ -9,7 +9,7 @@ public class PlayerPreventStuck : MonoBehaviour
     [SerializeField] float RECORD_TIME;
     [SerializeField] float THRESHOLD;
 
-    [HideInInspector] public bool isPreventingStuck;
+    [HideInInspector] public bool isPreventStuck;
 
     private List<Vector2> positions = new List<Vector2>();
 
@@ -17,7 +17,7 @@ public class PlayerPreventStuck : MonoBehaviour
 
     private void Start()
     {
-        isPreventingStuck = true;
+        isPreventStuck = true;
     }
 
     public void Initialize()
@@ -28,7 +28,7 @@ public class PlayerPreventStuck : MonoBehaviour
     }
     public void PreventStuckUpdate()
     {
-        if (isPreventingStuck) _timer += Time.deltaTime;
+        if (isPreventStuck) _timer += Time.deltaTime;
 
         if (_timer >= RECORD_TIME)
         {
