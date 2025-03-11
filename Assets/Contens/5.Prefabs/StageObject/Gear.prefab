@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3524819394606482987}
   - component: {fileID: 5106051247280698407}
   m_Layer: 0
-  m_Name: GearSprite
+  m_Name: GearView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 561a9dbff312faa4591b483d9f084dee, type: 3}
+  m_Sprite: {fileID: 1543647578, guid: b27b407f128ccd844ad65a7c1dbdba39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641a79abc92cde643963c4dd2cf29a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: 561a9dbff312faa4591b483d9f084dee, type: 3}
-  disableSprite: {fileID: 21300000, guid: 95e02a24e1fca5347860c0cc73b6059d, type: 3}
+  defaultSprite: {fileID: 1543647578, guid: b27b407f128ccd844ad65a7c1dbdba39, type: 3}
+  disableSprite: {fileID: -949777624, guid: b27b407f128ccd844ad65a7c1dbdba39, type: 3}
 --- !u!1 &3980283401238150142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4970,7 +4970,7 @@ Transform:
   m_GameObject: {fileID: 7822375811806816859}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.63, y: -1.4299994, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
