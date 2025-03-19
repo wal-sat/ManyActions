@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -42,7 +43,15 @@ public class StageManager : MonoBehaviour
 
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
-        
+
+        foreach (var sceneInfo in S_LoadSceneSystem._instance.sceneInfos)
+        {
+            if (sceneInfo.sceneName == SceneManager.GetActiveScene().name)
+            {
+                gameSceneUI.ChangeStageName(sceneInfo.worldName, sceneInfo.stageName);
+                break;
+            }
+        }
         gameSceneUI.UpdateDeathCount();
         gameSceneUI.SwitchKidouUIVisible(true);
     }
@@ -109,18 +118,18 @@ public class StageManager : MonoBehaviour
     }
 
     //ーーークリアした時の処理ーーー
-    public void Door(SceneName sceneName)
+    public void Door(SceneKind sceneKind)
     {
-        StartCoroutine(CDoor(sceneName));
+        StartCoroutine(CDoor(sceneKind));
     }
-    IEnumerator CDoor(SceneName sceneName)
+    IEnumerator CDoor(SceneKind sceneKind)
     {
         playerManager.Door();
         gearManager.OnSave();
 
         yield return new WaitForSeconds(0.2f);
 
-        S_LoadSceneSystem._instance.LoadScene(sceneName);
+        S_LoadSceneSystem._instance.LoadScene(sceneKind);
 
         yield return new WaitForSeconds(0.45f);
 

@@ -5,19 +5,19 @@ using UnityEngine;
 public class S_GameInfo : Singleton<S_GameInfo>
 {
     //ーーーーー歯車ーーーーー
-    public Dictionary<SceneName, bool[]> gearInfo = new Dictionary<SceneName, bool[]>();
+    public Dictionary<SceneKind, bool[]> gearInfo = new Dictionary<SceneKind, bool[]>();
 
-    public void InstantiateGearInfo(SceneName sceneName, int gearNumber)
+    public void InstantiateGearInfo(SceneKind sceneKind, int gearNumber)
     {
-        if (!gearInfo.ContainsKey(sceneName))
+        if (!gearInfo.ContainsKey(sceneKind))
         {
-            gearInfo.Add(sceneName, new bool[gearNumber]);
+            gearInfo.Add(sceneKind, new bool[gearNumber]);
         }
-        else Debug.LogWarning($"{sceneName}のブール値配列は既に生成されています");
+        else Debug.LogWarning($"{sceneKind}のブール値配列は既に生成されています");
     }
-    public void RegisterGearInfo(SceneName sceneName, int gearIndex, bool isAcquired)
+    public void RegisterGearInfo(SceneKind sceneKind, int gearIndex, bool isAcquired)
     {
-        gearInfo[sceneName][gearIndex] = isAcquired;
+        gearInfo[sceneKind][gearIndex] = isAcquired;
     }
 
     public int GetGearCount()

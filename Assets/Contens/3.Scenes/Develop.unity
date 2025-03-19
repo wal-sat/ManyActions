@@ -6981,7 +6981,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: actionKind
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1217673165433982365, guid: 4b23a0150f1c487459d073dc179fa236, type: 3}
       propertyPath: gameSceneUI
@@ -7646,6 +7646,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 807011889738440140, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
+      propertyPath: sceneInfos.Array.size
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 807011889738440140, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
+      propertyPath: sceneInfos.Array.data[51].sceneKind
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 807011889738440140, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
+      propertyPath: sceneInfos.Array.data[51].sceneName
+      value: Develop
+      objectReference: {fileID: 0}
+    - target: {fileID: 807011889738440140, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
+      propertyPath: sceneInfos.Array.data[51].stageName
+      value: "\u5730\u4E0B\uFF13\u968E \u88CF"
+      objectReference: {fileID: 0}
+    - target: {fileID: 807011889738440140, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
+      propertyPath: sceneInfos.Array.data[51].worldName
+      value: "\u9EC4\u8272\u306E\u5854"
+      objectReference: {fileID: 0}
     - target: {fileID: 4254814470230363570, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6268093

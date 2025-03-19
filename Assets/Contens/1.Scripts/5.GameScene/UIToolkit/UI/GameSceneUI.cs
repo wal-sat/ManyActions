@@ -23,6 +23,11 @@ public class GameSceneUI : MonoBehaviour
         }
     }
 
+    public void ChangeStageName(string worldName, string stageName)
+    {
+        gameSceneUIUIToolkit.ChangeStageNameLabel( worldName, stageName );
+    }
+
     private void FixedUpdate()
     {
         gameSceneUIUIToolkit.ChangeTimeLabel( S_GameInfo._instance.GetMiniteAndSecond() );

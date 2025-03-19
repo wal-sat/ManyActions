@@ -1,0 +1,54 @@
+.stageLabel {
+    -unity-text-align: middle-center;
+    font-size: 40px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    color: rgb(80, 80, 80);
+    transition-duration: 0.2s, 1s;
+    transition-timing-function: ease-out-cubic, ease-in-out;
+    transition-property: all, rotate;
+    width: 100%;
+}
+
+.stageLabel--Selected {
+    font-size: 60px;
+    color: rgb(27, 27, 27);
+    rotate: 7deg;
+}
+
+.stageLabel--Selected--Animate {
+    rotate: -7deg;
+}
+
+.padlock {
+    width: 50px;
+    height: 60px;
+    background-image: url("project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Padlock.png?fileID=2800000&guid=25f08e2f4f3717044b8ceafa74c47b87&type=3#UI_Padlock");
+    position: absolute;
+    left: 15px;
+}
+
+.frame {
+    height: 66%;
+    left: 17%;
+    top: 17%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(22, 22, 22);
+    border-right-color: rgb(22, 22, 22);
+    border-top-color: rgb(22, 22, 22);
+    border-bottom-color: rgb(22, 22, 22);
+    width: 66%;
+}

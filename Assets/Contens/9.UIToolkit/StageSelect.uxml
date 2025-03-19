@@ -1,0 +1,296 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Contens/9.UIToolkit/StyleSheet/StageSelectStyle.uss?fileID=7433441132597879392&amp;guid=fe88b2088d8a0cb40a7965aeb1317b37&amp;type=3#StageSelectStyle" />
+    <ui:VisualElement style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
+        <ui:VisualElement style="width: 100%; height: 100%; align-items: center;">
+            <ui:Label tabindex="-1" text="ステージセレクト" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 65px; margin-top: 3%; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 1%; height: 100px; min-width: 300px; background-color: rgba(255, 255, 170, 0.39); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-around; flex-direction: row; align-items: center; border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(22, 22, 22); border-right-color: rgb(22, 22, 22); border-top-color: rgb(22, 22, 22); border-bottom-color: rgb(22, 22, 22);">
+                <ui:VisualElement style="height: 100px; width: 25px;" />
+                <ui:VisualElement style="flex-direction: row; align-items: center; margin-right: 10px; margin-left: 10px;">
+                    <ui:VisualElement style="width: 75px; height: 75px; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Button/UI_LR.png?fileID=2800000&amp;guid=ab730c2ea477c784cb4b827764b32ca9&amp;type=3#UI_LR&quot;);" />
+                    <ui:Label tabindex="-1" text="：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                    <ui:Label tabindex="-1" text="ワールド&#10;移動" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ToUndergroundStageIcon" style="flex-direction: row; align-items: center; margin-right: 10px; margin-left: 10px;">
+                    <ui:VisualElement style="width: 75px; height: 75px; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Button/UI_W.png?fileID=2800000&amp;guid=0f359a9d654ddf646b8f2be556f406fb&amp;type=3#UI_W&quot;);" />
+                    <ui:Label tabindex="-1" text="：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                    <ui:Label tabindex="-1" text="地下面&#10;切り替え" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ToReverseStageIcon" style="flex-direction: row; align-items: center; margin-right: 10px; margin-left: 10px;">
+                    <ui:VisualElement style="width: 75px; height: 75px; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Button/UI_N.png?fileID=2800000&amp;guid=0972911ba096d02438d6d7edbe040f53&amp;type=3#UI_N&quot;);" />
+                    <ui:Label tabindex="-1" text="：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                    <ui:Label tabindex="-1" text="裏面&#10;切り替え" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; align-items: center; margin-right: 10px; margin-left: 10px;">
+                    <ui:VisualElement style="width: 75px; height: 75px; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Button/UI_Option.png?fileID=2800000&amp;guid=ea46622a03e87694ca215c0c9e0d6ded&amp;type=3#UI_Option&quot;);" />
+                    <ui:Label tabindex="-1" text="：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                    <ui:Label tabindex="-1" text="メニュー" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 28px; height: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; -unity-paragraph-spacing: 15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="height: 100px; width: 25px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="StagePanel" style="width: 100%; height: 100%; position: absolute; transition-duration: 1s; transition-timing-function: ease-out-cubic;">
+            <ui:VisualElement name="Plain" style="width: 100%; height: 100%; position: absolute;">
+                <ui:VisualElement class="frame" style="background-color: rgba(140, 200, 110, 0.39);">
+                    <ui:VisualElement style="height: 15%; width: 100%;">
+                        <ui:Label tabindex="-1" text="～始まりの平原～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="height: 85%; width: 100%; flex-direction: row;">
+                        <ui:VisualElement style="width: 30%; height: 97%; flex-direction: column-reverse; justify-content: space-around;">
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="１階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel0" class="stageLabel" />
+                                <ui:VisualElement name="Padlock0" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="２階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel1" class="stageLabel" />
+                                <ui:VisualElement name="Padlock1" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="３階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel2" class="stageLabel" />
+                                <ui:VisualElement name="Padlock2" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="４階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel3" class="stageLabel" />
+                                <ui:VisualElement name="Padlock3" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="５階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel4" class="stageLabel" />
+                                <ui:VisualElement name="Padlock4" class="padlock" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="height: 97%; width: 68%; background-color: rgba(200, 230, 230, 0.39); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+                            <ui:VisualElement style="width: 100%; height: 64%; flex-direction: row;">
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="初期アクション" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="AcquireActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/AcquireAction/acquireAction_base.png?fileID=2800000&amp;guid=2c467c1e133ca8946b8fc51cbe20f077&amp;type=3#acquireAction_base&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="始まりの平原 １面" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageNameLabel" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="StageImage" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/StageImage/ScreenShot.png?fileID=21300000&amp;guid=6171444c8660e0b42a905b33c282b1e8&amp;type=3#ScreenShot&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 15%; justify-content: space-around; flex-direction: row; align-items: center;">
+                                <ui:VisualElement style="width: 15%;" />
+                                <ui:Label tabindex="-1" text="歯車：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 36px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                <ui:VisualElement name="GearIcon0" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon1" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon2" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon3" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon4" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement style="width: 15%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; justify-content: center;">
+                                <ui:Label tabindex="-1" text="最小デス数：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MinimumDeathCountLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom: 1%;">
+                                <ui:Label tabindex="-1" text="最速クリアタイム：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FastestClearTimeLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; left: 1%; justify-content: center; height: 100%;">
+                    <ui:VisualElement name="LeftArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Left.png?fileID=2800000&amp;guid=1fcac8439d8302f43838cc53e466c93c&amp;type=3#UI_Arrow_Left&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; justify-content: center; height: 100%; right: 1%;">
+                    <ui:VisualElement name="RightArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Right.png?fileID=2800000&amp;guid=b5abe3ca457c5c44ea821f1d8a71a47e&amp;type=3#UI_Arrow_Right&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Blue" style="width: 100%; height: 100%; position: absolute; translate: 100% 0;">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.39);">
+                    <ui:VisualElement style="height: 15%; width: 100%;">
+                        <ui:Label tabindex="-1" text="～青色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="height: 85%; width: 100%; flex-direction: row;">
+                        <ui:VisualElement style="width: 30%; height: 97%; flex-direction: column-reverse; justify-content: space-around;">
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="１階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel0" class="stageLabel" />
+                                <ui:VisualElement name="padlock0" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="２階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel1" class="stageLabel" />
+                                <ui:VisualElement name="padlock1" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="３階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel2" class="stageLabel" />
+                                <ui:VisualElement name="padlock2" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="４階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel3" class="stageLabel" />
+                                <ui:VisualElement name="padlock3" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="５階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel4" class="stageLabel" />
+                                <ui:VisualElement name="padlock4" class="padlock" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="height: 97%; width: 68%; background-color: rgba(200, 230, 230, 0.39); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+                            <ui:VisualElement style="width: 100%; height: 64%; flex-direction: row;">
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="初期アクション" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="AcquireActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/AcquireAction/acquireAction_base.png?fileID=2800000&amp;guid=2c467c1e133ca8946b8fc51cbe20f077&amp;type=3#acquireAction_base&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="青色の塔 １階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageNameLabel" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="StageImage" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/StageImage/ScreenShot.png?fileID=21300000&amp;guid=6171444c8660e0b42a905b33c282b1e8&amp;type=3#ScreenShot&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 15%; justify-content: space-around; flex-direction: row; align-items: center;">
+                                <ui:VisualElement style="width: 15%;" />
+                                <ui:Label tabindex="-1" text="歯車：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 36px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                <ui:VisualElement name="gearIcon0" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon1" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon2" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon3" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon4" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement style="width: 15%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; justify-content: center;">
+                                <ui:Label tabindex="-1" text="最小デス数：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MinimumDeathCountLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom: 1%;">
+                                <ui:Label tabindex="-1" text="最速クリアタイム：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FastestClearTimeLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; left: 1%; justify-content: center; height: 100%;">
+                    <ui:VisualElement name="LeftArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Left.png?fileID=2800000&amp;guid=1fcac8439d8302f43838cc53e466c93c&amp;type=3#UI_Arrow_Left&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; justify-content: center; height: 100%; right: 1%;">
+                    <ui:VisualElement name="RightArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Right.png?fileID=2800000&amp;guid=b5abe3ca457c5c44ea821f1d8a71a47e&amp;type=3#UI_Arrow_Right&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ReverseStagePanel" style="width: 100%; height: 100%; position: absolute; transition-duration: 1s; transition-timing-function: ease-out-cubic; visibility: hidden;">
+            <ui:VisualElement name="Plain" style="width: 100%; height: 100%; position: absolute;">
+                <ui:VisualElement class="frame" style="background-color: rgba(140, 200, 110, 0.39);">
+                    <ui:VisualElement style="height: 15%; width: 100%;">
+                        <ui:Label tabindex="-1" text="～始まりの平原～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="height: 85%; width: 100%; flex-direction: row;">
+                        <ui:VisualElement style="width: 30%; height: 97%; flex-direction: column-reverse; justify-content: space-around;">
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="１階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel0" class="stageLabel" />
+                                <ui:VisualElement name="Padlock0" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="２階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel1" class="stageLabel" />
+                                <ui:VisualElement name="Padlock1" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="３階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel2" class="stageLabel" />
+                                <ui:VisualElement name="Padlock2" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="４階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel3" class="stageLabel" />
+                                <ui:VisualElement name="Padlock3" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="５階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageLabel4" class="stageLabel" />
+                                <ui:VisualElement name="Padlock4" class="padlock" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="height: 97%; width: 68%; background-color: rgba(200, 230, 230, 0.39); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+                            <ui:VisualElement style="width: 100%; height: 64%; flex-direction: row;">
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="初期アクション" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="AcquireActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/AcquireAction/acquireAction_base.png?fileID=2800000&amp;guid=2c467c1e133ca8946b8fc51cbe20f077&amp;type=3#acquireAction_base&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="始まりの平原 １面" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageNameLabel" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="StageImage" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/StageImage/ScreenShot.png?fileID=21300000&amp;guid=6171444c8660e0b42a905b33c282b1e8&amp;type=3#ScreenShot&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 15%; justify-content: space-around; flex-direction: row; align-items: center;">
+                                <ui:VisualElement style="width: 15%;" />
+                                <ui:Label tabindex="-1" text="歯車：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 36px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                <ui:VisualElement name="GearIcon0" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon1" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon2" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon3" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="GearIcon4" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement style="width: 15%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; justify-content: center;">
+                                <ui:Label tabindex="-1" text="最小デス数：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MinimumDeathCountLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom: 1%;">
+                                <ui:Label tabindex="-1" text="最速クリアタイム：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FastestClearTimeLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; left: 1%; justify-content: center; height: 100%;">
+                    <ui:VisualElement name="LeftArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Left.png?fileID=2800000&amp;guid=1fcac8439d8302f43838cc53e466c93c&amp;type=3#UI_Arrow_Left&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; justify-content: center; height: 100%; right: 1%;">
+                    <ui:VisualElement name="RightArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Right.png?fileID=2800000&amp;guid=b5abe3ca457c5c44ea821f1d8a71a47e&amp;type=3#UI_Arrow_Right&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Blue" style="width: 100%; height: 100%; position: absolute; translate: 100% 0;">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.39);">
+                    <ui:VisualElement style="height: 15%; width: 100%;">
+                        <ui:Label tabindex="-1" text="～青色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="height: 85%; width: 100%; flex-direction: row;">
+                        <ui:VisualElement style="width: 30%; height: 97%; flex-direction: column-reverse; justify-content: space-around;">
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="１階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel0" class="stageLabel" />
+                                <ui:VisualElement name="padlock0" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="２階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel1" class="stageLabel" />
+                                <ui:VisualElement name="padlock1" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="３階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel2" class="stageLabel" />
+                                <ui:VisualElement name="padlock2" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="４階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel3" class="stageLabel" />
+                                <ui:VisualElement name="padlock3" class="padlock" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="width: 100%; height: 10%; flex-direction: row; align-items: center;">
+                                <ui:Label tabindex="-1" text="５階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="stageLabel4" class="stageLabel" />
+                                <ui:VisualElement name="padlock4" class="padlock" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="height: 97%; width: 68%; background-color: rgba(200, 230, 230, 0.39); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+                            <ui:VisualElement style="width: 100%; height: 64%; flex-direction: row;">
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="初期アクション" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="AcquireActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/AcquireAction/acquireAction_base.png?fileID=2800000&amp;guid=2c467c1e133ca8946b8fc51cbe20f077&amp;type=3#acquireAction_base&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement style="flex-grow: 1; height: 100%; width: 50%; align-items: center; justify-content: flex-start;">
+                                    <ui:Label tabindex="-1" text="青色の塔 １階" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageNameLabel" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 36px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                    <ui:VisualElement name="StageImage" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/StageImage/ScreenShot.png?fileID=21300000&amp;guid=6171444c8660e0b42a905b33c282b1e8&amp;type=3#ScreenShot&quot;); width: 390px; height: 260px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 15%; justify-content: space-around; flex-direction: row; align-items: center;">
+                                <ui:VisualElement style="width: 15%;" />
+                                <ui:Label tabindex="-1" text="歯車：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 36px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                <ui:VisualElement name="gearIcon0" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon1" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon2" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon3" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement name="gearIcon4" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 50px; width: 50px;" />
+                                <ui:VisualElement style="width: 15%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; justify-content: center;">
+                                <ui:Label tabindex="-1" text="最小デス数：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MinimumDeathCountLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 10%; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom: 1%;">
+                                <ui:Label tabindex="-1" text="最速クリアタイム：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FastestClearTimeLabel" style="font-size: 32px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; left: 1%; justify-content: center; height: 100%;">
+                    <ui:VisualElement name="LeftArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Left.png?fileID=2800000&amp;guid=1fcac8439d8302f43838cc53e466c93c&amp;type=3#UI_Arrow_Left&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="position: absolute; justify-content: center; height: 100%; right: 1%;">
+                    <ui:VisualElement name="RightArrow" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Arrow_Right.png?fileID=2800000&amp;guid=b5abe3ca457c5c44ea821f1d8a71a47e&amp;type=3#UI_Arrow_Right&quot;); height: 162px; width: 100px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

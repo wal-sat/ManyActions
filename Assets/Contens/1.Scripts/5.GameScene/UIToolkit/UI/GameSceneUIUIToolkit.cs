@@ -4,21 +4,28 @@ using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.UIElements;
 using NaughtyAttributes;
+using System;
 
 public class GameSceneUIUIToolkit : MonoBehaviour
 {
     [SerializeField] private GameObject UIToolkit;
-    [SerializeField] VisualTreeAsset ActionCardTemplate;
 
     private VisualElement _root;
     private VisualElement _kidouUI;
     private VisualElement _sleepCameraUI;
-    private VisualElement _actionCardInventory;
+    private VisualElement _actionCard;
+    private VisualElement _actionIcon;
 
+    private Label _actionTitleLabel;
+    private Label _actionNameLabel;
     private Label _gearLabel;
     private Label _gearPlusLabel;
     private Label _deathLabel;
+    private Label _stageNameLabel;
     private Label _timeLabel;
+
+    private bool _isProcessing = false;
+    private Queue<IEnumerator> makeActionCardQueue = new Queue<IEnumerator>();
 
     private void Awake()
     {
@@ -27,50 +34,49 @@ public class GameSceneUIUIToolkit : MonoBehaviour
         _root = root.Q<VisualElement>("Root");
         _kidouUI = root.Q<VisualElement>("KidouUI");
         _sleepCameraUI = root.Q<VisualElement>("SleepCameraUI");
-        _actionCardInventory = root.Q<VisualElement>("ActionCardInventory");
+        _actionCard = root.Q<VisualElement>("ActionCard");
+        _actionIcon = root.Q<VisualElement>("ActionIcon");
 
+        _actionTitleLabel = root.Q<Label>("ActionTitleLabel");
+        _actionNameLabel = root.Q<Label>("ActionNameLabel");
         _gearLabel = root.Q<Label>("GearLabel");
         _gearPlusLabel = root.Q<Label>("GearPlusLabel");
         _deathLabel = root.Q<Label>("DeathLabel");
+        _stageNameLabel = root.Q<Label>("StageNameLabel");
         _timeLabel = root.Q<Label>("TimeLabel");
     }
 
     public void MakeActionCard(bool isAcquired, string actionName, Sprite actionIcon)
     {
-        StartCoroutine( CActionCard(isAcquired, actionName, actionIcon) );
+        makeActionCardQueue.Enqueue( CActionCard(isAcquired, actionName, actionIcon) );
+        if (!_isProcessing) StartCoroutine( ProcessQueue() );
     }
-
+    private IEnumerator ProcessQueue()
+    {
+        while (makeActionCardQueue.Count > 0)
+        {
+            _isProcessing = true;
+            yield return StartCoroutine(makeActionCardQueue.Dequeue());
+        }
+        _isProcessing = false;
+    }
     IEnumerator CActionCard(bool isAcquired, string actionName, Sprite actionIcon)
     {
-        TemplateContainer templateContainer = ActionCardTemplate.Instantiate();
-        _actionCardInventory.Add(templateContainer);
+        if (isAcquired) _actionTitleLabel.text = "アクションゲット";
+        else _actionTitleLabel.text = "アクションロスト";
 
-        VisualElement actionCard = templateContainer.Q<VisualElement>("ActionCard");
-        VisualElement _actionIcon = actionCard.Q<VisualElement>("ActionIcon");
-        Label _titleLabel = actionCard.Q<Label>("TitleLabel");
-        Label _actionLabel = actionCard.Q<Label>("ActionLabel");
-
-        if (isAcquired) _titleLabel.text = "習\n\n得";
-        else _titleLabel.text = "喪\n\n失";
-
-        _actionLabel.text = actionName;
+        _actionNameLabel.text = actionName;
         _actionIcon.style.backgroundImage = new StyleBackground(actionIcon);
 
         yield return new WaitForSeconds(0.1f);
 
-        actionCard.AddToClassList("ActionCard--on");
+        _actionCard.AddToClassList("ActionCard--On");
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(4.0f);
 
-        actionCard.RemoveFromClassList("ActionCard--on");
+        _actionCard.RemoveFromClassList("ActionCard--On");
 
-        yield return new WaitForSeconds(0.6f);
-
-        actionCard.AddToClassList("ActionCard--off");
-
-        yield return new WaitForSeconds(1f);
-
-        _actionCardInventory.Remove(templateContainer);
+        yield return new WaitForSeconds(0.5f);
     }
 
     public void ChangeGearLabel(int count)
@@ -88,6 +94,10 @@ public class GameSceneUIUIToolkit : MonoBehaviour
         string addText = "";
         if (count < 10) addText += "0";
         _deathLabel.text = addText + count.ToString();
+    }
+    public void ChangeStageNameLabel(string worldName, string stageName)
+    {
+        _stageNameLabel.text = worldName + "\n" + stageName;
     }
     public void ChangeTimeLabel(int[] times)
     {

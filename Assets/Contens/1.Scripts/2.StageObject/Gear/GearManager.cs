@@ -9,13 +9,13 @@ public class GearManager : MonoBehaviour
 {
     [HideInInspector] public GameSceneUI gameSceneUI;
 
-    private SceneName _sceneName;
+    private SceneKind _sceneKind;
     private List<Gear> gears = new List<Gear>();
 
     private void Start()
     {
-        _sceneName = S_LoadSceneSystem._instance.StringToSceneName( SceneManager.GetActiveScene().name );
-        S_GameInfo._instance.InstantiateGearInfo(_sceneName, gears.Count);
+        _sceneKind = S_LoadSceneSystem._instance.StringToSceneKind( SceneManager.GetActiveScene().name );
+        S_GameInfo._instance.InstantiateGearInfo(_sceneKind, gears.Count);
 
         Initialize();
     }
@@ -36,7 +36,7 @@ public class GearManager : MonoBehaviour
             if (gears[i].gearStatus == GearStatus.temporaryGet)
             {
                 gears[i].gearStatus = GearStatus.acquired;
-                S_GameInfo._instance.RegisterGearInfo(_sceneName, i, true);
+                S_GameInfo._instance.RegisterGearInfo(_sceneKind, i, true);
             }
         }
 
@@ -44,7 +44,7 @@ public class GearManager : MonoBehaviour
     }
     public void Initialize()
     {
-        bool[] gearInfo = S_GameInfo._instance.gearInfo[_sceneName];
+        bool[] gearInfo = S_GameInfo._instance.gearInfo[_sceneKind];
 
         for (int i = 0; i < gearInfo.Length; i++)
         {

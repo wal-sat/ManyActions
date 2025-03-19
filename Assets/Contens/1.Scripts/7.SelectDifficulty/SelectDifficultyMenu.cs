@@ -101,6 +101,6 @@ public class SelectDifficultyMenu : MonoBehaviour
 
     private void LoadTitleScene()
     {
-        S_LoadSceneSystem._instance.LoadScene(SceneName.title);
+        S_LoadSceneSystem._instance.LoadScene(SceneKind.title);
     }
 }

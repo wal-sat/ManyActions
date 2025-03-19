@@ -782,7 +782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 0}
-  ActionCardTemplate: {fileID: 9197481963319205126, guid: 195b22ca409e95c4cb03bbb834dab9c2, type: 3}
 --- !u!1 &8778883079044138257
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,68 +828,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionCardInfo:
   - actionName: "\u53CD\u8EE2"
-    actionIcon: {fileID: 21300000, guid: 5fe794e623ec4524e9fc0ee0672150f7, type: 3}
+    actionIcon: {fileID: 21300000, guid: f8b3c20cd896d9b48957fd4c9255d36c, type: 3}
   - actionName: "\u30AD\u30C3\u30AF"
-    actionIcon: {fileID: 21300000, guid: 5fe794e623ec4524e9fc0ee0672150f7, type: 3}
+    actionIcon: {fileID: 21300000, guid: f8b3c20cd896d9b48957fd4c9255d36c, type: 3}
   - actionName: "\u30A4\u30F3\u30BF\u30E9\u30AF\u30C8"
-    actionIcon: {fileID: 21300000, guid: 15492398078e55b4da1496cad0e848ed, type: 3}
+    actionIcon: {fileID: 21300000, guid: 36441e48615c62e4b9bfc31f45854909, type: 3}
   - actionName: "\u52A0\u901F"
-    actionIcon: {fileID: 21300000, guid: 7298dec69ddba7347a1b7b87ea69e46b, type: 3}
+    actionIcon: {fileID: 21300000, guid: b35a426e4f72edb4d8bf26d1dac7c2b0, type: 3}
   - actionName: "\u6E1B\u901F"
-    actionIcon: {fileID: 21300000, guid: 7298dec69ddba7347a1b7b87ea69e46b, type: 3}
+    actionIcon: {fileID: 21300000, guid: b35a426e4f72edb4d8bf26d1dac7c2b0, type: 3}
   - actionName: "\u4E0A"
-    actionIcon: {fileID: 21300000, guid: 2dccefbc24de3f74b8a86a6df6eb37e6, type: 3}
+    actionIcon: {fileID: 21300000, guid: 0c110330d9b57ce49b9ced956e805411, type: 3}
   - actionName: "\u3057\u3083\u304C\u307F"
-    actionIcon: {fileID: 21300000, guid: f41c24fb3f2d4f24f8e1578613924ee5, type: 3}
+    actionIcon: {fileID: 21300000, guid: 9a26ad036ac671044a1ce09846571b85, type: 3}
   - actionName: "\u30B8\u30E3\u30F3\u30D7"
-    actionIcon: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
+    actionIcon: {fileID: 21300000, guid: f7d24170054bfa14988e5e0b29c1a549, type: 3}
   - actionName: "\u5927\u30B8\u30E3\u30F3\u30D7"
-    actionIcon: {fileID: 21300000, guid: 18af266de8e35e345a3b6efcba2879e4, type: 3}
+    actionIcon: {fileID: 21300000, guid: 87fa6cc8598b1bd41a43ea0abe3e0163, type: 3}
   - actionName: "\u30D5\u30ED\u30F3\u30C8\u30B8\u30E3\u30F3\u30D7"
-    actionIcon: {fileID: 21300000, guid: 4add9f650fe704d4199b62a875e3d184, type: 3}
+    actionIcon: {fileID: 21300000, guid: fb8d3a061a8ed0d4189f1909ecbab75f, type: 3}
   - actionName: "\u30D0\u30C3\u30AF\u30B8\u30E3\u30F3\u30D7"
-    actionIcon: {fileID: 21300000, guid: 4add9f650fe704d4199b62a875e3d184, type: 3}
+    actionIcon: {fileID: 21300000, guid: fb8d3a061a8ed0d4189f1909ecbab75f, type: 3}
   - actionName: "\u964D\u308A\u308B"
-    actionIcon: {fileID: 21300000, guid: d09ebe1d547eef248909531426ef351d, type: 3}
+    actionIcon: {fileID: 21300000, guid: 09eb90ee964d07c48ace74e0c2aa7d75, type: 3}
   - actionName: "\u30C0\u30D6\u30EB\u30B8\u30E3\u30F3\u30D7"
-    actionIcon: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
+    actionIcon: {fileID: 21300000, guid: f7d24170054bfa14988e5e0b29c1a549, type: 3}
   - actionName: "\u7121\u9650\u30B8\u30E3\u30F3\u30D7"
-    actionIcon: {fileID: 21300000, guid: 3a789a67d032a784da9bd4d5249c9fb1, type: 3}
+    actionIcon: {fileID: 21300000, guid: f7d24170054bfa14988e5e0b29c1a549, type: 3}
   - actionName: "\u30DB\u30D0\u30FC"
-    actionIcon: {fileID: 21300000, guid: ab6d0e4eb993104408dbaa35e8217949, type: 3}
+    actionIcon: {fileID: 21300000, guid: d6321f70ee85d584c90f77a3ec4a8cf2, type: 3}
   - actionName: "\u4E0A\u30D6\u30EA\u30F3\u30AF"
-    actionIcon: {fileID: 21300000, guid: 0eb4aaac6f6fe72478cf2d58ac7f7c81, type: 3}
+    actionIcon: {fileID: 21300000, guid: 2b5b1df040a80ed4c83556b5cbae582a, type: 3}
   - actionName: "\u30D6\u30EA\u30F3\u30AF"
-    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+    actionIcon: {fileID: 21300000, guid: 183b78370dc3c2a4788278ef0c11c5c8, type: 3}
   - actionName: "\u5F8C\u308D\u30D6\u30EA\u30F3\u30AF"
-    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+    actionIcon: {fileID: 21300000, guid: 183b78370dc3c2a4788278ef0c11c5c8, type: 3}
   - actionName: "\u6025\u964D\u4E0B"
-    actionIcon: {fileID: 21300000, guid: 6f5ea9308ae8bdc418bfa80768f65e84, type: 3}
+    actionIcon: {fileID: 21300000, guid: 79910e185360871499d8b50da40ed3b4, type: 3}
   - actionName: "\u30C0\u30D6\u30EB\u30D6\u30EA\u30F3\u30AF"
-    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+    actionIcon: {fileID: 21300000, guid: 171fae95d61e7b4409aa8e3fcdd733be, type: 3}
   - actionName: "\u7121\u9650\u30D6\u30EA\u30F3\u30AF"
-    actionIcon: {fileID: 21300000, guid: 74e6f89903046e349afeb8d60b01ce80, type: 3}
+    actionIcon: {fileID: 21300000, guid: 171fae95d61e7b4409aa8e3fcdd733be, type: 3}
   - actionName: W
-    actionIcon: {fileID: 21300000, guid: 3e16e1172d344a34da9afd1f8b8a8048, type: 3}
+    actionIcon: {fileID: 21300000, guid: ef0ee8283687a004dbe871d47ad632ad, type: 3}
   - actionName: W_Up
-    actionIcon: {fileID: 21300000, guid: c9a522cea5b1bac4ebea00b9f511565b, type: 3}
+    actionIcon: {fileID: 21300000, guid: c50902b47e97b824f925d56497e892b6, type: 3}
   - actionName: W_Left
-    actionIcon: {fileID: 21300000, guid: 7e7e6e7d5d04b0c48954930fbfcb01fd, type: 3}
+    actionIcon: {fileID: 21300000, guid: 4ac3f610adde0cf419514e548ad2b088, type: 3}
   - actionName: W_Right
-    actionIcon: {fileID: 21300000, guid: 7e7e6e7d5d04b0c48954930fbfcb01fd, type: 3}
+    actionIcon: {fileID: 21300000, guid: 4ac3f610adde0cf419514e548ad2b088, type: 3}
   - actionName: W_Doun
-    actionIcon: {fileID: 21300000, guid: e10ec5fe220031245a00f7250a4b0cb0, type: 3}
+    actionIcon: {fileID: 21300000, guid: 29018f10879e0f944900575d98e075c6, type: 3}
   - actionName: W_Double
-    actionIcon: {fileID: 21300000, guid: 3e16e1172d344a34da9afd1f8b8a8048, type: 3}
+    actionIcon: {fileID: 21300000, guid: ef0ee8283687a004dbe871d47ad632ad, type: 3}
   - actionName: W_Infinite
-    actionIcon: {fileID: 21300000, guid: 3e16e1172d344a34da9afd1f8b8a8048, type: 3}
+    actionIcon: {fileID: 21300000, guid: ef0ee8283687a004dbe871d47ad632ad, type: 3}
   - actionName: "\u6211\u6162"
-    actionIcon: {fileID: 21300000, guid: 5c3c9703f47bbc049bc90624cd7c7a1a, type: 3}
+    actionIcon: {fileID: 21300000, guid: 3f1e0c2635bd9354cba19a21890c85cd, type: 3}
   - actionName: "\u30A2\u30C3\u30D7\u30EF\u30FC\u30D7"
-    actionIcon: {fileID: 21300000, guid: b63edcedf2d0c784dae3a4f21732b8c2, type: 3}
+    actionIcon: {fileID: 21300000, guid: 72b03df1807e2ef4f8c0ab371bc6af75, type: 3}
   - actionName: "\u30EF\u30FC\u30D7"
-    actionIcon: {fileID: 21300000, guid: 9c238860fe4c0054ba0d131456a086f7, type: 3}
+    actionIcon: {fileID: 21300000, guid: e85b2baf0d852514ba6fc1b3e6e01302, type: 3}
   - actionName: "\u30C0\u30D6\u30EB\u30EF\u30FC\u30D7"
-    actionIcon: {fileID: 21300000, guid: 5c3c9703f47bbc049bc90624cd7c7a1a, type: 3}
+    actionIcon: {fileID: 21300000, guid: e85b2baf0d852514ba6fc1b3e6e01302, type: 3}
   - actionName: "\u7121\u9650\u30EF\u30FC\u30D7"
-    actionIcon: {fileID: 21300000, guid: 5c3c9703f47bbc049bc90624cd7c7a1a, type: 3}
+    actionIcon: {fileID: 21300000, guid: e85b2baf0d852514ba6fc1b3e6e01302, type: 3}
