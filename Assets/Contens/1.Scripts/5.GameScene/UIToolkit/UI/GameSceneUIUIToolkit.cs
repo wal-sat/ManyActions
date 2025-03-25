@@ -101,11 +101,13 @@ public class GameSceneUIUIToolkit : MonoBehaviour
     }
     public void ChangeTimeLabel(int[] times)
     {
+        string addHourText = "";
         string addMiniteText = "";
         string addSecondText = "";
-        if (times[0] < 10) addMiniteText += "0";
-        if (times[1] < 10) addSecondText += "0";
-        _timeLabel.text = addMiniteText + times[0].ToString() + ":" + addSecondText + times[1].ToString();
+        if (times[0] < 10) addHourText += "0";
+        if (times[1] < 10) addMiniteText += "0";
+        if (times[2] < 10) addSecondText += "0";
+        _timeLabel.text = addHourText + times[0].ToString() + ":" + addMiniteText + times[1].ToString() + ":" + addSecondText + times[2].ToString();
     }
 
     public void SetActiveGearPlusLabel(bool isActive)

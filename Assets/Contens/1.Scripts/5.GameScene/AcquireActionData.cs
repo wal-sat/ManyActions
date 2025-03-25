@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/StageActionData", fileName = "SAD_")]
+[CreateAssetMenu(menuName = "ScriptableObject/AcquireActionData", fileName = "AAD_")]
 
-public class StageActionData : ScriptableObject
+public class AcquireActionData : ScriptableObject
 {
     [SerializeField] bool LR_Swap;
     [SerializeField] bool LR_Kick;

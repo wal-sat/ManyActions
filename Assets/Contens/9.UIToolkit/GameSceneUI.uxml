@@ -34,7 +34,7 @@
                 <ui:VisualElement name="TimeCount" class="Card" style="flex-direction: row-reverse; margin-right: 1.5%; margin-left: 0;">
                     <ui:VisualElement name="Bar" class="CardBar" />
                     <ui:VisualElement name="TimeIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/TimeIcon.PNG?fileID=2800000&amp;guid=4ce8354bd22393c469bceb9c162ee091&amp;type=3#TimeIcon&quot;); scale: 2 2;" />
-                    <ui:Label tabindex="-1" text="00:32" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TimeLabel" class="CardLabel" style="-unity-text-align: middle-right;" />
+                    <ui:Label tabindex="-1" text="00:00:32" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TimeLabel" class="CardLabel" style="-unity-text-align: middle-right; font-size: 30px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

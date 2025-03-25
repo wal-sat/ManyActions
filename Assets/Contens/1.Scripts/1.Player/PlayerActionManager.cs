@@ -392,9 +392,9 @@ public class PlayerActionManager : MonoBehaviour
         _onL = false;
     }
 
-    public void SetAvailableActions(StageActionData stageActionData)
+    public void SetAvailableActions(AcquireActionData acquireActionData)
     {
-        _availableActions = new Dictionary<ActionKind, bool>( stageActionData.availableActions );
+        _availableActions = new Dictionary<ActionKind, bool>( acquireActionData.availableActions );
 
         foreach (var availableAction in _availableActions)
         {

@@ -5,75 +5,81 @@ using UnityEngine;
 public class S_GameInfo : Singleton<S_GameInfo>
 {
     //ーーーーー歯車ーーーーー
-    public Dictionary<SceneKind, bool[]> gearInfo = new Dictionary<SceneKind, bool[]>();
-
-    public void InstantiateGearInfo(SceneKind sceneKind, int gearNumber)
+    private int _totalGearCount;
+    public int totalGearCount
     {
-        if (!gearInfo.ContainsKey(sceneKind))
+        get
         {
-            gearInfo.Add(sceneKind, new bool[gearNumber]);
+            _totalGearCount = 0;
+            foreach (StageData stageData in S_StageInfo._instance.stageDatas.Values)
+            {
+                for (int i = 0; i < stageData.gearAcquire.Length; i++)
+                {
+                    if (stageData.gearAcquire[i]) _totalGearCount++;
+                }
+            }
+            return _totalGearCount;
         }
-        else Debug.LogWarning($"{sceneKind}のブール値配列は既に生成されています");
-    }
-    public void RegisterGearInfo(SceneKind sceneKind, int gearIndex, bool isAcquired)
-    {
-        gearInfo[sceneKind][gearIndex] = isAcquired;
     }
 
-    public int GetGearCount()
+    public int GetGearCount(SceneKind sceneKind)
     {
         int count = 0;
-        foreach (bool[] info in gearInfo.Values)
+        foreach (bool gearAcquire in S_StageInfo._instance.stageDatas[sceneKind].gearAcquire)
         {
-            for (int i = 0; i < info.Length; i++)
-            {
-                if (info[i]) count ++;
-            }
+            if (gearAcquire) count++;
         }
         return count;
-    }
-    public void GearCountReset()
-    {
-        foreach (bool[] info in gearInfo.Values)
-        {
-            for (int i = 0; i < info.Length; i++)
-            {
-                info[i] = false;
-            }
-        }
     }
 
     //ーーーーーデス数ーーーーー
     public int deathCount = 0;
-    public int DeathCountIncrement()
+    public int totalDeathCount = 0;
+    public void DeathCountIncrement()
     {
         deathCount ++;
-        return deathCount;
+        totalDeathCount ++;
     }
-    public int DeathCountReset()
+    public void ResetDeathCount()
     {
         deathCount = 0;
-        return deathCount;
+
     }
 
     //ーーーーータイムーーーーー
     public bool onTimer;
     private float time;
+    private float totalTime;
 
     private void FixedUpdate()
     {
-        if (onTimer) time += Time.deltaTime;
+        if (onTimer) 
+        {
+            time += Time.deltaTime;
+            totalTime += Time.deltaTime;
+        }
     }
-    public int[] GetMiniteAndSecond()
+    public int[] GetTime()
     {
-        int[] ints = new int[2];
+        int[] ints = new int[3];
 
-        ints[0] = (int) time / 60;
-        ints[1] = (int) time % 60;
+        ints[0] = (int) time / 3600;
+        ints[1] = (int) ( time % 3600 ) / 60;
+        ints[2] = (int) time % 60;
 
         return ints;
     }
-    public void TimeReset()
+    public int[] GetTotalTime()
+    {
+        int[] ints = new int[3];
+
+        ints[0] = (int) totalTime / 3600;
+        ints[1] = (int) ( totalTime % 3600 ) / 60;
+        ints[2] = (int) totalTime % 60;
+
+        return ints;
+    }
+    public void ResetTime()
     {
         time = 0;
     }

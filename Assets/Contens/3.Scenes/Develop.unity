@@ -7335,6 +7335,10 @@ PrefabInstance:
       propertyPath: savePointManager
       value: 
       objectReference: {fileID: 1765428128}
+    - target: {fileID: 6979339847202871919, guid: e4b8faa908ba9af448e43873a99fc36a, type: 3}
+      propertyPath: acquireActionData
+      value: 
+      objectReference: {fileID: 11400000, guid: e58bb6f10fbfad045812212494fe05bb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7666,6 +7670,10 @@ PrefabInstance:
       propertyPath: sceneInfos.Array.data[51].worldName
       value: "\u9EC4\u8272\u306E\u5854"
       objectReference: {fileID: 0}
+    - target: {fileID: 1375920718589779738, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
+      propertyPath: SD_develop
+      value: 
+      objectReference: {fileID: 11400000, guid: 5422095a15417af429c48934138fbe0e, type: 2}
     - target: {fileID: 4254814470230363570, guid: f5d562952a5af4a47a35ae0ddbc49c96, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6268093

@@ -29,13 +29,13 @@ public class SavePointManager : MonoBehaviour
     {
         Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, Player.transform.position.z);
 
-        playerManager.PlayerActionManager.SetAvailableActions(_startPoint.stageActionData);
+        playerManager.PlayerActionManager.SetAvailableActions(_startPoint.acquireActionData);
     }
 
     public void TeleportRestartPosition()
     {
         Player.transform.position = new Vector3(savePoint.transform.position.x, savePoint.transform.position.y, Player.transform.position.z);
 
-        playerManager.PlayerActionManager.SetAvailableActions(savePoint.stageActionData);
+        playerManager.PlayerActionManager.SetAvailableActions(savePoint.acquireActionData);
     }
 }

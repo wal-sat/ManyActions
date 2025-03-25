@@ -269,6 +269,170 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 425697627213543726}
   DISPLAY_TIME: 3
+--- !u!1 &3964067762739389807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994231697962962555}
+  - component: {fileID: 1375920718589779738}
+  m_Layer: 0
+  m_Name: S_StageInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &994231697962962555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964067762739389807}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4254814470230363570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1375920718589779738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964067762739389807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c9d4a8f1b00c4438ff55a13ed0f0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SD_Plain_A:
+  - {fileID: 11400000, guid: 98fbd43d1261f8d48bb66ed78707a237, type: 2}
+  - {fileID: 11400000, guid: 5710e2aa836045741a2f0e5a0daca3b1, type: 2}
+  - {fileID: 11400000, guid: 7bac012e652babd479455a1d8f0f299d, type: 2}
+  - {fileID: 11400000, guid: 7487c786720b6944581319c8c1415d3b, type: 2}
+  - {fileID: 11400000, guid: eff21d9fa87b8b14c96e30ee3788683d, type: 2}
+  SD_Blue_F_A:
+  - {fileID: 11400000, guid: 9871829553ed9744797c5ee1cdc0fe4e, type: 2}
+  - {fileID: 11400000, guid: e571a1aeeff8aa44fb14ad40e4db4eb1, type: 2}
+  - {fileID: 11400000, guid: 461a9b38a7c7b0f4ea59a8e028e51d23, type: 2}
+  - {fileID: 11400000, guid: a7b418a93ff79c946b3f3799c7162a0a, type: 2}
+  - {fileID: 11400000, guid: 33c2b9d94dc725e42bc1820b7b9789aa, type: 2}
+  SD_Blue_B_A:
+  - {fileID: 11400000, guid: 6644044df1d0c854da7417d748a7dc71, type: 2}
+  - {fileID: 11400000, guid: c6d3c437b2e2bf041b91f576dbcd4ae6, type: 2}
+  - {fileID: 11400000, guid: ccf55a4afb2ed814d95f5985ddf50ba5, type: 2}
+  - {fileID: 11400000, guid: a9b20413f10e7b048a8d2c5154091431, type: 2}
+  - {fileID: 11400000, guid: 47a154ce0fc9ef24c8986608ec3110ca, type: 2}
+  SD_Green_F_A:
+  - {fileID: 11400000, guid: 9eee69848a0814d4c810849e75b365a0, type: 2}
+  - {fileID: 11400000, guid: 50ef44ddbf2d8a44b9f2fa65786f65b8, type: 2}
+  - {fileID: 11400000, guid: ae44c93502d56af47b5f146b6e3fa483, type: 2}
+  - {fileID: 11400000, guid: 4b9f179f48d74d34081955a2ac2ab46a, type: 2}
+  - {fileID: 11400000, guid: 80409be624af9ed449b7a609fbef1612, type: 2}
+  SD_Green_B_A:
+  - {fileID: 11400000, guid: 0a91354c50e30c540979f27dcfd7fd79, type: 2}
+  - {fileID: 11400000, guid: 368ff072f43ca2b4aa36bdacd5e80370, type: 2}
+  - {fileID: 11400000, guid: dde0bec6914fde949923d6886bc901a6, type: 2}
+  - {fileID: 11400000, guid: 1be5d282826b8614eae20259067d3720, type: 2}
+  - {fileID: 11400000, guid: 1fdf14df6178a64499dcd5cb9c2b433d, type: 2}
+  SD_Yellow_F_A:
+  - {fileID: 11400000, guid: e8013d89ad0428e438e6cce6b2e0aa1a, type: 2}
+  - {fileID: 11400000, guid: 4ffce18388dace04c850219fc1ee4d47, type: 2}
+  - {fileID: 11400000, guid: 337f570da7b87694fb34ad0744037df3, type: 2}
+  - {fileID: 11400000, guid: 2d23efe3b0f5abf43b70a99734e9b383, type: 2}
+  - {fileID: 11400000, guid: 20213fc2bfde803488f313bcfa4f32c7, type: 2}
+  SD_Yellow_B_A:
+  - {fileID: 11400000, guid: 8a6936935d5108645a2d078803e6057f, type: 2}
+  - {fileID: 11400000, guid: 6a24e2d02a1f031498fdca11a81aca58, type: 2}
+  - {fileID: 11400000, guid: 1d48566e5968eb148b8c500a1b6ac401, type: 2}
+  - {fileID: 11400000, guid: b8c10aac9d14447479b4ba94d2923d26, type: 2}
+  - {fileID: 11400000, guid: 90fa79e0208f2574cb58bdf49c43c649, type: 2}
+  SD_Purple_F_A:
+  - {fileID: 11400000, guid: 708f370115946444c92c6db0169e8005, type: 2}
+  - {fileID: 11400000, guid: 3ff77d4d1e8b1bd4cb9cac85695a1768, type: 2}
+  - {fileID: 11400000, guid: 8223819ad91f7494a9c8305305f97b91, type: 2}
+  - {fileID: 11400000, guid: a9a7a8a5d372e574ca3b39e93ecd763f, type: 2}
+  - {fileID: 11400000, guid: 4c9a0a4b2a927774e9a4e4f524e4efc5, type: 2}
+  SD_Purple_B_A:
+  - {fileID: 11400000, guid: 26aa8dfaa0e503841913a6b7dc1874ab, type: 2}
+  - {fileID: 11400000, guid: e505da281dc33714aa56d7b470063532, type: 2}
+  - {fileID: 11400000, guid: 42d2930126830154a8e0c584926d86ed, type: 2}
+  - {fileID: 11400000, guid: dd85dfbbea269a94faf3eae39b8aa893, type: 2}
+  - {fileID: 11400000, guid: e152b9ba85ab54a4a92154f420c77477, type: 2}
+  SD_Red_A:
+  - {fileID: 11400000, guid: 424473a56e4ac8f49a95e7d605a596fc, type: 2}
+  - {fileID: 11400000, guid: 2c081f6a0cec01c4288f53894d73d152, type: 2}
+  - {fileID: 11400000, guid: 61f2d22c824dbbe4b98351b3c15d6048, type: 2}
+  - {fileID: 11400000, guid: 1ce5d16016c3f824282284848b6c7e41, type: 2}
+  - {fileID: 11400000, guid: 9963660411e630a40b8462bdbd9a9703, type: 2}
+  SD_Plain_B:
+  - {fileID: 11400000, guid: c8820120b8239014db47f206ab28b7f0, type: 2}
+  - {fileID: 11400000, guid: 1a49a2bdbd98dee4a9081ec90f202368, type: 2}
+  - {fileID: 11400000, guid: 02f73de717187fe409cddbd8bc53101c, type: 2}
+  - {fileID: 11400000, guid: 32f9ad9f48cfbc94b91d697f43dff837, type: 2}
+  - {fileID: 11400000, guid: 8d04d5770b1192d47b3c42ef7ee8ee42, type: 2}
+  SD_Blue_F_B:
+  - {fileID: 11400000, guid: 93a655dfa9ec90b4583a8ff7416a0c3e, type: 2}
+  - {fileID: 11400000, guid: deebb8efa1823d6448a0256edda3c099, type: 2}
+  - {fileID: 11400000, guid: d7be76eb4f8514649814731388f09b84, type: 2}
+  - {fileID: 11400000, guid: 9fe70416ac5ae51459cc31cee815eac2, type: 2}
+  - {fileID: 11400000, guid: 9e96fb1e9dc733b4c80415d93b878858, type: 2}
+  SD_Blue_B_B:
+  - {fileID: 11400000, guid: 564e1c78c97223845a5b3c99b9ec9a3a, type: 2}
+  - {fileID: 11400000, guid: 2e97ea6093412ec47a10d31d38aa0247, type: 2}
+  - {fileID: 11400000, guid: 3bc2412bf089b7f4abe5ffafe5c9c60f, type: 2}
+  - {fileID: 11400000, guid: 1616e6269bf490a4b96536a7203e4eec, type: 2}
+  - {fileID: 11400000, guid: 751c3eaaa9d3efa44a5b8b55d266a73f, type: 2}
+  SD_Green_F_B:
+  - {fileID: 11400000, guid: dee158f2d241b384aa06a00df0fd3199, type: 2}
+  - {fileID: 11400000, guid: 2c34f29f653acb94b85988c2dc77f034, type: 2}
+  - {fileID: 11400000, guid: 0f7cbfd16bfca384897f6c7ad58301f5, type: 2}
+  - {fileID: 11400000, guid: 5fe6ac4cb66d17c4584c6f8633fb2bbb, type: 2}
+  - {fileID: 11400000, guid: 98d5954ddc63ca74ba4631fd72acf20e, type: 2}
+  SD_Green_B_B:
+  - {fileID: 11400000, guid: 01b5f0977c9184840a277ced55664df0, type: 2}
+  - {fileID: 11400000, guid: 7118871a85357eb479d5b2fd960d20cd, type: 2}
+  - {fileID: 11400000, guid: f147cb945101d8c419f3e1c52d53cf55, type: 2}
+  - {fileID: 11400000, guid: 62320fcf61f8b184abb78397ef8f11ea, type: 2}
+  - {fileID: 11400000, guid: 005a2ec53e8799c4eaa2d52bc6fcd409, type: 2}
+  SD_Yellow_F_B:
+  - {fileID: 11400000, guid: e6e7d1e26541ae54ab3daa2bb7b6268b, type: 2}
+  - {fileID: 11400000, guid: eee8b329bb46d7140a0c36d87ada0dbe, type: 2}
+  - {fileID: 11400000, guid: bfacead4a40f2aa479e168b635343e37, type: 2}
+  - {fileID: 11400000, guid: 700b8401bf6c37e44a55f568a62b1496, type: 2}
+  - {fileID: 11400000, guid: bb6d97cc95810234faebad150828bf57, type: 2}
+  SD_Yellow_B_B:
+  - {fileID: 11400000, guid: 829188b629e0c974d8e386369c5fd0be, type: 2}
+  - {fileID: 11400000, guid: c006155c75d27cf4ebca204660924c6f, type: 2}
+  - {fileID: 11400000, guid: e57e262057560374db60985914fbfcc9, type: 2}
+  - {fileID: 11400000, guid: b2496d4a4381d6845a90d0e0957fc1bb, type: 2}
+  - {fileID: 11400000, guid: bf39c2b6266fec04aaf8c2d7d2173e5d, type: 2}
+  SD_Purple_F_B:
+  - {fileID: 11400000, guid: 82d8937f6ca78e245bf923a77577b8c3, type: 2}
+  - {fileID: 11400000, guid: e77dc184d8b5a4840a0653d62a17b6a3, type: 2}
+  - {fileID: 11400000, guid: 8e5fd2025bd46084c899af5c395c7fe6, type: 2}
+  - {fileID: 11400000, guid: 6dc4bb3ff2668b94ca0b2edd261e2075, type: 2}
+  - {fileID: 11400000, guid: e82b39e81cfd62c40a01fedb08f4fb21, type: 2}
+  SD_Purple_B_B:
+  - {fileID: 11400000, guid: 548d15932bc39f84ca538add2607c63c, type: 2}
+  - {fileID: 11400000, guid: 4220ac0ad6d054f4c86d44e144588d7a, type: 2}
+  - {fileID: 11400000, guid: 8c08f28af273142459c35df27619ed1f, type: 2}
+  - {fileID: 11400000, guid: 3a6149e34d7acc64d9af1ab30e5d997c, type: 2}
+  - {fileID: 11400000, guid: 9123c88a24b491e419ed58fed2bc5143, type: 2}
+  SD_Red_B:
+  - {fileID: 11400000, guid: dd56b6700413f844292bd36050c7d010, type: 2}
+  - {fileID: 11400000, guid: 06cbd86ff16d5584d8eb91481cf88966, type: 2}
+  - {fileID: 11400000, guid: 5e1d03b39e1b70c4c93409148089934d, type: 2}
+  - {fileID: 11400000, guid: e77d4c76bd3696a48b78bd791fcff122, type: 2}
+  - {fileID: 11400000, guid: 354cbc78159aaed4b8c20b9dd9b5e26b, type: 2}
 --- !u!1 &4588221738769305926
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,211 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ff0c21b24b1a444beacacaad6a467e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneInfos:
-  - sceneName: Tutorial
-    sceneKind: 0
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
-  - sceneName: Plain_1_A
-    sceneKind: 1
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF11\u9762"
-  - sceneName: Plain_2_A
-    sceneKind: 2
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF12\u9762"
-  - sceneName: Plain_3_A
-    sceneKind: 3
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF13\u9762"
-  - sceneName: Plain_4_A
-    sceneKind: 4
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF14\u9762"
-  - sceneName: Plain_5_A
-    sceneKind: 5
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF15\u9762"
-  - sceneName: Plain_1_B
-    sceneKind: 6
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF11\u9762 \u88CF"
-  - sceneName: Plain_2_B
-    sceneKind: 7
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF12\u9762 \u88CF"
-  - sceneName: Plain_3_B
-    sceneKind: 8
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF13\u9762 \u88CF"
-  - sceneName: Plain_4_B
-    sceneKind: 9
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF14\u9762 \u88CF"
-  - sceneName: Plain_5_B
-    sceneKind: 10
-    worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
-    stageName: "\uFF15\u9762 \u88CF"
-  - sceneName: Blue_F1_A
-    sceneKind: 11
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF11\u968E"
-  - sceneName: Blue_F2_A
-    sceneKind: 12
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF12\u968E"
-  - sceneName: Blue_F3_A
-    sceneKind: 13
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF13\u968E"
-  - sceneName: Blue_F4_A
-    sceneKind: 14
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF14\u968E"
-  - sceneName: Blue_F5_A
-    sceneKind: 15
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF15\u968E"
-  - sceneName: Blue_B1_A
-    sceneKind: 16
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF11\u968E"
-  - sceneName: Blue_B2_A
-    sceneKind: 17
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF12\u968E"
-  - sceneName: Blue_B3_A
-    sceneKind: 18
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF13\u968E"
-  - sceneName: Blue_B4_A
-    sceneKind: 19
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF14\u968E"
-  - sceneName: Blue_B5_A
-    sceneKind: 20
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF15\u968E"
-  - sceneName: Blue_F1_B
-    sceneKind: 21
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF11\u968E \u88CF"
-  - sceneName: Blue_F2_B
-    sceneKind: 22
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF12\u968E \u88CF"
-  - sceneName: Blue_F3_B
-    sceneKind: 23
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF13\u968E \u88CF"
-  - sceneName: Blue_F4_B
-    sceneKind: 24
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF14\u968E \u88CF"
-  - sceneName: Blue_F5_B
-    sceneKind: 25
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\uFF15\u968E \u88CF"
-  - sceneName: Blue_B1_B
-    sceneKind: 26
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF11\u968E \u88CF"
-  - sceneName: Blue_B2_B
-    sceneKind: 27
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF12\u968E \u88CF"
-  - sceneName: Blue_B3_B
-    sceneKind: 28
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF13\u968E \u88CF"
-  - sceneName: Blue_B4_B
-    sceneKind: 29
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF14\u968E \u88CF"
-  - sceneName: Blue_B5_B
-    sceneKind: 30
-    worldName: "\u9752\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF15\u968E \u88CF"
-  - sceneName: Green_F1_A
-    sceneKind: 31
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF11\u968E"
-  - sceneName: Green_F2_A
-    sceneKind: 32
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF12\u968E"
-  - sceneName: Green_F3_A
-    sceneKind: 33
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF13\u968E"
-  - sceneName: Green_F4_A
-    sceneKind: 34
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF14\u968E"
-  - sceneName: Green_F5_A
-    sceneKind: 35
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF15\u968E"
-  - sceneName: Green_B1_A
-    sceneKind: 36
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF11\u968E"
-  - sceneName: Green_B2_A
-    sceneKind: 37
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF12\u968E"
-  - sceneName: Green_B3_A
-    sceneKind: 38
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF13\u968E"
-  - sceneName: Green_B4_A
-    sceneKind: 39
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF14\u968E"
-  - sceneName: Green_B5_A
-    sceneKind: 40
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF15\u968E"
-  - sceneName: Green_F1_B
-    sceneKind: 41
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF11\u968E \u88CF"
-  - sceneName: Green_F2_B
-    sceneKind: 42
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF12\u968E \u88CF"
-  - sceneName: Green_F3_B
-    sceneKind: 43
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF13\u968E \u88CF"
-  - sceneName: Green_F4_B
-    sceneKind: 44
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF14\u968E \u88CF"
-  - sceneName: Green_F5_B
-    sceneKind: 45
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\uFF15\u968E \u88CF"
-  - sceneName: Green_B1_B
-    sceneKind: 46
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF11\u968E \u88CF"
-  - sceneName: Green_B1_B
-    sceneKind: 47
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF12\u968E \u88CF"
-  - sceneName: Green_B1_B
-    sceneKind: 48
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF13\u968E \u88CF"
-  - sceneName: Green_B1_B
-    sceneKind: 49
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF14\u968E \u88CF"
-  - sceneName: Green_B1_B
-    sceneKind: 50
-    worldName: "\u7DD1\u8272\u306E\u5854"
-    stageName: "\u5730\u4E0B\uFF15\u968E \u88CF"
 --- !u!1 &5244062283336081464
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +837,7 @@ Transform:
   - {fileID: 777162295412007209}
   - {fileID: 6222009368136670770}
   - {fileID: 4645688281215396776}
+  - {fileID: 994231697962962555}
   - {fileID: 3542790041133739413}
   - {fileID: 5585824819153504832}
   - {fileID: 3662124336089433749}

@@ -13,7 +13,7 @@ public class GameSceneUI : MonoBehaviour
 
     public void ChangeGearCount(int temporaryGetCount)
     {
-        gameSceneUIUIToolkit.ChangeGearLabel( S_GameInfo._instance.GetGearCount() );
+        gameSceneUIUIToolkit.ChangeGearLabel( S_GameInfo._instance.totalGearCount );
 
         if (temporaryGetCount == 0) gameSceneUIUIToolkit.SetActiveGearPlusLabel(false);
         else 
@@ -30,7 +30,7 @@ public class GameSceneUI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        gameSceneUIUIToolkit.ChangeTimeLabel( S_GameInfo._instance.GetMiniteAndSecond() );
+        gameSceneUIUIToolkit.ChangeTimeLabel( S_GameInfo._instance.GetTime() );
     }
 
     public void MakeActionCard(bool isAcquired, string actionName, Sprite actionIcon)

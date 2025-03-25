@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,20 @@ public class GearManager : MonoBehaviour
 
     private void Start()
     {
-        _sceneKind = S_LoadSceneSystem._instance.StringToSceneKind( SceneManager.GetActiveScene().name );
-        S_GameInfo._instance.InstantiateGearInfo(_sceneKind, gears.Count);
+        string sceneNameString = SceneManager.GetActiveScene().name;
+        foreach (SceneKind sceneKind in Enum.GetValues(typeof(SceneKind)))
+        {
+            string sceneKindString = Enum.GetName(typeof(SceneKind), sceneKind);
+
+            Debug.Log(sceneNameString);
+            Debug.Log(sceneKindString);
+
+            if ( sceneNameString.Contains(sceneKindString) )
+            {
+                _sceneKind = sceneKind;
+                break;
+            }
+        }
 
         Initialize();
     }
@@ -31,12 +44,12 @@ public class GearManager : MonoBehaviour
     }
     public void OnSave()
     {
-        for (int i = 0; i < gears.Count; i++)
+        foreach (Gear gear in gears)
         {
-            if (gears[i].gearStatus == GearStatus.temporaryGet)
+            if (gear.gearStatus == GearStatus.temporaryGet)
             {
-                gears[i].gearStatus = GearStatus.acquired;
-                S_GameInfo._instance.RegisterGearInfo(_sceneKind, i, true);
+                gear.gearStatus = GearStatus.acquired;
+                S_StageInfo._instance.stageDatas[_sceneKind].gearAcquire[gear.gearIndex] = true;
             }
         }
 
@@ -44,12 +57,10 @@ public class GearManager : MonoBehaviour
     }
     public void Initialize()
     {
-        bool[] gearInfo = S_GameInfo._instance.gearInfo[_sceneKind];
-
-        for (int i = 0; i < gearInfo.Length; i++)
+        foreach (var gear in gears)
         {
-            if (gearInfo[i]) gears[i].Initialize(GearStatus.acquired);
-            else if (!gearInfo[i]) gears[i].Initialize(GearStatus.unacquired);
+            if (S_StageInfo._instance.stageDatas[_sceneKind].gearAcquire[gear.gearIndex]) gear.Initialize(GearStatus.acquired);
+            else gear.Initialize(GearStatus.unacquired);
         }
 
         gameSceneUI.ChangeGearCount( GetTemporaryGetGearCount() );

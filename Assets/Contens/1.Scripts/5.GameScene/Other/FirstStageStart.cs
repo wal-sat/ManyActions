@@ -6,9 +6,8 @@ public class FirstStageStart : MonoBehaviour
 {
     private void Awake()
     {
-        S_GameInfo._instance.GearCountReset();
-        S_GameInfo._instance.DeathCountReset();
-        S_GameInfo._instance.TimeReset();
+        S_GameInfo._instance.ResetDeathCount();
+        S_GameInfo._instance.ResetTime();
     }
     private void Start()
     {

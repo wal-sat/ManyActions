@@ -67,5 +67,6 @@ public class SelectDifficultyConfirm : MonoBehaviour
     {
         // if (level == DifficultyLevel.normal) S_LoadSceneSystem._instance.LoadScene(SceneKind.normalStage_0);
         // if (level == DifficultyLevel.extra) S_LoadSceneSystem._instance.LoadScene(SceneKind.extraStage_0);
+        S_LoadSceneSystem._instance.LoadScene(SceneKind.plain_1_A);
     }
 }

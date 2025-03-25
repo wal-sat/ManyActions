@@ -1940,6 +1940,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 765989919}
+  - component: {fileID: 765989922}
+  - component: {fileID: 765989921}
+  - component: {fileID: 765989920}
   - component: {fileID: 765989918}
   m_Layer: 0
   m_Name: StageSelectManager
@@ -1961,6 +1964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 2010439862}
+  gearIcon: {fileID: 21300000, guid: 4af441c23fea6fd48afafb06c27033e8, type: 3}
+  gearDisableIcon: {fileID: 21300000, guid: a20166099dd985a48ae1cc5eae5eca8d, type: 3}
 --- !u!4 &765989919
 Transform:
   m_ObjectHideFlags: 0
@@ -1973,9 +1978,51 @@ Transform:
   m_LocalPosition: {x: -4.548944, y: -0.054155983, z: -6.0807047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1341519784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &765989920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765989917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4288f5fe44050478e790eb151b4689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageSelectUIToolkit: {fileID: 765989918}
+--- !u!114 &765989921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765989917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76544c62d5152fb45b1d69d0a6a841df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageSelectMenuRestrictions: {fileID: 1341519785}
+  stageSelectUIToolkit: {fileID: 765989918}
+--- !u!114 &765989922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765989917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae808ecfd9eb7b045b7bf450dff2af2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageSelectMenu: {fileID: 765989921}
+  stageSelectOption: {fileID: 765989920}
 --- !u!1 &1209365603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2101,51 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &1341519783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341519784}
+  - component: {fileID: 1341519785}
+  m_Layer: 0
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341519784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341519783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 765989919}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1341519785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341519783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7452fd20de5b4ed4eac0bd28a1303551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageSelectUIToolkit: {fileID: 765989918}
 --- !u!1001 &1464819689
 PrefabInstance:
   m_ObjectHideFlags: 0

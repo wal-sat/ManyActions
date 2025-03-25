@@ -44,14 +44,13 @@ public class StageManager : MonoBehaviour
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
 
-        foreach (var sceneInfo in S_LoadSceneSystem._instance.sceneInfos)
+        string sceneKindString = SceneManager.GetActiveScene().name;
+        if (Enum.TryParse<SceneKind>(sceneKindString, true, out SceneKind _sceneKind))
         {
-            if (sceneInfo.sceneName == SceneManager.GetActiveScene().name)
-            {
-                gameSceneUI.ChangeStageName(sceneInfo.worldName, sceneInfo.stageName);
-                break;
-            }
+            gameSceneUI.ChangeStageName(S_StageInfo._instance.stageDatas[_sceneKind].worldName, S_StageInfo._instance.stageDatas[_sceneKind].stageName);
         }
+        else Debug.LogWarning("SceneKindの列挙体に変換できませんでした");
+
         gameSceneUI.UpdateDeathCount();
         gameSceneUI.SwitchKidouUIVisible(true);
     }

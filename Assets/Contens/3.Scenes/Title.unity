@@ -6663,7 +6663,7 @@ MonoBehaviour:
   playerAnimationManager: {fileID: 1773115947}
   playerActionManager: {fileID: 51295829}
   playerPreventStuck: {fileID: 1773115943}
-  stageActionData: {fileID: 11400000, guid: e58bb6f10fbfad045812212494fe05bb, type: 2}
+  acquireActionData: {fileID: 11400000, guid: e11aafd1233af32478b83547e15dccca, type: 2}
 --- !u!114 &1911942163
 MonoBehaviour:
   m_ObjectHideFlags: 0

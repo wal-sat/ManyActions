@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public enum SceneKind
 { 
-    tutorial,
     plain_1_A, plain_2_A, plain_3_A, plain_4_A, plain_5_A, 
     plain_1_B, plain_2_B, plain_3_B, plain_4_B, plain_5_B, 
     blue_F1_A, blue_F2_A, blue_F3_A, blue_F4_A, blue_F5_A, blue_B1_A, blue_B2_A, blue_B3_A, blue_B4_A, blue_B5_A,
@@ -24,56 +23,11 @@ public enum SceneKind
     develop ,selectDifficulty, 
 }
 
-[Serializable]
-public class StageInfo
-{
-    public string sceneName;
-    public SceneKind sceneKind;
-    public string worldName;
-    public string stageName;
-}
-
 public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
 {
-    [SerializeField] public List<StageInfo> sceneInfos;
-
     public void LoadScene(SceneKind sceneKind)
     {
         S_InputSystem._instance.canInput = false;
-        S_FadeManager._instance.Fade(() => Load(sceneKind), () => S_InputSystem._instance.canInput = true, FadeType.Black, 0.5f,2f,0.5f);
-    }
-
-    private void Load(SceneKind sceneName)
-    {
-        switch (sceneName)
-        {
-            case SceneKind.title:
-                SceneManager.LoadScene("Title");
-            break;
-            case SceneKind.selectDifficulty:
-                SceneManager.LoadScene("SelectDifficulty");
-            break;
-            case SceneKind.develop:
-                SceneManager.LoadScene("Develop");
-            break;
-        }
-    }
-
-    public SceneKind StringToSceneKind(string nameString)
-    {
-        SceneKind sceneKind = SceneKind.title;
-        switch (nameString)
-        {
-            case "Title":
-                sceneKind = SceneKind.title;
-            break;
-            case "SelectDifficulty":
-                sceneKind = SceneKind.selectDifficulty;
-            break;
-            case "Develop":
-                sceneKind = SceneKind.develop;
-            break;
-        }
-        return sceneKind;
+        S_FadeManager._instance.Fade(() => SceneManager.LoadScene(sceneKind.ToString()), () => S_InputSystem._instance.canInput = true, FadeType.Black, 0.5f,2f,0.5f);
     }
 }
