@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StageSelectMenu : MonoBehaviour
 {
     [SerializeField] StageSelectMenuRestrictions stageSelectMenuRestrictions;
-    [SerializeField] StageSelectUIToolkit stageSelectUIToolkit;
+    [SerializeField] public StageSelectMenuConfirm stageSelectMenuConfirm;
+    [SerializeField] public StageSelectMenuUIToolkit stageSelectMenuUIToolkit;
     public Action<StageSelectSceneStatus> ChangeStatus;
 
     private SceneKind[,,,] _toSceneKindFromIndex = new SceneKind[5, 5, 2, 2];
@@ -19,7 +21,7 @@ public class StageSelectMenu : MonoBehaviour
         {
             _cursorIndex = Mathf.Clamp(value, 0, 4);
 
-            stageSelectUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             DisplayStageInfomation(S_StageInfo._instance.stageDatas[ _toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex] ]);
         }
     }
@@ -29,12 +31,12 @@ public class StageSelectMenu : MonoBehaviour
         get => _stageIndex;
         set
         {
-            stageSelectUIToolkit.StageLabelUnSelect(stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StageLabelUnSelect(stageIndex, undergroundIndex, reverseIndex);
 
             _stageIndex = Mathf.Clamp(value, 0, 4);
 
-            stageSelectUIToolkit.StagePanelMove(stageIndex, undergroundIndex);
-            stageSelectUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StagePanelMove(stageIndex, undergroundIndex);
+            stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             stageSelectMenuRestrictions.CheckToUndergroundStageIconDisplay(stageIndex);
             DisplayStageInfomation(S_StageInfo._instance.stageDatas[ _toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex] ]);
         }
@@ -45,12 +47,12 @@ public class StageSelectMenu : MonoBehaviour
         get => _undergroundIndex;
         set
         {
-            stageSelectUIToolkit.StageLabelUnSelect(stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StageLabelUnSelect(stageIndex, undergroundIndex, reverseIndex);
 
             _undergroundIndex = Mathf.Clamp(value, 0, 1);
 
-            stageSelectUIToolkit.StagePanelMove(stageIndex, undergroundIndex);
-            stageSelectUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StagePanelMove(stageIndex, undergroundIndex);
+            stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             DisplayStageInfomation(S_StageInfo._instance.stageDatas[ _toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex] ]);
         }
     }
@@ -60,12 +62,12 @@ public class StageSelectMenu : MonoBehaviour
         get => _reverseIndex;
         set
         {
-            stageSelectUIToolkit.StageLabelUnSelect(stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StageLabelUnSelect(stageIndex, undergroundIndex, reverseIndex);
 
             _reverseIndex = Mathf.Clamp(value, 0, 1);
 
-            stageSelectUIToolkit.StagePanelReverse(reverseIndex);
-            stageSelectUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
+            stageSelectMenuUIToolkit.StagePanelReverse(reverseIndex);
+            stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             DisplayStageInfomation(S_StageInfo._instance.stageDatas[ _toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex] ]);
         }
     }
@@ -77,7 +79,7 @@ public class StageSelectMenu : MonoBehaviour
         undergroundIndex = 0;
         reverseIndex = 0;
 
-        stageSelectUIToolkit.StagePanelVisibilitySwitch(reverseIndex);
+        stageSelectMenuUIToolkit.StagePanelVisibilitySwitch(reverseIndex);
 
         foreach (var item in S_StageInfo._instance.stageDatas.Values)
         {
@@ -93,14 +95,9 @@ public class StageSelectMenu : MonoBehaviour
     {
         if (!S_StageInfo._instance.stageDatas[_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex]].isReleased) return;
 
-        S_StageInfo._instance.SetClearStatus(_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex], true);
-        for (int i = 0; i < 5; i++)
-        {
-            S_StageInfo._instance.SetGearAcquireStatus(_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex], i, true);
-        }
-        S_StageInfo._instance.SetMinimumDeathCount(_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex], 54034);
-        S_StageInfo._instance.SetFastestClearTime(_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex], 46401);
-        PadlockDisplayCheck();
+        ChangeStatus(StageSelectSceneStatus.menuConfirm);
+        stageSelectMenuConfirm.stageData = S_StageInfo._instance.stageDatas[_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex]];
+        S_SEManager._instance.Play("u_select");
     }
     public void CursorCancel()
     {
@@ -110,61 +107,64 @@ public class StageSelectMenu : MonoBehaviour
     {
         if (undergroundIndex == 0) cursorIndex++;
         else cursorIndex--;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void CursorDown()
     {
         if (undergroundIndex == 0) cursorIndex--;
         else cursorIndex++;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void L()
     {
         if (!stageSelectMenuRestrictions.CanLeftArrowMove(stageIndex, undergroundIndex, reverseIndex)) return;
-        cursorIndex = 0;
         stageIndex --;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void R()
     {
         if (!stageSelectMenuRestrictions.CanRightArrowMove(stageIndex, undergroundIndex, reverseIndex)) return;
-        cursorIndex = 0;
         stageIndex ++;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void West()
     {
         if (!stageSelectMenuRestrictions.CanToUndergroundStage(stageIndex)) return;
-        cursorIndex = 0;
         if (undergroundIndex == 0) undergroundIndex = 1;
         else undergroundIndex = 0;
+        S_SEManager._instance.Play("u_select");
     }
     public void North()
     {
         if (!stageSelectMenuRestrictions.CanToReverseStage()) return;
-        cursorIndex = 0;
         if (reverseIndex == 0) reverseIndex = 1;
         else reverseIndex = 0;
+        S_SEManager._instance.Play("u_select");
     }
     public void Option()
     {
-        
+        ChangeStatus(StageSelectSceneStatus.option);
+        S_SEManager._instance.Play("u_pause");
     }
 
     private void DisplayStageInfomation(StageData stageData)
     {
-        stageSelectUIToolkit.AcquireActionImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.acquireActionImage);
-        stageSelectUIToolkit.StageNameLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.worldName, stageData.stageName);
-        stageSelectUIToolkit.StageImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.stageImage);
+        stageSelectMenuUIToolkit.AcquireActionImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.acquireActionImage);
+        stageSelectMenuUIToolkit.StageNameLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.worldName, stageData.stageName);
+        stageSelectMenuUIToolkit.StageImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.stageImage);
         for (int i = 0; i < 5; i++)
         {
-            stageSelectUIToolkit.GearIconAcquired(i, stageIndex, undergroundIndex, reverseIndex, stageData.gearAcquire[i]);
+            stageSelectMenuUIToolkit.GearIconAcquired(i, stageIndex, undergroundIndex, reverseIndex, stageData.gearAcquire[i]);
         }
-        stageSelectUIToolkit.MinimumDeathCountLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.minimumDeathCount);
-        stageSelectUIToolkit.FastestClearTimeLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.fastestClearTime);
+        stageSelectMenuUIToolkit.MinimumDeathCountLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.minimumDeathCount);
+        stageSelectMenuUIToolkit.FastestClearTimeLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.fastestClearTime);
     }
 
     private void PadlockDisplayCheck()
     {
         foreach (var item in S_StageInfo._instance.stageDatas.Values)
         {
-            stageSelectUIToolkit.PadlockVisibility(item.cursorIndex, item.stageIndex, item.undergroundIndex, item.reverseIndex, !item.isReleased);
+            stageSelectMenuUIToolkit.PadlockVisibility(item.cursorIndex, item.stageIndex, item.undergroundIndex, item.reverseIndex, !item.isReleased);
         }
     }
 }

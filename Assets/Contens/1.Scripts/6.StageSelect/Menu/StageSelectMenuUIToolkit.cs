@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class StageSelectUIToolkit : MonoBehaviour
+public class StageSelectMenuUIToolkit : MonoBehaviour
 {
     [SerializeField] private GameObject UIToolkit;
     [SerializeField] private Sprite gearIcon;
     [SerializeField] private Sprite gearDisableIcon;
 
+    private VisualElement _panel;
     private VisualElement _stagePanel;
     private VisualElement _reverseStagePanel;
     private VisualElement[,,] _stage = new VisualElement[5, 2, 2];
@@ -32,6 +33,7 @@ public class StageSelectUIToolkit : MonoBehaviour
     {
         var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
 
+        _panel = root.Q<VisualElement>("Panel");
         _stagePanel = root.Q<VisualElement>("StagePanel");
         _reverseStagePanel = root.Q<VisualElement>("ReverseStagePanel");
 
@@ -87,6 +89,12 @@ public class StageSelectUIToolkit : MonoBehaviour
         _toReverseStageIcon = root.Q<VisualElement>("ToReverseStageIcon");
     }
 
+    public void PanelVisibility(bool isVisible)
+    {
+        if (isVisible) _panel.AddToClassList("panel--Visible");
+        else _panel.RemoveFromClassList("panel--Visible");
+    }
+
     /// <summary>
     /// ステージパネルを移動する
     /// </summary>
@@ -116,11 +124,6 @@ public class StageSelectUIToolkit : MonoBehaviour
         StopAllCoroutines();
         for (int l = 0; l < 5; l++) 
         {
-            if (_stageLabel[l,i,j,k] == null) 
-            {
-                Debug.Log("StageLabel" + l + i + j + k + " is null");
-                continue;
-            }
             _stageLabel[l,i,j,k].RemoveFromClassList("stageLabel--Selected");
             _stageLabel[l,i,j,k].RemoveFromClassList("stageLabel--Selected--Animate");
         }

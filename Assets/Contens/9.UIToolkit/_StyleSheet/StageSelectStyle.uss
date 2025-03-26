@@ -22,6 +22,7 @@
     height: 97%;
     flex-direction: column-reverse;
     justify-content: space-around;
+    color: rgb(80, 80, 80);
 }
 
 .stageInfomation {
@@ -71,7 +72,7 @@
 
 .stageLabel--Selected {
     font-size: 60px;
-    color: rgb(27, 27, 27);
+    color: rgb(22, 22, 22);
     rotate: 7deg;
 }
 
@@ -83,4 +84,12 @@
     width: 50px;
     height: 60px;
     background-image: url("project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Padlock.png?fileID=2800000&guid=25f08e2f4f3717044b8ceafa74c47b87&type=3#UI_Padlock");
+}
+
+.panel {
+    opacity: 0.5;
+}
+
+.panel--Visible {
+    opacity: 1;
 }

@@ -29,8 +29,10 @@ public class S_StageInfo : Singleton<S_StageInfo>
 
     public Dictionary<SceneKind, StageData> stageDatas = new Dictionary<SceneKind, StageData>();
 
-    public void Start()
+    public override void Awake()
     {
+        base.Awake();
+
         for (int i = 0; i < 5; i++)
         {
             stageDatas.Add(SD_Plain_A[i].sceneKind, SD_Plain_A[i]);

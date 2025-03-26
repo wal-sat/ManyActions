@@ -84,6 +84,7 @@ public class S_SettingInfo : Singleton<S_SettingInfo>
     {
         if (settingIndex == 3) 
         {
+            settingIndex = 0;
             OpenOrCloseSettingPanel(false);
             return true;
         }
@@ -91,6 +92,7 @@ public class S_SettingInfo : Singleton<S_SettingInfo>
     }
     public void CursorCancel()
     {
+        settingIndex = 0;
         OpenOrCloseSettingPanel(false);
     }
 
@@ -120,9 +122,9 @@ public class S_SettingInfo : Singleton<S_SettingInfo>
         _barValue[2] = root.Q<VisualElement>("BarValue-SE");
     }
 
-    public void OpenOrCloseSettingPanel(bool open)
+    public void OpenOrCloseSettingPanel(bool isOpen)
     {
-        if (open) _settingPanel.AddToClassList("settingPanel--Open");
+        if (isOpen) _settingPanel.AddToClassList("settingPanel--Open");
         else _settingPanel.RemoveFromClassList("settingPanel--Open");
     }
 

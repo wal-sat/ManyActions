@@ -5,18 +5,18 @@ using NaughtyAttributes;
 
 public class StageSelectMenuRestrictions : MonoBehaviour
 {
-    [SerializeField] StageSelectUIToolkit stageSelectUIToolkit;
+    [SerializeField] StageSelectMenuUIToolkit stageSelectMenuUIToolkit;
 
     public void Initialize(int stageIndex)
     {
-        stageSelectUIToolkit.LeftArrowVisibility(0, 0, 0, false);
-        stageSelectUIToolkit.LeftArrowVisibility(0, 1, 0, false);
-        stageSelectUIToolkit.LeftArrowVisibility(0, 0, 1, false);
-        stageSelectUIToolkit.LeftArrowVisibility(0, 1, 1, false);
-        stageSelectUIToolkit.RightArrowVisibility(4, 0, 0, false);
-        stageSelectUIToolkit.RightArrowVisibility(4, 1, 0, false);
-        stageSelectUIToolkit.RightArrowVisibility(4, 0, 1, false);
-        stageSelectUIToolkit.RightArrowVisibility(4, 1, 1, false);
+        stageSelectMenuUIToolkit.LeftArrowVisibility(0, 0, 0, false);
+        stageSelectMenuUIToolkit.LeftArrowVisibility(0, 1, 0, false);
+        stageSelectMenuUIToolkit.LeftArrowVisibility(0, 0, 1, false);
+        stageSelectMenuUIToolkit.LeftArrowVisibility(0, 1, 1, false);
+        stageSelectMenuUIToolkit.RightArrowVisibility(4, 0, 0, false);
+        stageSelectMenuUIToolkit.RightArrowVisibility(4, 1, 0, false);
+        stageSelectMenuUIToolkit.RightArrowVisibility(4, 0, 1, false);
+        stageSelectMenuUIToolkit.RightArrowVisibility(4, 1, 1, false);
 
         CheckArrowVisibility();
         CheckToUndergroundStageIconDisplay(stageIndex);
@@ -25,33 +25,33 @@ public class StageSelectMenuRestrictions : MonoBehaviour
 
     public void CheckArrowVisibility()
     {
-        if (!S_StageInfo._instance.stageDatas[SceneKind.blue_F5_A].isClear) stageSelectUIToolkit.RightArrowVisibility(1, 0, 0, false);
-        else stageSelectUIToolkit.RightArrowVisibility(1, 0, 0, true);
+        if (!S_StageInfo._instance.stageDatas[SceneKind.blue_F5_A].isClear) stageSelectMenuUIToolkit.RightArrowVisibility(1, 0, 0, false);
+        else stageSelectMenuUIToolkit.RightArrowVisibility(1, 0, 0, true);
 
         if (!S_StageInfo._instance.stageDatas[SceneKind.blue_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.green_B5_A].isClear ||
-            !S_StageInfo._instance.stageDatas[SceneKind.yellow_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.purple_B5_A].isClear) stageSelectUIToolkit.LeftArrowVisibility(1, 1, 0, false);
-        else stageSelectUIToolkit.LeftArrowVisibility(1, 1, 0, true);
+            !S_StageInfo._instance.stageDatas[SceneKind.yellow_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.purple_B5_A].isClear) stageSelectMenuUIToolkit.LeftArrowVisibility(1, 1, 0, false);
+        else stageSelectMenuUIToolkit.LeftArrowVisibility(1, 1, 0, true);
     }
 
     public void CheckToUndergroundStageIconDisplay(int stageIndex)
     {
         if (!S_StageInfo._instance.stageDatas[SceneKind.blue_F5_A].isClear)
         {
-            stageSelectUIToolkit.ToUndergroundStageIconDisplay(false);
+            stageSelectMenuUIToolkit.ToUndergroundStageIconDisplay(false);
         }
         else if (!S_StageInfo._instance.stageDatas[SceneKind.blue_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.green_B5_A].isClear ||
                  !S_StageInfo._instance.stageDatas[SceneKind.yellow_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.purple_B5_A].isClear)
         {
-            if (stageIndex == 0) stageSelectUIToolkit.ToUndergroundStageIconDisplay(false);
-            else stageSelectUIToolkit.ToUndergroundStageIconDisplay(true);
+            if (stageIndex == 0) stageSelectMenuUIToolkit.ToUndergroundStageIconDisplay(false);
+            else stageSelectMenuUIToolkit.ToUndergroundStageIconDisplay(true);
         }
-        else stageSelectUIToolkit.ToUndergroundStageIconDisplay(true);
+        else stageSelectMenuUIToolkit.ToUndergroundStageIconDisplay(true);
     }
 
     public void CheckToReverseStageIconDisplay()
     {
-        if (!S_StageInfo._instance.stageDatas[SceneKind.red_5_A].isClear) stageSelectUIToolkit.ToReverseStageIconDisplay(false);
-        else stageSelectUIToolkit.ToReverseStageIconDisplay(true);
+        if (!S_StageInfo._instance.stageDatas[SceneKind.red_5_A].isClear) stageSelectMenuUIToolkit.ToReverseStageIconDisplay(false);
+        else stageSelectMenuUIToolkit.ToReverseStageIconDisplay(true);
     }
 
     public bool CanLeftArrowMove(int stageIndex, int undergroundIndex, int reverseIndex)

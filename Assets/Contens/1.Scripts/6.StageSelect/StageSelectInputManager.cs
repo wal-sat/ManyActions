@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public enum StageSelectSceneStatus { menu, option }
+public enum StageSelectSceneStatus { menu, menuConfirm, option, optionConfirm, setting }
 
 public class StageSelectInputManager : MonoBehaviour
 {
     [SerializeField] StageSelectMenu stageSelectMenu;
+    [SerializeField] StageSelectMenuConfirm stageSelectMenuConfirm;
     [SerializeField] StageSelectOption stageSelectOption;
+    [SerializeField] StageSelectOptionConfirm stageSelectOptionConfirm;
+    [SerializeField] StageSelectSetting stageSelectSetting;
 
     private StageSelectSceneStatus _stageSelectSceneStatus;
 
@@ -26,7 +30,10 @@ public class StageSelectInputManager : MonoBehaviour
     private void Awake()
     {
         stageSelectMenu.ChangeStatus = ChangeStatus;
+        stageSelectMenuConfirm.ChangeStatus = ChangeStatus;
         stageSelectOption.ChangeStatus = ChangeStatus;
+        stageSelectOptionConfirm.ChangeStatus = ChangeStatus;
+        stageSelectSetting.ChangeStatus = ChangeStatus;
     }
 
     private void Start()
@@ -37,7 +44,7 @@ public class StageSelectInputManager : MonoBehaviour
 
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
         
-        _stageSelectSceneStatus = StageSelectSceneStatus.menu;
+        ChangeStatus(StageSelectSceneStatus.menu);
     }
 
     private void Update()
@@ -78,7 +85,34 @@ public class StageSelectInputManager : MonoBehaviour
 
     private void ChangeStatus(StageSelectSceneStatus status)
     {
+        stageSelectMenu.stageSelectMenuUIToolkit.PanelVisibility(false);
+        stageSelectMenuConfirm.stageSelectMenuConfirmUIToolkit.PanelOpen(false);
+        stageSelectOption.stageSelectOptionUIToolkit.PanelOpen(false);
+        stageSelectOptionConfirm.stageSelectOptionConfirmUIToolkit.PanelOpen(false);
+        S_SettingInfo._instance.OpenOrCloseSettingPanel(false);
+        
         _stageSelectSceneStatus = status;
+        switch (_stageSelectSceneStatus)
+        {
+            case StageSelectSceneStatus.menu:
+                stageSelectMenu.stageSelectMenuUIToolkit.PanelVisibility(true);
+                break;
+            case StageSelectSceneStatus.menuConfirm:
+                stageSelectMenu.stageSelectMenuUIToolkit.PanelVisibility(true);
+                stageSelectMenuConfirm.stageSelectMenuConfirmUIToolkit.PanelOpen(true);
+                break;
+            case StageSelectSceneStatus.option:
+                stageSelectOption.stageSelectOptionUIToolkit.PanelOpen(true);
+                break;
+            case StageSelectSceneStatus.optionConfirm:
+                stageSelectOption.stageSelectOptionUIToolkit.PanelOpen(true);
+                stageSelectOptionConfirm.stageSelectOptionConfirmUIToolkit.PanelOpen(true);
+                break;
+            case StageSelectSceneStatus.setting:
+                stageSelectOption.stageSelectOptionUIToolkit.PanelOpen(true);
+                S_SettingInfo._instance.OpenOrCloseSettingPanel(true);
+                break;
+        }
     }
 
     private void South()
@@ -88,8 +122,17 @@ public class StageSelectInputManager : MonoBehaviour
             case StageSelectSceneStatus.menu:
                 stageSelectMenu.CursorSelect();
                 break;
+            case StageSelectSceneStatus.menuConfirm:
+                stageSelectMenuConfirm.CursorSelect();
+                break;
             case StageSelectSceneStatus.option:
                 stageSelectOption.CursorSelect();
+                break;
+            case StageSelectSceneStatus.optionConfirm:
+                stageSelectOptionConfirm.CursorSelect();
+                break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.CursorSelect();
                 break;
         }
         _southPast = true;
@@ -101,8 +144,17 @@ public class StageSelectInputManager : MonoBehaviour
             case StageSelectSceneStatus.menu:
                 stageSelectMenu.CursorCancel();
                 break;
+            case StageSelectSceneStatus.menuConfirm:
+                stageSelectMenuConfirm.CursorCancel();
+                break;
             case StageSelectSceneStatus.option:
                 stageSelectOption.CursorCancel();
+                break;
+            case StageSelectSceneStatus.optionConfirm:
+                stageSelectOptionConfirm.CursorCancel();
+                break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.CursorCancel();
                 break;
         }
         _eastPast = true;
@@ -137,6 +189,9 @@ public class StageSelectInputManager : MonoBehaviour
             case StageSelectSceneStatus.option:
                 stageSelectOption.CursorUp();
                 break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.CursorUp();
+                break;
         }
         _upPast = true;
     }
@@ -150,6 +205,9 @@ public class StageSelectInputManager : MonoBehaviour
             case StageSelectSceneStatus.option:
                 stageSelectOption.CursorDown();
                 break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.CursorDown();
+                break;
         }
         _downPast = true;
     }
@@ -157,7 +215,15 @@ public class StageSelectInputManager : MonoBehaviour
     {
         switch (_stageSelectSceneStatus)
         {
-
+            case StageSelectSceneStatus.menuConfirm:
+                stageSelectMenuConfirm.CursorLeft();
+                break;
+            case StageSelectSceneStatus.optionConfirm:
+                stageSelectOptionConfirm.CursorLeft();
+                break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.CursorLeft();
+                break;
         }
         _leftPast = true;
     }
@@ -165,7 +231,15 @@ public class StageSelectInputManager : MonoBehaviour
     {
         switch (_stageSelectSceneStatus)
         {
-
+            case StageSelectSceneStatus.menuConfirm:
+                stageSelectMenuConfirm.CursorRight();
+                break;
+            case StageSelectSceneStatus.optionConfirm:
+                stageSelectOptionConfirm.CursorRight();
+                break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.CursorRight();
+                break;
         }
         _rightPast = true;
     }
@@ -195,6 +269,18 @@ public class StageSelectInputManager : MonoBehaviour
         {
             case StageSelectSceneStatus.menu:
                 stageSelectMenu.Option();
+                break;
+            case StageSelectSceneStatus.menuConfirm:
+                stageSelectMenuConfirm.Option();
+                break;
+            case StageSelectSceneStatus.option:
+                stageSelectOption.Option();
+                break;
+            case StageSelectSceneStatus.optionConfirm:
+                stageSelectOptionConfirm.Option();
+                break;
+            case StageSelectSceneStatus.setting:
+                stageSelectSetting.Option();
                 break;
         }
         _optionPast = true;
