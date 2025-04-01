@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Contens/3.Scenes/SelectDifficulty.unity
     guid: d7720ff5f08ce464aba557bbb6d27994
   - enabled: 1
-    path: Assets/Contens/3.Scenes/Develop.unity
+    path: Assets/Contens/3.Scenes/develop.unity
     guid: 24db8d8331ae5c2408dd90e97de7deb4
   - enabled: 1
     path: Assets/Contens/3.Scenes/Plain/A/Plain_1_A.unity

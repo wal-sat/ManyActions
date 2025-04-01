@@ -99,15 +99,9 @@ public class GameSceneUIUIToolkit : MonoBehaviour
     {
         _stageNameLabel.text = worldName + "\n" + stageName;
     }
-    public void ChangeTimeLabel(int[] times)
+    public void ChangeTimeLabel(string timeString)
     {
-        string addHourText = "";
-        string addMiniteText = "";
-        string addSecondText = "";
-        if (times[0] < 10) addHourText += "0";
-        if (times[1] < 10) addMiniteText += "0";
-        if (times[2] < 10) addSecondText += "0";
-        _timeLabel.text = addHourText + times[0].ToString() + ":" + addMiniteText + times[1].ToString() + ":" + addSecondText + times[2].ToString();
+        _timeLabel.text = timeString;
     }
 
     public void SetActiveGearPlusLabel(bool isActive)

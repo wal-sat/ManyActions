@@ -18,6 +18,10 @@ public class StageManager : MonoBehaviour
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] WarpPointManager warpPointManager;
     [SerializeField] BackgroundManager backgroundManager;
+
+    [SerializeField] DeathCountManager deathCountManager;
+    [SerializeField] TimeManager timeManager;
+
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseMenu gameScenePauseMenu;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
@@ -25,34 +29,39 @@ public class StageManager : MonoBehaviour
     public Action<GameSceneStatus> ChangeGameSceneStatus;
     public Action<GameSceneMenuStatus> ChangeGameSceneMenuStatus;
 
+    private SceneKind _sceneKind;
     private GameSceneStatus _gameSceneStatusPast;
 
     private void Awake()
     {
         gearManager.gameSceneUI = gameSceneUI;
+
+        _sceneKind = S_LoadSceneSystem._instance.GetCurrentSceneKind();
+        gearManager._sceneKind = _sceneKind;
     }
 
     private void Start()
     {
         Initialize();
     }
-
-    public void Initialize()
+    private void Initialize()
     {
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
 
-        string sceneKindString = SceneManager.GetActiveScene().name;
-        if (Enum.TryParse<SceneKind>(sceneKindString, true, out SceneKind _sceneKind))
-        {
-            gameSceneUI.ChangeStageName(S_StageInfo._instance.stageDatas[_sceneKind].worldName, S_StageInfo._instance.stageDatas[_sceneKind].stageName);
-        }
-        else Debug.LogWarning("SceneKindの列挙体に変換できませんでした");
-
-        gameSceneUI.UpdateDeathCount();
+        deathCountManager.ResetDeathCount();
+        timeManager.ResetTime();
+        
+        gameSceneUI.ChangeStageName(S_StageInfo._instance.stageDatas[_sceneKind].worldName, S_StageInfo._instance.stageDatas[_sceneKind].stageName);
+        gameSceneUI.UpdateDeathCount( deathCountManager.deathCount );
         gameSceneUI.SwitchKidouUIVisible(true);
+    }
+
+    private void FixedUpdate()
+    {
+        gameSceneUI.ChangeTimeCount( timeManager.GetTimeString() );
     }
 
     //ーーー起動時の処理ーーー
@@ -62,6 +71,7 @@ public class StageManager : MonoBehaviour
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
 
+        timeManager.StartTimer();
         gameSceneUI.SwitchKidouUIVisible(false);
 
         S_SEManager._instance.Play("p_kidou");
@@ -104,8 +114,8 @@ public class StageManager : MonoBehaviour
                 warpPointManager.Initialize();
                 backgroundManager.Initialize();
 
-                S_GameInfo._instance.DeathCountIncrement();
-                gameSceneUI.UpdateDeathCount();
+                deathCountManager.IncrementDeathCount();
+                gameSceneUI.UpdateDeathCount( deathCountManager.deathCount );
                 gameSceneUI.SwitchUIVisible(true);
             }, 
             ()=>
@@ -116,7 +126,7 @@ public class StageManager : MonoBehaviour
             FadeType.Diamond, 0.4f,0.1f,0.4f);  
     }
 
-    //ーーークリアした時の処理ーーー
+    //ーーードアに入る時の処理ーーー
     public void Door(SceneKind sceneKind)
     {
         StartCoroutine(CDoor(sceneKind));
@@ -135,6 +145,16 @@ public class StageManager : MonoBehaviour
         S_SEManager._instance.Play("s_door");
     }
 
+    //ーーークリア時の処理ーーー
+    public void Clear()
+    {
+        StartCoroutine(CClear());
+    }
+    IEnumerator CClear()
+    {
+        yield return new WaitForSeconds(1);
+    }
+
     //ーーーポーズ時の処理ーーー
     public void OpenPausePanel(GameSceneStatus currentStatus)
     {
@@ -148,7 +168,7 @@ public class StageManager : MonoBehaviour
         gameScenePauseUIToolkit.OpenOrCloseConfirmPanel(false);
         S_SettingInfo._instance.OpenOrCloseSettingPanel(false);
 
-        S_GameInfo._instance.onTimer = false;
+        timeManager.StopTimer();
 
         S_SEManager._instance.Play("u_pause");
     }
@@ -159,6 +179,6 @@ public class StageManager : MonoBehaviour
         gameScenePauseUIToolkit.RootSetActive(false);
         gameScenePauseUIToolkit.MenuOptionsUnSelect();
 
-        S_GameInfo._instance.onTimer = true;
+        timeManager.StartTimer();
     }
 }

@@ -6,9 +6,9 @@ public class GameSceneUI : MonoBehaviour
 {
     [SerializeField] GameSceneUIUIToolkit gameSceneUIUIToolkit;
 
-    public void UpdateDeathCount()
+    public void UpdateDeathCount(int deathCount)
     {
-        gameSceneUIUIToolkit.ChangeDeathLabel( S_GameInfo._instance.deathCount );
+        gameSceneUIUIToolkit.ChangeDeathLabel( deathCount );
     }
 
     public void ChangeGearCount(int temporaryGetCount)
@@ -28,9 +28,9 @@ public class GameSceneUI : MonoBehaviour
         gameSceneUIUIToolkit.ChangeStageNameLabel( worldName, stageName );
     }
 
-    private void FixedUpdate()
+    public void ChangeTimeCount(string timeString)
     {
-        gameSceneUIUIToolkit.ChangeTimeLabel( S_GameInfo._instance.GetTime() );
+        gameSceneUIUIToolkit.ChangeTimeLabel(timeString);
     }
 
     public void MakeActionCard(bool isAcquired, string actionName, Sprite actionIcon)

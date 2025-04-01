@@ -69,12 +69,12 @@ public class S_StageInfo : Singleton<S_StageInfo>
     {
         stageDatas[sceneKind].gearAcquire[gearIndex] = isAcquire;
     }
-    public void SetMinimumDeathCount(SceneKind sceneKind, int deathCount)
+    public void AddDeathCount(SceneKind sceneKind, int deathCount, bool isClear)
     {
-        stageDatas[sceneKind].minimumDeathCount = deathCount;
+        stageDatas[sceneKind].SetDeathCount(deathCount, isClear);
     }
-    public void SetFastestClearTime(SceneKind sceneKind, int clearTime)
+    public void AddPlayTime(SceneKind sceneKind, int playTime, bool isClear)
     {
-        stageDatas[sceneKind].fastestClearTime = clearTime;
+        stageDatas[sceneKind].SetPlayTime(playTime, isClear);
     }
 }

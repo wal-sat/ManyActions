@@ -30,4 +30,9 @@ public class S_LoadSceneSystem : Singleton<S_LoadSceneSystem>
         S_InputSystem._instance.canInput = false;
         S_FadeManager._instance.Fade(() => SceneManager.LoadScene(sceneKind.ToString()), () => S_InputSystem._instance.canInput = true, FadeType.Black, 0.5f,2f,0.5f);
     }
+
+    public SceneKind GetCurrentSceneKind()
+    {
+        return (SceneKind)Enum.Parse(typeof(SceneKind), SceneManager.GetActiveScene().name);
+    }
 }

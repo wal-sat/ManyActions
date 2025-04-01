@@ -4,34 +4,30 @@ using UnityEngine;
 
 public class SleepingCameraMovement : MonoBehaviour
 {
-    [SerializeField] GameSceneAnyKeyInput gameSceneAnyKeyInput;
+    [SerializeField] LockAxisCamera sleepCamera;
     [SerializeField] GameObject followedObject;
     [SerializeField] float SPEED;
 
-    private Vector2 _initPosition;
-    private float _maxMinusMove;
-    private float _maxPlusMove;
+    private Vector2 _bottomLeftPos;
+    private Vector2 _topRightPos;
 
-    public void SleepCameraInit(Vector2 initPosition, Vector2 moveDistance)
+    public void SleepCameraInit(Vector2 initPosition, Vector2 bottomLeftPos, Vector2 topRightPos)
     {
-        _initPosition = initPosition;
-        if (_initPosition.x < 0) _initPosition = new Vector2(0, _initPosition.y);
-        _maxMinusMove = moveDistance.x;
-        _maxPlusMove = moveDistance.y;
+        followedObject.transform.position = initPosition;
+        sleepCamera.SetMoveRange(bottomLeftPos, topRightPos);
 
-        followedObject.transform.position = _initPosition;
+        _bottomLeftPos = bottomLeftPos;
+        _topRightPos = topRightPos;
     }
     public void SleepCameraMove(Vector2 direction)
     {
-        followedObject.transform.position = new Vector2(followedObject.transform.position.x + direction.x * SPEED * Time.deltaTime, 0);
+        followedObject.transform.position = new Vector2(followedObject.transform.position.x + direction.x * SPEED * Time.deltaTime, followedObject.transform.position.y + direction.y * SPEED * Time.deltaTime);
 
-        if (followedObject.transform.position.x < _initPosition.x - _maxMinusMove)
-        {
-            followedObject.transform.position = new Vector2(_initPosition.x - _maxMinusMove, followedObject.transform.position.y);
-        }
-        if (followedObject.transform.position.x > _initPosition.x + _maxPlusMove) 
-        {
-            followedObject.transform.position = new Vector2(_initPosition.x + _maxPlusMove, followedObject.transform.position.y);
-        }
+        if (followedObject.transform.position.x < _bottomLeftPos.x) followedObject.transform.position = new Vector3(_bottomLeftPos.x, followedObject.transform.position.y, followedObject.transform.position.z);
+        else if (_topRightPos.x < followedObject.transform.position.x) followedObject.transform.position = new Vector3(_topRightPos.x, followedObject.transform.position.y, followedObject.transform.position.z);
+
+        if (followedObject.transform.position.y < _bottomLeftPos.y) followedObject.transform.position = new Vector3(followedObject.transform.position.x, _bottomLeftPos.y, followedObject.transform.position.z);
+        else if (_topRightPos.y < followedObject.transform.position.y) followedObject.transform.position = new Vector3(followedObject.transform.position.x, _topRightPos.y, followedObject.transform.position.z);
+
     }
 }

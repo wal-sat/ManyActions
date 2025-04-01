@@ -8,60 +8,38 @@ using UnityEngine;
 public class DieParts : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
-    [SerializeField] Transform TopLeftTransform;
-    [SerializeField] Transform BottomRightTransform;
-    [SerializeField] bool isFace;
 
-    Action<GameObject> destroy;
+    private int _destroyDistanceX;
+    private int _destroyDistanceY;
+    private Action<GameObject> onDestroyCallBack;
 
-    private void Update() 
+    public void Initialize(int destroyDistanceX, int destroyDistanceY, Action<GameObject> onDestroy)
     {
-        if (isFace && IsOutStageArea())
+        _destroyDistanceX = destroyDistanceX;
+        _destroyDistanceY = destroyDistanceY;
+        onDestroyCallBack = onDestroy;
+    }
+
+    private void Start() 
+    {
+        StartCoroutine( CInvokeRealtime( () => CheckDestroyDistance() ) );
+    }
+
+    private void CheckDestroyDistance()
+    {
+        Vector2 distance = mainCamera.transform.position - this.gameObject.transform.position;
+        if ( Mathf.Abs(distance.x) > _destroyDistanceX || Mathf.Abs(distance.y) > _destroyDistanceY ) 
         {
-            StartCoroutine(CDestroy());
+            StopAllCoroutines();
+            onDestroyCallBack(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
-    public void Init(Action<GameObject> action)
+    private IEnumerator CInvokeRealtime(Action action)
     {
-        destroy = action;
-
-        if (!isFace)
-        {
-            //顔以外消えるようにする
-            //StartCoroutine(CDestroy());
-        }
-    }
-
-    IEnumerator CDestroy()
-    {
-        yield return new WaitForSeconds(1.5f);
-
-        destroy(this.gameObject);
-        Destroy(this.gameObject);
-    }
-
-    private bool IsOutStageArea()
-    {
-        bool isOutCamera = true;
-
-        // 画面のワールド座標の範囲を取得
-        Vector3 screenBottomLeft = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
-        Vector3 screenTopRight = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.nearClipPlane));
-
-        float minX = TopLeftTransform.position.x - (screenTopRight.x - screenBottomLeft.x) / 2;
-        float maxX = BottomRightTransform.position.x + (screenTopRight.x - screenBottomLeft.x) / 2;
-        float minY = BottomRightTransform.position.y - (screenTopRight.y - screenBottomLeft.y) / 2;
-        float maxY = TopLeftTransform.position.y + (screenTopRight.y - screenBottomLeft.y) / 2;
-
-        if (minX < this.transform.position.x && this.transform.position.x < maxX)
-        {
-            if (minY < this.transform.position.y && this.transform.position.y < maxY)
-            {
-                isOutCamera = false;
-            }
-        }
-
-        return isOutCamera;
+        yield return new WaitForSecondsRealtime(2.0f);
+        if (action != null) action();
+        StartCoroutine(CInvokeRealtime(action));
     }
 }

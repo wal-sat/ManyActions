@@ -406,7 +406,6 @@ public class PlayerActionManager : MonoBehaviour
                     if (action.isEnable && !availableAction.Value) action.Initialize();
                     action.isEnable = availableAction.Value;
                 }
-                if (action.actionKind == ActionKind.S_DoubleJump) Debug.Log(action.isEnable);
             }
         }
 

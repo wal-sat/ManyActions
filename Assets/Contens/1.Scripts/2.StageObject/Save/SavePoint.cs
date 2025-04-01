@@ -11,7 +11,8 @@ public class SavePoint : MonoBehaviour
     [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
-    [Header("x:Minus, y:Plus")] [SerializeField] public Vector2 sleepMoveDistance;
+    [SerializeField] public Vector2 bottomLeftPos;
+    [SerializeField] public Vector2 topRightPos;
 
     private void Awake()
     {

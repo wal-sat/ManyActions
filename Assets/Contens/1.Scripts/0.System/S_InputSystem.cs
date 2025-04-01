@@ -71,7 +71,7 @@ public class S_InputSystem : Singleton<S_InputSystem>
     {
         if (context.performed)
         {
-            rightDirection = NormalizeDirection( context.ReadValue<Vector2>() );
+            rightDirection = context.ReadValue<Vector2>();
         }
         else if (context.canceled)
         {

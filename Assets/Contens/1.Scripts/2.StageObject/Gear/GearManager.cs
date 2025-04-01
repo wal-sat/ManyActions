@@ -10,26 +10,11 @@ public class GearManager : MonoBehaviour
 {
     [HideInInspector] public GameSceneUI gameSceneUI;
 
-    private SceneKind _sceneKind;
+    [HideInInspector] public SceneKind _sceneKind { private get; set; }
     private List<Gear> gears = new List<Gear>();
 
     private void Start()
     {
-        string sceneNameString = SceneManager.GetActiveScene().name;
-        foreach (SceneKind sceneKind in Enum.GetValues(typeof(SceneKind)))
-        {
-            string sceneKindString = Enum.GetName(typeof(SceneKind), sceneKind);
-
-            Debug.Log(sceneNameString);
-            Debug.Log(sceneKindString);
-
-            if ( sceneNameString.Contains(sceneKindString) )
-            {
-                _sceneKind = sceneKind;
-                break;
-            }
-        }
-
         Initialize();
     }
 

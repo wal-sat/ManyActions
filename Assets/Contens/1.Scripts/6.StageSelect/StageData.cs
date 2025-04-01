@@ -32,13 +32,17 @@ public class StageData : ScriptableObject
     [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public ReleaseCondition[] releaseConditions;
 
-    private bool _isReleased;
+    [HideInInspector] public bool isClear { get; set; }
+    [HideInInspector] public bool[] gearAcquire {get; set;} = new bool[5];
+    [HideInInspector] public int totalDeathCount { get; private set; } = 0;
+    [HideInInspector] public int minimumDeathCount { get; private set; } = -1;
+    [HideInInspector] public int totalPlayTime { get; private set; } = 0;
+    [HideInInspector] public int fastestClearTime { get; private set; } = -1;
+
     [HideInInspector] public bool isReleased
     {
         get
         {
-            if (_isReleased) return true;
-
             bool result = true;
             foreach (var releaseCondition in releaseConditions)
             {
@@ -64,45 +68,54 @@ public class StageData : ScriptableObject
                         break;
                 }
             }
-            _isReleased = result;
             return result;
         }
-        set => _isReleased = value;
     }
 
-    [HideInInspector] public bool isClear { get; set; }
-    [HideInInspector] public bool[] gearAcquire {get; set;} = new bool[5];
-
-    private int _minimumDeathCount;
-    [HideInInspector] public int minimumDeathCount
+    public void Initialize()
     {
-        get => _minimumDeathCount;
-        set
-        {
-            if (_minimumDeathCount == -1) _minimumDeathCount = value;
-            else if (value < _minimumDeathCount) _minimumDeathCount = value;
-        }
-    }
-    private int _fastestClearTime;
-    [HideInInspector] public int fastestClearTime
-    {
-        get => _fastestClearTime;
-        set
-        {
-            if (_fastestClearTime == -1) _fastestClearTime = value;
-            else if (value < _fastestClearTime) _fastestClearTime = value;
-        }
-    }
-
-    private void OnEnable()
-    {
-        isReleased = false;
         isClear = false;
-        for (int i = 0; i < 5; i++)
-        {
-            gearAcquire[i] = false;
-        }
+        for (int i = 0; i < 5; i++) gearAcquire[i] = false;
+        totalDeathCount = 0;
         minimumDeathCount = -1;
+        totalPlayTime = 0;
         fastestClearTime = -1;
+    }
+
+    public void SetDeathCount(int count, bool isCheckMinimum = false)
+    {
+        totalDeathCount += count;
+        if (isCheckMinimum) 
+        {
+            if (minimumDeathCount == -1) minimumDeathCount = count;
+            else if (count < minimumDeathCount) minimumDeathCount = count;
+        }
+    }
+
+    public void SetPlayTime(int time, bool isCheckFastest = false)
+    {
+        totalPlayTime += time;
+        if (isCheckFastest) 
+        {
+            if (fastestClearTime == -1) fastestClearTime = time;
+            else if (time < fastestClearTime) fastestClearTime = time;
+        }
+    }
+
+    public string GetTotalPlayTimeString()
+    {
+        int hours = totalPlayTime / 3600;
+        int minutes = (totalPlayTime % 3600) / 60;
+        int seconds = totalPlayTime % 60;
+
+        return string.Format("{0}:{1:D2}:{2:D2}", hours, minutes, seconds);
+    }
+    public string GetFastestClearTimeString()
+    {
+        int hours = fastestClearTime / 3600;
+        int minutes = (fastestClearTime % 3600) / 60;
+        int seconds = fastestClearTime % 60;
+
+        return string.Format("{0}:{1:D2}:{2:D2}", hours, minutes, seconds);
     }
 }

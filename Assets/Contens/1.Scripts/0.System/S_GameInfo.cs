@@ -5,24 +5,23 @@ using UnityEngine;
 public class S_GameInfo : Singleton<S_GameInfo>
 {
     //ーーーーー歯車ーーーーー
-    private int _totalGearCount;
     public int totalGearCount
     {
         get
         {
-            _totalGearCount = 0;
+            int count = 0;
             foreach (StageData stageData in S_StageInfo._instance.stageDatas.Values)
             {
                 for (int i = 0; i < stageData.gearAcquire.Length; i++)
                 {
-                    if (stageData.gearAcquire[i]) _totalGearCount++;
+                    if (stageData.gearAcquire[i]) count++;
                 }
             }
-            return _totalGearCount;
+            return count;
         }
     }
 
-    public int GetGearCount(SceneKind sceneKind)
+    public int GetGearCountInAScene(SceneKind sceneKind)
     {
         int count = 0;
         foreach (bool gearAcquire in S_StageInfo._instance.stageDatas[sceneKind].gearAcquire)
@@ -33,17 +32,17 @@ public class S_GameInfo : Singleton<S_GameInfo>
     }
 
     //ーーーーーデス数ーーーーー
-    public int deathCount = 0;
-    public int totalDeathCount = 0;
-    public void DeathCountIncrement()
+    public int totalDeathCount
     {
-        deathCount ++;
-        totalDeathCount ++;
-    }
-    public void ResetDeathCount()
-    {
-        deathCount = 0;
-
+        get
+        {
+            int count = 0;
+            foreach (StageData stageData in S_StageInfo._instance.stageDatas.Values)
+            {
+                count += stageData.totalDeathCount;
+            }
+            return count;
+        }
     }
 
     //ーーーーータイムーーーーー

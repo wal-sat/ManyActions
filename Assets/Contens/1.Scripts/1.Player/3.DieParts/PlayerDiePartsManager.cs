@@ -7,6 +7,7 @@ public class PlayerDiePartsManager : MonoBehaviour
 {
     [SerializeField] GameObject[] dieParts;
     [SerializeField] float SPEED;
+    [SerializeField] Vector2 DESTROY_DISTANCE;
 
     private List<GameObject> _parts = new List<GameObject>();
 
@@ -16,7 +17,7 @@ public class PlayerDiePartsManager : MonoBehaviour
         {
             GameObject newPart = Instantiate(part, new Vector3(playerPosition.x, playerPosition.y, -4f), Quaternion.identity);
             newPart.SetActive(true);
-            newPart.GetComponent<DieParts>().Init(OnDestory);
+            newPart.GetComponent<DieParts>().Initialize( (int) DESTROY_DISTANCE.x, (int) DESTROY_DISTANCE.y, OnDestory);
             Rigidbody2D rb = newPart.GetComponent<Rigidbody2D>();
 
             float randomAngle = Random.Range(0, 180) * Mathf.Deg2Rad;
