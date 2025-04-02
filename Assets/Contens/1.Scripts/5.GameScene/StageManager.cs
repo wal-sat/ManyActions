@@ -19,6 +19,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] WarpPointManager warpPointManager;
     [SerializeField] BackgroundManager backgroundManager;
 
+    [SerializeField] SectionManager sectionManager;
     [SerializeField] DeathCountManager deathCountManager;
     [SerializeField] TimeManager timeManager;
 
@@ -48,6 +49,7 @@ public class StageManager : MonoBehaviour
     {
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
+        sectionManager.ChangeSection(0);
         savePointManager.TeleportStartPosition();
         playerManager.Initialize( savePointManager.savePoint.facingRight );
 
@@ -127,18 +129,30 @@ public class StageManager : MonoBehaviour
     }
 
     //ーーードアに入る時の処理ーーー
-    public void Door(SceneKind sceneKind)
+    public void Door()
     {
-        StartCoroutine(CDoor(sceneKind));
+        StartCoroutine(CDoor());
     }
-    IEnumerator CDoor(SceneKind sceneKind)
+    IEnumerator CDoor()
     {
+        S_InputSystem._instance.canInput = false;
+
         playerManager.Door();
         gearManager.OnSave();
 
         yield return new WaitForSeconds(0.2f);
 
-        S_LoadSceneSystem._instance.LoadScene(sceneKind);
+        S_FadeManager._instance.Fade(
+            () => {
+                sectionManager.NextSection();
+                savePointManager.TeleportStartPosition();
+                playerManager.Initialize( savePointManager.savePoint.facingRight );
+            },
+            () => {
+                S_InputSystem._instance.canInput = true;
+                ChangeGameSceneStatus(GameSceneStatus.anyKey);
+            }
+        );
 
         yield return new WaitForSeconds(0.45f);
 

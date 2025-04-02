@@ -8,16 +8,16 @@ public class SavePointManager : MonoBehaviour
     [SerializeField] GearManager gearManager;
     [SerializeField] SavePoint _startPoint;
     [SerializeField] GameObject Player;
-    [HideInInspector] public SavePoint savePoint;
+    [HideInInspector] public SavePoint savePoint { get; private set; }
 
     private void Awake()
     {
         savePoint = _startPoint;
     }
 
-    public void RegisterSavePoint(SavePoint newSavePoint)
+    public void RegisterSavePoint(SavePoint newSavePoint, bool isIgnoreIndex = false)
     {
-        if (savePoint.savePointIndex <= newSavePoint.savePointIndex)
+        if (savePoint.savePointIndex <= newSavePoint.savePointIndex || isIgnoreIndex)
         {
             savePoint = newSavePoint;
         }

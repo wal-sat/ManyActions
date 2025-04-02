@@ -7,7 +7,6 @@ public class DoorPoint : MonoBehaviour
     [SerializeField] StageManager stageManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] GameObject ParticleBurst;
-    [SerializeField] SceneKind sceneKind;
 
     private void Awake()
     {
@@ -20,6 +19,6 @@ public class DoorPoint : MonoBehaviour
 
         S_SEManager._instance.Play("s_savePoint");
         
-        stageManager.Door(sceneKind);
+        stageManager.Door();
     }
 }
