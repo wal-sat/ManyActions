@@ -1,0 +1,42 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Contens/9.UIToolkit/_StyleSheet/GameSceneClearStyle.uss?fileID=7433441132597879392&amp;guid=df03054ea6645a949acb84e127e3bb0c&amp;type=3#GameSceneClearStyle" />
+    <ui:VisualElement name="Root" class="Visible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
+        <ui:VisualElement name="Bar" class="Bar" />
+        <ui:VisualElement style="height: auto; background-color: rgba(255, 255, 255, 0.39); flex-direction: row; justify-content: space-around; align-items: center; flex-grow: 1;">
+            <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/Clear/clearIcon.png?fileID=2800000&amp;guid=224ec8a8298246d458845f9c09521b50&amp;type=3#clearIcon&quot;); width: 800px; height: 800px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+            <ui:VisualElement style="width: 55%; height: 95%; margin-right: 2%; margin-top: 0; margin-bottom: 0; margin-left: 0;">
+                <ui:VisualElement style="width: 100%; height: 30%; justify-content: center;">
+                    <ui:Label tabindex="-1" text="ステージクリア" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 50%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; font-size: 75px;" />
+                    <ui:Label tabindex="-1" text="～次なるステージのかぎを手に入れた～" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MessageLabel" style="width: 100%; height: 30%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 35px; -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="width: 100%; height: 50%; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgb(230, 230, 230); justify-content: space-around; align-items: stretch;">
+                    <ui:VisualElement style="height: 30%; justify-content: space-around; flex-direction: row; align-items: center;">
+                        <ui:VisualElement style="width: 15%;" />
+                        <ui:Label tabindex="-1" text="歯車：" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 45px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                        <ui:VisualElement name="GearIcon0" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 75px; width: 75px;" />
+                        <ui:VisualElement name="GearIcon1" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 75px; width: 75px;" />
+                        <ui:VisualElement name="GearIcon2" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 75px; width: 75px;" />
+                        <ui:VisualElement name="GearIcon3" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 75px; width: 75px;" />
+                        <ui:VisualElement name="GearIcon4" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearDisableIcon.png?fileID=2800000&amp;guid=a20166099dd985a48ae1cc5eae5eca8d&amp;type=3#gearDisableIcon&quot;); height: 75px; width: 75px;" />
+                        <ui:VisualElement style="width: 15%;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="height: 25%; justify-content: space-around; flex-direction: row;">
+                        <ui:Label tabindex="-1" text="デス数：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DeathCountLabel" style="font-size: 40px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                        <ui:Label tabindex="-1" text="最小デス数：00000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MinimumDeathCountLabel" style="font-size: 40px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="height: 30%; align-items: center; margin-bottom: 2%;">
+                        <ui:VisualElement style="height: 100%; justify-content: space-around; align-items: flex-start;">
+                            <ui:Label tabindex="-1" text="クリア時間：000:00:00" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClearTimeLabel" enable-rich-text="true" style="font-size: 40px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            <ui:Label tabindex="-1" text="最速クリア時間：000:00:00" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FastestClearTimeLabel" style="font-size: 40px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="width: 100%; height: 20%; flex-direction: row; align-items: center; justify-content: space-around;">
+                    <ui:Label tabindex="-1" text="次にすすむ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OptionLabel0" class="optionLabel" />
+                    <ui:Label tabindex="-1" text="もういちど遊ぶ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OptionLabel1" class="optionLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Bar" class="Bar" />
+    </ui:VisualElement>
+</ui:UXML>

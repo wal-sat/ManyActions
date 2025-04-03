@@ -16,7 +16,6 @@ public class StageSelectOption : MonoBehaviour
         {
             _cursorIndex = Mathf.Clamp(value, 0, 2);
 
-            Debug.Log("cursorIndex: " + cursorIndex);
             stageSelectOptionUIToolkit.OptionLabelSelect(cursorIndex);
         }
     }

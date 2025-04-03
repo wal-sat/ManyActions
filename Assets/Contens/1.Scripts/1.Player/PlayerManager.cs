@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         playerPreventStuck.Initialize();
     }
 
-    public void Door()
+    public void SectionClear()
     {
         _isDoorEntering = true;
 

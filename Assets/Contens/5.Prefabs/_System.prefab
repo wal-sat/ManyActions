@@ -99,11 +99,13 @@ MonoBehaviour:
   recureCapsuleManager: {fileID: 7757875943116494195}
   warpPointManager: {fileID: 4044327520386478067}
   backgroundManager: {fileID: 0}
+  sectionManager: {fileID: 0}
   deathCountManager: {fileID: 4968449848444924053}
   timeManager: {fileID: 4542335394049387290}
   gameSceneUI: {fileID: 807373423503148999}
   gameScenePauseMenu: {fileID: 1679779317379847249}
   gameScenePauseUIToolkit: {fileID: 856116540364350291}
+  gameSceneClearUIToolkit: {fileID: 3209987378863339855}
 --- !u!1 &3236046424564032502
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +426,6 @@ MonoBehaviour:
   gearManager: {fileID: 6616730771796138759}
   _startPoint: {fileID: 0}
   Player: {fileID: 0}
-  savePoint: {fileID: 0}
 --- !u!1 &6307263501562715720
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +475,7 @@ GameObject:
   - component: {fileID: 1679779317379847249}
   - component: {fileID: 6309055762534958756}
   - component: {fileID: 7138950161017515702}
+  - component: {fileID: 1639165372150339228}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -536,6 +538,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameScenePauseUIToolkit: {fileID: 856116540364350291}
+--- !u!114 &1639165372150339228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499424779568545987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e873b37d8b04162479f85815918bed0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSceneClearUIToolkit: {fileID: 3209987378863339855}
 --- !u!1 &6525815122921197474
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +598,7 @@ GameObject:
   - component: {fileID: 2951047561869883163}
   - component: {fileID: 5564007590779055048}
   - component: {fileID: 3340432783983575700}
+  - component: {fileID: 478727844065466037}
   m_Layer: 0
   m_Name: GameSceneInputManager
   m_TagString: Untagged
@@ -621,6 +637,7 @@ MonoBehaviour:
   gameSceneOnPlayInput: {fileID: 2951047561869883163}
   gameSceneMenuInput: {fileID: 5564007590779055048}
   gameSceneAnyKeyInput: {fileID: 3340432783983575700}
+  gameSceneClearInput: {fileID: 478727844065466037}
   stageManager: {fileID: 2975278555070478909}
 --- !u!114 &2951047561869883163
 MonoBehaviour:
@@ -720,6 +737,19 @@ MonoBehaviour:
   savePointManager: {fileID: 2796201015626728750}
   cameraManager: {fileID: 2394312228686893510}
   gameSceneUI: {fileID: 807373423503148999}
+--- !u!114 &478727844065466037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808412904909905455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e873b37d8b04162479f85815918bed0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSceneClearUIToolkit: {fileID: 3209987378863339855}
 --- !u!1 &6885322138747570427
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205d6ada493a05c4e9644791efae8eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneAnyKeyInput: {fileID: 3340432783983575700}
+  sleepCamera: {fileID: 0}
   followedObject: {fileID: 0}
   SPEED: 15
 --- !u!1 &7895809373678709561
@@ -877,6 +907,7 @@ GameObject:
   - component: {fileID: 856116540364350291}
   - component: {fileID: 807373423503148999}
   - component: {fileID: 6580488087609879886}
+  - component: {fileID: 3209987378863339855}
   m_Layer: 0
   m_Name: GameSceneUIToolkit
   m_TagString: Untagged
@@ -938,6 +969,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIToolkit: {fileID: 0}
+--- !u!114 &3209987378863339855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895809373678709561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949db40d9e309af4c84b35654d8f38e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIToolkit: {fileID: 0}
+  gearIcon: {fileID: 21300000, guid: 4af441c23fea6fd48afafb06c27033e8, type: 3}
+  gearDisableIcon: {fileID: 21300000, guid: a20166099dd985a48ae1cc5eae5eca8d, type: 3}
 --- !u!1 &8778883079044138257
 GameObject:
   m_ObjectHideFlags: 0

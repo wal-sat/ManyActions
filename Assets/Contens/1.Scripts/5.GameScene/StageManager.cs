@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class StageManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseMenu gameScenePauseMenu;
     [SerializeField] GameScenePauseUIToolkit gameScenePauseUIToolkit;
+    [SerializeField] GameSceneClearUIToolkit gameSceneClearUIToolkit;
 
     public Action<GameSceneStatus> ChangeGameSceneStatus;
     public Action<GameSceneMenuStatus> ChangeGameSceneMenuStatus;
@@ -47,6 +49,8 @@ public class StageManager : MonoBehaviour
     }
     private void Initialize()
     {
+        Time.timeScale = 1;
+
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
         sectionManager.ChangeSection(0);
@@ -59,6 +63,7 @@ public class StageManager : MonoBehaviour
         gameSceneUI.ChangeStageName(S_StageInfo._instance.stageDatas[_sceneKind].worldName, S_StageInfo._instance.stageDatas[_sceneKind].stageName);
         gameSceneUI.UpdateDeathCount( deathCountManager.deathCount );
         gameSceneUI.SwitchKidouUIVisible(true);
+        gameSceneClearUIToolkit.RootVisible(false);
     }
 
     private void FixedUpdate()
@@ -137,7 +142,7 @@ public class StageManager : MonoBehaviour
     {
         S_InputSystem._instance.canInput = false;
 
-        playerManager.Door();
+        playerManager.SectionClear();
         gearManager.OnSave();
 
         yield return new WaitForSeconds(0.2f);
@@ -166,7 +171,14 @@ public class StageManager : MonoBehaviour
     }
     IEnumerator CClear()
     {
-        yield return new WaitForSeconds(1);
+        DOVirtual.Float(1f, 0f, 0.5f, value => Time.timeScale = value).SetEase(Ease.OutCubic).SetUpdate(true);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        playerManager.SectionClear();
+        ChangeGameSceneStatus(GameSceneStatus.clear);
+
+        gameSceneClearUIToolkit.RootVisible(true);
     }
 
     //ーーーポーズ時の処理ーーー
