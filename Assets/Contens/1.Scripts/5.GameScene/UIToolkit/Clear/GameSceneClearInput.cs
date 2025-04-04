@@ -51,15 +51,18 @@ public class GameSceneClearInput : MonoBehaviour
                 S_LoadSceneSystem._instance.LoadScene(S_LoadSceneSystem._instance.GetCurrentSceneKind());
             break;
         }
+        S_SEManager._instance.Play("u_select");
     }
     public void CursorLeft()
     {
         cursorIndex --;
         _leftPast = true;
+        S_SEManager._instance.Play("u_cursor");
     }
     public void CursorRight()
     {
         cursorIndex ++;
         _rightPast = true;
+        S_SEManager._instance.Play("u_cursor");
     }
 }

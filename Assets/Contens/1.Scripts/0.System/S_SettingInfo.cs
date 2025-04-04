@@ -27,6 +27,7 @@ public class S_SettingInfo : Singleton<S_SettingInfo>
             ChangeBarValueMaster(_masterVolume);
             S_BGMManager._instance.ChangeVolume( (float) _masterVolume * _BGMVolume / 100);
             S_SEManager._instance.ChangeVolume( (float) _masterVolume * _SEVolume / 100);
+            S_AmbientSoundManager._instance.ChangeVolume( (float) _masterVolume * _SEVolume / 100);
         }
     }
     private int _BGMVolume = 8;
@@ -49,6 +50,7 @@ public class S_SettingInfo : Singleton<S_SettingInfo>
             _SEVolume = Mathf.Clamp(value, 0, 10);
             ChangeBarValueSE(_SEVolume);
             S_SEManager._instance.ChangeVolume( (float) _masterVolume * _SEVolume / 100);
+            S_AmbientSoundManager._instance.ChangeVolume( (float) _masterVolume * _SEVolume / 100);
         }
     }
 

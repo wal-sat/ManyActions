@@ -111,7 +111,7 @@ public class GameSceneClearUIToolkit : MonoBehaviour
     /// <param name="playTime">プレイ時間</param>
     public void ChangeClearTimeLabel(string clearTime)
     {
-        _clearTimeLabel.text = "プレイ時間 ： " + clearTime;
+        _clearTimeLabel.text = "クリア時間 ： " + clearTime;
     }
 
     /// <summary>

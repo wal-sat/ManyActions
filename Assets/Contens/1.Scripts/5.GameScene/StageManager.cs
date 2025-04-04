@@ -173,16 +173,15 @@ public class StageManager : MonoBehaviour
     }
     IEnumerator CClear()
     {
+        S_SEManager._instance.Play("s_getKey");
+        S_AmbientSoundManager._instance.Stop("heartBeat", 0.5f);
+
         DOVirtual.Float(1f, 0f, 0.5f, value => Time.timeScale = value).SetEase(Ease.OutCubic).SetUpdate(true);
 
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        playerManager.SectionClear();
-        gearManager.OnSave();
-
         ChangeGameSceneStatus(GameSceneStatus.clear);
-
+        
         timeManager.StopTimer();
+        gearManager.OnSave();
 
         S_StageInfo._instance.stageDatas[_sceneKind].isClear = true;
         S_StageInfo._instance.stageDatas[_sceneKind].SetDeathCount(deathCountManager.deathCount, true);
@@ -195,7 +194,20 @@ public class StageManager : MonoBehaviour
         gameSceneClearUIToolkit.ChangeMinimumDeathCountLabel(S_StageInfo._instance.stageDatas[_sceneKind].minimumDeathCount);
         gameSceneClearUIToolkit.ChangeClearTimeLabel(timeManager.GetTimeString());
         gameSceneClearUIToolkit.ChangeFastestClearTimeLabel(S_StageInfo._instance.stageDatas[_sceneKind].GetFastestClearTimeString());
+
+        S_BGMManager._instance.Play("clear", 2f);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        S_InputSystem._instance.canInput = false;
+
+        playerManager.SectionClear();
+        
         gameSceneClearUIToolkit.RootVisible(true);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        S_InputSystem._instance.canInput = true;
     }
 
     //ーーーポーズ時の処理ーーー

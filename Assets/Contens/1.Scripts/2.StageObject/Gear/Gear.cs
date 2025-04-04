@@ -49,8 +49,7 @@ public class Gear : MonoBehaviour
         else if (gearStatus == GearStatus.unacquired) 
         {
             gearView.SpriteChange(true);
+            ParticleDefault.SetActive(true);
         }
-
-        ParticleDefault.SetActive(true);
     }
 }
