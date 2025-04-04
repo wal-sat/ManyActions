@@ -44,42 +44,4 @@ public class S_GameInfo : Singleton<S_GameInfo>
             return count;
         }
     }
-
-    //ーーーーータイムーーーーー
-    public bool onTimer;
-    private float time;
-    private float totalTime;
-
-    private void FixedUpdate()
-    {
-        if (onTimer) 
-        {
-            time += Time.deltaTime;
-            totalTime += Time.deltaTime;
-        }
-    }
-    public int[] GetTime()
-    {
-        int[] ints = new int[3];
-
-        ints[0] = (int) time / 3600;
-        ints[1] = (int) ( time % 3600 ) / 60;
-        ints[2] = (int) time % 60;
-
-        return ints;
-    }
-    public int[] GetTotalTime()
-    {
-        int[] ints = new int[3];
-
-        ints[0] = (int) totalTime / 3600;
-        ints[1] = (int) ( totalTime % 3600 ) / 60;
-        ints[2] = (int) totalTime % 60;
-
-        return ints;
-    }
-    public void ResetTime()
-    {
-        time = 0;
-    }
 }

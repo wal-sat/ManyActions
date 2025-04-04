@@ -12,6 +12,7 @@ public class GameSceneClearUIToolkit : MonoBehaviour
     [SerializeField] private Sprite gearDisableIcon;
 
     private VisualElement _root;
+    private VisualElement _clearIcon;
     private VisualElement[] _optionLabel = new VisualElement[2];
     private VisualElement[] _gearIcon = new VisualElement[5];
 
@@ -26,6 +27,7 @@ public class GameSceneClearUIToolkit : MonoBehaviour
         var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
 
         _root = root.Q<VisualElement>("Root");
+        _clearIcon = root.Q<VisualElement>("ClearIcon");
         for (int i = 0; i < _optionLabel.Length; i++) _optionLabel[i] = root.Q<VisualElement>("OptionLabel" + i);
         for (int i = 0; i < _gearIcon.Length; i++) _gearIcon[i] = root.Q<VisualElement>("GearIcon" + i);
 
@@ -43,6 +45,16 @@ public class GameSceneClearUIToolkit : MonoBehaviour
     }
 
     /// <summary>
+    /// クリアアイコンの表示を変更する
+    /// </summary>
+    public void ChangeClearIcon(Sprite sprite)
+    {
+        if (_clearIcon == null) return;
+        _clearIcon.style.backgroundImage = sprite.texture;
+    }
+  
+
+    /// <summary>
     /// オプションラベルの選択状態を変更する
     /// </summary>
     public void OptionLabelSelect(int index)
@@ -57,15 +69,6 @@ public class GameSceneClearUIToolkit : MonoBehaviour
         _optionLabel[index].AddToClassList("optionLabel--Selected");
         StartCoroutine(CInvokeRealtime( () => _optionLabel[index].ToggleInClassList("optionLabel--Selected--Animate") ));
         
-    }
-    public void OptionLabelUnSelect()
-    {
-        StopAllCoroutines();
-        for (int i = 0; i < _optionLabel.Length; i++) 
-        {
-            _optionLabel[i].RemoveFromClassList("optionLabel--Selected");
-            _optionLabel[i].RemoveFromClassList("optionLabel--Selected--Animate");
-        }
     }
 
     /// <summary>
@@ -83,7 +86,7 @@ public class GameSceneClearUIToolkit : MonoBehaviour
     /// </summary>
     public void ChangeMessageLabel(string message)
     {
-        _messageLabel.text = message;
+        _messageLabel.text = "～" + message + "～";
     }
 
     /// <summary>

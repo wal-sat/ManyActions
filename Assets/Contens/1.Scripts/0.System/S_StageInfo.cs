@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class S_StageInfo : Singleton<S_StageInfo>
 {
+    [Serializable] class ClearKindInfo
+    {
+        [SerializeField] public ClearKind clearKind;
+        [SerializeField] public Sprite clearIcon;
+        [SerializeField] public string clearMessage;
+    }
+
+    [SerializeField] ClearKindInfo[] clearKindInfos;
+
     [SerializeField] StageData[] SD_Plain_A;
     [SerializeField] StageData[] SD_Blue_F_A;
     [SerializeField] StageData[] SD_Blue_B_A;
@@ -76,5 +86,22 @@ public class S_StageInfo : Singleton<S_StageInfo>
     public void AddPlayTime(SceneKind sceneKind, int playTime, bool isClear)
     {
         stageDatas[sceneKind].SetPlayTime(playTime, isClear);
+    }
+
+    public Sprite GetClearIcon(ClearKind clearKind)
+    {
+        foreach (var info in clearKindInfos)
+        {
+            if (info.clearKind == clearKind) return info.clearIcon;
+        }
+        return null;
+    }
+    public string GetClearMessage(ClearKind clearKind)
+    {
+        foreach (var info in clearKindInfos)
+        {
+            if (info.clearKind == clearKind) return info.clearMessage;
+        }
+        return null;
     }
 }

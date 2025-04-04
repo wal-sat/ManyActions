@@ -49,6 +49,7 @@ public class StageManager : MonoBehaviour
     }
     private void Initialize()
     {
+        S_BGMManager._instance.Play("stage", 2f);
         Time.timeScale = 1;
 
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
@@ -144,7 +145,8 @@ public class StageManager : MonoBehaviour
 
         playerManager.SectionClear();
         gearManager.OnSave();
-
+        timeManager.StopTimer();
+        
         yield return new WaitForSeconds(0.2f);
 
         S_FadeManager._instance.Fade(
@@ -176,8 +178,23 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
 
         playerManager.SectionClear();
+        gearManager.OnSave();
+
         ChangeGameSceneStatus(GameSceneStatus.clear);
 
+        timeManager.StopTimer();
+
+        S_StageInfo._instance.stageDatas[_sceneKind].isClear = true;
+        S_StageInfo._instance.stageDatas[_sceneKind].SetDeathCount(deathCountManager.deathCount, true);
+        S_StageInfo._instance.stageDatas[_sceneKind].SetPlayTime(timeManager.GetTime(), true);
+
+        for (int i = 0; i < 5; i++) gameSceneClearUIToolkit.GearIconAcquired(i, S_StageInfo._instance.stageDatas[_sceneKind].gearAcquire[i]);
+        gameSceneClearUIToolkit.ChangeClearIcon(S_StageInfo._instance.GetClearIcon(S_StageInfo._instance.stageDatas[_sceneKind].clearKind));
+        gameSceneClearUIToolkit.ChangeMessageLabel(S_StageInfo._instance.GetClearMessage(S_StageInfo._instance.stageDatas[_sceneKind].clearKind));
+        gameSceneClearUIToolkit.ChangeDeathCountLabel(deathCountManager.deathCount);
+        gameSceneClearUIToolkit.ChangeMinimumDeathCountLabel(S_StageInfo._instance.stageDatas[_sceneKind].minimumDeathCount);
+        gameSceneClearUIToolkit.ChangeClearTimeLabel(timeManager.GetTimeString());
+        gameSceneClearUIToolkit.ChangeFastestClearTimeLabel(S_StageInfo._instance.stageDatas[_sceneKind].GetFastestClearTimeString());
         gameSceneClearUIToolkit.RootVisible(true);
     }
 

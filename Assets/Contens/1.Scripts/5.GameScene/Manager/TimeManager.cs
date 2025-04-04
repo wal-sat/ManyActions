@@ -20,6 +20,10 @@ public class TimeManager : MonoBehaviour
     {
         _onTimer = false;
     }
+    public int GetTime()
+    {
+        return (int) _time;
+    }
     public string GetTimeString()
     {
         int hours = (int) _time / 3600;

@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEditor.SceneManagement;
-using UnityEditor.SearchService;
 using UnityEngine;
 
+public enum ClearKind { key, goldGear }
 public enum ReleaseConditionKind { None, Clear, GearComplete, GearCount }
 
 [Serializable]
@@ -27,9 +23,9 @@ public class StageData : ScriptableObject
     [SerializeField][Range(0, 1)] public int reverseIndex;
     [SerializeField] public string worldName;
     [SerializeField] public string stageName;
+    [SerializeField] public ClearKind clearKind;
     [SerializeField] public Sprite acquireActionImage;
     [SerializeField] public Sprite stageImage;
-    [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public ReleaseCondition[] releaseConditions;
 
     [HideInInspector] public bool isClear { get; set; }
@@ -72,7 +68,7 @@ public class StageData : ScriptableObject
         }
     }
 
-    public void Initialize()
+    public void OnEnable()
     {
         isClear = false;
         for (int i = 0; i < 5; i++) gearAcquire[i] = false;
