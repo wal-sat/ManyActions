@@ -9,7 +9,7 @@ public enum InputKind
     E, E_Up, E_Down, E_Left, E_Right,
     W, W_Up, W_Down, W_Left, W_Right,
     N, N_Up, N_Down, N_Left, N_Right,
-    L, R
+    L, R, L2, R2
 }
 
 public class GameSceneOnPlayInput : MonoBehaviour

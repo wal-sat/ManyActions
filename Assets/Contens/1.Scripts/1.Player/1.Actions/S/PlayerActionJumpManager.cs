@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class PlayerActionJumpManager : MonoBehaviour
@@ -12,19 +13,19 @@ public class PlayerActionJumpManager : MonoBehaviour
     private int _jumpTimes;
     private int _maxJumpTimes;
 
-    private void Start()
+    private void Awake()
     {
         foreach (var action in jumpActions)
         {
-            if (action == null) continue;
-
             action.init = Init;
+            action.isJumping = IsJumping;
         }
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (playerMovement.rb.velocity.y > RESTRICTE_JUMP_SPEED) return;
+        if (!CanNextJump()) return;
         if (_jumpTimes == 0) return;
         if (_jumpTimes != -1) _jumpTimes --;
 
@@ -34,6 +35,28 @@ public class PlayerActionJumpManager : MonoBehaviour
 
             if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Jump();
         }
+    }
+
+    private bool CanNextJump()
+    {
+        foreach (var action in jumpActions)
+        {
+            if (!action.canNextJump) return false;
+        }
+        return true;
+    }
+    private bool IsJumping(PlayerActionJumpBase selfAction)
+    {
+        foreach (var action in jumpActions)
+        {
+            if (action == selfAction) continue;
+            if (action.isAction)
+            {
+                Debug.Log("Jumping: " + action.actionKind);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void OnWallKickJump()

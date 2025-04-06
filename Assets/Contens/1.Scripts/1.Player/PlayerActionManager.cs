@@ -89,6 +89,11 @@ public class PlayerActionManager : MonoBehaviour
     [HideInInspector] public bool NBlock;
     [HideInInspector] public bool NBlockPast;
 
+    private void Awake()
+    {
+        playerMovement.OnSwapCallback = SwapInActionCallback;   
+    }
+
     public void Initialize()
     {
         foreach (var action in playerActions)
@@ -226,112 +231,101 @@ public class PlayerActionManager : MonoBehaviour
     {
         //ーーーNeutralーーー
         if (_onUp && !_onUpPast) CallInitAction(InputKind.Up);
-        else if (_onUp && _onUpPast) CallInAction(InputKind.Up);
-        else if (!_onUp && _onUpPast) CallEndAction(InputKind.Up);
-
         if (_onDown && !_onDownPast) CallInitAction(InputKind.Down);
-        else if (_onDown && _onDownPast) CallInAction(InputKind.Down);
-        else if (!_onDown && _onDownPast) CallEndAction(InputKind.Down);
-
         if (_onLeft && !_onLeftPast) CallInitAction(InputKind.Left);
-        else if (_onLeft && _onLeftPast) CallInAction(InputKind.Left);
-        else if (!_onLeft && _onLeftPast) CallEndAction(InputKind.Left);
-
         if (_onRight && !_onRightPast) CallInitAction(InputKind.Right);
-        else if (_onRight && _onRightPast) CallInAction(InputKind.Right);
-        else if (!_onRight && _onRightPast) CallEndAction(InputKind.Right);
-
         if (_onL && !_onLPast) CallInitAction(InputKind.L);
-        else if (_onL && _onLPast) CallInAction(InputKind.L);
-        else if (!_onL && _onLPast) CallEndAction(InputKind.L);
-
         if (_onR && !_onRPast) CallInitAction(InputKind.R);
-        else if (_onR && _onRPast) CallInAction(InputKind.R);
-        else if (!_onR && _onRPast) CallEndAction(InputKind.R);
+        
+        if (_onUp && _onUpPast) CallInAction(InputKind.Up);
+        if (_onDown && _onDownPast) CallInAction(InputKind.Down);
+        if (_onLeft && _onLeftPast) CallInAction(InputKind.Left);
+        if (_onRight && _onRightPast) CallInAction(InputKind.Right);
+        if (_onL && _onLPast) CallInAction(InputKind.L);
+        if (_onR && _onRPast) CallInAction(InputKind.R);
+        
+        if (!_onUp && _onUpPast) CallEndAction(InputKind.Up);
+        if (!_onDown && _onDownPast) CallEndAction(InputKind.Down);
+        if (!_onLeft && _onLeftPast) CallEndAction(InputKind.Left);
+        if (!_onRight && _onRightPast) CallEndAction(InputKind.Right);
+        if (!_onL && _onLPast) CallEndAction(InputKind.L);
+        if (!_onR && _onRPast) CallEndAction(InputKind.R);
 
         //ーーーSーーー
         if (_onS && !_onSPast) CallInitAction(InputKind.S);
-        else if (_onS && _onSPast) CallInAction(InputKind.S);
-        else if (!_onS && _onSPast) CallEndAction(InputKind.S);
-
         if (_onS_Up && !_onS_UpPast) CallInitAction(InputKind.S_Up);
-        else if (_onS_Up && _onS_UpPast) CallInAction(InputKind.S_Up);
-        else if (!_onS_Up && _onS_UpPast) CallEndAction(InputKind.S_Up);
-
         if (_onS_Down && !_onS_DownPast) CallInitAction(InputKind.S_Down);
-        else if (_onS_Down && _onS_DownPast) CallInAction(InputKind.S_Down);
-        else if (!_onS_Down && _onS_DownPast) CallEndAction(InputKind.S_Down);
-
         if (_onS_Left && !_onS_LeftPast) CallInitAction(InputKind.S_Left);
-        else if (_onS_Left && _onS_LeftPast) CallInAction(InputKind.S_Left);
-        else if (!_onS_Left && _onS_LeftPast) CallEndAction(InputKind.S_Left);
-
         if (_onS_Right && !_onS_RightPast) CallInitAction(InputKind.S_Right);
-        else if (_onS_Right && _onS_RightPast) CallInAction(InputKind.S_Right);
-        else if (!_onS_Right && _onS_RightPast) CallEndAction(InputKind.S_Right);
+        
+        if (_onS && _onSPast) CallInAction(InputKind.S);
+        if (_onS_Up && _onS_UpPast) CallInAction(InputKind.S_Up);
+        if (_onS_Down && _onS_DownPast) CallInAction(InputKind.S_Down);
+        if (_onS_Left && _onS_LeftPast) CallInAction(InputKind.S_Left);
+        if (_onS_Right && _onS_RightPast) CallInAction(InputKind.S_Right);
+        
+        if (!_onS && _onSPast) CallEndAction(InputKind.S);
+        if (!_onS_Up && _onS_UpPast) CallEndAction(InputKind.S_Up);
+        if (!_onS_Down && _onS_DownPast) CallEndAction(InputKind.S_Down);
+        if (!_onS_Left && _onS_LeftPast) CallEndAction(InputKind.S_Left);
+        if (!_onS_Right && _onS_RightPast) CallEndAction(InputKind.S_Right);
 
         //ーーーEーーー
         if (_onE && !_onEPast) CallInitAction(InputKind.E);
-        else if (_onE && _onEPast) CallInAction(InputKind.E);
-        else if (!_onE && _onEPast) CallEndAction(InputKind.E);
-
         if (_onE_Up && !_onE_UpPast) CallInitAction(InputKind.E_Up);
-        else if (_onE_Up && _onE_UpPast) CallInAction(InputKind.E_Up);
-        else if (!_onE_Up && _onE_UpPast) CallEndAction(InputKind.E_Up);
-
         if (_onE_Down && !_onE_DownPast) CallInitAction(InputKind.E_Down);
-        else if (_onE_Down && _onE_DownPast) CallInAction(InputKind.E_Down);
-        else if (!_onE_Down && _onE_DownPast) CallEndAction(InputKind.E_Down);
-
         if (_onE_Left && !_onE_LeftPast) CallInitAction(InputKind.E_Left);
-        else if (_onE_Left && _onE_LeftPast) CallInAction(InputKind.E_Left);
-        else if (!_onE_Left && _onE_LeftPast) CallEndAction(InputKind.E_Left);
-
         if (_onE_Right && !_onE_RightPast) CallInitAction(InputKind.E_Right);
-        else if (_onE_Right && _onE_RightPast) CallInAction(InputKind.E_Right);
-        else if (!_onE_Right && _onE_RightPast) CallEndAction(InputKind.E_Right);
+        
+        if (_onE && _onEPast) CallInAction(InputKind.E);
+        if (_onE_Up && _onE_UpPast) CallInAction(InputKind.E_Up);
+        if (_onE_Down && _onE_DownPast) CallInAction(InputKind.E_Down);
+        if (_onE_Left && _onE_LeftPast) CallInAction(InputKind.E_Left);
+        if (_onE_Right && _onE_RightPast) CallInAction(InputKind.E_Right);
+        
+        if (!_onE && _onEPast) CallEndAction(InputKind.E);
+        if (!_onE_Up && _onE_UpPast) CallEndAction(InputKind.E_Up);
+        if (!_onE_Down && _onE_DownPast) CallEndAction(InputKind.E_Down);
+        if (!_onE_Left && _onE_LeftPast) CallEndAction(InputKind.E_Left);
+        if (!_onE_Right && _onE_RightPast) CallEndAction(InputKind.E_Right);
 
         //ーーーWーーー
         if (_onW && !_onWPast) CallInitAction(InputKind.W);
-        else if (_onW && _onWPast) CallInAction(InputKind.W);
-        else if (!_onW && _onWPast) CallEndAction(InputKind.W);
-
         if (_onW_Up && !_onW_UpPast) CallInitAction(InputKind.W_Up);
-        else if (_onW_Up && _onW_UpPast) CallInAction(InputKind.W_Up);
-        else if (!_onW_Up && _onW_UpPast) CallEndAction(InputKind.W_Up);
-
         if (_onW_Down && !_onW_DownPast) CallInitAction(InputKind.W_Down);
-        else if (_onW_Down && _onW_DownPast) CallInAction(InputKind.W_Down);
-        else if (!_onW_Down && _onW_DownPast) CallEndAction(InputKind.W_Down);
-
         if (_onW_Left && !_onW_LeftPast) CallInitAction(InputKind.W_Left);
-        else if (_onW_Left && _onW_LeftPast) CallInAction(InputKind.W_Left);
-        else if (!_onW_Left && _onW_LeftPast) CallEndAction(InputKind.W_Left);
-
         if (_onW_Right && !_onW_RightPast) CallInitAction(InputKind.W_Right);
-        else if (_onW_Right && _onW_RightPast) CallInAction(InputKind.W_Right);
-        else if (!_onW_Right && _onW_RightPast) CallEndAction(InputKind.W_Right);
+        
+        if (_onW && _onWPast) CallInAction(InputKind.W);
+        if (_onW_Up && _onW_UpPast) CallInAction(InputKind.W_Up);
+        if (_onW_Down && _onW_DownPast) CallInAction(InputKind.W_Down);
+        if (_onW_Left && _onW_LeftPast) CallInAction(InputKind.W_Left);
+        if (_onW_Right && _onW_RightPast) CallInAction(InputKind.W_Right);
+        
+        if (!_onW && _onWPast) CallEndAction(InputKind.W);
+        if (!_onW_Up && _onW_UpPast) CallEndAction(InputKind.W_Up);
+        if (!_onW_Down && _onW_DownPast) CallEndAction(InputKind.W_Down);
+        if (!_onW_Left && _onW_LeftPast) CallEndAction(InputKind.W_Left);
+        if (!_onW_Right && _onW_RightPast) CallEndAction(InputKind.W_Right);
 
         //ーーーNーーー
         if (_onN && !_onNPast) CallInitAction(InputKind.N);
-        else if (_onN && _onNPast) CallInAction(InputKind.N);
-        else if (!_onN && _onNPast) CallEndAction(InputKind.N);
-
         if (_onN_Up && !_onN_UpPast) CallInitAction(InputKind.N_Up);
-        else if (_onN_Up && _onN_UpPast) CallInAction(InputKind.N_Up);
-        else if (!_onN_Up && _onN_UpPast) CallEndAction(InputKind.N_Up);
-
         if (_onN_Down && !_onN_DownPast) CallInitAction(InputKind.N_Down);
-        else if (_onN_Down && _onN_DownPast) CallInAction(InputKind.N_Down);
-        else if (!_onN_Down && _onN_DownPast) CallEndAction(InputKind.N_Down);
-
         if (_onN_Left && !_onN_LeftPast) CallInitAction(InputKind.N_Left);
-        else if (_onN_Left && _onN_LeftPast) CallInAction(InputKind.N_Left);
-        else if (!_onN_Left && _onN_LeftPast) CallEndAction(InputKind.N_Left);
-
         if (_onN_Right && !_onN_RightPast) CallInitAction(InputKind.N_Right);
-        else if (_onN_Right && _onN_RightPast) CallInAction(InputKind.N_Right);
-        else if (!_onN_Right && _onN_RightPast) CallEndAction(InputKind.N_Right);
+        
+        if (_onN && _onNPast) CallInAction(InputKind.N);
+        if (_onN_Up && _onN_UpPast) CallInAction(InputKind.N_Up);
+        if (_onN_Down && _onN_DownPast) CallInAction(InputKind.N_Down);
+        if (_onN_Left && _onN_LeftPast) CallInAction(InputKind.N_Left);
+        if (_onN_Right && _onN_RightPast) CallInAction(InputKind.N_Right);
+        
+        if (!_onN && _onNPast) CallEndAction(InputKind.N);
+        if (!_onN_Up && _onN_UpPast) CallEndAction(InputKind.N_Up);
+        if (!_onN_Down && _onN_DownPast) CallEndAction(InputKind.N_Down);
+        if (!_onN_Left && _onN_LeftPast) CallEndAction(InputKind.N_Left);
+        if (!_onN_Right && _onN_RightPast) CallEndAction(InputKind.N_Right);
     }
 
     public void CallInitAction(InputKind inputKind)
@@ -432,4 +426,15 @@ public class PlayerActionManager : MonoBehaviour
         playerActionBlinkManager.ChangeBlinkTimes();
         playerActionWarpManager.ChangeWarpTimes();
     }
+
+    private void SwapInActionCallback()
+    {
+        foreach (var action in playerActions)
+        {
+            if (action == null) continue;
+
+            if (action.isEnable && action.isAction) action.SwapInAction();
+        }
+    }
+        
 }

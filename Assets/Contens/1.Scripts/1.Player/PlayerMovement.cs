@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool isLockMoving;
     [HideInInspector] public bool isBlownUpByBarrel;
 
+    public Action OnSwapCallback;
+
     private float _speed;
     private bool _isLanding;
     private float _landingTimer;
@@ -93,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
     {
         this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, 1f);
         isFacingRight = !isFacingRight;
+
+        if (OnSwapCallback != null) OnSwapCallback();
 
         S_SEManager._instance.Play("p_swap");
     }

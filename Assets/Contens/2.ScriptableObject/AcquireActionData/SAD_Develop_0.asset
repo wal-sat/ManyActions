@@ -25,7 +25,7 @@ MonoBehaviour:
   S_BackJump: 1
   S_GoDown: 1
   S_DoubleJump: 1
-  S_InfiniteJump: 1
+  S_InfiniteJump: 0
   E_Hover: 1
   E_UpBlink: 1
   E_Blink: 1

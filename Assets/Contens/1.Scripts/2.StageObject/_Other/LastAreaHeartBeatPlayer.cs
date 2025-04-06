@@ -14,12 +14,12 @@ public class LastAreaHeartBeatPlayer : MonoBehaviour
 
     private void TriggerEnter()
     {
-        S_BGMManager._instance.Pause("stage", 0.5f);
-        S_AmbientSoundManager._instance.Play("heartBeat", 0.5f);
+        S_BGMManager._instance.Pause("stage", 2f);
+        S_AmbientSoundManager._instance.Play("heartBeat", 2f);
     }
     private void TriggerExit()
     {
-        S_BGMManager._instance.UnPause("stage", 0.5f);
-        S_AmbientSoundManager._instance.Stop("heartBeat", 0.5f);
+        if (S_BGMManager._instance != null) S_BGMManager._instance.UnPause("stage", 2f);
+        if (S_AmbientSoundManager._instance != null) S_AmbientSoundManager._instance.Stop("heartBeat", 2f);
     }
 }

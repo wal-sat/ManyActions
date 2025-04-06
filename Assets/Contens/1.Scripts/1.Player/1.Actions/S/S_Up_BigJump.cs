@@ -8,41 +8,45 @@ public class S_Up_BigJump : PlayerActionJumpBase
     [SerializeField] private float JUMP_POWER;
     [SerializeField] private float JUMP_CANCEL_POWER;
     [SerializeField] private float CANCEL_TIME;
+    [SerializeField] public float NEXT_JUMP_BUFFER_TIME;
 
 
-    private float _timer;
-    private bool _onTimer;
+    private float _cancelTimer;
+    private float _nextJumpBufferTimer;
     private bool _canCancel;
     private bool _inputCancel;
 
     private void FixedUpdate()
     {
-        if (_onTimer)
-        {
-            _timer += Time.deltaTime;
-            if (_timer > CANCEL_TIME)
-            {
-                _canCancel = true;
-            }
-
-            if (_canCancel && _inputCancel) JumpCancel();
-        }
+        if (_cancelTimer < CANCEL_TIME) _cancelTimer += Time.deltaTime;
+        else _canCancel = true;    
+        if (_nextJumpBufferTimer < NEXT_JUMP_BUFFER_TIME) _nextJumpBufferTimer += Time.deltaTime;
+        else canNextJump = true;
+        
+        if (isAction && _canCancel && _inputCancel) JumpCancel();
     }
 
     private void JumpCancel()
     {
-        _onTimer = false;
-        if (rb.velocity.y > 0 && wasJumped) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
+        Debug.Log("Cancel:"+ actionKind + " " + assignedInput);
 
+        if (rb.velocity.y > 0 && wasJumped && !isJumping(this)) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
+
+        isAction = false;
         wasJumped = false;
+
+        _canCancel = false;
+        _inputCancel = false;
     }
 
     public override void Jump()
     {
+        isAction = true;
         wasJumped = true;
+        canNextJump = false;
 
-        _timer = 0;
-        _onTimer = true;
+        _cancelTimer = 0;
+        _nextJumpBufferTimer = 0;
         _canCancel = false;
         _inputCancel = false;
 
@@ -50,8 +54,16 @@ public class S_Up_BigJump : PlayerActionJumpBase
 
         S_SEManager._instance.Play("p_bigJump");
     }
+    public override void InitAction()
+    {
+        init(assignedInput, actionKind);
+    }
     public override void EndAction()
     {
         _inputCancel = true;
+    }
+    public override void Initialize()
+    {
+        JumpCancel();
     }
 }
