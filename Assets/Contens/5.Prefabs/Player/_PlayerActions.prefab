@@ -207,6 +207,7 @@ MonoBehaviour:
   isCoolDowning: 0
   rb: {fileID: 0}
   HOVER_TIME: 0.2
+  NEXT_BLINK_BUFFER_TIME: 0
 --- !u!1 &724658333485691093
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,9 +257,11 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
   rb: {fileID: 0}
-  BLINK_SPEED: 700
-  BLINK_TIME: 0.4
+  BLINK_SPEED: 550
+  BLINK_TIME: 0.35
+  NEXT_BLINK_BUFFER_TIME: 0.4
 --- !u!1 &778771213000263705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,9 +1099,11 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
   rb: {fileID: 0}
-  BLINK_SPEED: 700
-  BLINK_TIME: 0.4
+  BLINK_SPEED: 550
+  BLINK_TIME: 0.35
+  NEXT_BLINK_BUFFER_TIME: 0.35
 --- !u!114 &6807276108179504416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,9 +1121,11 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
   rb: {fileID: 0}
-  BLINK_SPEED: 700
-  BLINK_TIME: 0.4
+  BLINK_SPEED: 550
+  BLINK_TIME: 0.35
+  NEXT_BLINK_BUFFER_TIME: 0.35
 --- !u!1 &3377767057314425917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,9 +1411,11 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
   rb: {fileID: 0}
-  BLINK_SPEED: 600
-  BLINK_TIME: 0.2
+  BLINK_SPEED: 1
+  BLINK_TIME: 0.35
+  NEXT_BLINK_BUFFER_TIME: 0.35
 --- !u!114 &3194036181594935063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,9 +1433,11 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
   rb: {fileID: 0}
-  BLINK_SPEED: 600
-  BLINK_TIME: 0.2
+  BLINK_SPEED: 1
+  BLINK_TIME: 0.35
+  NEXT_BLINK_BUFFER_TIME: 0.35
 --- !u!1 &4770234515552508425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1597,7 @@ MonoBehaviour:
   JUMP_POWER: 710
   JUMP_CANCEL_POWER: 1.5
   CANCEL_TIME: 0.05
-  NEXT_JUMP_BUFFER_TIME: 0.25
+  NEXT_JUMP_BUFFER_TIME: 0.2
 --- !u!1 &5287467567211893267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,6 +1798,7 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
 --- !u!1 &6627119134180960151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1848,7 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   playerMovement: {fileID: 0}
+  canNextBlink: 1
 --- !u!1 &8947086918399918268
 GameObject:
   m_ObjectHideFlags: 0

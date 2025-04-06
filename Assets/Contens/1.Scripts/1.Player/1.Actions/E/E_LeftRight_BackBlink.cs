@@ -7,12 +7,11 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float BLINK_SPEED;
     [SerializeField] private float BLINK_TIME;
+    [SerializeField] public float NEXT_BLINK_BUFFER_TIME;
 
     private float _blinkTimer;
-    private bool _isBlinking;
-    private float _speed;
+    private float _nextBlinkBufferTimer;
     private float _gravityScale;
-    private bool _wasFacingRight;
 
     private void Awake()
     {
@@ -20,25 +19,14 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
     }
     private void FixedUpdate()
     {
-        if (_isBlinking)
-        {
-            _blinkTimer += Time.deltaTime;
-
-            if (_wasFacingRight != playerMovement.isFacingRight) _speed *= -1;
-
-            _wasFacingRight = playerMovement.isFacingRight;
-
-            rb.velocity = new Vector3(_speed * Time.deltaTime, 0f, 0f);
-
-            if (_blinkTimer > BLINK_TIME)
-            {
-                EndBackBlink();
-            }
-        }
+        if (_blinkTimer < BLINK_TIME) _blinkTimer += Time.deltaTime;
+        else if (_blinkTimer >= BLINK_TIME && isAction) CancelBlink();
+        if (_nextBlinkBufferTimer < NEXT_BLINK_BUFFER_TIME) _nextBlinkBufferTimer += Time.deltaTime;
+        else canNextBlink = true;
     }
-    private void EndBackBlink()
+    private void CancelBlink()
     {
-        _isBlinking = false;
+        isAction = false;
 
         rb.gravityScale = _gravityScale;
         playerMovement.isLockMoving = false;
@@ -46,33 +34,45 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
 
     public override void Blink()
     {
-        if (base.assignedInput == InputKind.E_Left && playerMovement.isFacingRight) _speed = BLINK_SPEED * -1;
-        else if (base.assignedInput == InputKind.E_Right && !playerMovement.isFacingRight) _speed = BLINK_SPEED;
+        float speed = 0;
+        if (base.assignedInput == InputKind.E_Left && playerMovement.isFacingRight) speed = BLINK_SPEED * -1;
+        else if (base.assignedInput == InputKind.E_Right && !playerMovement.isFacingRight) speed = BLINK_SPEED;
         else return;
 
-        _isBlinking = true;
+        isAction = true;
+        canNextBlink = false;
         _blinkTimer = 0;
+        _nextBlinkBufferTimer = 0;
 
         rb.gravityScale = 0;
         playerMovement.isLockMoving = true;
 
-        _wasFacingRight = playerMovement.isFacingRight;
-
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.velocity = new Vector3(speed * Time.deltaTime, 0, 0);
 
         S_SEManager._instance.Play("p_blink");
     }
 
     public override void InitAction()
     {
-        if (_isBlinking) return;
-        
         if (base.assignedInput == InputKind.E_Left && playerMovement.isFacingRight) base.InitAction();
         else if (base.assignedInput == InputKind.E_Right && !playerMovement.isFacingRight) base.InitAction();
     }
+    public override void EndAction()
+    {
+        ;
+    }
     public override void Initialize()
     {
-        EndBackBlink();
+        CancelBlink();
+    }
+    public override void SwapInAction()
+    {
+        float speed = 0;
+        if (!playerMovement.isFacingRight) speed = BLINK_SPEED;
+        else if (playerMovement.isFacingRight) speed = BLINK_SPEED * -1;
+        else return;
+
+        rb.velocity = new Vector3(speed * Time.deltaTime, 0, 0);
     }
 }
 

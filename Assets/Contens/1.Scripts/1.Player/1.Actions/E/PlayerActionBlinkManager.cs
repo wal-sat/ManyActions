@@ -10,18 +10,18 @@ public class PlayerActionBlinkManager : MonoBehaviour
     private int _blinkTimes;
     private int _maxBlinkTimes;
 
-    private void Start()
+    private void Awake()
     {
         foreach (var action in blinkActions)
         {
-            if (action == null) continue;
-
             action.init = Init;
+            action.isBlinking = IsBlinking;
         }
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
+        if (!CanNextBlink()) return;
         if (_blinkTimes == 0) return;
         if (_blinkTimes != -1) _blinkTimes --;
 
@@ -31,6 +31,24 @@ public class PlayerActionBlinkManager : MonoBehaviour
 
             if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Blink();
         }
+    }
+
+    private bool CanNextBlink()
+    {
+        foreach (var action in blinkActions)
+        {
+            if (!action.canNextBlink) return false;
+        }
+        return true;
+    }
+    private bool IsBlinking(PlayerActionBlinkBase selfAction)
+    {
+        foreach (var action in blinkActions)
+        {
+            if (action == selfAction) continue;
+            if (action.isAction) return true;
+        }
+        return false;
     }
 
     public void Recure()

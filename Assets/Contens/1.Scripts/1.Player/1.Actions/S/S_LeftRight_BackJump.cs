@@ -25,7 +25,7 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
 
         if (isAction)
         {
-            if (playerMovement.IsLanding() && rb.velocity.y <= 0) JumpCancel();
+            if (playerMovement.IsLanding() && rb.velocity.y < 0) JumpCancel();
             if (_canCancel && _inputCancel) JumpCancel();
         }
     }
@@ -38,9 +38,6 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
 
         isAction = false;
         wasJumped = false;
-
-        _canCancel = false;
-        _inputCancel = false;
     }
 
     public override void Jump()

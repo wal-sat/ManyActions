@@ -15,7 +15,6 @@ public class PlayerActionJumpBase : PlayerActionBase
 
     public override void InitAction()
     {
-        base.InitAction();
         init(assignedInput, actionKind);
     }
 

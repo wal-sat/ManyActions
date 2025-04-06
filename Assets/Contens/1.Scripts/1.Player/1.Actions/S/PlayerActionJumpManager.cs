@@ -50,11 +50,7 @@ public class PlayerActionJumpManager : MonoBehaviour
         foreach (var action in jumpActions)
         {
             if (action == selfAction) continue;
-            if (action.isAction)
-            {
-                Debug.Log("Jumping: " + action.actionKind);
-                return true;
-            }
+            if (action.isAction) return true;
         }
         return false;
     }

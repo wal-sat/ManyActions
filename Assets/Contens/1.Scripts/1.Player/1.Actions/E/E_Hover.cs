@@ -6,6 +6,8 @@ public class E_Hover : PlayerActionRequireCoolDownBase
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float HOVER_TIME;
+    [SerializeField] public float NEXT_BLINK_BUFFER_TIME;
+    
     private float _hoverTimer;
     private bool _isHovering;
     private float _gravityScale;

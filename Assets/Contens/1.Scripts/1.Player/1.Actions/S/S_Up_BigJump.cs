@@ -23,20 +23,19 @@ public class S_Up_BigJump : PlayerActionJumpBase
         if (_nextJumpBufferTimer < NEXT_JUMP_BUFFER_TIME) _nextJumpBufferTimer += Time.deltaTime;
         else canNextJump = true;
         
-        if (isAction && _canCancel && _inputCancel) JumpCancel();
+        if (isAction)
+        {
+            if (playerMovement.IsLanding() && rb.velocity.y < 0) JumpCancel();
+            if (_canCancel && _inputCancel) JumpCancel();
+        }
     }
 
     private void JumpCancel()
     {
-        Debug.Log("Cancel:"+ actionKind + " " + assignedInput);
-
         if (rb.velocity.y > 0 && wasJumped && !isJumping(this)) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
 
         isAction = false;
         wasJumped = false;
-
-        _canCancel = false;
-        _inputCancel = false;
     }
 
     public override void Jump()
@@ -53,10 +52,6 @@ public class S_Up_BigJump : PlayerActionJumpBase
         rb.velocity = new Vector3(rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);
 
         S_SEManager._instance.Play("p_bigJump");
-    }
-    public override void InitAction()
-    {
-        init(assignedInput, actionKind);
     }
     public override void EndAction()
     {

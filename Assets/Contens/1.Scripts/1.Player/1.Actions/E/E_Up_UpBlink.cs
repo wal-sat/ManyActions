@@ -7,9 +7,10 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float BLINK_SPEED;
     [SerializeField] private float BLINK_TIME;
+    [SerializeField] public float NEXT_BLINK_BUFFER_TIME;
 
     private float _blinkTimer;
-    private bool _isBlinking;
+    private float _nextBlinkBufferTimer;
     private float _gravityScale;
 
     private void Awake()
@@ -18,22 +19,17 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     }
     private void FixedUpdate()
     {
-        if (_isBlinking)
-        {
-            _blinkTimer += Time.deltaTime;
-
-            rb.velocity = new Vector3(0f, BLINK_SPEED * Time.deltaTime, 0f);
-
-            if (_blinkTimer > BLINK_TIME)
-            {
-                EndUpBlink();
-            }
-        }
+        if (_blinkTimer < BLINK_TIME) _blinkTimer += Time.deltaTime;
+        else if (_blinkTimer >= BLINK_TIME && isAction) CancelBlink();
+        if (_nextBlinkBufferTimer < NEXT_BLINK_BUFFER_TIME) _nextBlinkBufferTimer += Time.deltaTime;
+        else canNextBlink = true;
     }
-    private void EndUpBlink()
+    
+    private void CancelBlink()
     {
-        _isBlinking = false;
         rb.velocity = new Vector3(0f, rb.velocity.y / 2, 0f);
+
+        isAction = false;
 
         rb.gravityScale = _gravityScale;
         playerMovement.isLockMoving = false;
@@ -41,25 +37,24 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
 
     public override void Blink()
     {
-        _isBlinking = true;
+        isAction = true;
+        canNextBlink = false;
         _blinkTimer = 0;
+        _nextBlinkBufferTimer = 0;
 
         rb.gravityScale = 0;
         playerMovement.isLockMoving = true;
 
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.velocity = new Vector3(0f, BLINK_SPEED * Time.deltaTime, 0f);
 
         S_SEManager._instance.Play("p_upBlink");
     }
-
-    public override void InitAction()
+    public override void EndAction()
     {
-        if (_isBlinking) return;
-
-        base.InitAction();
+        ;
     }
     public override void Initialize()
     {
-        EndUpBlink();
+        CancelBlink();
     }
 }
