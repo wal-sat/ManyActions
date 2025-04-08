@@ -14,39 +14,23 @@ public class LeftRight_Accelerate : PlayerActionBase
 
     public override void InitAction()
     {
-        if (base.assignedInput == InputKind.Left)
-        {
-            playerMovement.isLeftAccelerate = true;
-        }
-        if (base.assignedInput == InputKind.Right)
-        {
-            playerMovement.isRightAccelerate = true;
-        }
-    }
-    public override void InAction()
-    {
-        ;
+        base.InitAction();
+
+        if (base.assignedInput == InputKind.Left) playerMovement.isLeftAccelerate = true;
+        if (base.assignedInput == InputKind.Right) playerMovement.isRightAccelerate = true;
     }
     public override void EndAction()
     {
-        if (base.assignedInput == InputKind.Left)
-        {
-            playerMovement.isLeftAccelerate = false;
-        }
-        if (base.assignedInput == InputKind.Right)
-        {
-            playerMovement.isRightAccelerate = false;
-        }
+        base.EndAction();
+
+        if (base.assignedInput == InputKind.Left) playerMovement.isLeftAccelerate = false;
+        if (base.assignedInput == InputKind.Right) playerMovement.isRightAccelerate = false;
     }
     public override void Initialize()
     {
-        if (base.assignedInput == InputKind.Left)
-        {
-            playerMovement.isLeftAccelerate = false;
-        }
-        if (base.assignedInput == InputKind.Right)
-        {
-            playerMovement.isRightAccelerate = false;
-        }
+        base.Initialize();
+        
+        if (base.assignedInput == InputKind.Left) playerMovement.isLeftAccelerate = false;
+        if (base.assignedInput == InputKind.Right) playerMovement.isRightAccelerate = false;
     }
 }

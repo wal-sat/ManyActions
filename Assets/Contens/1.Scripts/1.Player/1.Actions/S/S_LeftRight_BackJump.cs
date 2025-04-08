@@ -9,10 +9,10 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
     [SerializeField] private float JUMP_SPEED;
     [SerializeField] private float JUMP_CANCEL_POWER;
     [SerializeField] private float CANCEL_TIME;
-    [SerializeField] public float NEXT_JUMP_BUFFER_TIME;
+    [SerializeField] public float ACTION_COOL_TIME;
 
     private float _cancelTimer;
-    private float _nextJumpBufferTimer;
+    private float _coolTimer;
     private bool _canCancel;
     private bool _inputCancel;
 
@@ -20,8 +20,8 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
     {
         if (_cancelTimer < CANCEL_TIME) _cancelTimer += Time.deltaTime;
         else _canCancel = true;    
-        if (_nextJumpBufferTimer < NEXT_JUMP_BUFFER_TIME) _nextJumpBufferTimer += Time.deltaTime;
-        else canNextJump = true;
+        if (_coolTimer < ACTION_COOL_TIME) _coolTimer += Time.deltaTime;
+        else isCoolTime = false;
 
         if (isAction)
         {
@@ -52,10 +52,10 @@ public class S_LeftRight_BackJump : PlayerActionJumpBase
 
         isAction = true;
         wasJumped = true;
-        canNextJump = false;
+        isCoolTime = true;
 
         _cancelTimer = 0;
-        _nextJumpBufferTimer = 0;
+        _coolTimer = 0;
         _canCancel = false;
         _inputCancel = false;
 

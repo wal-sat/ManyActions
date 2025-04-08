@@ -21,7 +21,6 @@ public class PlayerActionBlinkManager : MonoBehaviour
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
-        if (!CanNextBlink()) return;
         if (_blinkTimes == 0) return;
         if (_blinkTimes != -1) _blinkTimes --;
 
@@ -32,15 +31,7 @@ public class PlayerActionBlinkManager : MonoBehaviour
             if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Blink();
         }
     }
-
-    private bool CanNextBlink()
-    {
-        foreach (var action in blinkActions)
-        {
-            if (!action.canNextBlink) return false;
-        }
-        return true;
-    }
+    
     private bool IsBlinking(PlayerActionBlinkBase selfAction)
     {
         foreach (var action in blinkActions)

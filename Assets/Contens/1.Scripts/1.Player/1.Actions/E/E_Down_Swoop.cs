@@ -8,7 +8,6 @@ public class E_Down_Swoop : PlayerActionBase
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] private float SWOOP_SPEED;
 
-    private bool _isSwooping;
     private float _gravityScale;
 
     private void Awake()
@@ -18,30 +17,22 @@ public class E_Down_Swoop : PlayerActionBase
 
     private void FixedUpdate()
     {
-        if (_isSwooping)
-        {
-            rb.velocity = new Vector3(0f, -SWOOP_SPEED * Time.deltaTime, 0f);
-
-            if (playerMovement.IsLanding())
-            {
-                EndSwoop();
-            }
-        }
+        if (isAction && playerMovement.IsLanding()) EndSwoop();
     }
     private void EndSwoop()
     {
-        _isSwooping = false;
+        isAction = false;
         playerMovement.isLockMoving = false;
         rb.gravityScale = _gravityScale;
     }
 
     public override void InitAction()
     {
-        _isSwooping = true;
+        isAction = true;
         playerMovement.isLockMoving = true;
 
         rb.gravityScale = 0;
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.velocity = new Vector3(0f, -SWOOP_SPEED * Time.deltaTime, 0f);
     }
     public override void EndAction()
     {

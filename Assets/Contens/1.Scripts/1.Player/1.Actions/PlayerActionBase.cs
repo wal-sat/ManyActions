@@ -7,6 +7,7 @@ public class PlayerActionBase : MonoBehaviour
     [SerializeField] public InputKind assignedInput;
     [HideInInspector] public bool isEnable = true;
     [HideInInspector] public bool isAction = false;
+    [HideInInspector] public bool isCoolTime = false;
 
     public virtual void InitAction()
     {

@@ -23,6 +23,8 @@ public class Up_Grab : PlayerActionBase
 
     public override void InitAction()
     {
+        base.InitAction();
+        
         if (ropeManager.IsOverlapRope())
         {
             rb.gravityScale = 0;
@@ -44,6 +46,8 @@ public class Up_Grab : PlayerActionBase
     }
     public override void EndAction()
     {
+        base.EndAction();
+
         if (ropeManager.IsOverlapRope())
         {
             rb.gravityScale = _gravityScale;
@@ -54,6 +58,8 @@ public class Up_Grab : PlayerActionBase
     }
     public override void Initialize()
     {
+        base.Initialize();
+
         rb.gravityScale = _gravityScale;
         playerMovement.isLockMoving = false;
         playerPreventStuck.isPreventStuck = true;

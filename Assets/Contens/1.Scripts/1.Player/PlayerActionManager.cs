@@ -114,7 +114,7 @@ public class PlayerActionManager : MonoBehaviour
         
         InputAdjustment();
 
-        Action();
+        if (!IsCoolTime()) Action();
     }
 
     private void Recure()
@@ -436,5 +436,13 @@ public class PlayerActionManager : MonoBehaviour
             if (action.isEnable && action.isAction) action.SwapInAction();
         }
     }
-        
+    private bool IsCoolTime()
+    {
+        foreach (var action in playerActions)
+        {
+            if (action == null) continue;
+            if (action.isCoolTime) return true;
+        }
+        return false;
+    }   
 }

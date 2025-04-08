@@ -7,10 +7,10 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float BLINK_SPEED;
     [SerializeField] private float BLINK_TIME;
-    [SerializeField] public float NEXT_BLINK_BUFFER_TIME;
+    [SerializeField] public float ACTION_COOL_TIME;
 
     private float _blinkTimer;
-    private float _nextBlinkBufferTimer;
+    private float _coolTimer;
     private float _gravityScale;
 
     private void Awake()
@@ -21,8 +21,8 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     {
         if (_blinkTimer < BLINK_TIME) _blinkTimer += Time.deltaTime;
         else if (_blinkTimer >= BLINK_TIME && isAction) CancelBlink();
-        if (_nextBlinkBufferTimer < NEXT_BLINK_BUFFER_TIME) _nextBlinkBufferTimer += Time.deltaTime;
-        else canNextBlink = true;
+        if (_coolTimer < ACTION_COOL_TIME) _coolTimer += Time.deltaTime;
+        else isCoolTime = true;
     }
     
     private void CancelBlink()
@@ -38,9 +38,9 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
     public override void Blink()
     {
         isAction = true;
-        canNextBlink = false;
+        isCoolTime = false;
         _blinkTimer = 0;
-        _nextBlinkBufferTimer = 0;
+        _coolTimer = 0;
 
         rb.gravityScale = 0;
         playerMovement.isLockMoving = true;

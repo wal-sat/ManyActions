@@ -7,7 +7,6 @@ public class PlayerActionJumpBase : PlayerActionBase
 {
     [SerializeField] public PlayerMovement playerMovement;
 
-    [HideInInspector] public bool canNextJump = true;
     [HideInInspector] public bool wasJumped;
 
     public Action<InputKind, ActionKind> init;

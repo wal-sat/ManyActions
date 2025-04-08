@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1770091002004297346}
+    - target: {fileID: 3194036181594935063, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: playerPreventStuck
+      value: 
+      objectReference: {fileID: 176929356553280666}
     - target: {fileID: 4046448498535773001, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: rb
       value: 
@@ -639,6 +643,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1770091002004297346}
+    - target: {fileID: 8161019896373028330, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: playerPreventStuck
+      value: 
+      objectReference: {fileID: 176929356553280666}
     - target: {fileID: 8199578423201165310, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: rb
       value: 

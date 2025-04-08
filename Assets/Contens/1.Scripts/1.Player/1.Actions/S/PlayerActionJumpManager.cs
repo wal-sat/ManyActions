@@ -25,7 +25,6 @@ public class PlayerActionJumpManager : MonoBehaviour
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (playerMovement.rb.velocity.y > RESTRICTE_JUMP_SPEED) return;
-        if (!CanNextJump()) return;
         if (_jumpTimes == 0) return;
         if (_jumpTimes != -1) _jumpTimes --;
 
@@ -37,14 +36,6 @@ public class PlayerActionJumpManager : MonoBehaviour
         }
     }
 
-    private bool CanNextJump()
-    {
-        foreach (var action in jumpActions)
-        {
-            if (!action.canNextJump) return false;
-        }
-        return true;
-    }
     private bool IsJumping(PlayerActionJumpBase selfAction)
     {
         foreach (var action in jumpActions)

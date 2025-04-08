@@ -48,6 +48,7 @@ MonoBehaviour:
   assignedInput: 1
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   playerPreventStuck: {fileID: 0}
@@ -104,8 +105,8 @@ MonoBehaviour:
   assignedInput: 0
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
 --- !u!1 &551734685404975338
 GameObject:
@@ -155,6 +156,7 @@ MonoBehaviour:
   assignedInput: 7
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
 --- !u!1 &682094262694193504
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +205,7 @@ MonoBehaviour:
   assignedInput: 10
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   COOL_DOWN_TIME: 0.5
   isCoolDowning: 0
   rb: {fileID: 0}
@@ -256,12 +259,12 @@ MonoBehaviour:
   assignedInput: 11
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
   rb: {fileID: 0}
   BLINK_SPEED: 550
   BLINK_TIME: 0.35
-  NEXT_BLINK_BUFFER_TIME: 0.4
+  ACTION_COOL_TIME: 0.4
 --- !u!1 &778771213000263705
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +313,7 @@ MonoBehaviour:
   assignedInput: 0
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 0}
   playerActionWarpManager: {fileID: 0}
   playerMovement: {fileID: 0}
@@ -393,6 +397,7 @@ MonoBehaviour:
   assignedInput: 3
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   MINUS_SPEED: 50
 --- !u!114 &7347642044738993028
@@ -411,6 +416,7 @@ MonoBehaviour:
   assignedInput: 4
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   MINUS_SPEED: 50
 --- !u!1 &1339817409602769439
@@ -461,14 +467,14 @@ MonoBehaviour:
   assignedInput: 6
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
   rb: {fileID: 0}
   JUMP_POWER: 900
   JUMP_CANCEL_POWER: 1.4
   CANCEL_TIME: 0.16
-  NEXT_JUMP_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &1515655874590087265
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +524,7 @@ MonoBehaviour:
   assignedInput: 25
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   playerActionJumpManager: {fileID: 1210245566329461512}
@@ -525,7 +532,8 @@ MonoBehaviour:
   lr_Swap: {fileID: 8915968322865290336}
   WALLKICKJUMP_POWER: 750
   JUMP_CANCEL_POWER: 1.5
-  BUFFER_TIME: 0.2
+  CANCEL_TIME: 0.05
+  ACTION_COOL_TIME: 0.2
 --- !u!114 &61035403029027193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +550,7 @@ MonoBehaviour:
   assignedInput: 26
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   playerActionJumpManager: {fileID: 1210245566329461512}
@@ -549,7 +558,8 @@ MonoBehaviour:
   lr_Swap: {fileID: 1175443744855976773}
   WALLKICKJUMP_POWER: 750
   JUMP_CANCEL_POWER: 1.5
-  BUFFER_TIME: 0.2
+  CANCEL_TIME: 0.05
+  ACTION_COOL_TIME: 0.2
 --- !u!1 &1769977021373156065
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +770,7 @@ MonoBehaviour:
   assignedInput: 24
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -782,6 +793,7 @@ MonoBehaviour:
   assignedInput: 23
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -804,6 +816,7 @@ MonoBehaviour:
   assignedInput: 22
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -859,6 +872,7 @@ MonoBehaviour:
   assignedInput: 25
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
 --- !u!114 &1241716782622643454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,6 +889,7 @@ MonoBehaviour:
   assignedInput: 26
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
 --- !u!1 &2832203828829347434
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +939,7 @@ MonoBehaviour:
   assignedInput: 25
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   isSwaping: 0
 --- !u!114 &1175443744855976773
@@ -942,6 +958,7 @@ MonoBehaviour:
   assignedInput: 26
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   isSwaping: 0
 --- !u!1 &2895609492357266031
@@ -992,6 +1009,7 @@ MonoBehaviour:
   assignedInput: 2
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   OverheadChecher: {fileID: 0}
   spriteRenderer: {fileID: 0}
@@ -1046,6 +1064,7 @@ MonoBehaviour:
   assignedInput: 0
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 0}
   playerActionWarpManager: {fileID: 0}
   playerMovement: {fileID: 0}
@@ -1098,12 +1117,12 @@ MonoBehaviour:
   assignedInput: 13
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
   rb: {fileID: 0}
   BLINK_SPEED: 550
   BLINK_TIME: 0.35
-  NEXT_BLINK_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!114 &6807276108179504416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,12 +1139,12 @@ MonoBehaviour:
   assignedInput: 14
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
   rb: {fileID: 0}
   BLINK_SPEED: 550
   BLINK_TIME: 0.35
-  NEXT_BLINK_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &3377767057314425917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1194,7 @@ MonoBehaviour:
   assignedInput: 3
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   PLUS_SPEED: 75
 --- !u!114 &1999662930292029623
@@ -1193,6 +1213,7 @@ MonoBehaviour:
   assignedInput: 4
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   PLUS_SPEED: 75
 --- !u!1 &3820408495379261030
@@ -1244,15 +1265,15 @@ MonoBehaviour:
   assignedInput: 8
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
   rb: {fileID: 0}
   JUMP_POWER: 550
   JUMP_SPEED: 400
   JUMP_CANCEL_POWER: 1.5
   CANCEL_TIME: 0.3
-  NEXT_JUMP_BUFFER_TIME: 0.3
+  ACTION_COOL_TIME: 0.3
 --- !u!114 &5625994086105262621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,15 +1290,15 @@ MonoBehaviour:
   assignedInput: 9
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
   rb: {fileID: 0}
   JUMP_POWER: 550
   JUMP_SPEED: 400
   JUMP_CANCEL_POWER: 1.5
   CANCEL_TIME: 0.3
-  NEXT_JUMP_BUFFER_TIME: 0.3
+  ACTION_COOL_TIME: 0.3
 --- !u!1 &3856860879565820659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,15 +1348,15 @@ MonoBehaviour:
   assignedInput: 8
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
   rb: {fileID: 0}
   JUMP_POWER: 450
   JUMP_SPEED: 300
   JUMP_CANCEL_POWER: 1.4
   CANCEL_TIME: 0.35
-  NEXT_JUMP_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!114 &2941174487734593823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,15 +1373,15 @@ MonoBehaviour:
   assignedInput: 9
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
   rb: {fileID: 0}
   JUMP_POWER: 450
   JUMP_SPEED: 300
   JUMP_CANCEL_POWER: 1.4
   CANCEL_TIME: 0.35
-  NEXT_JUMP_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &4327979178236082747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,12 +1431,13 @@ MonoBehaviour:
   assignedInput: 13
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
   rb: {fileID: 0}
+  playerPreventStuck: {fileID: 0}
   BLINK_SPEED: 1
   BLINK_TIME: 0.35
-  NEXT_BLINK_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!114 &3194036181594935063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,12 +1454,13 @@ MonoBehaviour:
   assignedInput: 14
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
   rb: {fileID: 0}
+  playerPreventStuck: {fileID: 0}
   BLINK_SPEED: 1
   BLINK_TIME: 0.35
-  NEXT_BLINK_BUFFER_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &4770234515552508425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,8 +1509,8 @@ MonoBehaviour:
   assignedInput: 0
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
 --- !u!1 &5068196633799651583
 GameObject:
@@ -1537,6 +1560,7 @@ MonoBehaviour:
   assignedInput: 20
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 6856885008630579151}
@@ -1590,14 +1614,14 @@ MonoBehaviour:
   assignedInput: 5
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextJump: 1
   wasJumped: 0
   rb: {fileID: 0}
   JUMP_POWER: 710
   JUMP_CANCEL_POWER: 1.5
   CANCEL_TIME: 0.05
-  NEXT_JUMP_BUFFER_TIME: 0.2
+  ACTION_COOL_TIME: 0.2
 --- !u!1 &5287467567211893267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1670,7 @@ MonoBehaviour:
   assignedInput: 21
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -1797,8 +1822,8 @@ MonoBehaviour:
   assignedInput: 0
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
 --- !u!1 &6627119134180960151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,8 +1872,8 @@ MonoBehaviour:
   assignedInput: 0
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
-  canNextBlink: 1
 --- !u!1 &8947086918399918268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1922,7 @@ MonoBehaviour:
   assignedInput: 12
   isEnable: 1
   isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   SWOOP_SPEED: 550

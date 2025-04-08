@@ -6,8 +6,6 @@ using UnityEngine;
 public class PlayerActionBlinkBase : PlayerActionBase
 {
     [SerializeField] public PlayerMovement playerMovement;
-
-    [HideInInspector] public bool canNextBlink = true;
     
     public Action<InputKind, ActionKind> init;
     public Func<PlayerActionBlinkBase, bool> isBlinking;

@@ -14,10 +14,14 @@ public class LR_Swap : PlayerActionBase
         else if (base.assignedInput == InputKind.R && !playerMovement.isFacingRight) playerMovement.Swap();
         else return;
 
+        base.InitAction();
+
         isSwaping = true;
     }
     public override void EndAction()
     {
+        base.EndAction();
+        
         isSwaping = false;
     }
 }
