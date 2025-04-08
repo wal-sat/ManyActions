@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class PlayerActionJumpManager : MonoBehaviour
@@ -9,6 +6,8 @@ public class PlayerActionJumpManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionJumpBase[] jumpActions;
     [SerializeField] float RESTRICTE_JUMP_SPEED;
+
+    public Func<bool> IsCoolTime;
 
     private int _jumpTimes;
     private int _maxJumpTimes;
@@ -25,6 +24,7 @@ public class PlayerActionJumpManager : MonoBehaviour
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (playerMovement.rb.velocity.y > RESTRICTE_JUMP_SPEED) return;
+        if (IsCoolTime()) return;
         if (_jumpTimes == 0) return;
         if (_jumpTimes != -1) _jumpTimes --;
 

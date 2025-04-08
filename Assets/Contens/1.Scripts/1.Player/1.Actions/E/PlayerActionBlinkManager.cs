@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerActionBlinkManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionBlinkBase[] blinkActions;
+
+    public Func<bool> IsCoolTime;
 
     private int _blinkTimes;
     private int _maxBlinkTimes;
@@ -21,6 +22,7 @@ public class PlayerActionBlinkManager : MonoBehaviour
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
+        if (IsCoolTime()) return;
         if (_blinkTimes == 0) return;
         if (_blinkTimes != -1) _blinkTimes --;
 

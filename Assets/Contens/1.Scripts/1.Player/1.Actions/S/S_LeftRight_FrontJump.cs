@@ -33,7 +33,7 @@ public class S_LeftRight_FrontJump : PlayerActionJumpBase
     {
         if (rb.velocity.y > 0 && wasJumped && !isJumping(this)) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
 
-        playerMovement.isLockMoving = false;
+        playerMovement.SetLockMovingStatus(this.gameObject, false);
 
         isAction = false;
         wasJumped = false;
@@ -47,7 +47,7 @@ public class S_LeftRight_FrontJump : PlayerActionJumpBase
         else if (base.assignedInput == InputKind.S_Right && playerMovement.isFacingRight) speed = JUMP_SPEED;
         else return;
 
-        playerMovement.isLockMoving = true;
+        playerMovement.SetLockMovingStatus(this.gameObject, true);
 
         isAction = true;
         wasJumped = true;

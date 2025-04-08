@@ -29,7 +29,7 @@ public class Up_Grab : PlayerActionBase
         {
             rb.gravityScale = 0;
             rb.velocity = new Vector3(0f, 0f, 0f);
-            playerMovement.isLockMoving = true;
+            playerMovement.SetLockMovingStatus(this.gameObject, true);
             playerPreventStuck.isPreventStuck = false;
         }
         spriteRenderer.sprite = grab;
@@ -40,7 +40,7 @@ public class Up_Grab : PlayerActionBase
         {
             rb.gravityScale = 0;
             rb.velocity = new Vector3(0f, 0f, 0f);
-            playerMovement.isLockMoving = true;
+            playerMovement.SetLockMovingStatus(this.gameObject, true);
             playerPreventStuck.isPreventStuck = false;
         }
     }
@@ -51,7 +51,7 @@ public class Up_Grab : PlayerActionBase
         if (ropeManager.IsOverlapRope())
         {
             rb.gravityScale = _gravityScale;
-            playerMovement.isLockMoving = false;
+            playerMovement.SetLockMovingStatus(this.gameObject, false);
             playerPreventStuck.isPreventStuck = true;
         }
         spriteRenderer.sprite = main;
@@ -61,7 +61,7 @@ public class Up_Grab : PlayerActionBase
         base.Initialize();
 
         rb.gravityScale = _gravityScale;
-        playerMovement.isLockMoving = false;
+        playerMovement.SetLockMovingStatus(this.gameObject, false);
         playerPreventStuck.isPreventStuck = true;
         
         spriteRenderer.sprite = main;

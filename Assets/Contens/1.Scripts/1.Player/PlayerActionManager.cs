@@ -91,7 +91,9 @@ public class PlayerActionManager : MonoBehaviour
 
     private void Awake()
     {
-        playerMovement.OnSwapCallback = SwapInActionCallback;   
+        playerMovement.OnSwapCallback = SwapInActionCallback;
+        playerActionJumpManager.IsCoolTime = IsCoolTime;
+        playerActionBlinkManager.IsCoolTime = IsCoolTime;
     }
 
     public void Initialize()
@@ -114,7 +116,7 @@ public class PlayerActionManager : MonoBehaviour
         
         InputAdjustment();
 
-        if (!IsCoolTime()) Action();
+        Action();
     }
 
     private void Recure()

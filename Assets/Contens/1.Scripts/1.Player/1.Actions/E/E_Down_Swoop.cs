@@ -22,14 +22,14 @@ public class E_Down_Swoop : PlayerActionBase
     private void EndSwoop()
     {
         isAction = false;
-        playerMovement.isLockMoving = false;
+        playerMovement.SetLockMovingStatus(this.gameObject, false);
         rb.gravityScale = _gravityScale;
     }
 
     public override void InitAction()
     {
         isAction = true;
-        playerMovement.isLockMoving = true;
+        playerMovement.SetLockMovingStatus(this.gameObject, true);
 
         rb.gravityScale = 0;
         rb.velocity = new Vector3(0f, -SWOOP_SPEED * Time.deltaTime, 0f);
