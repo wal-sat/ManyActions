@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_LeftRight_BackBlink : PlayerActionBlinkBase
+public class E_LeftRight_StopHover : PlayerActionBlinkBase
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] PlayerPreventStuck playerPreventStuck;
-    [SerializeField] private float BLINK_SPEED;
     [SerializeField] private float BLINK_TIME;
     [SerializeField] public float ACTION_COOL_TIME;
 
@@ -36,23 +35,21 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
 
     public override void Blink()
     {
-        float speed = 0;
-        if (base.assignedInput == InputKind.E_Left && playerMovement.isFacingRight) speed = BLINK_SPEED * -1;
-        else if (base.assignedInput == InputKind.E_Right && !playerMovement.isFacingRight) speed = BLINK_SPEED;
-        else return;
+        if ((base.assignedInput == InputKind.E_Left && playerMovement.isFacingRight) || (base.assignedInput == InputKind.E_Right && !playerMovement.isFacingRight))
+        {
+            isAction = true;
+            isCoolTime = true;
+            _blinkTimer = 0;
+            _coolTimer = 0;
 
-        isAction = true;
-        isCoolTime = true;
-        _blinkTimer = 0;
-        _coolTimer = 0;
+            rb.gravityScale = 0;
+            playerMovement.SetLockMovingStatus(this.gameObject, true);
+            playerPreventStuck.isPreventStuck = false;
 
-        rb.gravityScale = 0;
-        playerMovement.SetLockMovingStatus(this.gameObject, true);
-        playerPreventStuck.isPreventStuck = false;
+            rb.velocity = new Vector3(0, 0, 0);
 
-        rb.velocity = new Vector3(speed * Time.deltaTime, 0, 0);
-
-        S_SEManager._instance.Play("p_blink");
+            S_SEManager._instance.Play("p_hover");
+        }
     }
 
     public override void InitAction()
@@ -68,14 +65,4 @@ public class E_LeftRight_BackBlink : PlayerActionBlinkBase
     {
         CancelBlink();
     }
-    public override void SwapInAction()
-    {
-        float speed = 0;
-        if (!playerMovement.isFacingRight) speed = BLINK_SPEED;
-        else if (playerMovement.isFacingRight) speed = BLINK_SPEED * -1;
-        else return;
-
-        rb.velocity = new Vector3(speed * Time.deltaTime, 0, 0);
-    }
 }
-

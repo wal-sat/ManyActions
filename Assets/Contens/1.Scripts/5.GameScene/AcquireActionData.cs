@@ -23,7 +23,7 @@ public class AcquireActionData : ScriptableObject
     [SerializeField] bool E_Hover;
     [SerializeField] bool E_UpBlink;
     [SerializeField] bool E_Blink;
-    [SerializeField] bool E_BackBlink;
+    [SerializeField] bool E_StopHover;
     [SerializeField] bool E_Swoop;
     [SerializeField] bool E_DoubleBlink;
     [SerializeField] bool E_InfiniteBlink;
@@ -61,7 +61,7 @@ public class AcquireActionData : ScriptableObject
         availableActions.Add(ActionKind.E_Hover, E_Hover);
         availableActions.Add(ActionKind.E_UpBlink, E_UpBlink);
         availableActions.Add(ActionKind.E_Blink, E_Blink);
-        availableActions.Add(ActionKind.E_BackBlink, E_BackBlink);
+        availableActions.Add(ActionKind.E_StopHover, E_StopHover);
         availableActions.Add(ActionKind.E_Swoop, E_Swoop);
         availableActions.Add(ActionKind.E_DoubleBlink, E_DoubleBlink);
         availableActions.Add(ActionKind.E_InfiniteBlink, E_InfiniteBlink);

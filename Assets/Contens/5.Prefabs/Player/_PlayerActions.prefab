@@ -206,11 +206,10 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   isCoolTime: 0
-  COOL_DOWN_TIME: 0.5
-  isCoolDowning: 0
+  playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  HOVER_TIME: 0.2
-  NEXT_BLINK_BUFFER_TIME: 0
+  HOVER_TIME: 0.3
+  ACTION_COOL_TIME: 0.3
 --- !u!1 &724658333485691093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,10 +1390,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6234198849540081375}
-  - component: {fileID: 8161019896373028330}
-  - component: {fileID: 3194036181594935063}
+  - component: {fileID: 8830672729156102366}
+  - component: {fileID: 7478219854577737714}
   m_Layer: 0
-  m_Name: E_LeftRight_BackBlink
+  m_Name: E_LeftRight_StopHover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1415,7 +1414,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4481133804613206224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8161019896373028330
+--- !u!114 &8830672729156102366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1424,7 +1423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4327979178236082747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
+  m_Script: {fileID: 11500000, guid: d3421e4d14be07c46ac334e313e11d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionKind: 17
@@ -1435,10 +1434,9 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
   playerPreventStuck: {fileID: 0}
-  BLINK_SPEED: 1
-  BLINK_TIME: 0.35
-  ACTION_COOL_TIME: 0.35
---- !u!114 &3194036181594935063
+  BLINK_TIME: 0.4
+  ACTION_COOL_TIME: 0.4
+--- !u!114 &7478219854577737714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1447,7 +1445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4327979178236082747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
+  m_Script: {fileID: 11500000, guid: d3421e4d14be07c46ac334e313e11d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionKind: 17
@@ -1458,9 +1456,8 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
   playerPreventStuck: {fileID: 0}
-  BLINK_SPEED: 1
-  BLINK_TIME: 0.35
-  ACTION_COOL_TIME: 0.35
+  BLINK_TIME: 0.4
+  ACTION_COOL_TIME: 0.4
 --- !u!1 &4770234515552508425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,8 +1754,8 @@ MonoBehaviour:
   - {fileID: 1505777464010515633}
   - {fileID: 2560995798980918669}
   - {fileID: 6807276108179504416}
-  - {fileID: 8161019896373028330}
-  - {fileID: 3194036181594935063}
+  - {fileID: 8830672729156102366}
+  - {fileID: 7478219854577737714}
   - {fileID: 2499285929018690502}
   - {fileID: 6798157705787501653}
   - {fileID: 2670606172328464036}
@@ -1979,10 +1976,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   blinkActions:
+  - {fileID: 7570628116047266114}
   - {fileID: 1505777464010515633}
   - {fileID: 2560995798980918669}
   - {fileID: 6807276108179504416}
-  - {fileID: 8161019896373028330}
-  - {fileID: 3194036181594935063}
+  - {fileID: 8830672729156102366}
+  - {fileID: 7478219854577737714}
   - {fileID: 6798157705787501653}
   - {fileID: 2670606172328464036}

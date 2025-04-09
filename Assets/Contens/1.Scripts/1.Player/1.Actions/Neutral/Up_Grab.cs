@@ -15,6 +15,7 @@ public class Up_Grab : PlayerActionBase
     [HideInInspector] public bool isOverlapRope;
 
     private float _gravityScale;
+    private bool _wasGrabRope;
 
     private void Awake()
     {
@@ -24,9 +25,12 @@ public class Up_Grab : PlayerActionBase
     public override void InitAction()
     {
         base.InitAction();
-        
+
         if (ropeManager.IsOverlapRope())
         {
+            if (!_wasGrabRope) S_SEManager._instance.Play("s_grabRope");
+            _wasGrabRope = true;
+
             rb.gravityScale = 0;
             rb.velocity = new Vector3(0f, 0f, 0f);
             playerMovement.SetLockMovingStatus(this.gameObject, true);
@@ -38,6 +42,9 @@ public class Up_Grab : PlayerActionBase
     {
         if (ropeManager.IsOverlapRope())
         {
+            if (!_wasGrabRope) S_SEManager._instance.Play("s_grabRope");
+            _wasGrabRope = true;
+
             rb.gravityScale = 0;
             rb.velocity = new Vector3(0f, 0f, 0f);
             playerMovement.SetLockMovingStatus(this.gameObject, true);
@@ -50,6 +57,8 @@ public class Up_Grab : PlayerActionBase
 
         if (ropeManager.IsOverlapRope())
         {
+            _wasGrabRope = false;
+
             rb.gravityScale = _gravityScale;
             playerMovement.SetLockMovingStatus(this.gameObject, false);
             playerPreventStuck.isPreventStuck = true;
@@ -59,6 +68,8 @@ public class Up_Grab : PlayerActionBase
     public override void Initialize()
     {
         base.Initialize();
+
+        _wasGrabRope = false;
 
         rb.gravityScale = _gravityScale;
         playerMovement.SetLockMovingStatus(this.gameObject, false);

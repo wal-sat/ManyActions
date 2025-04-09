@@ -47,7 +47,7 @@ public class E_Up_UpBlink : PlayerActionBlinkBase
 
         rb.velocity = new Vector3(0f, BLINK_SPEED * Time.deltaTime, 0f);
 
-        S_SEManager._instance.Play("p_upBlink");
+        S_SEManager._instance.Play("p_blink");
     }
     public override void EndAction()
     {

@@ -6,7 +6,7 @@ public enum ActionKind
 {
     LR_Swap, LR_Kick, LR_Interact, LeftRight_Accelerate, LeftRight_Decelerate, Up_Grab, Down_Crouch, 
     S_Jump, S_BigJump, S_FrontJump, S_BackJump, S_GoDown, S_DoubleJump, S_InfiniteJump,
-    E_Hover, E_UpBlink, E_Blink, E_BackBlink, E_Swoop, E_DoubleBlink, E_InfiniteBlink,
+    E_Hover, E_UpBlink, E_Blink, E_StopHover, E_Swoop, E_DoubleBlink, E_InfiniteBlink,
     W_, W_Up, W_Left, W_Right, W_Down, W_Double, W_Infinite,
     N_Invincible, N_UpWarp, N_Warp, N_DoubleWarp, N_InfiniteWarp,
 }
@@ -194,8 +194,8 @@ public class PlayerActionManager : MonoBehaviour
         }
 
         if (gameSceneOnPlayInput.onE_Up && _availableActions[ActionKind.E_UpBlink]) _onE_Up = true;
-        else if (gameSceneOnPlayInput.onE_Left && ( _availableActions[ActionKind.E_Blink] || _availableActions[ActionKind.E_BackBlink] ) ) _onE_Left = true;
-        else if (gameSceneOnPlayInput.onE_Right && ( _availableActions[ActionKind.E_Blink] || _availableActions[ActionKind.E_BackBlink] ) ) _onE_Right = true;
+        else if (gameSceneOnPlayInput.onE_Left && ( _availableActions[ActionKind.E_Blink] || _availableActions[ActionKind.E_StopHover] ) ) _onE_Left = true;
+        else if (gameSceneOnPlayInput.onE_Right && ( _availableActions[ActionKind.E_Blink] || _availableActions[ActionKind.E_StopHover] ) ) _onE_Right = true;
         else if (gameSceneOnPlayInput.onE_Down && _availableActions[ActionKind.E_Swoop]) _onE_Down = true;
         else if (gameSceneOnPlayInput.onE && _availableActions[ActionKind.E_Hover]) _onE = true;
         if (_EBlock)
