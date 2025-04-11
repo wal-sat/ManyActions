@@ -103,9 +103,9 @@ public class StageSelectMenuUIToolkit : MonoBehaviour
         _stagePanel.style.translate = new Translate(Length.Percent(-100*i), Length.Percent(-100*j));
         _reverseStagePanel.style.translate = new Translate(Length.Percent(-100*i), Length.Percent(-100*j));
     }
-    public void StagePanelReverse(int k)
+    public void StagePanelReverse(int k , Action<int> action)
     {
-        S_FadeManager._instance.Fade(() => StagePanelVisibilitySwitch(k), () => {}, FadeType.Black, 0.4f, 0.3f, 0.4f);
+        S_FadeManager._instance.Fade(() => { StagePanelVisibilitySwitch(k); action(k); }, () => {}, FadeType.Black, 0.4f, 0.3f, 0.4f);
     }
     public void StagePanelVisibilitySwitch(int k)
     {

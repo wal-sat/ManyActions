@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class S_StageInfo : Singleton<S_StageInfo>
@@ -103,5 +104,14 @@ public class S_StageInfo : Singleton<S_StageInfo>
             if (info.clearKind == clearKind) return info.clearMessage;
         }
         return null;
+    }
+
+    [Button]
+    public void ALLClear()
+    {
+        foreach (var item in stageDatas.Values)
+        {
+            item.isClear = true;
+        }
     }
 }

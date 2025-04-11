@@ -980,6 +980,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 45a0bcb8e9ed8954eb446bbe286aab18, type: 3}
   - name: u_pause
     audioClip: {fileID: 8300000, guid: b4d417a7aff123946b27f6f36091d519, type: 3}
+  - name: u_restrict
+    audioClip: {fileID: 8300000, guid: 0043a05ea7245b143916ebd1fcc47b97, type: 3}
   - name: u_restart
     audioClip: {fileID: 8300000, guid: 1762b50a6a8a0f34bbe572c2affc4444, type: 3}
 --- !u!1 &7896536804607616305

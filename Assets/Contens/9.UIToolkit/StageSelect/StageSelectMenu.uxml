@@ -3,7 +3,7 @@
     <ui:VisualElement name="Panel" class="panel panel--Visible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial; transition-duration: 1s;">
         <ui:VisualElement style="width: 100%; height: 100%; align-items: center;">
             <ui:Label tabindex="-1" text="ステージセレクト" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 65px; margin-top: 3%; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-            <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 1%; height: 100px; min-width: 300px; background-color: rgba(255, 255, 170, 0.39); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-around; flex-direction: row; align-items: center; border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(22, 22, 22); border-right-color: rgb(22, 22, 22); border-top-color: rgb(22, 22, 22); border-bottom-color: rgb(22, 22, 22);">
+            <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 1%; height: 100px; min-width: 300px; background-color: rgba(255, 255, 170, 0.78); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-around; flex-direction: row; align-items: center; border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(22, 22, 22); border-right-color: rgb(22, 22, 22); border-top-color: rgb(22, 22, 22); border-bottom-color: rgb(22, 22, 22);">
                 <ui:VisualElement style="height: 100px; width: 25px;" />
                 <ui:VisualElement style="flex-direction: row; align-items: center; margin-right: 10px; margin-left: 10px;">
                     <ui:VisualElement style="width: 75px; height: 75px; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/Button/UI_LR.png?fileID=2800000&amp;guid=ab730c2ea477c784cb4b827764b32ca9&amp;type=3#UI_LR&quot;);" />
@@ -30,7 +30,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="StagePanel" style="width: 100%; height: 100%; position: absolute; transition-duration: 1s; transition-timing-function: ease-out-cubic;">
             <ui:VisualElement name="Plain" style="width: 100%; height: 100%; position: absolute;">
-                <ui:VisualElement class="frame" style="background-color: rgba(160, 200, 110, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(160, 200, 110, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～始まりの平原～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -97,7 +97,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Blue" style="width: 100%; height: 100%; position: absolute; translate: 100% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～青色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -164,7 +164,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Green" style="width: 100%; height: 100%; position: absolute; translate: 200% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～緑色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -231,7 +231,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Yellow" style="width: 100%; height: 100%; position: absolute; translate: 300% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～黄色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -298,7 +298,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Purple" style="width: 100%; height: 100%; position: absolute; translate: 400% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～紫色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -365,7 +365,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundPlain" style="width: 100%; height: 100%; position: absolute; translate: 0 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(202, 60, 60, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(202, 60, 60, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～赤色の空間～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -432,7 +432,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundBlue" style="width: 100%; height: 100%; position: absolute; translate: 100% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～青色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -499,7 +499,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundGreen" style="width: 100%; height: 100%; position: absolute; translate: 200% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～緑色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -566,7 +566,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundYellow" style="width: 100%; height: 100%; position: absolute; translate: 300% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～黄色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -633,7 +633,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundPurple" style="width: 100%; height: 100%; position: absolute; translate: 400% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～紫色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -702,7 +702,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="ReverseStagePanel" style="width: 100%; height: 100%; position: absolute; transition-duration: 1s; transition-timing-function: ease-out-cubic;">
             <ui:VisualElement name="Plain" style="width: 100%; height: 100%; position: absolute;">
-                <ui:VisualElement class="frame" style="background-color: rgba(160, 200, 110, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(160, 200, 110, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～始まりの平原～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -769,7 +769,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Blue" style="width: 100%; height: 100%; position: absolute; translate: 100% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～青色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -836,7 +836,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Green" style="width: 100%; height: 100%; position: absolute; translate: 200% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～緑色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -903,7 +903,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Yellow" style="width: 100%; height: 100%; position: absolute; translate: 300% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～黄色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -970,7 +970,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Purple" style="width: 100%; height: 100%; position: absolute; translate: 400% 0;">
-                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～紫色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -1037,7 +1037,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundPlain" style="width: 100%; height: 100%; position: absolute; translate: 0 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(202, 60, 60, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(202, 60, 60, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～赤色の空間～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -1104,7 +1104,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundBlue" style="width: 100%; height: 100%; position: absolute; translate: 100% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 140, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～青色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -1171,7 +1171,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundGreen" style="width: 100%; height: 100%; position: absolute; translate: 200% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(110, 200, 120, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～緑色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -1238,7 +1238,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundYellow" style="width: 100%; height: 100%; position: absolute; translate: 300% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(190, 200, 110, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～黄色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>
@@ -1305,7 +1305,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="UndergroundPurple" style="width: 100%; height: 100%; position: absolute; translate: 400% 100%;">
-                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.39);">
+                <ui:VisualElement class="frame" style="background-color: rgba(150, 90, 200, 0.78);">
                     <ui:VisualElement style="height: 15%; width: 100%;">
                         <ui:Label tabindex="-1" text="～黄色の塔～" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                     </ui:VisualElement>

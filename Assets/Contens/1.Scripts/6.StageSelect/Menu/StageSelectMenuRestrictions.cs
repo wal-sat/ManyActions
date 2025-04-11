@@ -56,7 +56,8 @@ public class StageSelectMenuRestrictions : MonoBehaviour
 
     public bool CanLeftArrowMove(int stageIndex, int undergroundIndex, int reverseIndex)
     {
-        if (!S_StageInfo._instance.stageDatas[SceneKind.blue_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.green_B5_A].isClear ||
+        if (stageIndex == 0) return false;
+        else if (!S_StageInfo._instance.stageDatas[SceneKind.blue_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.green_B5_A].isClear ||
             !S_StageInfo._instance.stageDatas[SceneKind.yellow_B5_A].isClear || !S_StageInfo._instance.stageDatas[SceneKind.purple_B5_A].isClear)
         {
             if (stageIndex == 1 && undergroundIndex == 1 && reverseIndex == 0) return false;
@@ -65,7 +66,8 @@ public class StageSelectMenuRestrictions : MonoBehaviour
     }
     public bool CanRightArrowMove(int stageIndex, int undergroundIndex, int reverseIndex)
     {
-        if (!S_StageInfo._instance.stageDatas[SceneKind.blue_F5_A].isClear)
+        if (stageIndex == 4) return false;
+        else if (!S_StageInfo._instance.stageDatas[SceneKind.blue_F5_A].isClear)
         {
             if (stageIndex == 1 && undergroundIndex == 0 && reverseIndex == 0) return false;
         }

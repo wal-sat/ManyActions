@@ -9,6 +9,8 @@ public class StageSelectMenu : MonoBehaviour
     [SerializeField] StageSelectMenuRestrictions stageSelectMenuRestrictions;
     [SerializeField] public StageSelectMenuConfirm stageSelectMenuConfirm;
     [SerializeField] public StageSelectMenuUIToolkit stageSelectMenuUIToolkit;
+    [SerializeField] StageSelectCameraMovement stageSelectCameraMovement;
+
     public Action<StageSelectSceneStatus> ChangeStatus;
 
     private SceneKind[,,,] _toSceneKindFromIndex = new SceneKind[5, 5, 2, 2];
@@ -35,6 +37,7 @@ public class StageSelectMenu : MonoBehaviour
 
             _stageIndex = Mathf.Clamp(value, 0, 4);
 
+            stageSelectCameraMovement.SetCameraPosition(stageIndex, undergroundIndex);
             stageSelectMenuUIToolkit.StagePanelMove(stageIndex, undergroundIndex);
             stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             stageSelectMenuRestrictions.CheckToUndergroundStageIconDisplay(stageIndex);
@@ -51,6 +54,7 @@ public class StageSelectMenu : MonoBehaviour
 
             _undergroundIndex = Mathf.Clamp(value, 0, 1);
 
+            stageSelectCameraMovement.SetCameraPosition(stageIndex, undergroundIndex);
             stageSelectMenuUIToolkit.StagePanelMove(stageIndex, undergroundIndex);
             stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             DisplayStageInfomation(S_StageInfo._instance.stageDatas[ _toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex] ]);
@@ -66,7 +70,7 @@ public class StageSelectMenu : MonoBehaviour
 
             _reverseIndex = Mathf.Clamp(value, 0, 1);
 
-            stageSelectMenuUIToolkit.StagePanelReverse(reverseIndex);
+            stageSelectMenuUIToolkit.StagePanelReverse(reverseIndex, stageSelectCameraMovement.SetEnviroment);
             stageSelectMenuUIToolkit.StageLabelSelect(cursorIndex, stageIndex, undergroundIndex, reverseIndex);
             DisplayStageInfomation(S_StageInfo._instance.stageDatas[ _toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex] ]);
         }
@@ -93,7 +97,11 @@ public class StageSelectMenu : MonoBehaviour
 
     public void CursorSelect()
     {
-        if (!S_StageInfo._instance.stageDatas[_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex]].isReleased) return;
+        if (!S_StageInfo._instance.stageDatas[_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex]].isReleased)
+        {
+            S_SEManager._instance.Play("u_restrict");
+            return;
+        }
 
         ChangeStatus(StageSelectSceneStatus.menuConfirm);
         stageSelectMenuConfirm.stageData = S_StageInfo._instance.stageDatas[_toSceneKindFromIndex[cursorIndex, stageIndex, undergroundIndex, reverseIndex]];
@@ -117,13 +125,21 @@ public class StageSelectMenu : MonoBehaviour
     }
     public void L()
     {
-        if (!stageSelectMenuRestrictions.CanLeftArrowMove(stageIndex, undergroundIndex, reverseIndex)) return;
+        if (!stageSelectMenuRestrictions.CanLeftArrowMove(stageIndex, undergroundIndex, reverseIndex))
+        {
+            S_SEManager._instance.Play("u_restrict");
+            return;
+        }
         stageIndex --;
         S_SEManager._instance.Play("u_cursor");
     }
     public void R()
     {
-        if (!stageSelectMenuRestrictions.CanRightArrowMove(stageIndex, undergroundIndex, reverseIndex)) return;
+        if (!stageSelectMenuRestrictions.CanRightArrowMove(stageIndex, undergroundIndex, reverseIndex))
+        {
+            S_SEManager._instance.Play("u_restrict");
+            return;
+        }
         stageIndex ++;
         S_SEManager._instance.Play("u_cursor");
     }
