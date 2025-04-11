@@ -1453,7 +1453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1230962191869792600}
   - component: {fileID: 7843883613205781567}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: _DieParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
