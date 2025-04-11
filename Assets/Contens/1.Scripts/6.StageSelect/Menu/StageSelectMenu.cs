@@ -93,6 +93,8 @@ public class StageSelectMenu : MonoBehaviour
         PadlockDisplayCheck();
 
         stageSelectMenuRestrictions.Initialize(stageIndex);
+
+        S_BGMManager._instance.Play("select", 2f);
     }
 
     public void CursorSelect()

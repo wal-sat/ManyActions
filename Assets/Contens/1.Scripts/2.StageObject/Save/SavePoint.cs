@@ -11,6 +11,7 @@ public class SavePoint : MonoBehaviour
     [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
+    [SerializeField] public float cameraSize;
     [SerializeField] public Vector2 bottomLeftPos;
     [SerializeField] public Vector2 topRightPos;
 

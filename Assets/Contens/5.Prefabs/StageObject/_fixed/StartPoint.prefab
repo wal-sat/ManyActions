@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5222768339400005019}
   - component: {fileID: 7475702398435384171}
-  - component: {fileID: 2426515997348780562}
   - component: {fileID: 6979339847202871919}
   - component: {fileID: 2563303318030776035}
+  - component: {fileID: 2426515997348780562}
   m_Layer: 8
   m_Name: StartPoint
   m_TagString: Untagged
@@ -87,6 +87,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6979339847202871919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911104127185301338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780d5628abd93d84e87a5b81f33772af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savePointManager: {fileID: 0}
+  stageObjectCollisionArea: {fileID: 0}
+  savePointView: {fileID: 2563303318030776035}
+  ParticleBurst: {fileID: 0}
+  acquireActionData: {fileID: 0}
+  savePointIndex: 0
+  facingRight: 1
+  cameraSize: 7.4
+  bottomLeftPos: {x: 0, y: 0}
+  topRightPos: {x: 0, y: 0}
+--- !u!114 &2563303318030776035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911104127185301338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54255b7e45388c144b5f41517e067f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 35868298, guid: ca3187870a8a64c4c9139a183a625661, type: 3}
+  glossSprite: {fileID: 35868298, guid: ca3187870a8a64c4c9139a183a625661, type: 3}
+  GLOSS_TIME: 1
 --- !u!61 &2426515997348780562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,38 +169,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6979339847202871919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4911104127185301338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780d5628abd93d84e87a5b81f33772af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savePointManager: {fileID: 0}
-  stageObjectCollisionArea: {fileID: 0}
-  savePointView: {fileID: 2563303318030776035}
-  ParticleBurst: {fileID: 0}
-  stageActionData: {fileID: 11400000, guid: 619216c04889639489ef42fa8ca9b14e, type: 2}
-  savePointIndex: 0
-  facingRight: 1
-  sleepMoveDistance: {x: 0, y: 0}
---- !u!114 &2563303318030776035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4911104127185301338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54255b7e45388c144b5f41517e067f44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 35868298, guid: ca3187870a8a64c4c9139a183a625661, type: 3}
-  glossSprite: {fileID: 35868298, guid: ca3187870a8a64c4c9139a183a625661, type: 3}
-  GLOSS_TIME: 1

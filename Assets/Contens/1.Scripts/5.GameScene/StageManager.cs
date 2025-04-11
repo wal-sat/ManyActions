@@ -54,8 +54,7 @@ public class StageManager : MonoBehaviour
 
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
-        sectionManager.ChangeSection(0);
-        savePointManager.TeleportStartPosition();
+        savePointManager.TeleportStartPosition( sectionManager.ChangeSection(0) );
         playerManager.Initialize( savePointManager.savePoint.facingRight );
 
         deathCountManager.ResetDeathCount();
@@ -151,8 +150,7 @@ public class StageManager : MonoBehaviour
 
         S_FadeManager._instance.Fade(
             () => {
-                sectionManager.NextSection();
-                savePointManager.TeleportStartPosition();
+                savePointManager.TeleportStartPosition( sectionManager.NextSection() );
                 playerManager.Initialize( savePointManager.savePoint.facingRight );
             },
             () => {

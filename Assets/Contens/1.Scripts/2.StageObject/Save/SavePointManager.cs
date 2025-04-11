@@ -25,11 +25,12 @@ public class SavePointManager : MonoBehaviour
         gearManager.OnSave();
     }
 
-    public void TeleportStartPosition()
+    public void TeleportStartPosition(SavePoint startPoint)
     {
-        Player.transform.position = new Vector3(_startPoint.transform.position.x, _startPoint.transform.position.y, Player.transform.position.z);
+        RegisterSavePoint(startPoint, true);
+        Player.transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, Player.transform.position.z);
 
-        playerManager.PlayerActionManager.SetAvailableActions(_startPoint.acquireActionData);
+        playerManager.PlayerActionManager.SetAvailableActions(startPoint.acquireActionData);
     }
 
     public void TeleportRestartPosition()

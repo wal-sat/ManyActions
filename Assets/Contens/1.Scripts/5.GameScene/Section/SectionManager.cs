@@ -30,12 +30,12 @@ public class SectionManager : MonoBehaviour
         _lockAxisCamera = virtualCamera.GetComponent<LockAxisCamera>();
     }
 
-    public void NextSection()
+    public SavePoint NextSection()
     {
-        ChangeSection(++_carrentSectionIndex);
+        return ChangeSection(++_carrentSectionIndex);
     }
 
-    public void ChangeSection(int sectionIndex)
+    public SavePoint ChangeSection(int sectionIndex)
     {
         _carrentSectionIndex = sectionIndex;
 
@@ -45,6 +45,6 @@ public class SectionManager : MonoBehaviour
         _cinemachineVirtualCamera.m_Lens.OrthographicSize = sections[sectionIndex].cameraSize;
         _lockAxisCamera.SetMoveRange(sections[sectionIndex].bottomLeftPos, sections[sectionIndex].topRightPos);
 
-        savePointManager.RegisterSavePoint(sections[sectionIndex].startPoint, true);
+        return sections[sectionIndex].startPoint;
     }
 }

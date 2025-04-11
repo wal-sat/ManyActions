@@ -1,20 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SleepingCameraMovement : MonoBehaviour
 {
-    [SerializeField] LockAxisCamera sleepCamera;
+    [SerializeField] GameObject sleepCamera;
     [SerializeField] GameObject followedObject;
     [SerializeField] float SPEED;
+
+    private CinemachineVirtualCamera _cinemachineVirtualCamera;
+    private LockAxisCamera _lockAxisCamera;
 
     private Vector2 _bottomLeftPos;
     private Vector2 _topRightPos;
 
-    public void SleepCameraInit(Vector2 initPosition, Vector2 bottomLeftPos, Vector2 topRightPos)
+
+
+    private void Awake()
+    {
+        _cinemachineVirtualCamera = sleepCamera.GetComponent<CinemachineVirtualCamera>();
+        _lockAxisCamera = sleepCamera.GetComponent<LockAxisCamera>();
+    }
+
+    public void SleepCameraInit(Vector2 initPosition, float cameraSize, Vector2 bottomLeftPos, Vector2 topRightPos)
     {
         followedObject.transform.position = initPosition;
-        sleepCamera.SetMoveRange(bottomLeftPos, topRightPos);
+        _cinemachineVirtualCamera.m_Lens.OrthographicSize = cameraSize;
+        _lockAxisCamera.SetMoveRange(bottomLeftPos, topRightPos);
 
         _bottomLeftPos = bottomLeftPos;
         _topRightPos = topRightPos;

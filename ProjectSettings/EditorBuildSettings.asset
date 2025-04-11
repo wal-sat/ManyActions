@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Contens/3.Scenes/title.unity
     guid: 2d21bd54a81801b45b35194e9140605f
   - enabled: 1
-    path: Assets/Contens/3.Scenes/selectDifficulty.unity
+    path: Assets/Contens/3.Scenes/_archive/selectDifficulty.unity
     guid: d7720ff5f08ce464aba557bbb6d27994
   - enabled: 1
     path: Assets/Contens/3.Scenes/stageSelect.unity
     guid: f43d2c91bdc533d4993a8c89e4213f25
   - enabled: 1
-    path: Assets/Contens/3.Scenes/develop.unity
+    path: Assets/Contens/3.Scenes/stage/develop.unity
     guid: 24db8d8331ae5c2408dd90e97de7deb4
   - enabled: 1
-    path: Assets/Contens/3.Scenes/Plain/A/plain_1_A.unity
+    path: Assets/Contens/3.Scenes/stage/Plain/A/plain_1_A.unity
     guid: 005b5c7aedc83a948b76f054385f6e59
   m_configObjects: {}
