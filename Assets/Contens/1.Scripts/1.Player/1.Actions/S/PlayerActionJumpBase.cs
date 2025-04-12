@@ -8,7 +8,9 @@ public class PlayerActionJumpBase : PlayerActionBase
     [SerializeField] public PlayerMovement playerMovement;
 
     [HideInInspector] public bool wasJumped;
+
     public Action<InputKind, ActionKind> init;
+    public Func<PlayerActionJumpBase, bool> isJumping;
 
     public override void InitAction()
     {

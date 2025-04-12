@@ -8,7 +8,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] PlayerActionManager playerActionManager;
     [SerializeField] PlayerPreventStuck playerPreventStuck;
-    [SerializeField] StageActionData stageActionData;
+    [SerializeField] AcquireActionData acquireActionData;
 
     private List<ActionInfo> _actionList = new List<ActionInfo>();
     private float _dieTime;
@@ -28,7 +28,7 @@ public class CharacterManager : MonoBehaviour
 
         playerAnimationManager.AnimationUpdate(false);
 
-        playerActionManager.SetAvailableActions(stageActionData);
+        playerActionManager.SetAvailableActions(acquireActionData);
     }
 
     private void FixedUpdate()

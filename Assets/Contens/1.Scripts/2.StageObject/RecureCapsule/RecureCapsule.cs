@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RecureCapsule : MonoBehaviour
 {
+    enum RecureCapsuleKind { recure, spending }
+
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] RecureCapsuleView recureCapsuleView;
@@ -12,6 +14,7 @@ public class RecureCapsule : MonoBehaviour
     [SerializeField] PlayerActionWarpManager playerActionWarpManager;
 
     [SerializeField] float COOL_TIME;
+    [SerializeField] RecureCapsuleKind recureCapsuleKind;
 
     private float _timer;
     private bool _onTimer;
@@ -49,11 +52,22 @@ public class RecureCapsule : MonoBehaviour
 
             recureCapsuleView.EnableView(false);
 
-            playerActionJumpManager.Recure();
-            playerActionBlinkManager.Recure();
-            playerActionWarpManager.Recure();
+            if (recureCapsuleKind == RecureCapsuleKind.recure)
+            {
+                playerActionJumpManager.Recure();
+                playerActionBlinkManager.Recure();
+                playerActionWarpManager.Recure();
 
-            S_SEManager._instance.Play("s_recureCapsule");
+                S_SEManager._instance.Play("s_recureCapsule");
+            }
+            else if (recureCapsuleKind == RecureCapsuleKind.spending)
+            {
+                playerActionJumpManager.Spending();
+                playerActionBlinkManager.Spending();
+                playerActionWarpManager.Spending();
+
+                S_SEManager._instance.Play("s_recureCapsuleMinus");
+            }
         }
     }
 

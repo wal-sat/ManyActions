@@ -1,0 +1,71 @@
+.Card {
+    width: 40%;
+    height: 8%;
+    background-color: rgba(255, 255, 170, 0.39);
+    margin-top: 3%;
+    margin-left: 1.5%;
+    flex-direction: row;
+}
+
+.CardBar {
+    height: 120%;
+    width: 5%;
+    background-color: rgb(135, 78, 110);
+    top: -10%;
+}
+
+.CardIcon {
+    width: 22%;
+    height: 80%;
+    margin-top: 0;
+    top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
+}
+
+.CardLabel {
+    height: 100%;
+    width: 63%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    color: rgb(22, 22, 22);
+    font-size: 42px;
+    white-space: nowrap;
+    -unity-text-align: middle-left;
+}
+
+.ActionCard {
+    width: auto;
+    height: 150px;
+    margin-top: 2%;
+    background-color: rgba(255, 255, 170, 0.39);
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 100%;
+    min-width: 65%;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-cubic;
+    translate: 0 -110%;
+}
+
+.ActionCard--On {
+    translate: 0 0;
+}
+
+.Visible {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.Unvisible {
+    opacity: 0;
+}

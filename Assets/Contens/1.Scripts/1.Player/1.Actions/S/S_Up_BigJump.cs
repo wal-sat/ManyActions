@@ -8,41 +8,44 @@ public class S_Up_BigJump : PlayerActionJumpBase
     [SerializeField] private float JUMP_POWER;
     [SerializeField] private float JUMP_CANCEL_POWER;
     [SerializeField] private float CANCEL_TIME;
+    [SerializeField] public float ACTION_COOL_TIME;
 
 
-    private float _timer;
-    private bool _onTimer;
+    private float _cancelTimer;
+    private float _coolTimer;
     private bool _canCancel;
     private bool _inputCancel;
 
     private void FixedUpdate()
     {
-        if (_onTimer)
+        if (_cancelTimer < CANCEL_TIME) _cancelTimer += Time.deltaTime;
+        else _canCancel = true;    
+        if (_coolTimer < ACTION_COOL_TIME) _coolTimer += Time.deltaTime;
+        else isCoolTime = false;
+        
+        if (isAction)
         {
-            _timer += Time.deltaTime;
-            if (_timer > CANCEL_TIME)
-            {
-                _canCancel = true;
-            }
-
+            if (playerMovement.IsLanding() && rb.velocity.y < 0) JumpCancel();
             if (_canCancel && _inputCancel) JumpCancel();
         }
     }
 
     private void JumpCancel()
     {
-        _onTimer = false;
-        if (rb.velocity.y > 0 && wasJumped) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
+        if (rb.velocity.y > 0 && wasJumped && !isJumping(this)) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / JUMP_CANCEL_POWER, 0);
 
+        isAction = false;
         wasJumped = false;
     }
 
     public override void Jump()
     {
+        isAction = true;
         wasJumped = true;
+        isCoolTime = true;
 
-        _timer = 0;
-        _onTimer = true;
+        _cancelTimer = 0;
+        _coolTimer = 0;
         _canCancel = false;
         _inputCancel = false;
 
@@ -53,5 +56,9 @@ public class S_Up_BigJump : PlayerActionJumpBase
     public override void EndAction()
     {
         _inputCancel = true;
+    }
+    public override void Initialize()
+    {
+        JumpCancel();
     }
 }

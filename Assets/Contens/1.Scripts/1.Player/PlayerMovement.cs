@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -17,9 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float TERMINAL_VELOCITY;
 
     [HideInInspector] public bool isFacingRight;
-    [HideInInspector] public bool isLockMoving;
     [HideInInspector] public bool isBlownUpByBarrel;
 
+    public Action OnSwapCallback;
+
+    private Dictionary<GameObject, bool> _isLockMovingDict = new Dictionary<GameObject, bool>();
     private float _speed;
     private bool _isLanding;
     private float _landingTimer;
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics2D.OverlapCircle(OverheadChecker.position, 0.05f, GroundLayer) != null && rb.velocity.y > -0f) rb.velocity = new Vector3(rb.velocity.x, (float) Math.Sqrt(rb.velocity.y), 0f);
 
-        if(!isLockMoving && !isBlownUpByBarrel) Move();
+        if(!_isLockMovingDict.Values.Any(v => v) && !isBlownUpByBarrel) Move();
 
         if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(rb.velocity.x, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
 
@@ -94,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
         this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, 1f);
         isFacingRight = !isFacingRight;
 
+        if (OnSwapCallback != null) OnSwapCallback();
+
         S_SEManager._instance.Play("p_swap");
     }
     public bool IsLanding()
@@ -101,6 +103,10 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, GroundLayer) != null) return true;
         if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, ThroughGroundLayer) != null) return true;
         return false;
+    }
+    public void SetLockMovingStatus(GameObject obj, bool isLockMoving)
+    {
+        _isLockMovingDict[obj] = isLockMoving;
     }
 
     //ーーー加減速ーーー

@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerActionBlinkBase : PlayerActionBase
 {
     [SerializeField] public PlayerMovement playerMovement;
+    
     public Action<InputKind, ActionKind> init;
+    public Func<PlayerActionBlinkBase, bool> isBlinking;
 
     public override void InitAction()
     {

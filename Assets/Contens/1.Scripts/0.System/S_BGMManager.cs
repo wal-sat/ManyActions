@@ -4,15 +4,14 @@ using UnityEngine;
 using NaughtyAttributes;
 using System;
 
-[System.Serializable]
-public class BGMInfo
-{
-    public string name;
-    public AudioClip audioClip;
-}
-
 public class S_BGMManager : Singleton<S_BGMManager>
 {
+    [System.Serializable] class BGMInfo
+    {
+        public string name;
+        public AudioClip audioClip;
+    }
+
     [SerializeField] float MAX_VOLUME;
     [SerializeField] List<BGMInfo> BGMList = new List<BGMInfo>();
 
@@ -39,7 +38,9 @@ public class S_BGMManager : Singleton<S_BGMManager>
 
     public void Play(string name, float fadeTime)
     {
-        if (GetPlayingBGM() == name) return;
+        string playingBGM = GetPlayingBGM();
+        if (playingBGM == name) return;
+        if (playingBGM != null) Stop(playingBGM, fadeTime);
 
         if (_soundDictionary.TryGetValue(name, out var BGMInfo))
         {
@@ -150,7 +151,7 @@ public class S_BGMManager : Singleton<S_BGMManager>
                 }
             }
         }
-        return "";
+        return null;
     }
 
     private AudioSource GetUnusedAudioSource()

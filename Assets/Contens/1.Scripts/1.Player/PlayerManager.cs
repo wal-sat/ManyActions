@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
     public void Initialize(bool isFacingRight)
     {
         isMovingPlayer = false;
+        _isDoorEntering = false;
 
         playerMovement.Initialize(isFacingRight);
         playerAnimationManager.Initialize(isFacingRight);
@@ -43,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         playerPreventStuck.Initialize();
     }
 
-    public void Door()
+    public void SectionClear()
     {
         _isDoorEntering = true;
 

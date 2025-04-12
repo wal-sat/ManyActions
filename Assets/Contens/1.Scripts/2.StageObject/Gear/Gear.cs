@@ -9,6 +9,7 @@ public class Gear : MonoBehaviour
     [SerializeField] GearView gearView;
     [SerializeField] GameObject ParticleDefault;
     [SerializeField] GameObject ParticleBurst;
+    [SerializeField] public int gearIndex;
 
     [HideInInspector] public GearStatus gearStatus;
 
@@ -40,9 +41,15 @@ public class Gear : MonoBehaviour
     {
         gearStatus = status;
 
-        ParticleDefault.SetActive(true);
-
-        if (gearStatus == GearStatus.acquired) gearView.SpriteChange(false);
-        else if (gearStatus == GearStatus.unacquired) gearView.SpriteChange(true);
+        if (gearStatus == GearStatus.acquired) 
+        {
+            gearView.SpriteChange(false);
+            ParticleDefault.SetActive(false);
+        }
+        else if (gearStatus == GearStatus.unacquired) 
+        {
+            gearView.SpriteChange(true);
+            ParticleDefault.SetActive(true);
+        }
     }
 }

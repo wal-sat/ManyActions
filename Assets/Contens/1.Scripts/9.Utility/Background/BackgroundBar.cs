@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class BackgroundBar : MonoBehaviour
 {
+    [SerializeField] GameObject mainCamera;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Transform LeftTransform;
     [SerializeField] Transform RightTransform;
@@ -28,7 +29,6 @@ public class BackgroundBar : MonoBehaviour
         {
             if (playerMovement.isFacingRight) this.gameObject.transform.position += new Vector3(-SPEED * Time.deltaTime, 0f ,0f); 
             else this.gameObject.transform.position += new Vector3(SPEED * Time.deltaTime, 0f ,0f); 
-
         }
 
         if (this.gameObject.transform.position.x < LeftTransform.position.x)
@@ -38,6 +38,8 @@ public class BackgroundBar : MonoBehaviour
         if (RightTransform.position.x < this.gameObject.transform.position.x)
         {
             this.gameObject.transform.position += new Vector3(-_LeftRightDistance, 0f, 0f);
-        }   
+        }
+
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, mainCamera.transform.position.y, this.gameObject.transform.position.z);
     }
 }

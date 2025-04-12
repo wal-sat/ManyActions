@@ -65,7 +65,8 @@ public class SelectDifficultyConfirm : MonoBehaviour
 
     private void LoadGameScene(DifficultyLevel level)
     {
-        if (level == DifficultyLevel.normal) S_LoadSceneSystem._instance.LoadScene(SceneName.normalStage_0);
-        if (level == DifficultyLevel.extra) S_LoadSceneSystem._instance.LoadScene(SceneName.extraStage_0);
+        // if (level == DifficultyLevel.normal) S_LoadSceneSystem._instance.LoadScene(SceneKind.normalStage_0);
+        // if (level == DifficultyLevel.extra) S_LoadSceneSystem._instance.LoadScene(SceneKind.extraStage_0);
+        S_LoadSceneSystem._instance.LoadScene(SceneKind.plain_1_A);
     }
 }

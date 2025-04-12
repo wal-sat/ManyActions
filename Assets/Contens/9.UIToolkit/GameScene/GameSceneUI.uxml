@@ -1,0 +1,45 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Contens/9.UIToolkit/_StyleSheet/GameSceneUI.uss?fileID=7433441132597879392&amp;guid=d09468ae015505e41a2b75dc66897bb9&amp;type=3#GameSceneUI" />
+    <ui:VisualElement name="Root" class="Visible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
+        <ui:VisualElement style="height: 80%; flex-direction: row;">
+            <ui:VisualElement style="width: 33%;">
+                <ui:VisualElement name="GearCount" class="Card">
+                    <ui:VisualElement name="Bar" class="CardBar" />
+                    <ui:VisualElement name="GearIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/gearIcon.png?fileID=2800000&amp;guid=4af441c23fea6fd48afafb06c27033e8&amp;type=3#gearIcon&quot;);" />
+                    <ui:Label tabindex="-1" text="02" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GearLabel" class="CardLabel" style="width: 30%;" />
+                    <ui:Label tabindex="-1" text="(+2)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GearPlusLabel" class="CardLabel" style="width: 30%; margin-left: 0; font-size: 28px; -unity-text-align: lower-left; height: 60%; top: 20%;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="DeathCount" class="Card">
+                    <ui:VisualElement name="Bar" class="CardBar" />
+                    <ui:VisualElement name="DeathIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/Player/Die_Parts/die_parts_0.png?fileID=2800000&amp;guid=d51e9d226926554409b3858eae42cd6a&amp;type=3#die_parts_0&quot;); scale: 2 2;" />
+                    <ui:Label tabindex="-1" text="32" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DeathLabel" class="CardLabel" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 33%; align-items: center;">
+                <ui:VisualElement name="ActionCard" class="ActionCard">
+                    <ui:VisualElement class="CardBar" style="flex-grow: 1; height: 40px; width: 104%; top: auto;">
+                        <ui:Label tabindex="-1" text="アクションゲット" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionTitleLabel" style="width: 100%; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-text-align: middle-center; font-size: 34px; color: rgb(240, 240, 240);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1; height: 110px; width: 100%; flex-direction: row; align-items: center; justify-content: space-around;">
+                        <ui:VisualElement name="ActionIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/StageSelectUI/StageImage/ActionIcon.png?fileID=2800000&amp;guid=88100ddd40ac44947bd1ddec70ccbe5f&amp;type=3#ActionIcon&quot;); width: 250px; height: 100px; margin-right: 15px; margin-left: 15px;" />
+                        <ui:Label tabindex="-1" text="反転" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ActionNameLabel" style="margin-top: 0; margin-right: 15px; margin-bottom: 0; margin-left: 15px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 40px; width: auto; height: 100%; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="align-items: flex-end; width: 34%;">
+                <ui:VisualElement name="StageName" class="Card" style="flex-direction: row-reverse; margin-right: 1.5%; margin-left: 0;">
+                    <ui:VisualElement name="Bar" class="CardBar" />
+                    <ui:Label tabindex="-1" text="始まりの平原&#10;裏１面" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StageNameLabel" class="CardLabel" style="-unity-text-align: middle-center; font-size: 30px; -unity-paragraph-spacing: 10px; width: 95%;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="TimeCount" class="Card" style="flex-direction: row-reverse; margin-right: 1.5%; margin-left: 0;">
+                    <ui:VisualElement name="Bar" class="CardBar" />
+                    <ui:VisualElement name="TimeIcon" class="CardIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/TimeIcon.PNG?fileID=2800000&amp;guid=4ce8354bd22393c469bceb9c162ee091&amp;type=3#TimeIcon&quot;); scale: 2 2;" />
+                    <ui:Label tabindex="-1" text="00:00:32" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TimeLabel" class="CardLabel" style="font-size: 30px; width: 60%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="height: 20%;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="KidouUI" class="Visible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/KidouUI.png?fileID=21300000&amp;guid=f2f381770259f104daa678faceacb124&amp;type=3#KidouUI&quot;);" />
+    <ui:VisualElement name="SleepCameraUI" class="Visible Unvisible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/SleepCameraUI.png?fileID=21300000&amp;guid=b63c24eef9166a247acca8c8c4286818&amp;type=3#SleepCameraUI&quot;);" />
+</ui:UXML>

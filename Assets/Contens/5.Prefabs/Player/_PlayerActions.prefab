@@ -47,6 +47,8 @@ MonoBehaviour:
   actionKind: 5
   assignedInput: 1
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   playerPreventStuck: {fileID: 0}
@@ -102,6 +104,8 @@ MonoBehaviour:
   actionKind: 12
   assignedInput: 0
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
 --- !u!1 &551734685404975338
@@ -151,6 +155,8 @@ MonoBehaviour:
   actionKind: 11
   assignedInput: 7
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
 --- !u!1 &682094262694193504
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,10 +204,12 @@ MonoBehaviour:
   actionKind: 14
   assignedInput: 10
   isEnable: 1
-  COOL_DOWN_TIME: 0.5
-  isCoolDowning: 0
+  isAction: 0
+  isCoolTime: 0
+  playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  HOVER_TIME: 0.2
+  HOVER_TIME: 0.3
+  ACTION_COOL_TIME: 0.3
 --- !u!1 &724658333485691093
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,10 +257,13 @@ MonoBehaviour:
   actionKind: 15
   assignedInput: 11
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  BLINK_SPEED: 700
-  BLINK_TIME: 0.4
+  BLINK_SPEED: 550
+  BLINK_TIME: 0.35
+  ACTION_COOL_TIME: 0.4
 --- !u!1 &778771213000263705
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +311,8 @@ MonoBehaviour:
   actionKind: 31
   assignedInput: 0
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 0}
   playerActionWarpManager: {fileID: 0}
   playerMovement: {fileID: 0}
@@ -382,6 +395,8 @@ MonoBehaviour:
   actionKind: 4
   assignedInput: 3
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   MINUS_SPEED: 50
 --- !u!114 &7347642044738993028
@@ -399,6 +414,8 @@ MonoBehaviour:
   actionKind: 4
   assignedInput: 4
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   MINUS_SPEED: 50
 --- !u!1 &1339817409602769439
@@ -448,12 +465,15 @@ MonoBehaviour:
   actionKind: 8
   assignedInput: 6
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
   rb: {fileID: 0}
-  JUMP_POWER: 1100
-  JUMP_CANCEL_POWER: 1.2
-  CANCEL_TIME: 0.3
+  JUMP_POWER: 900
+  JUMP_CANCEL_POWER: 1.4
+  CANCEL_TIME: 0.16
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &1515655874590087265
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +522,8 @@ MonoBehaviour:
   actionKind: 1
   assignedInput: 25
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   playerActionJumpManager: {fileID: 1210245566329461512}
@@ -509,7 +531,8 @@ MonoBehaviour:
   lr_Swap: {fileID: 8915968322865290336}
   WALLKICKJUMP_POWER: 750
   JUMP_CANCEL_POWER: 1.5
-  BUFFER_TIME: 0.2
+  CANCEL_TIME: 0.05
+  ACTION_COOL_TIME: 0.2
 --- !u!114 &61035403029027193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +548,8 @@ MonoBehaviour:
   actionKind: 1
   assignedInput: 26
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   playerActionJumpManager: {fileID: 1210245566329461512}
@@ -532,7 +557,8 @@ MonoBehaviour:
   lr_Swap: {fileID: 1175443744855976773}
   WALLKICKJUMP_POWER: 750
   JUMP_CANCEL_POWER: 1.5
-  BUFFER_TIME: 0.2
+  CANCEL_TIME: 0.05
+  ACTION_COOL_TIME: 0.2
 --- !u!1 &1769977021373156065
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +768,8 @@ MonoBehaviour:
   actionKind: 30
   assignedInput: 24
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -763,6 +791,8 @@ MonoBehaviour:
   actionKind: 30
   assignedInput: 23
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -784,6 +814,8 @@ MonoBehaviour:
   actionKind: 30
   assignedInput: 22
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -838,6 +870,8 @@ MonoBehaviour:
   actionKind: 2
   assignedInput: 25
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
 --- !u!114 &1241716782622643454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,6 +887,8 @@ MonoBehaviour:
   actionKind: 2
   assignedInput: 26
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
 --- !u!1 &2832203828829347434
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +937,8 @@ MonoBehaviour:
   actionKind: 0
   assignedInput: 25
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   isSwaping: 0
 --- !u!114 &1175443744855976773
@@ -918,6 +956,8 @@ MonoBehaviour:
   actionKind: 0
   assignedInput: 26
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   isSwaping: 0
 --- !u!1 &2895609492357266031
@@ -967,6 +1007,8 @@ MonoBehaviour:
   actionKind: 6
   assignedInput: 2
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   OverheadChecher: {fileID: 0}
   spriteRenderer: {fileID: 0}
@@ -1020,6 +1062,8 @@ MonoBehaviour:
   actionKind: 32
   assignedInput: 0
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 0}
   playerActionWarpManager: {fileID: 0}
   playerMovement: {fileID: 0}
@@ -1071,10 +1115,13 @@ MonoBehaviour:
   actionKind: 16
   assignedInput: 13
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  BLINK_SPEED: 700
-  BLINK_TIME: 0.4
+  BLINK_SPEED: 550
+  BLINK_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!114 &6807276108179504416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,10 +1137,13 @@ MonoBehaviour:
   actionKind: 16
   assignedInput: 14
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  BLINK_SPEED: 700
-  BLINK_TIME: 0.4
+  BLINK_SPEED: 550
+  BLINK_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &3377767057314425917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1192,8 @@ MonoBehaviour:
   actionKind: 3
   assignedInput: 3
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   PLUS_SPEED: 75
 --- !u!114 &1999662930292029623
@@ -1159,6 +1211,8 @@ MonoBehaviour:
   actionKind: 3
   assignedInput: 4
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   PLUS_SPEED: 75
 --- !u!1 &3820408495379261030
@@ -1209,11 +1263,16 @@ MonoBehaviour:
   actionKind: 9
   assignedInput: 8
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
   rb: {fileID: 0}
-  JUMP_POWER: 600
-  JUMP_SPEED: 550
+  JUMP_POWER: 550
+  JUMP_SPEED: 400
+  JUMP_CANCEL_POWER: 1.5
+  CANCEL_TIME: 0.3
+  ACTION_COOL_TIME: 0.3
 --- !u!114 &5625994086105262621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,11 +1288,16 @@ MonoBehaviour:
   actionKind: 9
   assignedInput: 9
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
   rb: {fileID: 0}
-  JUMP_POWER: 600
-  JUMP_SPEED: 550
+  JUMP_POWER: 550
+  JUMP_SPEED: 400
+  JUMP_CANCEL_POWER: 1.5
+  CANCEL_TIME: 0.3
+  ACTION_COOL_TIME: 0.3
 --- !u!1 &3856860879565820659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,11 +1346,16 @@ MonoBehaviour:
   actionKind: 10
   assignedInput: 8
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
   rb: {fileID: 0}
-  JUMP_POWER: 675
-  JUMP_SPEED: 450
+  JUMP_POWER: 450
+  JUMP_SPEED: 300
+  JUMP_CANCEL_POWER: 1.4
+  CANCEL_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!114 &2941174487734593823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,11 +1371,16 @@ MonoBehaviour:
   actionKind: 10
   assignedInput: 9
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
   rb: {fileID: 0}
-  JUMP_POWER: 675
-  JUMP_SPEED: 450
+  JUMP_POWER: 450
+  JUMP_SPEED: 300
+  JUMP_CANCEL_POWER: 1.4
+  CANCEL_TIME: 0.35
+  ACTION_COOL_TIME: 0.35
 --- !u!1 &4327979178236082747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,10 +1390,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6234198849540081375}
-  - component: {fileID: 8161019896373028330}
-  - component: {fileID: 3194036181594935063}
+  - component: {fileID: 8830672729156102366}
+  - component: {fileID: 7478219854577737714}
   m_Layer: 0
-  m_Name: E_LeftRight_BackBlink
+  m_Name: E_LeftRight_StopHover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,7 +1414,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4481133804613206224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8161019896373028330
+--- !u!114 &8830672729156102366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1349,17 +1423,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4327979178236082747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
+  m_Script: {fileID: 11500000, guid: d3421e4d14be07c46ac334e313e11d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionKind: 17
   assignedInput: 13
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  BLINK_SPEED: 600
-  BLINK_TIME: 0.2
---- !u!114 &3194036181594935063
+  playerPreventStuck: {fileID: 0}
+  BLINK_TIME: 0.4
+  ACTION_COOL_TIME: 0.4
+--- !u!114 &7478219854577737714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1368,16 +1445,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4327979178236082747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb52bfddbabba734cb38d55812b16ecc, type: 3}
+  m_Script: {fileID: 11500000, guid: d3421e4d14be07c46ac334e313e11d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionKind: 17
   assignedInput: 14
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   rb: {fileID: 0}
-  BLINK_SPEED: 600
-  BLINK_TIME: 0.2
+  playerPreventStuck: {fileID: 0}
+  BLINK_TIME: 0.4
+  ACTION_COOL_TIME: 0.4
 --- !u!1 &4770234515552508425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1505,8 @@ MonoBehaviour:
   actionKind: 13
   assignedInput: 0
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
 --- !u!1 &5068196633799651583
@@ -1474,6 +1556,8 @@ MonoBehaviour:
   actionKind: 28
   assignedInput: 20
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   COOL_DOWN_TIME: 2
   isCoolDowning: 0
   playerActionManager: {fileID: 6856885008630579151}
@@ -1526,11 +1610,15 @@ MonoBehaviour:
   actionKind: 7
   assignedInput: 5
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
   wasJumped: 0
   rb: {fileID: 0}
-  JUMP_POWER: 750
+  JUMP_POWER: 710
   JUMP_CANCEL_POWER: 1.5
+  CANCEL_TIME: 0.05
+  ACTION_COOL_TIME: 0.2
 --- !u!1 &5287467567211893267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1666,8 @@ MonoBehaviour:
   actionKind: 29
   assignedInput: 21
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerActionManager: {fileID: 6856885008630579151}
   playerActionWarpManager: {fileID: 579504073700405380}
   playerMovement: {fileID: 0}
@@ -1664,8 +1754,8 @@ MonoBehaviour:
   - {fileID: 1505777464010515633}
   - {fileID: 2560995798980918669}
   - {fileID: 6807276108179504416}
-  - {fileID: 8161019896373028330}
-  - {fileID: 3194036181594935063}
+  - {fileID: 8830672729156102366}
+  - {fileID: 7478219854577737714}
   - {fileID: 2499285929018690502}
   - {fileID: 6798157705787501653}
   - {fileID: 2670606172328464036}
@@ -1728,6 +1818,8 @@ MonoBehaviour:
   actionKind: 19
   assignedInput: 0
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
 --- !u!1 &6627119134180960151
 GameObject:
@@ -1776,6 +1868,8 @@ MonoBehaviour:
   actionKind: 20
   assignedInput: 0
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   playerMovement: {fileID: 0}
 --- !u!1 &8947086918399918268
 GameObject:
@@ -1824,6 +1918,8 @@ MonoBehaviour:
   actionKind: 18
   assignedInput: 12
   isEnable: 1
+  isAction: 0
+  isCoolTime: 0
   rb: {fileID: 0}
   playerMovement: {fileID: 0}
   SWOOP_SPEED: 550
@@ -1880,10 +1976,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   blinkActions:
+  - {fileID: 7570628116047266114}
   - {fileID: 1505777464010515633}
   - {fileID: 2560995798980918669}
   - {fileID: 6807276108179504416}
-  - {fileID: 8161019896373028330}
-  - {fileID: 3194036181594935063}
+  - {fileID: 8830672729156102366}
+  - {fileID: 7478219854577737714}
   - {fileID: 6798157705787501653}
   - {fileID: 2670606172328464036}

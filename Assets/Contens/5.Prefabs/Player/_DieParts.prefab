@@ -176,9 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &1306026312783724507
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,9 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &3544455590753141318
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,9 +528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &5003816420168080685
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,9 +721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &5591412647346374400
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,9 +897,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &5790930429030608103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,9 +1073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &6017285489462244732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,9 +1249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 1
 --- !u!1 &6640773506447623366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,9 +1443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  TopLeftTransform: {fileID: 0}
-  BottomRightTransform: {fileID: 0}
-  isFace: 0
 --- !u!1 &7655721176467265293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1230962191869792600}
   - component: {fileID: 7843883613205781567}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: _DieParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1529,3 +1505,4 @@ MonoBehaviour:
   - {fileID: 5790930429030608103}
   - {fileID: 6640773506447623366}
   SPEED: 2
+  DESTROY_DISTANCE: {x: 35, y: 20}

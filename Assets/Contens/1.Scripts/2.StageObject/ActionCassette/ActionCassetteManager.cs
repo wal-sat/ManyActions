@@ -38,7 +38,7 @@ public class ActionCassetteManager : MonoBehaviour
         actionCardInfos.Add(ActionKind.E_Hover, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.E_UpBlink, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.E_Blink, actionCardInfo[index++]);
-        actionCardInfos.Add(ActionKind.E_BackBlink, actionCardInfo[index++]);
+        actionCardInfos.Add(ActionKind.E_StopHover, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.E_Swoop, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.E_DoubleBlink, actionCardInfo[index++]);
         actionCardInfos.Add(ActionKind.E_InfiniteBlink, actionCardInfo[index++]);

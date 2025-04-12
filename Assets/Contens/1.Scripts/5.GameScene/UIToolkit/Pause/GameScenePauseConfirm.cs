@@ -62,6 +62,6 @@ public class GameScenePauseConfirm : MonoBehaviour
     {
         S_BGMManager._instance.Stop("stage", 2f);
         S_SEManager._instance.Play("u_select");
-        S_LoadSceneSystem._instance.LoadScene(SceneName.title);
+        S_LoadSceneSystem._instance.LoadScene(SceneKind.title);
     }
 }

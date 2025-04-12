@@ -46,6 +46,10 @@ public class PlayerActionWarpManager : MonoBehaviour
         _maxWarpTimes = SetMaxWarpTimes();
         _warpTimes = _maxWarpTimes;
     }
+    public void Spending()
+    {
+        _warpTimes = 0;
+    }
     private int SetMaxWarpTimes()
     {
         int maxWarpTimes = 0;

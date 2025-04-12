@@ -1,5 +1,7 @@
 using UnityEngine;
 using Cinemachine;
+using System.Diagnostics.SymbolStore;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -8,12 +10,9 @@ using UnityEditor;
 [AddComponentMenu("")] // Hide in menu
 public class LockAxisCamera : CinemachineExtension 
 {
-    [SerializeField] private bool x_islocked;
-    [SerializeField] private bool y_islocked;
-    [SerializeField] private bool z_islocked;
-    [SerializeField] private Vector3 lockPosition;
-    [SerializeField] private Transform topLeftTransform;
-    [SerializeField] private Transform bottomRightTransform;
+    [SerializeField] private int lockPositionZ;
+    [SerializeField] private Vector2 bottomLeftPos;
+    [SerializeField] private Vector2 topRightPos;
     
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
@@ -22,22 +21,22 @@ public class LockAxisCamera : CinemachineExtension
         if (stage == CinemachineCore.Stage.Body)
         {
             var newPos = state.RawPosition;
-            if (x_islocked) newPos.x = lockPosition.x;
-            if (y_islocked) newPos.y = lockPosition.y;
-            if (z_islocked) newPos.z = lockPosition.z;
+            newPos.z = lockPositionZ;
 
-            if (topLeftTransform != null)
-            {
-                if (newPos.x <= topLeftTransform.position.x) newPos.x = topLeftTransform.position.x; 
-                if (bottomRightTransform.position.x <= newPos.x) newPos.x = bottomRightTransform.position.x; 
-            }
-            if (bottomRightTransform != null)
-            {
-                if (newPos.y <= bottomRightTransform.position.y) newPos.y = bottomRightTransform.position.y; 
-                if (topLeftTransform.position.y <= newPos.y) newPos.y = topLeftTransform.position.y;
-            }
+            if (newPos.x < bottomLeftPos.x) newPos.x = bottomLeftPos.x;
+            else if (topRightPos.x < newPos.x) newPos.x = topRightPos.x;
+
+            if (newPos.y < bottomLeftPos.y) newPos.y = bottomLeftPos.y;
+            else if (topRightPos.y < newPos.y) newPos.y = topRightPos.y;
+
             state.RawPosition = newPos;
         }
+    }
+
+    public void SetMoveRange(Vector2 bottomLeft, Vector2 topRight)
+    {
+        bottomLeftPos = bottomLeft;
+        topRightPos = topRight;
     }
 }
 

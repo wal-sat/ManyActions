@@ -1,0 +1,95 @@
+.frame {
+    height: 66%;
+    left: 14%;
+    top: 17%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(22, 22, 22);
+    border-right-color: rgb(22, 22, 22);
+    border-top-color: rgb(22, 22, 22);
+    border-bottom-color: rgb(22, 22, 22);
+    width: 72%;
+}
+
+.stageOption {
+    width: 25%;
+    height: 97%;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    color: rgb(80, 80, 80);
+}
+
+.stageInfomation {
+    height: 97%;
+    width: 73%;
+    background-color: rgba(220, 240, 240, 0.78);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.stageOptionDiv {
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.stageLabel {
+    -unity-text-align: middle-center;
+    font-size: 40px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    color: rgb(80, 80, 80);
+    transition-duration: 0.2s, 1s;
+    transition-timing-function: ease-out-cubic, ease-in-out;
+    transition-property: all, rotate;
+    width: 100%;
+    position: absolute;
+}
+
+.stageLabel--Selected {
+    font-size: 60px;
+    color: rgb(22, 22, 22);
+    rotate: 7deg;
+}
+
+.stageLabel--Selected--Animate {
+    rotate: -7deg;
+}
+
+.padlock {
+    width: 50px;
+    height: 60px;
+    background-image: url("project://database/Assets/Contens/4.Sprites/UI/Icon/UI_Padlock.png?fileID=2800000&guid=25f08e2f4f3717044b8ceafa74c47b87&type=3#UI_Padlock");
+}
+
+.panel {
+    opacity: 0.5;
+}
+
+.panel--Visible {
+    opacity: 1;
+}

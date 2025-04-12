@@ -61,7 +61,7 @@ public class GameSceneAnyKeyInput : MonoBehaviour
         anyKeyStatus = AnyKeyStatus.observe;
 
         Vector2 savePointPos = new Vector2(savePointManager.savePoint.transform.position.x, savePointManager.savePoint.transform.position.y);
-        cameraManager.sleepingCameraMovement.SleepCameraInit(savePointPos, savePointManager.savePoint.sleepMoveDistance);
+        cameraManager.sleepingCameraMovement.SleepCameraInit(savePointPos, savePointManager.savePoint.cameraSize, savePointManager.savePoint.bottomLeftPos, savePointManager.savePoint.topRightPos);
         cameraManager.ChangeCamera(CameraKind.sleep);
 
         gameSceneUI.SwitchUIVisible(false);

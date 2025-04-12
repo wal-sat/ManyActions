@@ -8,10 +8,12 @@ public class SavePoint : MonoBehaviour
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] SavePointView savePointView;
     [SerializeField] GameObject ParticleBurst;
-    [SerializeField] public StageActionData stageActionData;
+    [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
-    [Header("x:Minus, y:Plus")] [SerializeField] public Vector2 sleepMoveDistance;
+    [SerializeField] public float cameraSize;
+    [SerializeField] public Vector2 bottomLeftPos;
+    [SerializeField] public Vector2 topRightPos;
 
     private void Awake()
     {

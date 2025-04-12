@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +10,11 @@ public class GearManager : MonoBehaviour
 {
     [HideInInspector] public GameSceneUI gameSceneUI;
 
-    private SceneName _sceneName;
+    [HideInInspector] public SceneKind _sceneKind { private get; set; }
     private List<Gear> gears = new List<Gear>();
 
     private void Start()
     {
-        _sceneName = S_LoadSceneSystem._instance.StringToSceneName( SceneManager.GetActiveScene().name );
-        S_GameInfo._instance.InstantiateGearInfo(_sceneName, gears.Count);
-
         Initialize();
     }
 
@@ -31,12 +29,12 @@ public class GearManager : MonoBehaviour
     }
     public void OnSave()
     {
-        for (int i = 0; i < gears.Count; i++)
+        foreach (Gear gear in gears)
         {
-            if (gears[i].gearStatus == GearStatus.temporaryGet)
+            if (gear.gearStatus == GearStatus.temporaryGet)
             {
-                gears[i].gearStatus = GearStatus.acquired;
-                S_GameInfo._instance.RegisterGearInfo(_sceneName, i, true);
+                gear.gearStatus = GearStatus.acquired;
+                S_StageInfo._instance.stageDatas[_sceneKind].gearAcquire[gear.gearIndex] = true;
             }
         }
 
@@ -44,12 +42,10 @@ public class GearManager : MonoBehaviour
     }
     public void Initialize()
     {
-        bool[] gearInfo = S_GameInfo._instance.gearInfo[_sceneName];
-
-        for (int i = 0; i < gearInfo.Length; i++)
+        foreach (var gear in gears)
         {
-            if (gearInfo[i]) gears[i].Initialize(GearStatus.acquired);
-            else if (!gearInfo[i]) gears[i].Initialize(GearStatus.unacquired);
+            if (S_StageInfo._instance.stageDatas[_sceneKind].gearAcquire[gear.gearIndex]) gear.Initialize(GearStatus.acquired);
+            else gear.Initialize(GearStatus.unacquired);
         }
 
         gameSceneUI.ChangeGearCount( GetTemporaryGetGearCount() );

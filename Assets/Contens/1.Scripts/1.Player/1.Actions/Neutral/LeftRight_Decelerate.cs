@@ -14,39 +14,23 @@ public class LeftRight_Decelerate : PlayerActionBase
 
     public override void InitAction()
     {
-        if (base.assignedInput == InputKind.Left)
-        {
-            playerMovement.isLeftDecelerate = true;
-        }
-        if (base.assignedInput == InputKind.Right)
-        {
-            playerMovement.isRightDecelerate = true;
-        }
-    }
-    public override void InAction()
-    {
-        ;
+        base.InitAction();
+
+        if (base.assignedInput == InputKind.Left) playerMovement.isLeftDecelerate = true;
+        if (base.assignedInput == InputKind.Right) playerMovement.isRightDecelerate = true;
     }
     public override void EndAction()
     {
-        if (base.assignedInput == InputKind.Left)
-        {
-            playerMovement.isLeftDecelerate = false;
-        }
-        if (base.assignedInput == InputKind.Right)
-        {
-            playerMovement.isRightDecelerate = false;
-        }
+        base.EndAction();
+
+        if (base.assignedInput == InputKind.Left) playerMovement.isLeftDecelerate = false;
+        if (base.assignedInput == InputKind.Right) playerMovement.isRightDecelerate = false;
     }
     public override void Initialize()
     {
-        if (base.assignedInput == InputKind.Left)
-        {
-            playerMovement.isLeftDecelerate = false;
-        }
-        if (base.assignedInput == InputKind.Right)
-        {
-            playerMovement.isRightDecelerate = false;
-        }
+        base.Initialize();
+        
+        if (base.assignedInput == InputKind.Left) playerMovement.isLeftDecelerate = false;
+        if (base.assignedInput == InputKind.Right) playerMovement.isRightDecelerate = false;
     }
 }

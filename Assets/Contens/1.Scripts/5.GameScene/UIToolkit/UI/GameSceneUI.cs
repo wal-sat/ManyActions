@@ -6,14 +6,14 @@ public class GameSceneUI : MonoBehaviour
 {
     [SerializeField] GameSceneUIUIToolkit gameSceneUIUIToolkit;
 
-    public void UpdateDeathCount()
+    public void UpdateDeathCount(int deathCount)
     {
-        gameSceneUIUIToolkit.ChangeDeathLabel( S_GameInfo._instance.deathCount );
+        gameSceneUIUIToolkit.ChangeDeathLabel( deathCount );
     }
 
     public void ChangeGearCount(int temporaryGetCount)
     {
-        gameSceneUIUIToolkit.ChangeGearLabel( S_GameInfo._instance.GetGearCount() );
+        gameSceneUIUIToolkit.ChangeGearLabel( S_GameInfo._instance.totalGearCount );
 
         if (temporaryGetCount == 0) gameSceneUIUIToolkit.SetActiveGearPlusLabel(false);
         else 
@@ -23,9 +23,14 @@ public class GameSceneUI : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public void ChangeStageName(string worldName, string stageName)
     {
-        gameSceneUIUIToolkit.ChangeTimeLabel( S_GameInfo._instance.GetMiniteAndSecond() );
+        gameSceneUIUIToolkit.ChangeStageNameLabel( worldName, stageName );
+    }
+
+    public void ChangeTimeCount(string timeString)
+    {
+        gameSceneUIUIToolkit.ChangeTimeLabel(timeString);
     }
 
     public void MakeActionCard(bool isAcquired, string actionName, Sprite actionIcon)

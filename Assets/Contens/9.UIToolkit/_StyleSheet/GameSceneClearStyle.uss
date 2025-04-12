@@ -1,0 +1,45 @@
+.Bar {
+    width: 100%;
+    height: 8%;
+    background-color: rgb(176, 104, 144);
+}
+
+.optionLabel {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 40px;
+    color: rgb(80, 80, 80);
+    height: 50%;
+    width: 30%;
+    -unity-text-align: middle-center;
+    transition-duration: 0.2s, 1s;
+    transition-property: all, rotate;
+    transition-timing-function: ease-out-cubic, ease-in-out;
+}
+
+.optionLabel--Selected {
+    color: rgb(22, 22, 22);
+    font-size: 60px;
+    rotate: 7deg;
+}
+
+.optionLabel--Selected--Animate {
+    rotate: -7deg;
+}
+
+.Visible {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+.Invisible {
+    opacity: 0;
+}
