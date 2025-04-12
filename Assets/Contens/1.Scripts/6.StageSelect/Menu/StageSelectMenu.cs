@@ -174,8 +174,10 @@ public class StageSelectMenu : MonoBehaviour
         {
             stageSelectMenuUIToolkit.GearIconAcquired(i, stageIndex, undergroundIndex, reverseIndex, stageData.gearAcquire[i]);
         }
-        stageSelectMenuUIToolkit.MinimumDeathCountLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.minimumDeathCount);
-        stageSelectMenuUIToolkit.FastestClearTimeLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.fastestClearTime);
+        stageSelectMenuUIToolkit.MinimumDeathCountLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.GetMinimumDeathCountString());
+        stageSelectMenuUIToolkit.TotalDeathCountLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.GetTotalDeathCountString());
+        stageSelectMenuUIToolkit.FastestClearTimeLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.GetFastestClearTimeString());
+        stageSelectMenuUIToolkit.TotalPlayTimeLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.GetTotalPlayTimeString());
     }
 
     private void PadlockDisplayCheck()

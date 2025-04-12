@@ -199,57 +199,42 @@ public class StageSelectMenuUIToolkit : MonoBehaviour
     /// 最小デス数の表示を変更する
     /// </summary>
     /// <param name="minimumDeathCount">最小デス数</param>
-    public void MinimumDeathCountLabelChange(int i, int j, int k, int minimumDeathCount)
+    public void MinimumDeathCountLabelChange(int i, int j, int k, string minimumDeathCount)
     {
         if (_minimumDeathCountLabel[i,j,k] == null) return;
-        if (minimumDeathCount == -1) _minimumDeathCountLabel[i,j,k].text = "最小デス数 ： ---";
-        else _minimumDeathCountLabel[i,j,k].text = "最小デス ： " + minimumDeathCount.ToString();
+        _minimumDeathCountLabel[i,j,k].text = "最小デス数 ： " + minimumDeathCount;
     }
 
     /// <summary>
     /// 合計デス数の表示を変更する
     /// </summary>
     /// <param name="deathCount">合計デス数</param>
-    public void DeathCountLabelChange(int i, int j, int k, int deathCount)
+    public void TotalDeathCountLabelChange(int i, int j, int k, string totalDeathCount)
     {
         if (_deathCountLabel[i,j,k] == null) return;
-        _deathCountLabel[i,j,k].text = "合計デス ： " + deathCount.ToString();
+        _deathCountLabel[i,j,k].text = "合計デス数 ： " + totalDeathCount;
     }
 
     /// <summary>
     /// 最速クリアタイムの表示を変更する
     /// </summary>
     /// <param name="fastestClearTime">最速クリア時間</param>
-    public void FastestClearTimeLabelChange(int i, int j, int k, int fastestClearTime)
+    public void FastestClearTimeLabelChange(int i, int j, int k, string fastestClearTime)
     {
         if (_FastestClearTimeLabel[i,j,k] == null) return;
-        if (fastestClearTime == -1) _FastestClearTimeLabel[i,j,k].text = "最速クリア時間 ： ---";
-        else
-        {
-            int[] ints = new int[3];
-            ints[0] = fastestClearTime / 3600;
-            ints[1] = (fastestClearTime % 3600) / 60;
-            ints[2] = fastestClearTime % 60;
-            _FastestClearTimeLabel[i,j,k].text = $"最速クリア時間 ： {ints[0]}:{ints[1]}:{ints[2]}";
-        }
+
+        _FastestClearTimeLabel[i,j,k].text = $"最速クリア時間 ： {fastestClearTime}";
     }
 
     /// <summary>
     /// プレイ時間の表示を変更する
     /// </summary>
     /// <param name="playTime">プレイ時間</param>
-    public void PlayTimeLabelChange(int i, int j, int k, int playTime)
+    public void TotalPlayTimeLabelChange(int i, int j, int k, string totalPlayTime)
     {
         if (_playTimeLabel[i,j,k] == null) return;
-        if (playTime == -1) _playTimeLabel[i,j,k].text = "プレイ時間 ： ---";
-        else 
-        {
-            int[] ints = new int[3];
-            ints[0] = playTime / 3600;
-            ints[1] = (playTime % 3600) / 60;
-            ints[2] = playTime % 60;
-            _playTimeLabel[i,j,k].text = $"プレイ時間 ： {ints[0]}:{ints[1]}:{ints[2]}";
-        }
+
+        _playTimeLabel[i,j,k].text = $"総プレイ時間 ： {totalPlayTime}";
     }
 
     /// <summary>

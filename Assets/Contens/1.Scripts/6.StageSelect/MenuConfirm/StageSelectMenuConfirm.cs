@@ -53,7 +53,6 @@ public class StageSelectMenuConfirm : MonoBehaviour
         {
             case 0:
                 S_LoadSceneSystem._instance.LoadScene(stageData.sceneKind);
-                S_BGMManager._instance.Stop("title", 2f);
                 S_SEManager._instance.Play("u_select");
             break;
             case 1:

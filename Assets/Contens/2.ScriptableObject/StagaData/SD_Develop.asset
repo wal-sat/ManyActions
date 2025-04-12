@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SD_Develop
   m_EditorClassIdentifier: 
   sceneKind: 102
-  cursorIndex: 0
-  stageIndex: 0
-  undergroundIndex: 0
-  reverseIndex: 0
+  cursorIndex: 4
+  stageIndex: 4
+  undergroundIndex: 1
+  reverseIndex: 1
   worldName: "\u5B58\u5728\u3057\u306A\u3044\u6B21\u5143"
   stageName: "\u30C7\u30D9\u30ED\u30C3\u30D7"
   clearKind: 0
