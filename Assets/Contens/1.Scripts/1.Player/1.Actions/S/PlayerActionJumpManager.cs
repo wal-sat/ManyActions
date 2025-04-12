@@ -61,6 +61,10 @@ public class PlayerActionJumpManager : MonoBehaviour
         _maxJumpTimes = SetMaxJumpTimes();
         _jumpTimes = _maxJumpTimes;
     }
+    public void Spending()
+    {
+        _jumpTimes = 0;
+    }
     private int SetMaxJumpTimes()
     {
         int maxJumpTimes = 0;

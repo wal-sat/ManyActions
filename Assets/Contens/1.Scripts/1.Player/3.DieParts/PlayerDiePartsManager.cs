@@ -29,7 +29,7 @@ public class PlayerDiePartsManager : MonoBehaviour
         layerIndex = 0;
     }
 
-    public void Die(Vector3 playerPosition)
+    public void Die(Vector3 playerPosition, float angleZ)
     {
         foreach (var part in dieParts)
         {
@@ -39,7 +39,7 @@ public class PlayerDiePartsManager : MonoBehaviour
             newPart.GetComponent<DieParts>().Initialize( (int) DESTROY_DISTANCE.x, (int) DESTROY_DISTANCE.y, OnDestory);
             Rigidbody2D rb = newPart.GetComponent<Rigidbody2D>();
 
-            float randomAngle = Random.Range(0, 180) * Mathf.Deg2Rad;
+            float randomAngle = Random.Range(angleZ, angleZ + 180) * Mathf.Deg2Rad;
             Vector2 randomDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle)).normalized;
             rb.AddForce(randomDirection * SPEED, ForceMode2D.Impulse);
 

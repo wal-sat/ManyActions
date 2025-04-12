@@ -49,6 +49,10 @@ public class PlayerActionBlinkManager : MonoBehaviour
         _maxBlinkTimes = SetMaxBlinkTimes();
         _blinkTimes = _maxBlinkTimes;
     }
+    public void Spending()
+    {
+        _blinkTimes = 0;
+    }
     private int SetMaxBlinkTimes()
     {
         int maxBlinkTimes = 0;

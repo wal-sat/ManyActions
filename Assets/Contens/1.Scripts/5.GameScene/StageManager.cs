@@ -85,11 +85,11 @@ public class StageManager : MonoBehaviour
     }
 
     //ーーーやられた時の処理ーーー
-    public void Restart()
+    public void Restart(float angleZ = 0)
     {
-        StartCoroutine(CRestart());     
+        StartCoroutine(CRestart(angleZ));     
     }
-    IEnumerator CRestart()
+    IEnumerator CRestart(float angleZ = 0)
     {
         S_InputSystem._instance.canInput = false;
 
@@ -100,7 +100,7 @@ public class StageManager : MonoBehaviour
         
         playerManager.Initialize( savePointManager.savePoint.facingRight );
         
-        playerDiePartsManager.Die(playerPosition);
+        playerDiePartsManager.Die(playerPosition, angleZ);
 
         S_SEManager._instance.Play("p_explosion");
 

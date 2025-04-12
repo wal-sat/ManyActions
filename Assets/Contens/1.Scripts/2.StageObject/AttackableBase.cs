@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackableBase : MonoBehaviour
 {
-    [SerializeField] StageManager stageManager;
+    [SerializeField] public StageManager stageManager;
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {

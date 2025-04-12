@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1543647578, guid: b27b407f128ccd844ad65a7c1dbdba39, type: 3}
+  m_Sprite: {fileID: -685458579, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641a79abc92cde643963c4dd2cf29a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 1543647578, guid: b27b407f128ccd844ad65a7c1dbdba39, type: 3}
-  disableSprite: {fileID: -949777624, guid: b27b407f128ccd844ad65a7c1dbdba39, type: 3}
+  defaultSprite: {fileID: -685458579, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  disableSprite: {fileID: 1609078644, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
 --- !u!1 &3980283401238150142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +4996,7 @@ MonoBehaviour:
   gearView: {fileID: 5106051247280698407}
   ParticleDefault: {fileID: 3980283401238150142}
   ParticleBurst: {fileID: 2641719202163896634, guid: e8c66a7b025cf284e9f6a12e3b9a8f28, type: 3}
+  gearIndex: 0
   gearStatus: 0
 --- !u!1 &9049698288141750317
 GameObject:

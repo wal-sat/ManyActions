@@ -967,7 +967,9 @@ MonoBehaviour:
   - name: s_movable
     audioClip: {fileID: 8300000, guid: 328d8e2a9476e06418a7059c4b704a5e, type: 3}
   - name: s_recureCapsule
-    audioClip: {fileID: 8300000, guid: bd74a66a6d2dc5d4d9b5aa540632812e, type: 3}
+    audioClip: {fileID: 8300000, guid: 93d976836f75a2c4bae29e3527e32de2, type: 3}
+  - name: s_recureCapsuleMinus
+    audioClip: {fileID: 8300000, guid: dbd801e73938f984b8f1ece10ce90a87, type: 3}
   - name: s_warpPoint
     audioClip: {fileID: 8300000, guid: 91f82f19765a6f54db1246a9e6846a30, type: 3}
   - name: ---------
