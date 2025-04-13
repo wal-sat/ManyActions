@@ -53,7 +53,7 @@ MonoBehaviour:
   gameSceneUI: {fileID: 0}
   actionKind: 0
   actionCassetteState: 0
-  COOL_TIME: 4
+  COOL_TIME: 5
 --- !u!1 &6105065299163302952
 GameObject:
   m_ObjectHideFlags: 0
