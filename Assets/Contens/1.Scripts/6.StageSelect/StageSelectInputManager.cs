@@ -70,11 +70,11 @@ public class StageSelectInputManager : MonoBehaviour
         if (S_InputSystem._instance.leftDirection == Vector2.right && !_rightPast) Right();
         else if (S_InputSystem._instance.leftDirection != Vector2.right && _rightPast) _rightPast = false;
 
-        if (S_InputSystem._instance.isPushingL && !_LPast) L();
-        else if (!S_InputSystem._instance.isPushingL && _LPast) _LPast = false;
+        if (S_InputSystem._instance.isPushingL1 && !_LPast) L();
+        else if (!S_InputSystem._instance.isPushingL1 && _LPast) _LPast = false;
 
-        if (S_InputSystem._instance.isPushingR && !_RPast) R();
-        else if (!S_InputSystem._instance.isPushingR && _RPast) _RPast = false;
+        if (S_InputSystem._instance.isPushingR1 && !_RPast) R();
+        else if (!S_InputSystem._instance.isPushingR1 && _RPast) _RPast = false;
 
         if (S_InputSystem._instance.isPushingOption && !_optionPast) Option();
         else if (!S_InputSystem._instance.isPushingOption && _optionPast) _optionPast = false;

@@ -587,7 +587,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5387372506816540632}
         m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
-        m_MethodName: ActionRight
+        m_MethodName: ActionRight1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -603,7 +603,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5387372506816540632}
         m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
-        m_MethodName: ActionLeft
+        m_MethodName: ActionLeft1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -695,6 +695,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 356c83a5-dffd-4e60-a32c-db7c52494b62
     m_ActionName: Player/RightDirection[/DualShock4GamepadHID/rightStick,/Keyboard/leftCtrl,/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5387372506816540632}
+        m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
+        m_MethodName: ActionRight2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2ae6e9d5-b769-450a-8b5e-30e2423e9f69
+    m_ActionName: Player/ActionRight2[/DualShock4GamepadHID/rightTrigger,/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5387372506816540632}
+        m_TargetAssemblyTypeName: S_InputSystem, Assembly-CSharp
+        m_MethodName: ActionLeft2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2ac85eeb-b1e9-419d-b5c5-25ebee541e11
+    m_ActionName: Player/ActionLeft2[/DualShock4GamepadHID/leftTrigger,/Keyboard/leftCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -720,8 +752,10 @@ MonoBehaviour:
   isPushingEast: 0
   isPushingWest: 0
   isPushingNorth: 0
-  isPushingR: 0
-  isPushingL: 0
+  isPushingR1: 0
+  isPushingL1: 0
+  isPushingR2: 0
+  isPushingL2: 0
   isPushingOption: 0
   move: {x: 0, y: 0}
   isPushingSelect: 0

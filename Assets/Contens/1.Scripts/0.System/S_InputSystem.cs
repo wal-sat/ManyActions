@@ -17,8 +17,10 @@ public class S_InputSystem : Singleton<S_InputSystem>
     [HideInInspector] public bool isPushingEast;
     [HideInInspector] public bool isPushingWest;
     [HideInInspector] public bool isPushingNorth;
-    [HideInInspector] public bool isPushingR;
-    [HideInInspector] public bool isPushingL;
+    [HideInInspector] public bool isPushingR1;
+    [HideInInspector] public bool isPushingL1;
+    [HideInInspector] public bool isPushingR2;
+    [HideInInspector] public bool isPushingL2;
     [HideInInspector] public bool isPushingOption;
 
     [HideInInspector] public Vector2 move;
@@ -108,19 +110,33 @@ public class S_InputSystem : Singleton<S_InputSystem>
 
         if (!canInput) isPushingNorth = false;
     }
-    public void ActionRight(InputAction.CallbackContext context)
+    public void ActionRight1(InputAction.CallbackContext context)
     {
-        if (context.performed) isPushingR = true;
-        else if (context.canceled) isPushingR = false;
+        if (context.performed) isPushingR1 = true;
+        else if (context.canceled) isPushingR1 = false;
 
-        if (!canInput) isPushingR = false;
+        if (!canInput) isPushingR1 = false;
     }
-    public void ActionLeft(InputAction.CallbackContext context)
+    public void ActionLeft1(InputAction.CallbackContext context)
     {
-        if (context.performed) isPushingL = true;
-        else if (context.canceled) isPushingL = false;
+        if (context.performed) isPushingL1 = true;
+        else if (context.canceled) isPushingL1 = false;
 
-        if (!canInput) isPushingL = false;
+        if (!canInput) isPushingL1 = false;
+    }
+    public void ActionRight2(InputAction.CallbackContext context)
+    {
+        if (context.performed) isPushingR2 = true;
+        else if (context.canceled) isPushingR2 = false;
+
+        if (!canInput) isPushingR2 = false;
+    }
+    public void ActionLeft2(InputAction.CallbackContext context)
+    {
+        if (context.performed) isPushingL2 = true;
+        else if (context.canceled) isPushingL2 = false;
+
+        if (!canInput) isPushingL2 = false;
     }
     public void Option(InputAction.CallbackContext context)
     {

@@ -96,6 +96,7 @@ MonoBehaviour:
   actionCassetteManager: {fileID: 646695612612677693}
   buttonManager: {fileID: 8428792969297022357}
   breakableBlockManager: {fileID: 6353006825012215195}
+  lRBlockManager: {fileID: 7006172891165873630}
   recureCapsuleManager: {fileID: 7757875943116494195}
   warpPointManager: {fileID: 4044327520386478067}
   backgroundManager: {fileID: 0}
@@ -629,6 +630,51 @@ Transform:
   - {fileID: 3431971296561708863}
   m_Father: {fileID: 6601503445132698904}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6600774407972755590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7831383904699849895}
+  - component: {fileID: 7006172891165873630}
+  m_Layer: 0
+  m_Name: LRBlockManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7831383904699849895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600774407972755590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6840040420930473070}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7006172891165873630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600774407972755590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2316afd3ad1014c96cffc2fc2a3a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DURATION: 2.5
 --- !u!1 &6808412904909905455
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,8 +767,10 @@ MonoBehaviour:
   onN_Down: 0
   onN_Left: 0
   onN_Right: 0
-  onR: 0
-  onL: 0
+  onR1: 0
+  onL1: 0
+  onR2: 0
+  onL2: 0
   onUpPast: 0
   onDownPast: 0
   onLeftPast: 0
@@ -747,8 +795,10 @@ MonoBehaviour:
   onN_DownPast: 0
   onN_LeftPast: 0
   onN_RightPast: 0
-  onRPast: 0
-  onLPast: 0
+  onR1Past: 0
+  onL1Past: 0
+  onR2Past: 0
+  onL2Past: 0
 --- !u!114 &5564007590779055048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +878,7 @@ Transform:
   - {fileID: 4027294046546529133}
   - {fileID: 1847570593889535418}
   - {fileID: 2195779557871591776}
+  - {fileID: 7831383904699849895}
   - {fileID: 9127274249077065100}
   - {fileID: 7309999762065531791}
   - {fileID: 7375856103115897744}

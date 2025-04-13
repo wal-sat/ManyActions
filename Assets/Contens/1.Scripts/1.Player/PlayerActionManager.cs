@@ -47,8 +47,10 @@ public class PlayerActionManager : MonoBehaviour
     private bool _onN_Down;
     private bool _onN_Left;
     private bool _onN_Right;
-    private bool _onR;
-    private bool _onL;
+    private bool _onR1;
+    private bool _onL1;
+    private bool _onR2;
+    private bool _onL2;
 
     private bool _onUpPast;
     private bool _onDownPast;
@@ -74,8 +76,10 @@ public class PlayerActionManager : MonoBehaviour
     private bool _onN_DownPast;
     private bool _onN_LeftPast;
     private bool _onN_RightPast;
-    private bool _onRPast;
-    private bool _onLPast;
+    private bool _onR1Past;
+    private bool _onL1Past;
+    private bool _onR2Past;
+    private bool _onL2Past;
 
     private bool _SBlock;
     private bool _EBlock;
@@ -151,8 +155,10 @@ public class PlayerActionManager : MonoBehaviour
         _onN_DownPast = _onN_Down;
         _onN_LeftPast = _onN_Left;
         _onN_RightPast = _onN_Right;
-        _onRPast = _onR;
-        _onLPast = _onL;
+        _onR1Past = _onR1;
+        _onL1Past = _onL1;
+        _onR2Past = _onR2;
+        _onL2Past = _onL2;
 
         NBlockPast = NBlock;
     }
@@ -226,8 +232,10 @@ public class PlayerActionManager : MonoBehaviour
         if (_onN_Up && !NBlock) NBlock = true;
         if (NBlock && !NLogicalDisjunction) NBlock = false;
 
-        _onL = gameSceneOnPlayInput.onL;
-        _onR = gameSceneOnPlayInput.onR;
+        _onL1 = gameSceneOnPlayInput.onL1;
+        _onR1 = gameSceneOnPlayInput.onR1;
+        _onL2 = gameSceneOnPlayInput.onL2;
+        _onR2 = gameSceneOnPlayInput.onR2;
     }
     private void Action()
     {
@@ -236,22 +244,28 @@ public class PlayerActionManager : MonoBehaviour
         if (_onDown && !_onDownPast) CallInitAction(InputKind.Down);
         if (_onLeft && !_onLeftPast) CallInitAction(InputKind.Left);
         if (_onRight && !_onRightPast) CallInitAction(InputKind.Right);
-        if (_onL && !_onLPast) CallInitAction(InputKind.L);
-        if (_onR && !_onRPast) CallInitAction(InputKind.R);
+        if (_onL1 && !_onL1Past) CallInitAction(InputKind.L1);
+        if (_onR1 && !_onR1Past) CallInitAction(InputKind.R1);
+        if (_onL2 && !_onL2Past) CallInitAction(InputKind.L2);
+        if (_onR2 && !_onR2Past) CallInitAction(InputKind.R2);
         
         if (_onUp && _onUpPast) CallInAction(InputKind.Up);
         if (_onDown && _onDownPast) CallInAction(InputKind.Down);
         if (_onLeft && _onLeftPast) CallInAction(InputKind.Left);
         if (_onRight && _onRightPast) CallInAction(InputKind.Right);
-        if (_onL && _onLPast) CallInAction(InputKind.L);
-        if (_onR && _onRPast) CallInAction(InputKind.R);
+        if (_onL1 && _onL1Past) CallInAction(InputKind.L1);
+        if (_onR1 && _onR1Past) CallInAction(InputKind.R1);
+        if (_onL2 && _onL2Past) CallInAction(InputKind.L2);
+        if (_onR2 && _onR2Past) CallInAction(InputKind.R2);
         
         if (!_onUp && _onUpPast) CallEndAction(InputKind.Up);
         if (!_onDown && _onDownPast) CallEndAction(InputKind.Down);
         if (!_onLeft && _onLeftPast) CallEndAction(InputKind.Left);
         if (!_onRight && _onRightPast) CallEndAction(InputKind.Right);
-        if (!_onL && _onLPast) CallEndAction(InputKind.L);
-        if (!_onR && _onRPast) CallEndAction(InputKind.R);
+        if (!_onL1 && _onL1Past) CallEndAction(InputKind.L1);
+        if (!_onR1 && _onR1Past) CallEndAction(InputKind.R1);
+        if (!_onL2 && _onL2Past) CallEndAction(InputKind.L2);
+        if (!_onR2 && _onR2Past) CallEndAction(InputKind.R2);
 
         //ーーーSーーー
         if (_onS && !_onSPast) CallInitAction(InputKind.S);
@@ -384,8 +398,10 @@ public class PlayerActionManager : MonoBehaviour
         _onN_Down = false;
         _onN_Left = false;
         _onN_Right = false;
-        _onR = false;
-        _onL = false;
+        _onR1 = false;
+        _onL1 = false;
+        _onR2 = false;
+        _onL2 = false;
     }
 
     public void SetAvailableActions(AcquireActionData acquireActionData)

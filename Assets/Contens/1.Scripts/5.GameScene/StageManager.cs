@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] LRBlockManager lRBlockManager;
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] WarpPointManager warpPointManager;
     [SerializeField] BackgroundManager backgroundManager;
@@ -117,6 +118,7 @@ public class StageManager : MonoBehaviour
                 actionCassetteManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
+                lRBlockManager.Initialize();
                 recureCapsuleManager.Initialize();
                 warpPointManager.Initialize();
                 backgroundManager.Initialize();
