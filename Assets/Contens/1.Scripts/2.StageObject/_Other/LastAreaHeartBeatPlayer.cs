@@ -10,6 +10,8 @@ public class LastAreaHeartBeatPlayer : MonoBehaviour
     {
         stageObjectCollisionArea.triggerEnter = TriggerEnter;
         stageObjectCollisionArea.triggerExit = TriggerExit;
+
+        this.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     private void TriggerEnter()
