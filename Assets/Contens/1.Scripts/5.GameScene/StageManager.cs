@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] HiddenAreaManager hiddenAreaManager;
     [SerializeField] LRBlockManager lRBlockManager;
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] WarpPointManager warpPointManager;
@@ -118,6 +119,7 @@ public class StageManager : MonoBehaviour
                 actionCassetteManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
+                hiddenAreaManager.Initialize();
                 lRBlockManager.Initialize();
                 recureCapsuleManager.Initialize();
                 warpPointManager.Initialize();
@@ -132,7 +134,7 @@ public class StageManager : MonoBehaviour
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
             }, 
-            FadeType.Diamond, 0.4f,0.1f,0.4f);  
+            FadeType.Diamond, 0.45f,0.1f,0.45f);  
     }
 
     //ーーードアに入る時の処理ーーー
