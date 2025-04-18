@@ -10,7 +10,7 @@ public enum CameraKind { main, sleep }
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] public GameObject[] mainCamera;
-    [SerializeField] GameObject sleepCamera;
+    [SerializeField] public GameObject sleepCamera;
     [SerializeField] public SleepingCameraMovement sleepingCameraMovement;
 
     private void Awake()

@@ -62,6 +62,7 @@ public class LockAxisCamera : CinemachineExtension
             }
 
             state.RawPosition = newPos;
+            this.transform.position = newPos;
         }
     }
 

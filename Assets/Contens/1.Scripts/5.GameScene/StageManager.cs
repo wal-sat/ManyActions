@@ -95,6 +95,8 @@ public class StageManager : MonoBehaviour
     {
         S_InputSystem._instance.canInput = false;
 
+        hiddenAreaManager.Lock();
+
         Vector3 playerPosition = playerManager.Player.transform.position;
         playerManager.Player.SetActive(false);
 

@@ -11,13 +11,22 @@ public class SavePoint : MonoBehaviour
     [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
-    [SerializeField] public float cameraSize;
-    [SerializeField] public Vector2 bottomLeftPos;
-    [SerializeField] public Vector2 topRightPos;
+    [SerializeField] SpriteRenderer cameraArea;
 
-    private void Awake()
+    [HideInInspector] public Vector2 bottomLeftPos;
+    [HideInInspector] public Vector2 topRightPos;
+
+    private void Start()
     {
         if (stageObjectCollisionArea != null) stageObjectCollisionArea.triggerEnter = triggerEnter;
+
+        if (cameraArea != null) 
+        {
+            Bounds bounds = cameraArea.bounds;
+            bottomLeftPos = new Vector2(bounds.min.x, bounds.min.y);
+            topRightPos = new Vector2(bounds.max.x, bounds.max.y);
+            cameraArea.sprite = null;
+        }
     }
 
     private void triggerEnter()

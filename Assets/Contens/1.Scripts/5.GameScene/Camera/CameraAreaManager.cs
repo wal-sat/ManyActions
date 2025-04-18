@@ -10,6 +10,7 @@ public class CameraAreaManager : MonoBehaviour
 
     private GameObject[] _virtualCamera = new GameObject[2];
     private CinemachineVirtualCamera[] _cinemachineVirtualCamera = new CinemachineVirtualCamera[2];
+    private CinemachineVirtualCamera _cinemachineVirtualCameraSleep;
     private LockAxisCamera[] _lockAxisCamera = new LockAxisCamera[2];
     private List<CameraArea> _cameraAreas = new List<CameraArea>();
     private CameraArea _currentCameraArea;
@@ -33,6 +34,7 @@ public class CameraAreaManager : MonoBehaviour
             _cinemachineVirtualCamera[i] = _virtualCamera[i].GetComponent<CinemachineVirtualCamera>();
             _lockAxisCamera[i] = _virtualCamera[i].GetComponent<LockAxisCamera>();
         }
+        _cinemachineVirtualCameraSleep = cameraManager.sleepCamera.GetComponent<CinemachineVirtualCamera>();
         _currentCamera = 0;
     }
 
@@ -53,6 +55,7 @@ public class CameraAreaManager : MonoBehaviour
         {
             _cinemachineVirtualCamera[currentCamera].Priority = cameraArea.cameraAreaIndex;
             _cinemachineVirtualCamera[currentCamera].m_Lens.OrthographicSize = cameraArea.cameraSize;
+            _cinemachineVirtualCameraSleep.m_Lens.OrthographicSize = cameraArea.cameraSize;
             _lockAxisCamera[currentCamera].SetMoveRange(cameraArea.bottomLeftPos, cameraArea.topRightPos);
 
             _currentCameraArea = cameraArea;
@@ -70,6 +73,7 @@ public class CameraAreaManager : MonoBehaviour
             
             _cinemachineVirtualCamera[currentCamera].Priority = cameraArea.cameraAreaIndex;
             _cinemachineVirtualCamera[currentCamera].m_Lens.OrthographicSize = cameraArea.cameraSize;
+            _cinemachineVirtualCameraSleep.m_Lens.OrthographicSize = cameraArea.cameraSize;
             _lockAxisCamera[currentCamera].SetMoveRange(cameraArea.bottomLeftPos, cameraArea.topRightPos);
 
             _currentCameraArea = cameraArea;

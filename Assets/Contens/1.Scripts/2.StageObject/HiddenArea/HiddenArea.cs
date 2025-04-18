@@ -9,6 +9,9 @@ public class HiddenArea : MonoBehaviour
     [SerializeField] HiddenAreaManager hiddenAreaManager;
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] Tilemap hiddenArea;
+    [SerializeField] public SavePoint savePoint;
+
+    [HideInInspector] public bool isLockHiddenArea;
 
     private FirstCallChecker firstCallChecker;
     private Tween tween;
@@ -32,12 +35,22 @@ public class HiddenArea : MonoBehaviour
     }
     private void TriggerExit()
     {
+        if (isLockHiddenArea) return;
+
         if (tween != null) tween.Kill();
         tween = DOVirtual.Float(hiddenArea.color.a, 1, 0.5f, v => hiddenArea.color = new Color(255, 255, 255, v))
             .OnComplete( () => tween = null );
     }
 
     public void Initialize()
+    {
+        isLockHiddenArea = false;
+
+        if (tween != null) tween.Kill();
+        tween = DOVirtual.Float(hiddenArea.color.a, 1, 0.5f, v => hiddenArea.color = new Color(255, 255, 255, v))
+            .OnComplete( () => tween = null );
+    }
+    public void FirstCallCheckerReset()
     {
         firstCallChecker.Reset();
     }
