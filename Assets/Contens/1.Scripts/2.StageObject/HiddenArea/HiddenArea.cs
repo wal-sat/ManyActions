@@ -28,7 +28,7 @@ public class HiddenArea : MonoBehaviour
         tween = DOVirtual.Float(hiddenArea.color.a, 0, 0.5f, v => hiddenArea.color = new Color(255, 255, 255, v))
             .OnComplete( () => tween = null );
 
-        if (firstCallChecker.Check()) Debug.Log("sound");
+        if (firstCallChecker.Check()) S_SEManager._instance.Play("s_hiddenArea");
     }
     private void TriggerExit()
     {

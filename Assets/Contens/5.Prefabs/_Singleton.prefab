@@ -996,6 +996,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: a8c5e3d1eecc3484bbdffa6b732dd278, type: 3}
   - name: s_grabRope
     audioClip: {fileID: 8300000, guid: 6028d25895dd7ed4789cdc71bd176f43, type: 3}
+  - name: s_hiddenArea
+    audioClip: {fileID: 8300000, guid: dc5e1f8f202cc4348a576c75a070013b, type: 3}
   - name: s_jumpRamp
     audioClip: {fileID: 8300000, guid: 7fa4641b6faa0414c9d63181afc74347, type: 3}
   - name: s_movable
