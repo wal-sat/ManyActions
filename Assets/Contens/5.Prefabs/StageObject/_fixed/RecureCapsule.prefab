@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -338139987, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  m_Sprite: {fileID: 1000869356, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c17ba596470367408f5108953c7509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: -338139987, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
-  disableSprite: {fileID: -894136326, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  defaultSprite: {fileID: 1000869356, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  disableSprite: {fileID: 1626765698, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
 --- !u!1 &3234173587668513801
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   playerActionBlinkManager: {fileID: 0}
   playerActionWarpManager: {fileID: 0}
   COOL_TIME: 3
+  recureCapsuleKind: 0
 --- !u!1 &7496420901241880811
 GameObject:
   m_ObjectHideFlags: 0
