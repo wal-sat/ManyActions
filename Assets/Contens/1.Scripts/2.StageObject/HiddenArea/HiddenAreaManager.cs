@@ -24,8 +24,8 @@ public class HiddenAreaManager : MonoBehaviour
     {
         foreach (var hiddenArea in hiddenAreas)
         {
-            hiddenArea.Initialize();
-            if (hiddenArea.savePoint == null || savePointManager.savePoint != hiddenArea.savePoint) hiddenArea.FirstCallCheckerReset();
+            hiddenArea.isLockHiddenArea = false;
+            if (hiddenArea.savePoint == null || savePointManager.savePoint != hiddenArea.savePoint) hiddenArea.Initialize();
         }
     }
 }

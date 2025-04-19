@@ -8,6 +8,7 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
     {
         public string name;
         public AudioClip audioClip;
+        [HideInInspector] public IEnumerator coroutine;
     }
 
     [SerializeField] float MAX_VOLUME;
@@ -26,6 +27,7 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
         {
             _audioSourceList[i] = gameObject.AddComponent<AudioSource>();
             _audioSourceList[i].priority = 1;
+            _audioSourceList[i].loop = true;
         }
  
         foreach (var AmbientSoundInfo in AmbientSoundList)
@@ -42,11 +44,13 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
 
         if (_soundDictionary.TryGetValue(name, out var ambientSoundInfo))
         {
+            if (ambientSoundInfo.coroutine != null) StopCoroutine(ambientSoundInfo.coroutine);
+
             var audioSource = GetUnusedAudioSource();
             if (audioSource == null) return; //再生できませんでした
             audioSource.clip = ambientSoundInfo.audioClip;
-            audioSource.loop = true;
-            StartCoroutine( CPlay( audioSource, fadeTime) );
+            ambientSoundInfo.coroutine = CPlay( audioSource, fadeTime );
+            StartCoroutine( ambientSoundInfo.coroutine );
         }
     }
     IEnumerator CPlay(AudioSource audioSource, float fadeTime)
@@ -68,7 +72,10 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
         {
             if ( audioSource.clip == _soundDictionary[name].audioClip)
             {
-                StartCoroutine( CStop( audioSource, fadeTime) );
+                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
+                _soundDictionary[name].coroutine = CStop( audioSource, fadeTime );
+                StartCoroutine( _soundDictionary[name].coroutine );
             }
         }
     }
@@ -90,7 +97,10 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
         {
             if ( audioSource.clip == _soundDictionary[name].audioClip)
             {
-                StartCoroutine( CPause( audioSource, fadeTime) );
+                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
+                _soundDictionary[name].coroutine = CPause( audioSource, fadeTime );
+                StartCoroutine( _soundDictionary[name].coroutine );
             }
         }
     }
@@ -112,7 +122,10 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
         {
             if ( audioSource.clip == _soundDictionary[name].audioClip)
             {
-                StartCoroutine(CUnPause(audioSource, fadeTime));
+                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
+                _soundDictionary[name].coroutine = CUnPause(audioSource, fadeTime);
+                StartCoroutine( _soundDictionary[name].coroutine );
             }
         }
     }
@@ -128,12 +141,43 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
         }
         audioSource.volume = _volume;
     }
-    public void ChangeVolume(float volume)
+    public void PlayAndPause(string name)
     {
-        _volume = volume * MAX_VOLUME;
+        var audioSource = GetUnusedAudioSource();
+        if (audioSource == null) return; //再生できませんでした
+        if (_soundDictionary.TryGetValue(name, out var ambientSoundInfo))
+        {
+            bool isPlaying = false;
+            if (GetPlayingAmbientSound() == name) isPlaying = true;
+
+            if (ambientSoundInfo.coroutine != null) StopCoroutine(ambientSoundInfo.coroutine);
+            audioSource.clip = ambientSoundInfo.audioClip;
+            
+            StartCoroutine( CPlayAndPause(audioSource, isPlaying) );
+        }
+    }
+    IEnumerator CPlayAndPause(AudioSource audioSource, bool isPlaying)
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        if (!isPlaying) 
+        {
+            ChangeVolume(0, false);
+            audioSource.Play();
+            
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
+        audioSource.Pause();
+        ChangeVolume(_volume, false);
+    }
+
+    public void ChangeVolume(float volume, bool isSet = true)
+    {
+        if (isSet) _volume = volume * MAX_VOLUME;
         foreach (var audioSource in _audioSourceList)
         {
-            audioSource.volume = _volume;
+            audioSource.volume = volume * MAX_VOLUME;
         }
     }
     public string GetPlayingAmbientSound()

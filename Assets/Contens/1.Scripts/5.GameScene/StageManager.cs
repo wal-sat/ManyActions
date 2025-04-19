@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] HeartBeatAreaManager heartBeatAreaManager;
     [SerializeField] HiddenAreaManager hiddenAreaManager;
     [SerializeField] LRBlockManager lRBlockManager;
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
@@ -95,6 +96,7 @@ public class StageManager : MonoBehaviour
     {
         S_InputSystem._instance.canInput = false;
 
+        heartBeatAreaManager.Lock();
         hiddenAreaManager.Lock();
 
         Vector3 playerPosition = playerManager.Player.transform.position;
@@ -121,6 +123,7 @@ public class StageManager : MonoBehaviour
                 actionCassetteManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
+                heartBeatAreaManager.Initialize();
                 hiddenAreaManager.Initialize();
                 lRBlockManager.Initialize();
                 recureCapsuleManager.Initialize();

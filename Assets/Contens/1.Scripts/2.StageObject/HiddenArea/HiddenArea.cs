@@ -44,14 +44,10 @@ public class HiddenArea : MonoBehaviour
 
     public void Initialize()
     {
-        isLockHiddenArea = false;
+        firstCallChecker.Reset();
 
         if (tween != null) tween.Kill();
         tween = DOVirtual.Float(hiddenArea.color.a, 1, 0.5f, v => hiddenArea.color = new Color(255, 255, 255, v))
             .OnComplete( () => tween = null );
-    }
-    public void FirstCallCheckerReset()
-    {
-        firstCallChecker.Reset();
     }
 }
