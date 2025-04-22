@@ -26,6 +26,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] SectionManager sectionManager;
     [SerializeField] DeathCountManager deathCountManager;
     [SerializeField] TimeManager timeManager;
+    [SerializeField] CameraManager cameraManager;
 
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseMenu gameScenePauseMenu;
@@ -81,6 +82,8 @@ public class StageManager : MonoBehaviour
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
 
+        cameraManager.cameraBodyChanger.EnableDumping(true);
+
         timeManager.StartTimer();
         gameSceneUI.SwitchKidouUIVisible(false);
 
@@ -130,6 +133,8 @@ public class StageManager : MonoBehaviour
                 warpPointManager.Initialize();
                 backgroundManager.Initialize();
 
+                cameraManager.cameraBodyChanger.EnableDumping(false);
+
                 deathCountManager.IncrementDeathCount();
                 gameSceneUI.UpdateDeathCount( deathCountManager.deathCount );
                 gameSceneUI.SwitchUIVisible(true);
@@ -139,7 +144,7 @@ public class StageManager : MonoBehaviour
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
             }, 
-            FadeType.Diamond, 0.45f,0.1f,0.45f);  
+            FadeType.Diamond, 0.31f,0.08f,0.31f);  
     }
 
     //ーーードアに入る時の処理ーーー

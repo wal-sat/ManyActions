@@ -6,8 +6,6 @@ using Cinemachine;
 
 public class CameraAreaManager : MonoBehaviour
 {
-    [SerializeField] CameraManager cameraManager;
-
     private GameObject[] _virtualCamera = new GameObject[2];
     private CinemachineVirtualCamera[] _cinemachineVirtualCamera = new CinemachineVirtualCamera[2];
     private CinemachineVirtualCamera _cinemachineVirtualCameraSleep;
@@ -26,15 +24,15 @@ public class CameraAreaManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void Initialize(GameObject[] mainCamera, GameObject sleepCamera)
     {
         for (int i = 0; i < _virtualCamera.Length; i++)
         {
-            _virtualCamera[i] = cameraManager.mainCamera[i];
+            _virtualCamera[i] = mainCamera[i];
             _cinemachineVirtualCamera[i] = _virtualCamera[i].GetComponent<CinemachineVirtualCamera>();
             _lockAxisCamera[i] = _virtualCamera[i].GetComponent<LockAxisCamera>();
         }
-        _cinemachineVirtualCameraSleep = cameraManager.sleepCamera.GetComponent<CinemachineVirtualCamera>();
+        _cinemachineVirtualCameraSleep = sleepCamera.GetComponent<CinemachineVirtualCamera>();
         _currentCamera = 0;
     }
 

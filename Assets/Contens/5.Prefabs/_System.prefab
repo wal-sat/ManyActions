@@ -150,6 +150,7 @@ MonoBehaviour:
   sectionManager: {fileID: 0}
   deathCountManager: {fileID: 4968449848444924053}
   timeManager: {fileID: 4542335394049387290}
+  cameraManager: {fileID: 2394312228686893510}
   gameSceneUI: {fileID: 807373423503148999}
   gameScenePauseMenu: {fileID: 1679779317379847249}
   gameScenePauseUIToolkit: {fileID: 856116540364350291}
@@ -1033,6 +1034,7 @@ GameObject:
   - component: {fileID: 3643122763573877481}
   - component: {fileID: 2394312228686893510}
   - component: {fileID: 5539538364885643231}
+  - component: {fileID: 3703638222134167644}
   - component: {fileID: 5342314149647317413}
   m_Layer: 0
   m_Name: CameraManager
@@ -1071,6 +1073,8 @@ MonoBehaviour:
   mainCamera:
   - {fileID: 0}
   sleepCamera: {fileID: 0}
+  cameraAreaManager: {fileID: 5342314149647317413}
+  cameraBodyChanger: {fileID: 3703638222134167644}
   sleepingCameraMovement: {fileID: 5539538364885643231}
 --- !u!114 &5539538364885643231
 MonoBehaviour:
@@ -1084,8 +1088,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205d6ada493a05c4e9644791efae8eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sleepCamera: {fileID: 0}
   SPEED: 15
+--- !u!114 &3703638222134167644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765864854089338912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc328c41668b1941a3d93e4d5602bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5342314149647317413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,7 +1113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb23556021065e4a9331d81bf91c00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraManager: {fileID: 2394312228686893510}
 --- !u!1 &7895809373678709561
 GameObject:
   m_ObjectHideFlags: 0
