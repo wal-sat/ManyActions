@@ -30,7 +30,7 @@
 .settingPanel {
     flex-grow: 1;
     flex-direction: row;
-    -unity-font-definition: url("project://database/Assets/Contens/8.Font/YDWaosagi%20SDF%201.asset?fileID=11400000&guid=5b67b7004a1427a40b56fc7f1dccfa6f&type=2#YDWaosagi SDF 1");
+    -unity-font-definition: url("project://database/Assets/Contens/8.Font/YDWaosagi%20SDF.asset?fileID=11400000&guid=6cddd529008bb7643a53fb9e608539ba&type=2#YDWaosagi SDF");
     -unity-font: url("project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&guid=702e835cea736254b992da370d889d70&type=3#YDWaosagi");
     translate: 0 -100%;
     transition-timing-function: ease-out-cubic;
