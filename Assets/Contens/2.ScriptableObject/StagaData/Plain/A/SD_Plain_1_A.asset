@@ -19,7 +19,7 @@ MonoBehaviour:
   reverseIndex: 0
   worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
   stageName: "\uFF11\u9762"
+  clearKind: 0
   acquireActionImage: {fileID: 21300000, guid: 2c467c1e133ca8946b8fc51cbe20f077, type: 3}
-  stageImage: {fileID: 21300000, guid: 6171444c8660e0b42a905b33c282b1e8, type: 3}
-  acquireActionData: {fileID: 11400000, guid: e58bb6f10fbfad045812212494fe05bb, type: 2}
+  stageImage: {fileID: 21300000, guid: 2f6ae46de01679640a040db374aa3220, type: 3}
   releaseConditions: []

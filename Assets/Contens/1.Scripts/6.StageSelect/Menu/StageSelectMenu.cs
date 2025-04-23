@@ -10,6 +10,8 @@ public class StageSelectMenu : MonoBehaviour
     [SerializeField] public StageSelectMenuConfirm stageSelectMenuConfirm;
     [SerializeField] public StageSelectMenuUIToolkit stageSelectMenuUIToolkit;
     [SerializeField] StageSelectCameraMovement stageSelectCameraMovement;
+    [SerializeField] Sprite acquiredActionBlind;
+    [SerializeField] Sprite stageImageBlind;
 
     public Action<StageSelectSceneStatus> ChangeStatus;
 
@@ -167,9 +169,14 @@ public class StageSelectMenu : MonoBehaviour
 
     private void DisplayStageInfomation(StageData stageData)
     {
-        stageSelectMenuUIToolkit.AcquireActionImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.acquireActionImage);
         stageSelectMenuUIToolkit.StageNameLabelChange(stageIndex, undergroundIndex, reverseIndex, stageData.worldName, stageData.stageName);
-        stageSelectMenuUIToolkit.StageImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.stageImage);
+        if (stageData.isReleased) {
+            stageSelectMenuUIToolkit.AcquireActionImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.acquireActionImage);
+            stageSelectMenuUIToolkit.StageImageChange(stageIndex, undergroundIndex, reverseIndex, stageData.stageImage);
+        } else {
+            stageSelectMenuUIToolkit.AcquireActionImageChange(stageIndex, undergroundIndex, reverseIndex, acquiredActionBlind);
+            stageSelectMenuUIToolkit.StageImageChange(stageIndex, undergroundIndex, reverseIndex, stageImageBlind);
+        }
         for (int i = 0; i < 5; i++)
         {
             stageSelectMenuUIToolkit.GearIconAcquired(i, stageIndex, undergroundIndex, reverseIndex, stageData.gearAcquire[i]);
