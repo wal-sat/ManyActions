@@ -433,6 +433,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1773115945}
     - target: {fileID: 6232374540234396176, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 792347630}
+    - target: {fileID: 6232374540234396176, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1773115941}

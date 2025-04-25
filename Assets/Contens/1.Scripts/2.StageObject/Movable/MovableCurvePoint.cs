@@ -15,30 +15,36 @@ public class MovableCurvePoint : MonoBehaviour
             switch (pastDirection)
             {
                 case MovableDirection.up:
-                    if (other.transform.position.y < this.transform.position.y) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.y < this.transform.position.y) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.down:
-                    if (other.transform.position.y > this.transform.position.y) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.y > this.transform.position.y) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.left:
-                    if (other.transform.position.x > this.transform.position.x) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.x > this.transform.position.x) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.right:
-                    if (other.transform.position.x < this.transform.position.x) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.x < this.transform.position.x) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.up_left:
-                    if (other.transform.position.y < this.transform.position.y && other.transform.position.x < this.transform.position.x) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.y < this.transform.position.y && other.transform.position.x < this.transform.position.x) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.up_right:
-                    if (other.transform.position.y < this.transform.position.y && other.transform.position.x > this.transform.position.x) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.y < this.transform.position.y && other.transform.position.x > this.transform.position.x) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.down_left:
-                    if (other.transform.position.y > this.transform.position.y && other.transform.position.x < this.transform.position.x) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.y > this.transform.position.y && other.transform.position.x < this.transform.position.x) DirectionChange(movableObject, other);
                 break;
                 case MovableDirection.down_right:
-                    if (other.transform.position.y > this.transform.position.y && other.transform.position.x > this.transform.position.x) { movableObject.Curve(movableDirection); other.transform.position = this.transform.position; }
+                    if (other.transform.position.y > this.transform.position.y && other.transform.position.x > this.transform.position.x) DirectionChange(movableObject, other);
                 break;
             }
         } 
+    }
+
+    private void DirectionChange(IMovable movableObject, Collider2D other)
+    {
+        movableObject.Curve(movableDirection); 
+        other.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z);
     }
 }

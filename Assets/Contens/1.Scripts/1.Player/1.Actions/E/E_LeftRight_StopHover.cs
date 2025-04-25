@@ -30,7 +30,7 @@ public class E_LeftRight_StopHover : PlayerActionBlinkBase
 
         rb.gravityScale = _gravityScale;
         playerMovement.SetLockMovingStatus(this.gameObject, false);
-        playerPreventStuck.isPreventStuck = true;
+        playerPreventStuck.SetLockPreventStuckStatus(this.gameObject, false);
     }
 
     public override void Blink()
@@ -44,7 +44,7 @@ public class E_LeftRight_StopHover : PlayerActionBlinkBase
 
             rb.gravityScale = 0;
             playerMovement.SetLockMovingStatus(this.gameObject, true);
-            playerPreventStuck.isPreventStuck = false;
+            playerPreventStuck.SetLockPreventStuckStatus(this.gameObject, true);
 
             rb.velocity = new Vector3(0, 0, 0);
 

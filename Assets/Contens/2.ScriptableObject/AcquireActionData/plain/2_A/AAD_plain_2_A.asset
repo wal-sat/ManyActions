@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d93531e67374c4b93223e04559689d, type: 3}
+  m_Name: AAD_plain_2_A
+  m_EditorClassIdentifier: 
+  LR_Swap: 0
+  LR_Kick: 0
+  LR_Interact: 0
+  LeftRight_Accelerate: 1
+  LeftRight_Decelerate: 0
+  Up_Grab: 0
+  Down_Crouch: 0
+  S_Jump: 1
+  S_BigJump: 0
+  S_FrontJump: 0
+  S_BackJump: 0
+  S_GoDown: 0
+  S_DoubleJump: 0
+  S_InfiniteJump: 0
+  E_Hover: 0
+  E_UpBlink: 0
+  E_Blink: 0
+  E_StopHover: 0
+  E_Swoop: 0
+  E_DoubleBlink: 0
+  E_InfiniteBlink: 0
+  W_: 0
+  W_Up: 0
+  W_Left: 0
+  W_Right: 0
+  W_Down: 0
+  W_Double: 0
+  W_Infinite: 0
+  N_Invincible: 0
+  N_UpWarp: 0
+  N_Warp: 0
+  N_DoubleWarp: 0
+  N_InfiniteWarp: 0

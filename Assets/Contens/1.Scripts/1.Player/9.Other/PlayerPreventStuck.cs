@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerPreventStuck : MonoBehaviour
@@ -8,17 +9,11 @@ public class PlayerPreventStuck : MonoBehaviour
     [SerializeField] int RECORD_NUMBER;
     [SerializeField] float RECORD_TIME;
     [SerializeField] float THRESHOLD;
-
-    [HideInInspector] public bool isPreventStuck;
-
+    
+    private Dictionary<GameObject, bool> _isLockPreventStuckDict = new Dictionary<GameObject, bool>();
     private List<Vector2> positions = new List<Vector2>();
 
     private float _timer;
-
-    private void Start()
-    {
-        isPreventStuck = true;
-    }
 
     public void Initialize()
     {
@@ -28,7 +23,7 @@ public class PlayerPreventStuck : MonoBehaviour
     }
     public void PreventStuckUpdate()
     {
-        if (isPreventStuck) _timer += Time.deltaTime;
+        if (!_isLockPreventStuckDict.Values.Any(v => v)) _timer += Time.deltaTime;
 
         if (_timer >= RECORD_TIME)
         {
@@ -56,5 +51,10 @@ public class PlayerPreventStuck : MonoBehaviour
         }
 
         return isStuck;
+    }
+
+    public void SetLockPreventStuckStatus(GameObject obj, bool isLockPreventStuck)
+    {
+        _isLockPreventStuckDict[obj] = isLockPreventStuck;
     }
 }
