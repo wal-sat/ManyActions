@@ -39,6 +39,7 @@ public class StageSelectInputManager : MonoBehaviour
             S_InputSystem._instance.canInput = true;
         #endif
 
+        Time.timeScale = 1f;
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
         
         ChangeStatus(StageSelectSceneStatus.menu);
