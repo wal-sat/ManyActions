@@ -1069,6 +1069,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneUI: {fileID: 807373423503148999}
+  playerManager: {fileID: 2591147512170374797}
+  savePointManager: {fileID: 2796201015626728750}
+  sectionManager: {fileID: 0}
+  startSection: -1
   isUIInvisible: 0
 --- !u!1 &7765864854089338912
 GameObject:

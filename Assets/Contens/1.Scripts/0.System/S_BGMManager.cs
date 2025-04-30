@@ -46,11 +46,7 @@ public class S_BGMManager : Singleton<S_BGMManager>
 
         if (_soundDictionary.TryGetValue(name, out var BGMInfo))
         {
-            if (BGMInfo.coroutine != null) 
-            {
-                Debug.Log("StopCoroutine: " + BGMInfo.coroutine.ToString());
-                StopCoroutine(_soundDictionary[name].coroutine);
-            }
+            if (BGMInfo.coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
 
             var audioSource = GetUnusedAudioSource();
             if (audioSource == null) return; //再生できませんでした

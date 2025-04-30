@@ -8727,6 +8727,10 @@ PrefabInstance:
       propertyPath: _cinemachineBrain
       value: 
       objectReference: {fileID: 2041490404}
+    - target: {fileID: 4215321316364299161, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: sectionManager
+      value: 
+      objectReference: {fileID: 637448064}
     - target: {fileID: 5342314149647317413, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: virtualCameraMain
       value: 

@@ -6476,6 +6476,10 @@ PrefabInstance:
       propertyPath: UIToolkit
       value: 
       objectReference: {fileID: 1974622404}
+    - target: {fileID: 4215321316364299161, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: sectionManager
+      value: 
+      objectReference: {fileID: 637448064}
     - target: {fileID: 5342314149647317413, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: virtualCameraMain
       value: 
@@ -6927,7 +6931,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 21
+      m_TileSpriteIndex: 25
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7177,7 +7181,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 22
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7472,16 +7476,16 @@ Tilemap:
     m_Data: {fileID: -1252592749, guid: d09c05a7eb8551d488109c16499bf66c, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1179892254, guid: 66c053a95dc937747ba186d3f6c57521, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1307615089, guid: d09c05a7eb8551d488109c16499bf66c, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 853025779, guid: d09c05a7eb8551d488109c16499bf66c, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1307615089, guid: d09c05a7eb8551d488109c16499bf66c, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 50
     m_Data:
