@@ -25,8 +25,8 @@ public class LR_Kick : PlayerActionBase
 
     private void Awake()
     {
-        if (base.assignedInput == InputKind.L) playerMovement.WallKickJump_L = WallKickJump;
-        if (base.assignedInput == InputKind.R) playerMovement.WallKickJump_R = WallKickJump;
+        if (base.assignedInput == InputKind.L1) playerMovement.WallKickJump_L = WallKickJump;
+        if (base.assignedInput == InputKind.R1) playerMovement.WallKickJump_R = WallKickJump;
 
         playerKickAnimation = kick.GetComponent<PlayerKickAnimation>();
         kickBall = kick.GetComponent<Collider2D>();
@@ -69,7 +69,7 @@ public class LR_Kick : PlayerActionBase
     {
         if (lr_Swap.isSwaping) return;
 
-        if ( ( base.assignedInput == InputKind.L && !playerMovement.isFacingRight ) || ( base.assignedInput == InputKind.R && playerMovement.isFacingRight ) )
+        if ( ( base.assignedInput == InputKind.L1 && !playerMovement.isFacingRight ) || ( base.assignedInput == InputKind.R1 && playerMovement.isFacingRight ) )
         {
             isAction = true;
             _wasJumped = true;

@@ -19,9 +19,9 @@ MonoBehaviour:
   reverseIndex: 0
   worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
   stageName: "\uFF13\u9762"
-  acquireActionImage: {fileID: 21300000, guid: 2c467c1e133ca8946b8fc51cbe20f077, type: 3}
-  stageImage: {fileID: 21300000, guid: 6171444c8660e0b42a905b33c282b1e8, type: 3}
-  acquireActionData: {fileID: 0}
+  clearKind: 0
+  acquireActionImage: {fileID: 21300000, guid: c9741d3100e470244aff8901157e8025, type: 3}
+  stageImage: {fileID: 21300000, guid: be44665ad1e16b840bd4a5f700671948, type: 3}
   releaseConditions:
   - releaseConditionKind: 1
     clearSceneKind: 1

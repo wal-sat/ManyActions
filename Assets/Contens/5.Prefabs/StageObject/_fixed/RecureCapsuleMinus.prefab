@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 267134356757623274, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
       propertyPath: defaultSprite
       value: 
-      objectReference: {fileID: 191095601, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+      objectReference: {fileID: 1956612170, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
     - target: {fileID: 1462341084437805997, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,7 +59,11 @@ PrefabInstance:
     - target: {fileID: 4419336541112500857, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 191095601, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+      objectReference: {fileID: 1956612170, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+    - target: {fileID: 4419336541112500857, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8332625396456518124, guid: 52c6e91adbf639f4289710367445fc71, type: 3}
       propertyPath: recureCapsuleKind
       value: 1

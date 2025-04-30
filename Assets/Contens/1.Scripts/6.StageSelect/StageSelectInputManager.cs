@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public enum StageSelectSceneStatus { menu, menuConfirm, option, optionConfirm, setting }
@@ -42,6 +39,7 @@ public class StageSelectInputManager : MonoBehaviour
             S_InputSystem._instance.canInput = true;
         #endif
 
+        Time.timeScale = 1f;
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.Player);
         
         ChangeStatus(StageSelectSceneStatus.menu);
@@ -73,11 +71,11 @@ public class StageSelectInputManager : MonoBehaviour
         if (S_InputSystem._instance.leftDirection == Vector2.right && !_rightPast) Right();
         else if (S_InputSystem._instance.leftDirection != Vector2.right && _rightPast) _rightPast = false;
 
-        if (S_InputSystem._instance.isPushingL && !_LPast) L();
-        else if (!S_InputSystem._instance.isPushingL && _LPast) _LPast = false;
+        if (S_InputSystem._instance.isPushingL1 && !_LPast) L();
+        else if (!S_InputSystem._instance.isPushingL1 && _LPast) _LPast = false;
 
-        if (S_InputSystem._instance.isPushingR && !_RPast) R();
-        else if (!S_InputSystem._instance.isPushingR && _RPast) _RPast = false;
+        if (S_InputSystem._instance.isPushingR1 && !_RPast) R();
+        else if (!S_InputSystem._instance.isPushingR1 && _RPast) _RPast = false;
 
         if (S_InputSystem._instance.isPushingOption && !_optionPast) Option();
         else if (!S_InputSystem._instance.isPushingOption && _optionPast) _optionPast = false;

@@ -41,10 +41,10 @@ public class GameScenePauseConfirm : MonoBehaviour
         switch (confirmIndex)
         {
             case 0:
-                CursorCancel();
+                LoadTitleScene();
             break;
             case 1:
-                LoadTitleScene();
+                CursorCancel();
             break;
         }
     }
@@ -60,8 +60,7 @@ public class GameScenePauseConfirm : MonoBehaviour
 
     private void LoadTitleScene()
     {
-        S_BGMManager._instance.Stop("stage", 2f);
         S_SEManager._instance.Play("u_select");
-        S_LoadSceneSystem._instance.LoadScene(SceneKind.title);
+        S_LoadSceneSystem._instance.LoadScene(SceneKind.stageSelect);
     }
 }

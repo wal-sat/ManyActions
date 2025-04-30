@@ -53,7 +53,7 @@ MonoBehaviour:
   gameSceneUI: {fileID: 0}
   actionKind: 0
   actionCassetteState: 0
-  COOL_TIME: 4
+  COOL_TIME: 5
 --- !u!1 &6105065299163302952
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 992575365, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  m_Sprite: {fileID: 997037262, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,5 +246,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ea6c1d7846e7a4883856740b6e8d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 992575365, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
-  disableSprite: {fileID: -1215550454, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  defaultSprite: {fileID: 997037262, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  disableSprite: {fileID: -943881076, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}

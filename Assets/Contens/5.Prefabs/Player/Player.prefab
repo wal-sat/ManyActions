@@ -571,9 +571,8 @@ MonoBehaviour:
   LandingChecker: {fileID: 8341603427775891402}
   OverheadChecker: {fileID: 4188344617211072675}
   SPEED: 225
-  TERMINAL_VELOCITY: 530
+  TERMINAL_VELOCITY: 550
   isFacingRight: 0
-  isLockMoving: 0
   isBlownUpByBarrel: 0
   _plusSpeed: 0
   isRightAccelerate: 0

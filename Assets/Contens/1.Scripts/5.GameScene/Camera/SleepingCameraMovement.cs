@@ -5,42 +5,25 @@ using Cinemachine;
 
 public class SleepingCameraMovement : MonoBehaviour
 {
-    [SerializeField] GameObject sleepCamera;
-    [SerializeField] GameObject followedObject;
     [SerializeField] float SPEED;
 
-    private CinemachineVirtualCamera _cinemachineVirtualCamera;
+    private GameObject _sleepCamera;
     private LockAxisCamera _lockAxisCamera;
 
-    private Vector2 _bottomLeftPos;
-    private Vector2 _topRightPos;
-
-
-
-    private void Awake()
+    public void Initialize(GameObject sleepCamera)
     {
-        _cinemachineVirtualCamera = sleepCamera.GetComponent<CinemachineVirtualCamera>();
-        _lockAxisCamera = sleepCamera.GetComponent<LockAxisCamera>();
+        _sleepCamera = sleepCamera;
+        _lockAxisCamera = _sleepCamera.GetComponent<LockAxisCamera>();
     }
 
-    public void SleepCameraInit(Vector2 initPosition, float cameraSize, Vector2 bottomLeftPos, Vector2 topRightPos)
+    public void SleepCameraInit(Vector2 initPosition, Vector2 bottomLeftPos, Vector2 topRightPos)
     {
-        followedObject.transform.position = initPosition;
-        _cinemachineVirtualCamera.m_Lens.OrthographicSize = cameraSize;
+        _sleepCamera.transform.position = initPosition;
         _lockAxisCamera.SetMoveRange(bottomLeftPos, topRightPos);
-
-        _bottomLeftPos = bottomLeftPos;
-        _topRightPos = topRightPos;
     }
     public void SleepCameraMove(Vector2 direction)
     {
-        followedObject.transform.position = new Vector2(followedObject.transform.position.x + direction.x * SPEED * Time.deltaTime, followedObject.transform.position.y + direction.y * SPEED * Time.deltaTime);
-
-        if (followedObject.transform.position.x < _bottomLeftPos.x) followedObject.transform.position = new Vector3(_bottomLeftPos.x, followedObject.transform.position.y, followedObject.transform.position.z);
-        else if (_topRightPos.x < followedObject.transform.position.x) followedObject.transform.position = new Vector3(_topRightPos.x, followedObject.transform.position.y, followedObject.transform.position.z);
-
-        if (followedObject.transform.position.y < _bottomLeftPos.y) followedObject.transform.position = new Vector3(followedObject.transform.position.x, _bottomLeftPos.y, followedObject.transform.position.z);
-        else if (_topRightPos.y < followedObject.transform.position.y) followedObject.transform.position = new Vector3(followedObject.transform.position.x, _topRightPos.y, followedObject.transform.position.z);
-
+        _sleepCamera.transform.position = new Vector2(_sleepCamera.transform.position.x + direction.x * SPEED * Time.deltaTime, 
+                                                     _sleepCamera.transform.position.y + direction.y * SPEED * Time.deltaTime);
     }
 }

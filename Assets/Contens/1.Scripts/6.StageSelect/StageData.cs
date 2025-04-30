@@ -68,6 +68,8 @@ public class StageData : ScriptableObject
         }
     }
 
+    private bool _isPlayed;
+
     public void OnEnable()
     {
         isClear = false;
@@ -76,10 +78,12 @@ public class StageData : ScriptableObject
         minimumDeathCount = -1;
         totalPlayTime = 0;
         fastestClearTime = -1;
+        _isPlayed = false;
     }
 
     public void SetDeathCount(int count, bool isCheckMinimum = false)
     {
+        if (!_isPlayed) _isPlayed = true;
         totalDeathCount += count;
         if (isCheckMinimum) 
         {
@@ -90,6 +94,7 @@ public class StageData : ScriptableObject
 
     public void SetPlayTime(int time, bool isCheckFastest = false)
     {
+        if (!_isPlayed) _isPlayed = true;
         totalPlayTime += time;
         if (isCheckFastest) 
         {
@@ -98,8 +103,20 @@ public class StageData : ScriptableObject
         }
     }
 
+    public string GetTotalDeathCountString()
+    {
+        if (!_isPlayed) return "- - -";
+        return totalDeathCount.ToString();
+    }
+    public string GetMinimumDeathCountString()
+    {
+        if (minimumDeathCount == -1) return "- - -";
+        return minimumDeathCount.ToString();
+    }
     public string GetTotalPlayTimeString()
     {
+        if (!_isPlayed) return "- - -";
+
         int hours = totalPlayTime / 3600;
         int minutes = (totalPlayTime % 3600) / 60;
         int seconds = totalPlayTime % 60;
@@ -108,6 +125,8 @@ public class StageData : ScriptableObject
     }
     public string GetFastestClearTimeString()
     {
+        if (fastestClearTime == -1) return "- - -";
+
         int hours = fastestClearTime / 3600;
         int minutes = (fastestClearTime % 3600) / 60;
         int seconds = fastestClearTime % 60;

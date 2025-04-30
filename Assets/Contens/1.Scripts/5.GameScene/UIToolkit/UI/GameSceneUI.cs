@@ -13,7 +13,7 @@ public class GameSceneUI : MonoBehaviour
 
     public void ChangeGearCount(int temporaryGetCount)
     {
-        gameSceneUIUIToolkit.ChangeGearLabel( S_GameInfo._instance.totalGearCount );
+        gameSceneUIUIToolkit.ChangeGearLabel( S_GameInfo._instance.GetGearCountInAScene( S_LoadSceneSystem._instance.GetCurrentSceneKind() ) );
 
         if (temporaryGetCount == 0) gameSceneUIUIToolkit.SetActiveGearPlusLabel(false);
         else 
@@ -47,5 +47,13 @@ public class GameSceneUI : MonoBehaviour
     public void SwitchKidouUIVisible(bool isVisible)
     {
         gameSceneUIUIToolkit.KidouUIFade(isVisible);
+    }
+
+    //ーーーーーデバック用ーーーーー
+    public void Debug_UIInvisible()
+    {
+        gameSceneUIUIToolkit.RootFade(false);
+        gameSceneUIUIToolkit.KidouUIFade(false);
+        gameSceneUIUIToolkit.SleepCameraUIFade(false);
     }
 }

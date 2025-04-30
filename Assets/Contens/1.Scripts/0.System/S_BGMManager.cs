@@ -10,6 +10,7 @@ public class S_BGMManager : Singleton<S_BGMManager>
     {
         public string name;
         public AudioClip audioClip;
+        [HideInInspector] public IEnumerator coroutine;
     }
 
     [SerializeField] float MAX_VOLUME;
@@ -28,6 +29,7 @@ public class S_BGMManager : Singleton<S_BGMManager>
         {
             _audioSourceList[i] = gameObject.AddComponent<AudioSource>();
             _audioSourceList[i].priority = 1;
+            _audioSourceList[i].loop = true;
         }
  
         foreach (var BGMInfo in BGMList)
@@ -44,11 +46,13 @@ public class S_BGMManager : Singleton<S_BGMManager>
 
         if (_soundDictionary.TryGetValue(name, out var BGMInfo))
         {
+            if (BGMInfo.coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
             var audioSource = GetUnusedAudioSource();
             if (audioSource == null) return; //再生できませんでした
             audioSource.clip = BGMInfo.audioClip;
-            audioSource.loop = true;
-            StartCoroutine( CPlay( audioSource, fadeTime) );
+            BGMInfo.coroutine = CPlay( audioSource, fadeTime );
+            StartCoroutine( BGMInfo.coroutine );
         }
     }
     IEnumerator CPlay(AudioSource audioSource, float fadeTime)
@@ -70,7 +74,10 @@ public class S_BGMManager : Singleton<S_BGMManager>
         {
             if ( audioSource.clip == _soundDictionary[name].audioClip)
             {
-                StartCoroutine( CStop( audioSource, fadeTime) );
+                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
+                _soundDictionary[name].coroutine = CStop( audioSource, fadeTime );
+                StartCoroutine( _soundDictionary[name].coroutine );
             }
         }
     }
@@ -92,7 +99,10 @@ public class S_BGMManager : Singleton<S_BGMManager>
         {
             if ( audioSource.clip == _soundDictionary[name].audioClip)
             {
-                StartCoroutine( CPause( audioSource, fadeTime) );
+                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
+                _soundDictionary[name].coroutine = CPause( audioSource, fadeTime );
+                StartCoroutine( _soundDictionary[name].coroutine );
             }
         }
     }
@@ -114,7 +124,10 @@ public class S_BGMManager : Singleton<S_BGMManager>
         {
             if ( audioSource.clip == _soundDictionary[name].audioClip)
             {
-                StartCoroutine(CUnPause(audioSource, fadeTime));
+                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+
+                _soundDictionary[name].coroutine = CUnPause(audioSource, fadeTime);
+                StartCoroutine( _soundDictionary[name].coroutine );
             }
         }
     }
@@ -130,6 +143,7 @@ public class S_BGMManager : Singleton<S_BGMManager>
         }
         audioSource.volume = _volume;
     }
+
     public void ChangeVolume(float volume)
     {
         _volume = volume * MAX_VOLUME;

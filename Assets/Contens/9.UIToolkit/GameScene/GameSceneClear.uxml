@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Contens/9.UIToolkit/_StyleSheet/GameSceneClearStyle.uss?fileID=7433441132597879392&amp;guid=df03054ea6645a949acb84e127e3bb0c&amp;type=3#GameSceneClearStyle" />
-    <ui:VisualElement name="Root" class="Visible Invisible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: initial;">
+    <ui:VisualElement name="Root" class="Visible Invisible" style="width: 100%; height: 100%; -unity-font: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi.otf?fileID=12800000&amp;guid=702e835cea736254b992da370d889d70&amp;type=3#YDWaosagi&quot;); -unity-font-definition: url(&quot;project://database/Assets/Contens/8.Font/YDWaosagi%20SDF.asset?fileID=11400000&amp;guid=4f9aca0404e76974b9d5a82142a773e2&amp;type=2#YDWaosagi SDF&quot;);">
         <ui:VisualElement name="Bar" class="Bar" />
         <ui:VisualElement style="height: auto; background-color: rgba(255, 255, 255, 0.39); flex-direction: row; justify-content: space-around; align-items: center; flex-grow: 1;">
             <ui:VisualElement name="ClearIcon" style="background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/Clear/clearIcon.png?fileID=2800000&amp;guid=224ec8a8298246d458845f9c09521b50&amp;type=3#clearIcon&quot;); width: 800px; height: 800px; margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
@@ -32,7 +32,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement style="width: 100%; height: 20%; flex-direction: row; align-items: center; justify-content: space-around;">
-                    <ui:Label tabindex="-1" text="次にすすむ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OptionLabel0" class="optionLabel" />
+                    <ui:Label tabindex="-1" text="ステージセレクトへ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OptionLabel0" class="optionLabel" />
                     <ui:Label tabindex="-1" text="もういちど遊ぶ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OptionLabel1" class="optionLabel" />
                 </ui:VisualElement>
             </ui:VisualElement>

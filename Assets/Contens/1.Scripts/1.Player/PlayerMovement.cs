@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.y <= -TERMINAL_VELOCITY * Time.deltaTime) rb.velocity = new Vector3(rb.velocity.x, -TERMINAL_VELOCITY * Time.deltaTime, 0f);
 
-        if (_isLanding && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 10f, 0f);
+        //if (_isLanding && rb.velocity.y < -0.1f) rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 10f, 0f);
 
         if (_isLanding && !isLandingConveyor)
         {

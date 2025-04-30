@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2660087757489245061}
   - component: {fileID: 6633329713451181158}
-  - component: {fileID: 3524819394606482987}
   - component: {fileID: 5106051247280698407}
+  - component: {fileID: 3524819394606482987}
+  - component: {fileID: 1667740430475665277}
   m_Layer: 0
   m_Name: GearView
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -685458579, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  m_Sprite: {fileID: -1865566678, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,6 +87,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5106051247280698407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995902995105860335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641a79abc92cde643963c4dd2cf29a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: -1865566678, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  disableSprite: {fileID: -1883344262, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
 --- !u!114 &3524819394606482987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MOVE_DISTANCE: 0.2
   MOVE_TIME: 2
---- !u!114 &5106051247280698407
+--- !u!114 &1667740430475665277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,11 +124,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 995902995105860335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 641a79abc92cde643963c4dd2cf29a9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1193dc403b419794c85806288785be86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: -685458579, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
-  disableSprite: {fileID: 1609078644, guid: fefb8957707e37b4e925c51a4035cc78, type: 3}
+  ROTATE_SPEED: 50
 --- !u!1 &3980283401238150142
 GameObject:
   m_ObjectHideFlags: 0

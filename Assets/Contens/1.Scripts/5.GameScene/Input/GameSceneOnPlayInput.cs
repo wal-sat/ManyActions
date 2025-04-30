@@ -9,7 +9,7 @@ public enum InputKind
     E, E_Up, E_Down, E_Left, E_Right,
     W, W_Up, W_Down, W_Left, W_Right,
     N, N_Up, N_Down, N_Left, N_Right,
-    L, R, L2, R2
+    L1, R1, L2, R2
 }
 
 public class GameSceneOnPlayInput : MonoBehaviour
@@ -41,8 +41,10 @@ public class GameSceneOnPlayInput : MonoBehaviour
     [HideInInspector] public bool onN_Down;
     [HideInInspector] public bool onN_Left;
     [HideInInspector] public bool onN_Right;
-    [HideInInspector] public bool onR;
-    [HideInInspector] public bool onL;
+    [HideInInspector] public bool onR1;
+    [HideInInspector] public bool onL1;
+    [HideInInspector] public bool onR2;
+    [HideInInspector] public bool onL2;
 
     [HideInInspector] public bool onUpPast;
     [HideInInspector] public bool onDownPast;
@@ -68,8 +70,10 @@ public class GameSceneOnPlayInput : MonoBehaviour
     [HideInInspector] public bool onN_DownPast;
     [HideInInspector] public bool onN_LeftPast;
     [HideInInspector] public bool onN_RightPast;
-    [HideInInspector] public bool onRPast;
-    [HideInInspector] public bool onLPast;
+    [HideInInspector] public bool onR1Past;
+    [HideInInspector] public bool onL1Past;
+    [HideInInspector] public bool onR2Past;
+    [HideInInspector] public bool onL2Past;
 
     private bool _optionPast;
 
@@ -164,8 +168,10 @@ public class GameSceneOnPlayInput : MonoBehaviour
             if (direction == Vector2.right) onRight = true;
         }
 
-        onR = S_InputSystem._instance.isPushingR;
-        onL = S_InputSystem._instance.isPushingL;
+        onR1 = S_InputSystem._instance.isPushingR1;
+        onL1 = S_InputSystem._instance.isPushingL1;
+        onR2 = S_InputSystem._instance.isPushingR2;
+        onL2 = S_InputSystem._instance.isPushingL2;
     }
 
     private void TracePast()
@@ -194,7 +200,9 @@ public class GameSceneOnPlayInput : MonoBehaviour
         onN_DownPast = onN_Down;
         onN_LeftPast = onN_Left;
         onN_RightPast = onN_Right;
-        onRPast = onR;
-        onLPast = onL;
+        onR1Past = onR1;
+        onL1Past = onL1;
+        onR2Past = onR2;
+        onL2Past = onL2;
     }
 }

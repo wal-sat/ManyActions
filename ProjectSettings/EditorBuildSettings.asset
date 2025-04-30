@@ -6,15 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Contens/3.Scenes/title.unity
+    path: Assets/Contens/3.Scenes/Title.unity
     guid: 2d21bd54a81801b45b35194e9140605f
   - enabled: 1
-    path: Assets/Contens/3.Scenes/_archive/selectDifficulty.unity
-    guid: d7720ff5f08ce464aba557bbb6d27994
-  - enabled: 1
-    path: Assets/Contens/3.Scenes/stageSelect.unity
+    path: Assets/Contens/3.Scenes/StageSelect.unity
     guid: f43d2c91bdc533d4993a8c89e4213f25
   - enabled: 1
-    path: Assets/Contens/3.Scenes/stage/develop.unity
-    guid: 24db8d8331ae5c2408dd90e97de7deb4
+    path: Assets/Contens/3.Scenes/stage/Plain/plain_1_A.unity
+    guid: eba1f26ea3ff5a04ebbac886bebb7c35
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/stage/Plain/plain_2_A.unity
+    guid: 5db57eaa504218b42bd5b113bfe560fa
+  - enabled: 1
+    path: Assets/Contens/3.Scenes/stage/Plain/plain_3_A.unity
+    guid: fd0813f0a65132d4e81d1c1dc6d3f212
+  - enabled: 0
+    path: Assets/Contens/3.Scenes/stage/Plain/plain_4_A.unity
+    guid: 592a7837b3c95c14e8a6aad8194d8a9a
+  - enabled: 0
+    path: Assets/Contens/3.Scenes/stage/Plain/plain_5_A.unity
+    guid: 808a8a6b78057484fb0446b1b8b68eb0
   m_configObjects: {}

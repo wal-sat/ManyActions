@@ -10,8 +10,8 @@ public class LR_Swap : PlayerActionBase
 
     public override void InitAction()
     {
-        if (base.assignedInput == InputKind.L && playerMovement.isFacingRight) playerMovement.Swap();
-        else if (base.assignedInput == InputKind.R && !playerMovement.isFacingRight) playerMovement.Swap();
+        if (base.assignedInput == InputKind.L1 && playerMovement.isFacingRight) playerMovement.Swap();
+        else if (base.assignedInput == InputKind.R1 && !playerMovement.isFacingRight) playerMovement.Swap();
         else return;
 
         base.InitAction();

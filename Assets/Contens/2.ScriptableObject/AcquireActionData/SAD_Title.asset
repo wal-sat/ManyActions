@@ -29,7 +29,7 @@ MonoBehaviour:
   E_Hover: 1
   E_UpBlink: 1
   E_Blink: 1
-  E_BackBlink: 1
+  E_StopHover: 1
   E_Swoop: 1
   E_DoubleBlink: 1
   E_InfiniteBlink: 1

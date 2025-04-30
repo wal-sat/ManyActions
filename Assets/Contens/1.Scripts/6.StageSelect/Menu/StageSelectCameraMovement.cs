@@ -15,7 +15,7 @@ public class StageSelectCameraMovement : MonoBehaviour
     public void SetCameraPosition(int stageIndex, int undergroundIndex)
     {
         Vector3 movePosition = new Vector3(XDistance * stageIndex, YDistance * undergroundIndex, FollowedObject.transform.position.z);
-        FollowedObject.transform.DOMove(movePosition, 1.1f).SetEase(Ease.OutCubic);
+        FollowedObject.transform.DOMove(movePosition, 1.1f).SetEase(Ease.OutCubic).SetLink(this.gameObject);
     }
 
     public void SetEnviroment(int reverseIndex)

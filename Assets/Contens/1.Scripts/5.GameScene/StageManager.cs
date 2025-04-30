@@ -16,6 +16,9 @@ public class StageManager : MonoBehaviour
     [SerializeField] ActionCassetteManager actionCassetteManager;
     [SerializeField] ButtonManager buttonManager;
     [SerializeField] BreakableBlockManager breakableBlockManager;
+    [SerializeField] HeartBeatAreaManager heartBeatAreaManager;
+    [SerializeField] HiddenAreaManager hiddenAreaManager;
+    [SerializeField] LRBlockManager lRBlockManager;
     [SerializeField] RecureCapsuleManager recureCapsuleManager;
     [SerializeField] WarpPointManager warpPointManager;
     [SerializeField] BackgroundManager backgroundManager;
@@ -23,6 +26,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] SectionManager sectionManager;
     [SerializeField] DeathCountManager deathCountManager;
     [SerializeField] TimeManager timeManager;
+    [SerializeField] CameraManager cameraManager;
 
     [SerializeField] GameSceneUI gameSceneUI;
     [SerializeField] GameScenePauseMenu gameScenePauseMenu;
@@ -78,6 +82,8 @@ public class StageManager : MonoBehaviour
         playerManager.isMovingPlayer = true;
         ChangeGameSceneStatus(GameSceneStatus.onPlay);
 
+        cameraManager.cameraBodyChanger.EnableDumping(true);
+
         timeManager.StartTimer();
         gameSceneUI.SwitchKidouUIVisible(false);
 
@@ -92,6 +98,9 @@ public class StageManager : MonoBehaviour
     IEnumerator CRestart(float angleZ = 0)
     {
         S_InputSystem._instance.canInput = false;
+
+        heartBeatAreaManager.Lock();
+        hiddenAreaManager.Lock();
 
         Vector3 playerPosition = playerManager.Player.transform.position;
         playerManager.Player.SetActive(false);
@@ -117,9 +126,14 @@ public class StageManager : MonoBehaviour
                 actionCassetteManager.Initialize();
                 buttonManager.Initialize();
                 breakableBlockManager.Initialize();
+                heartBeatAreaManager.Initialize();
+                hiddenAreaManager.Initialize();
+                lRBlockManager.Initialize();
                 recureCapsuleManager.Initialize();
                 warpPointManager.Initialize();
                 backgroundManager.Initialize();
+
+                cameraManager.cameraBodyChanger.EnableDumping(false);
 
                 deathCountManager.IncrementDeathCount();
                 gameSceneUI.UpdateDeathCount( deathCountManager.deathCount );
@@ -130,7 +144,7 @@ public class StageManager : MonoBehaviour
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
             }, 
-            FadeType.Diamond, 0.4f,0.1f,0.4f);  
+            FadeType.Diamond, 0.31f,0.08f,0.31f);  
     }
 
     //ーーードアに入る時の処理ーーー
@@ -171,7 +185,7 @@ public class StageManager : MonoBehaviour
     }
     IEnumerator CClear()
     {
-        S_BGMManager._instance.Stop("stage", 0f);
+        S_BGMManager._instance.Play("clear", 1f);
         S_SEManager._instance.Play("s_getKey");
         S_AmbientSoundManager._instance.Stop("heartBeat", 0.5f);
 
@@ -195,8 +209,6 @@ public class StageManager : MonoBehaviour
         gameSceneClearUIToolkit.ChangeFastestClearTimeLabel(S_StageInfo._instance.stageDatas[_sceneKind].GetFastestClearTimeString());
 
         yield return new WaitForSecondsRealtime(0.5f);
-
-        S_BGMManager._instance.Play("clear", 1f);
 
         S_InputSystem._instance.canInput = false;
 
