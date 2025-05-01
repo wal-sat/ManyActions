@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform SwapChecker;
     [SerializeField] Transform LandingChecker;
     [SerializeField] Transform OverheadChecker;
-    [SerializeField] private float SPEED;
+    [SerializeField] private float SPEED = 10000;
     [SerializeField] private float TERMINAL_VELOCITY;
 
     [HideInInspector] public bool isFacingRight;
