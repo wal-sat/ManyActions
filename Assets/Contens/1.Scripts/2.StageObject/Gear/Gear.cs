@@ -15,7 +15,7 @@ public class Gear : MonoBehaviour
 
     private void Awake()
     {
-        gearManager.Register(this);
+        if (gearManager != null) gearManager.Register(this);
         stageObjectCollisionArea.triggerEnter = TriggerEnter;
     }
 
@@ -27,7 +27,7 @@ public class Gear : MonoBehaviour
 
             gearStatus = GearStatus.temporaryGet;
 
-            gearManager.OnGet();
+            if (gearManager != null) gearManager.OnGet();
 
             ParticleDefault.SetActive(false);
             Instantiate(ParticleBurst, new Vector3(this.transform.position.x, this.transform.position.y, 5), Quaternion.identity);
