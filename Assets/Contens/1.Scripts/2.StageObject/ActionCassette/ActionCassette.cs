@@ -24,7 +24,7 @@ public class ActionCassette : MonoBehaviour
     {
         _isEnable = true;
 
-        actionCassetteManager.Register(this);
+        if (actionCassetteManager != null) actionCassetteManager.Register(this);
         stageObjectCollisionArea.triggerEnter = triggerEnter;
     }
     private void FixedUpdate()
@@ -54,18 +54,18 @@ public class ActionCassette : MonoBehaviour
 
             if (actionCassetteState == ActionCassetteState.enable) 
             {
-                playerManager.PlayerActionManager.EnableAction(actionKind, true);
-                gameSceneUI.MakeActionCard(true, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
+                if (playerManager != null) playerManager.PlayerActionManager.EnableAction(actionKind, true);
+                if (actionCassetteManager != null && gameSceneUI != null) gameSceneUI.MakeActionCard(true, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
+                
                 S_SEManager._instance.Play("s_getActionCassette");
             }
             else if (actionCassetteState == ActionCassetteState.disable)
             {
-                playerManager.PlayerActionManager.EnableAction(actionKind, false);
-                gameSceneUI.MakeActionCard(false, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
+                if (playerManager != null) playerManager.PlayerActionManager.EnableAction(actionKind, false);
+                if (actionCassetteManager != null && gameSceneUI != null) gameSceneUI.MakeActionCard(false, actionCassetteManager.actionCardInfos[actionKind].actionName, actionCassetteManager.actionCardInfos[actionKind].actionIcon);
+                
                 S_SEManager._instance.Play("s_getActionMinusCassette");
             }
-
-
         }
     }
 
