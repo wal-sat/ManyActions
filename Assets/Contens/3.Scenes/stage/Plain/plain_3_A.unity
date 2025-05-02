@@ -824,6 +824,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6928336716567274956}
     - target: {fileID: 8258501691438761513, guid: 368f2a69c74837d479fe7509643ce28d, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 271704846149492077}
+    - target: {fileID: 8258501691438761513, guid: 368f2a69c74837d479fe7509643ce28d, type: 3}
       propertyPath: PlayerLandingChecker
       value: 
       objectReference: {fileID: 2557183836531739375}
