@@ -1605,7 +1605,7 @@ MonoBehaviour:
     on: 0
     onPast: 0
   - InitTime: 3.2
-    DurationTime: 0.1
+    DurationTime: 0.2
     inputKind: 5
     on: 0
     onPast: 0

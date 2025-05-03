@@ -158,14 +158,14 @@ public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
     }
     IEnumerator CPlayAndPause(AudioSource audioSource, bool isPlaying)
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+        yield return new WaitForSecondsRealtime(0.02f);
 
         if (!isPlaying) 
         {
             ChangeVolume(0, false);
             audioSource.Play();
             
-            yield return new WaitForSecondsRealtime(0.1f);
+            yield return new WaitForSecondsRealtime(0.02f);
         }
 
         audioSource.Pause();

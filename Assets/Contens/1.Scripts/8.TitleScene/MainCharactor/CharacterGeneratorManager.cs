@@ -21,6 +21,7 @@ public class CharacterGeneratorManager : MonoBehaviour
     }
     IEnumerator InstantiateStart()
     {
+        yield return new WaitForSeconds(2f);
         _pastIndex[0] = 0;
         yield return new WaitForSeconds(0.1f);
         characterGenerators[_pastIndex[0]].InstantiateCharacter();

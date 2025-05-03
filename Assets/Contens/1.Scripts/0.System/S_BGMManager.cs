@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using System;
+using System.Linq;
 
 public class S_BGMManager : Singleton<S_BGMManager>
 {
@@ -40,9 +41,12 @@ public class S_BGMManager : Singleton<S_BGMManager>
 
     public void Play(string name, float fadeTime)
     {
-        string playingBGM = GetPlayingBGM();
-        if (playingBGM == name) return;
-        if (playingBGM != null) Stop(playingBGM, fadeTime);
+        List<string> playingBGM = GetPlayingBGM();
+        if (playingBGM.Count != 0)
+        {
+            if (playingBGM.Any(x => x == name)) return;
+            foreach (var item in playingBGM) Stop(item, fadeTime);
+        }
 
         if (_soundDictionary.TryGetValue(name, out var BGMInfo))
         {
@@ -144,28 +148,30 @@ public class S_BGMManager : Singleton<S_BGMManager>
         audioSource.volume = _volume;
     }
 
-    public void ChangeVolume(float volume)
+    public void ChangeVolume(float volume, bool isSet = true)
     {
-        _volume = volume * MAX_VOLUME;
+        if (isSet) _volume = volume * MAX_VOLUME;
         foreach (var audioSource in _audioSourceList)
         {
-            audioSource.volume = _volume;
+            audioSource.volume = volume * MAX_VOLUME;
         }
     }
-    public string GetPlayingBGM()
+    public List<string> GetPlayingBGM()
     {
+        List<string> playingBGMs = new List<string>();
+
         foreach (var audioSource in _audioSourceList)
         {
             if (!audioSource.isPlaying) continue;
             foreach (var sound in _soundDictionary)
             {
-                if ( audioSource.clip == sound.Value.audioClip )
+                if (audioSource.clip == sound.Value.audioClip)
                 {
-                    return sound.Value.name;
+                    playingBGMs.Add(sound.Value.name);
                 }
             }
         }
-        return null;
+        return playingBGMs;
     }
 
     private AudioSource GetUnusedAudioSource()
