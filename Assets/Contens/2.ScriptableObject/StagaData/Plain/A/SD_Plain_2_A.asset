@@ -22,4 +22,8 @@ MonoBehaviour:
   clearKind: 0
   acquireActionImage: {fileID: 21300000, guid: 7295b7ab84942c6479e95d3b2fc97def, type: 3}
   stageImage: {fileID: 21300000, guid: 66e0e0e43cc7c644294f8ff7abbbbc42, type: 3}
-  releaseConditions: []
+  releaseConditions:
+  - releaseConditionKind: 1
+    clearSceneKind: 0
+    gearCompleteSceneKind: 0
+    getGearCount: 0

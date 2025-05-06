@@ -188,6 +188,7 @@ public class StageManager : MonoBehaviour
     }
     IEnumerator CClear()
     {
+        S_InputSystem._instance.canInput = false;
         S_BGMManager._instance.Play("clear", 1f);
         S_SEManager._instance.Play("s_getKey");
         S_AmbientSoundManager._instance.Stop("heartBeat", 0.5f);
@@ -212,8 +213,6 @@ public class StageManager : MonoBehaviour
         gameSceneClearUIToolkit.ChangeFastestClearTimeLabel(S_StageInfo._instance.stageDatas[_sceneKind].GetFastestClearTimeString());
 
         yield return new WaitForSecondsRealtime(0.5f);
-
-        S_InputSystem._instance.canInput = false;
 
         playerManager.SectionClear();
         
