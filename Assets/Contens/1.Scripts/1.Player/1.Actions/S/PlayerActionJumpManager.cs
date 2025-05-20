@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerActionJumpManager : MonoBehaviour
@@ -9,22 +7,24 @@ public class PlayerActionJumpManager : MonoBehaviour
     [SerializeField] PlayerActionJumpBase[] jumpActions;
     [SerializeField] float RESTRICTE_JUMP_SPEED;
 
+    public Func<bool> IsCoolTime;
+
     private int _jumpTimes;
     private int _maxJumpTimes;
 
-    private void Start()
+    private void Awake()
     {
         foreach (var action in jumpActions)
         {
-            if (action == null) continue;
-
             action.init = Init;
+            action.isJumping = IsJumping;
         }
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
         if (playerMovement.rb.velocity.y > RESTRICTE_JUMP_SPEED) return;
+        if (IsCoolTime()) return;
         if (_jumpTimes == 0) return;
         if (_jumpTimes != -1) _jumpTimes --;
 
@@ -34,6 +34,16 @@ public class PlayerActionJumpManager : MonoBehaviour
 
             if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Jump();
         }
+    }
+
+    private bool IsJumping(PlayerActionJumpBase selfAction)
+    {
+        foreach (var action in jumpActions)
+        {
+            if (action == selfAction) continue;
+            if (action.isAction) return true;
+        }
+        return false;
     }
 
     public void OnWallKickJump()
@@ -50,6 +60,10 @@ public class PlayerActionJumpManager : MonoBehaviour
     {
         _maxJumpTimes = SetMaxJumpTimes();
         _jumpTimes = _maxJumpTimes;
+    }
+    public void Spending()
+    {
+        _jumpTimes = 0;
     }
     private int SetMaxJumpTimes()
     {

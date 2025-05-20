@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ActionRight",
+                    "name": "ActionRight1",
                     "type": "Button",
                     "id": "8dd16c18-0adb-44d6-bdb8-a60280c07b36",
                     "expectedControlType": "Button",
@@ -69,9 +69,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ActionLeft",
+                    "name": "ActionLeft1",
                     "type": "Button",
                     "id": "862cc68b-4497-4819-8825-f1891979958d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRight2",
+                    "type": "Button",
+                    "id": "2ae6e9d5-b769-450a-8b5e-30e2423e9f69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLeft2",
+                    "type": "Button",
+                    "id": "2ac85eeb-b1e9-419d-b5c5-25ebee541e11",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -249,7 +267,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActionRight",
+                    "action": "ActionRight1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -260,18 +278,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActionRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c2f647f5-3bcc-41d1-99d8-07c6cdaad1f4",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ActionRight",
+                    "action": "ActionRight1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -282,7 +289,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActionLeft",
+                    "action": "ActionLeft1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -293,40 +300,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActionLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8f089832-57ff-4b9f-ba36-1ec63fa0c714",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ActionLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6c57f883-2951-4b1a-a7d7-a6ecf894f925",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Option",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1fb5f6ee-5ee2-4bdc-8f8a-6d1e3dd604fb",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Option",
+                    "action": "ActionLeft1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -373,6 +347,72 @@
                     "action": "RightDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "23fd000d-8062-47a6-8d62-231afbed2e74",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRight2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "262b0992-41ac-47d7-9547-b401c778f95e",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRight2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83c9439f-385c-4690-b95b-06bb069c8bcc",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLeft2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5536db6e-a2ae-44f2-82ee-a05f31bad684",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLeft2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c57f883-2951-4b1a-a7d7-a6ecf894f925",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Option",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fb5f6ee-5ee2-4bdc-8f8a-6d1e3dd604fb",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Option",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

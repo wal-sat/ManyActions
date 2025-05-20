@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,16 +99,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 503053500932755291}
   sprites:
-  - {fileID: 21300000, guid: 6d974b23b6667854ea90b4a3436aaeab, type: 3}
-  - {fileID: 21300000, guid: c89f1dae0fcf59b4db2dafa22dceb510, type: 3}
-  - {fileID: 21300000, guid: 71975fa94dace224cbe5a556c3972f36, type: 3}
-  - {fileID: 21300000, guid: dd0f5abdbe0799549a095ca6a7ffb380, type: 3}
-  - {fileID: 21300000, guid: 582157ac7edbc7b40980d0ec1a042d2c, type: 3}
-  - {fileID: 21300000, guid: de6b8a246a19e204984fc7ffcbb4b600, type: 3}
-  - {fileID: 21300000, guid: 93ea66a07e35dd544a926def9cec66fe, type: 3}
-  - {fileID: 21300000, guid: 6510fc1cee56b794a9d91683811e977c, type: 3}
-  - {fileID: 21300000, guid: aa1730bdc35f4474a88e36c23d62d941, type: 3}
-  - {fileID: 21300000, guid: b74547746a3f9344884d75c7e94f9008, type: 3}
-  - {fileID: 21300000, guid: ae3fdb578d07b324eb1ecde1530959fc, type: 3}
-  ANIMATION_TIME: 0.05
+  - {fileID: 0}
+  - {fileID: 1104614868, guid: f0a8063e31f78d144bfdda563fa91bf4, type: 3}
+  - {fileID: -714292356, guid: f0a8063e31f78d144bfdda563fa91bf4, type: 3}
+  - {fileID: 935679854, guid: f0a8063e31f78d144bfdda563fa91bf4, type: 3}
+  - {fileID: -1297327334, guid: f0a8063e31f78d144bfdda563fa91bf4, type: 3}
+  - {fileID: -940613474, guid: f0a8063e31f78d144bfdda563fa91bf4, type: 3}
+  - {fileID: -282246681, guid: f0a8063e31f78d144bfdda563fa91bf4, type: 3}
+  - {fileID: 489592472, guid: c9506ce1ba011f54d9c0b8bf8a1e31bb, type: 3}
+  - {fileID: -1937261962, guid: c9506ce1ba011f54d9c0b8bf8a1e31bb, type: 3}
+  - {fileID: -457230834, guid: c9506ce1ba011f54d9c0b8bf8a1e31bb, type: 3}
+  - {fileID: -487565547, guid: c9506ce1ba011f54d9c0b8bf8a1e31bb, type: 3}
+  ANIMATION_TIME: 0.06
   animationStart: 0

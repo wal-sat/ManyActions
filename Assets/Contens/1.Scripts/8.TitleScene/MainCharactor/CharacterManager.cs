@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,15 +8,17 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] PlayerAnimationManager playerAnimationManager;
     [SerializeField] PlayerActionManager playerActionManager;
     [SerializeField] PlayerPreventStuck playerPreventStuck;
-    [SerializeField] StageActionData stageActionData;
+    [SerializeField] AcquireActionData acquireActionData;
+
+    public Action DestroyCallBack;
 
     private List<ActionInfo> _actionList = new List<ActionInfo>();
     private float _dieTime;
-
     private float _timer;
 
-    public void Init(List<ActionInfo> actionList, float dieTime, bool isFacingRight)
+    public void Init(Action destroyCallBack, List<ActionInfo> actionList, float dieTime, bool isFacingRight)
     {
+        DestroyCallBack = destroyCallBack;
         _actionList = actionList;
         _dieTime = dieTime;
         _timer = 0;
@@ -28,7 +30,7 @@ public class CharacterManager : MonoBehaviour
 
         playerAnimationManager.AnimationUpdate(false);
 
-        playerActionManager.SetAvailableActions(stageActionData);
+        playerActionManager.SetAvailableActions(acquireActionData);
     }
 
     private void FixedUpdate()
@@ -53,6 +55,10 @@ public class CharacterManager : MonoBehaviour
         playerMovement.MovementUpdate();
         playerPreventStuck.PreventStuckUpdate();
         
-        if (_timer > _dieTime) Destroy(this.gameObject);
+        if (_timer > _dieTime) 
+        {
+            DestroyCallBack();
+            Destroy(this.gameObject);
+        }
     }
 }

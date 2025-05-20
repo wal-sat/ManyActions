@@ -29,6 +29,8 @@ public class Down_Crouching : PlayerActionBase
 
     public override void InitAction()
     {
+        base.InitAction();
+
         playerMovement.swapCapsuleSizeY = CROUCHING_CAPSULE_SIZE_Y;
         OverheadChecher.transform.localPosition = CROUCHING_OVERHEAD_POSITION;
         spriteRenderer.sprite = crouch;
@@ -37,12 +39,10 @@ public class Down_Crouching : PlayerActionBase
 
         S_SEManager._instance.Play("p_crouch");
     }
-    public override void InAction()
-    {
-        
-    }
     public override void EndAction()
     {
+        base.EndAction();
+
         playerMovement.swapCapsuleSizeY = _defaultCapsuleSizeY;
         OverheadChecher.transform.localPosition = DEFAULT_OVERHEAD_POSITION;
         spriteRenderer.sprite = main;
@@ -51,6 +51,8 @@ public class Down_Crouching : PlayerActionBase
     }
     public override void Initialize()
     {
+        base.Initialize();
+
         playerMovement.swapCapsuleSizeY = _defaultCapsuleSizeY;
         OverheadChecher.transform.localPosition = DEFAULT_OVERHEAD_POSITION;
         spriteRenderer.sprite = main;

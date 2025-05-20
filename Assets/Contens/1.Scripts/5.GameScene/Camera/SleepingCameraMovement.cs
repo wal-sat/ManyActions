@@ -1,37 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SleepingCameraMovement : MonoBehaviour
 {
-    [SerializeField] GameSceneAnyKeyInput gameSceneAnyKeyInput;
-    [SerializeField] GameObject followedObject;
     [SerializeField] float SPEED;
 
-    private Vector2 _initPosition;
-    private float _maxMinusMove;
-    private float _maxPlusMove;
+    private GameObject _sleepCamera;
+    private LockAxisCamera _lockAxisCamera;
 
-    public void SleepCameraInit(Vector2 initPosition, Vector2 moveDistance)
+    public void Initialize(GameObject sleepCamera)
     {
-        _initPosition = initPosition;
-        if (_initPosition.x < 0) _initPosition = new Vector2(0, _initPosition.y);
-        _maxMinusMove = moveDistance.x;
-        _maxPlusMove = moveDistance.y;
+        _sleepCamera = sleepCamera;
+        _lockAxisCamera = _sleepCamera.GetComponent<LockAxisCamera>();
+    }
 
-        followedObject.transform.position = _initPosition;
+    public void SleepCameraInit(Vector2 initPosition, Vector2 bottomLeftPos, Vector2 topRightPos)
+    {
+        _sleepCamera.transform.position = initPosition;
+        _lockAxisCamera.SetMoveRange(bottomLeftPos, topRightPos);
     }
     public void SleepCameraMove(Vector2 direction)
     {
-        followedObject.transform.position = new Vector2(followedObject.transform.position.x + direction.x * SPEED * Time.deltaTime, 0);
-
-        if (followedObject.transform.position.x < _initPosition.x - _maxMinusMove)
-        {
-            followedObject.transform.position = new Vector2(_initPosition.x - _maxMinusMove, followedObject.transform.position.y);
-        }
-        if (followedObject.transform.position.x > _initPosition.x + _maxPlusMove) 
-        {
-            followedObject.transform.position = new Vector2(_initPosition.x + _maxPlusMove, followedObject.transform.position.y);
-        }
+        _sleepCamera.transform.position = new Vector2(_sleepCamera.transform.position.x + direction.x * SPEED * Time.deltaTime, 
+                                                     _sleepCamera.transform.position.y + direction.y * SPEED * Time.deltaTime);
     }
 }

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57bd2064e181e99468dca6f87814c0b3, type: 3}
+  m_Name: SD_Plain_3_A
+  m_EditorClassIdentifier: 
+  sceneKind: 2
+  cursorIndex: 2
+  stageIndex: 0
+  undergroundIndex: 0
+  reverseIndex: 0
+  worldName: "\u59CB\u307E\u308A\u306E\u5E73\u539F"
+  stageName: "\uFF13\u9762"
+  clearKind: 0
+  acquireActionImage: {fileID: 21300000, guid: c9741d3100e470244aff8901157e8025, type: 3}
+  stageImage: {fileID: 21300000, guid: be44665ad1e16b840bd4a5f700671948, type: 3}
+  releaseConditions:
+  - releaseConditionKind: 1
+    clearSceneKind: 1
+    gearCompleteSceneKind: 0
+    getGearCount: 0

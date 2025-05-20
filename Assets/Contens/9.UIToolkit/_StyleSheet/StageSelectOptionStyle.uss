@@ -1,0 +1,36 @@
+.optionLabel {
+    color: rgb(80, 80, 80);
+    font-size: 45px;
+    -unity-text-align: middle-center;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    transition-duration: 0.2s, 1s;
+    transition-timing-function: ease-out-cubic, ease-in-out;
+    transition-property: all, rotate;
+    width: 50%;
+    height: 40px;
+}
+
+.optionLabel--Selected {
+    font-size: 60px;
+    rotate: 7deg;
+    color: rgb(22, 22, 22);
+}
+
+.optionLabel--Selected--Animate {
+    rotate: -7deg;
+}
+
+.panel {
+    translate: 0 -100%;
+}
+
+.panel--Open {
+    translate: 0 0;
+}

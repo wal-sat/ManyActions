@@ -9,12 +9,13 @@ public class Gear : MonoBehaviour
     [SerializeField] GearView gearView;
     [SerializeField] GameObject ParticleDefault;
     [SerializeField] GameObject ParticleBurst;
+    [SerializeField] public int gearIndex;
 
     [HideInInspector] public GearStatus gearStatus;
 
     private void Awake()
     {
-        gearManager.Register(this);
+        if (gearManager != null) gearManager.Register(this);
         stageObjectCollisionArea.triggerEnter = TriggerEnter;
     }
 
@@ -26,7 +27,7 @@ public class Gear : MonoBehaviour
 
             gearStatus = GearStatus.temporaryGet;
 
-            gearManager.OnGet();
+            if (gearManager != null) gearManager.OnGet();
 
             ParticleDefault.SetActive(false);
             Instantiate(ParticleBurst, new Vector3(this.transform.position.x, this.transform.position.y, 5), Quaternion.identity);
@@ -40,9 +41,15 @@ public class Gear : MonoBehaviour
     {
         gearStatus = status;
 
-        ParticleDefault.SetActive(true);
-
-        if (gearStatus == GearStatus.acquired) gearView.SpriteChange(false);
-        else if (gearStatus == GearStatus.unacquired) gearView.SpriteChange(true);
+        if (gearStatus == GearStatus.acquired) 
+        {
+            gearView.SpriteChange(false);
+            ParticleDefault.SetActive(false);
+        }
+        else if (gearStatus == GearStatus.unacquired) 
+        {
+            gearView.SpriteChange(true);
+            ParticleDefault.SetActive(true);
+        }
     }
 }

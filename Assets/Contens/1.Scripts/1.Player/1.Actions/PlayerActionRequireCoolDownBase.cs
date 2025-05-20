@@ -25,6 +25,7 @@ public class PlayerActionRequireCoolDownBase : PlayerActionBase
 
     public override void InitAction()
     {
+        base.InitAction();
         _timer = 0;
         _onTimer = true;
 

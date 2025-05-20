@@ -1,5 +1,7 @@
 using UnityEngine;
 using Cinemachine;
+using System.Diagnostics.SymbolStore;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -8,12 +10,9 @@ using UnityEditor;
 [AddComponentMenu("")] // Hide in menu
 public class LockAxisCamera : CinemachineExtension 
 {
-    [SerializeField] private bool x_islocked;
-    [SerializeField] private bool y_islocked;
-    [SerializeField] private bool z_islocked;
-    [SerializeField] private Vector3 lockPosition;
-    [SerializeField] private Transform topLeftTransform;
-    [SerializeField] private Transform bottomRightTransform;
+    [SerializeField] private int lockPositionZ;
+    [SerializeField] private Vector2 bottomLeftPos;
+    [SerializeField] private Vector2 topRightPos;
     
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
@@ -22,22 +21,55 @@ public class LockAxisCamera : CinemachineExtension
         if (stage == CinemachineCore.Stage.Body)
         {
             var newPos = state.RawPosition;
-            if (x_islocked) newPos.x = lockPosition.x;
-            if (y_islocked) newPos.y = lockPosition.y;
-            if (z_islocked) newPos.z = lockPosition.z;
 
-            if (topLeftTransform != null)
+            // カメラのサイズを取得
+            float camHalfHeight = vcam.State.Lens.OrthographicSize;
+            float camHalfWidth = camHalfHeight * vcam.State.Lens.Aspect;
+
+            float camWidth = camHalfWidth * 2f;
+            float camHeight = camHalfHeight * 2f;
+
+            // 指定された範囲のサイズ
+            float regionWidth = topRightPos.x - bottomLeftPos.x;
+            float regionHeight = topRightPos.y - bottomLeftPos.y;
+
+            newPos.z = lockPositionZ;
+
+            // 横幅が十分な場合：制限する
+            if (regionWidth >= camWidth)
             {
-                if (newPos.x <= topLeftTransform.position.x) newPos.x = topLeftTransform.position.x; 
-                if (bottomRightTransform.position.x <= newPos.x) newPos.x = bottomRightTransform.position.x; 
+                float minX = bottomLeftPos.x + camHalfWidth;
+                float maxX = topRightPos.x - camHalfWidth;
+                newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
             }
-            if (bottomRightTransform != null)
+            else
             {
-                if (newPos.y <= bottomRightTransform.position.y) newPos.y = bottomRightTransform.position.y; 
-                if (topLeftTransform.position.y <= newPos.y) newPos.y = topLeftTransform.position.y;
+                // カメラの左端を bottomLeft に合わせる（右にはみ出してOK）
+                newPos.x = bottomLeftPos.x + camHalfWidth;
             }
+
+            // 高さが十分な場合：制限する
+            if (regionHeight >= camHeight)
+            {
+                float minY = bottomLeftPos.y + camHalfHeight;
+                float maxY = topRightPos.y - camHalfHeight;
+                newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+            }
+            else
+            {
+                // カメラの下端を bottomLeft に合わせる（上にはみ出してOK）
+                newPos.y = bottomLeftPos.y + camHalfHeight;
+            }
+
             state.RawPosition = newPos;
+            this.transform.position = newPos;
         }
+    }
+
+    public void SetMoveRange(Vector2 bottomLeft, Vector2 topRight)
+    {
+        bottomLeftPos = bottomLeft;
+        topRightPos = topRight;
     }
 }
 

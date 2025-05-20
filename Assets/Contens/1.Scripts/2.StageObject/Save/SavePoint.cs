@@ -8,14 +8,25 @@ public class SavePoint : MonoBehaviour
     [SerializeField] StageObjectCollisionArea stageObjectCollisionArea;
     [SerializeField] SavePointView savePointView;
     [SerializeField] GameObject ParticleBurst;
-    [SerializeField] public StageActionData stageActionData;
+    [SerializeField] public AcquireActionData acquireActionData;
     [SerializeField] public int savePointIndex;
     [SerializeField] public bool facingRight;
-    [Header("x:Minus, y:Plus")] [SerializeField] public Vector2 sleepMoveDistance;
+    [SerializeField] SpriteRenderer cameraArea;
 
-    private void Awake()
+    [HideInInspector] public Vector2 bottomLeftPos;
+    [HideInInspector] public Vector2 topRightPos;
+
+    private void Start()
     {
         if (stageObjectCollisionArea != null) stageObjectCollisionArea.triggerEnter = triggerEnter;
+
+        if (cameraArea != null) 
+        {
+            Bounds bounds = cameraArea.bounds;
+            bottomLeftPos = new Vector2(bounds.min.x, bounds.min.y);
+            topRightPos = new Vector2(bounds.max.x, bounds.max.y);
+            cameraArea.sprite = null;
+        }
     }
 
     private void triggerEnter()

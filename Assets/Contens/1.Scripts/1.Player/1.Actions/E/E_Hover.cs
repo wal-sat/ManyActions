@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_Hover : PlayerActionRequireCoolDownBase
+public class E_Hover : PlayerActionBlinkBase
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private float HOVER_TIME;
+    [SerializeField] public float ACTION_COOL_TIME;
+    
     private float _hoverTimer;
-    private bool _isHovering;
+    private float _coolTimer;
     private float _gravityScale;
 
     private void Awake()
@@ -15,42 +17,37 @@ public class E_Hover : PlayerActionRequireCoolDownBase
         _gravityScale = rb.gravityScale;
     }
 
-    public override void FixedUpdate()
+    private void FixedUpdate()
     {
-        base.FixedUpdate();
-
-        if (_isHovering)
-        {
-            _hoverTimer += Time.deltaTime;
-
-            rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
-
-            if (_hoverTimer > HOVER_TIME) 
-            {
-                EndHover();
-            }
-        }
+        if (_hoverTimer < HOVER_TIME) _hoverTimer += Time.deltaTime;
+        else if (_hoverTimer >= HOVER_TIME && isAction) CancelHover();
+        if (_coolTimer < ACTION_COOL_TIME) _coolTimer += Time.deltaTime;
+        else isCoolTime = false;
     }
-    private void EndHover()
+    private void CancelHover()
     {
-        _isHovering = false;
+        isAction = false;
         rb.gravityScale = _gravityScale;
     }
 
-    public override void InitAction()
+    public override void Blink()
     {
-        if (base.isCoolDowning) return;
-
-        base.InitAction();
-
+        isAction = true;
+        isCoolTime = true;
         _hoverTimer = 0;
-        _isHovering = true;
+        _coolTimer = 0;
+
         rb.gravityScale = 0;
+        rb.velocity = new Vector3(rb.velocity.x, 0f, 0f);
 
         S_SEManager._instance.Play("p_hover");
     }
+    public override void EndAction()
+    {
+        ;
+    }
     public override void Initialize()
     {
-        EndHover();
+        CancelHover();
     }
 }

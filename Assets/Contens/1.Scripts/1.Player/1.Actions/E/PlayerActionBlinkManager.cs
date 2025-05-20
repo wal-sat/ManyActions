@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerActionBlinkManager : MonoBehaviour
@@ -7,21 +6,23 @@ public class PlayerActionBlinkManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] PlayerActionBlinkBase[] blinkActions;
 
+    public Func<bool> IsCoolTime;
+
     private int _blinkTimes;
     private int _maxBlinkTimes;
 
-    private void Start()
+    private void Awake()
     {
         foreach (var action in blinkActions)
         {
-            if (action == null) continue;
-
             action.init = Init;
+            action.isBlinking = IsBlinking;
         }
     }
 
     private void Init(InputKind inputKind, ActionKind actionKind)
     {
+        if (IsCoolTime()) return;
         if (_blinkTimes == 0) return;
         if (_blinkTimes != -1) _blinkTimes --;
 
@@ -32,11 +33,25 @@ public class PlayerActionBlinkManager : MonoBehaviour
             if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Blink();
         }
     }
+    
+    private bool IsBlinking(PlayerActionBlinkBase selfAction)
+    {
+        foreach (var action in blinkActions)
+        {
+            if (action == selfAction) continue;
+            if (action.isAction) return true;
+        }
+        return false;
+    }
 
     public void Recure()
     {
         _maxBlinkTimes = SetMaxBlinkTimes();
         _blinkTimes = _maxBlinkTimes;
+    }
+    public void Spending()
+    {
+        _blinkTimes = 0;
     }
     private int SetMaxBlinkTimes()
     {
@@ -47,7 +62,7 @@ public class PlayerActionBlinkManager : MonoBehaviour
             {
                 case ActionKind.E_Blink:
                 case ActionKind.E_UpBlink:
-                case ActionKind.E_BackBlink:
+                case ActionKind.E_StopHover:
                     if (action.isEnable && maxBlinkTimes == 0) maxBlinkTimes = 1;
                     break;
                 case ActionKind.E_DoubleBlink:
@@ -70,7 +85,7 @@ public class PlayerActionBlinkManager : MonoBehaviour
             {
                 case ActionKind.E_Blink:
                 case ActionKind.E_UpBlink:
-                case ActionKind.E_BackBlink:
+                case ActionKind.E_StopHover:
                     if (action.isEnable && maxBlinkTimes == 0) maxBlinkTimes = 1;
                     break;
                 case ActionKind.E_DoubleBlink:

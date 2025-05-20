@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RopeManager : MonoBehaviour
@@ -13,13 +14,11 @@ public class RopeManager : MonoBehaviour
 
     public bool IsOverlapRope()
     {
-        bool isOverlapRope = false;
+        return ropes.Any(item => item.isOverlapRope);
+    }
 
-        foreach (var rope in ropes)
-        {
-            if (rope.isOverlapRope) isOverlapRope = true;
-        }
-
-        return isOverlapRope;
+    public Transform GetRopeTransform()
+    {
+        return ropes.First(item => item.isOverlapRope).gameObject.transform;
     }
 }

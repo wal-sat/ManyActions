@@ -17,8 +17,10 @@ public class S_FadeManager : Singleton<S_FadeManager>
     private VisualElement _whitePanel;
     private VisualElement[] _diamondPanel = new VisualElement[2];
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
+
         var root = UIToolkit.GetComponent<UIDocument>().rootVisualElement;
 
         _blackPanel = root.Q<VisualElement>("Black");
