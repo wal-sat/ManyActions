@@ -27,7 +27,9 @@ public class TitleSceneInputManager : MonoBehaviour
     }
     private void Start()
     {
-        S_InputSystem._instance.canInput = true;
+        #if UNITY_EDITOR
+            S_InputSystem._instance.canInput = true;
+        #endif
         S_InputSystem._instance.SwitchActionMap(ActionMapKind.UI);
 
         _titleSceneStatus = TitleSceneStatus.menu;

@@ -4438,7 +4438,7 @@ Transform:
   m_GameObject: {fileID: 933782818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6476,6 +6476,10 @@ PrefabInstance:
       propertyPath: UIToolkit
       value: 
       objectReference: {fileID: 1974622404}
+    - target: {fileID: 3703638222134167644, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
+      propertyPath: _cinemachineBrain
+      value: 
+      objectReference: {fileID: 2041490405}
     - target: {fileID: 4215321316364299161, guid: c156e3cf4d71660418ade5b2588fc309, type: 3}
       propertyPath: sectionManager
       value: 
@@ -8107,6 +8111,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 3097134823990912822, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
   m_PrefabInstance: {fileID: 74036455}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041490405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3712066439911077971, guid: 260395bdff85c83459b82b2b33a3ac92, type: 3}
+  m_PrefabInstance: {fileID: 74036455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727484497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2077896008
 PrefabInstance:
   m_ObjectHideFlags: 0

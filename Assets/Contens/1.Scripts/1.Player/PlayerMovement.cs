@@ -100,8 +100,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsLanding()
     {
-        if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, GroundLayer) != null) return true;
-        if (Physics2D.OverlapCircle(LandingChecker.position, 0.01f, ThroughGroundLayer) != null) return true;
+        if (Physics2D.OverlapCapsule(LandingChecker.position, new Vector2(0.2f, 0.01f), CapsuleDirection2D.Horizontal, 0, GroundLayer) != null) return true;
+        if (Physics2D.OverlapCapsule(LandingChecker.position, new Vector2(0.2f, 0.01f), CapsuleDirection2D.Horizontal, 0, ThroughGroundLayer) != null) return true;
         return false;
     }
     public void SetLockMovingStatus(GameObject obj, bool isLockMoving)

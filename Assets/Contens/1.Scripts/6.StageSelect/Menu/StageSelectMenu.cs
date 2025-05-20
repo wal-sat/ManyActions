@@ -96,7 +96,7 @@ public class StageSelectMenu : MonoBehaviour
 
         stageSelectMenuRestrictions.Initialize(stageIndex);
 
-        S_BGMManager._instance.Play("select", 2f);
+        S_BGMManager._instance.Play("select", 1.5f);
     }
 
     public void CursorSelect()

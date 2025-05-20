@@ -1,208 +1,229 @@
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class S_AmbientSoundManager : Singleton<S_AmbientSoundManager>
 {
-    [System.Serializable] class AmbientSoundInfo
+    enum ASStatus {  none, fadeIn, play, fadeOut, pause, stop }
+
+    [Serializable] class ASInfo
     {
-        public string name;
-        public AudioClip audioClip;
+        [SerializeField] public string name;
+        [SerializeField] public AudioClip[] audioClip;
+
+        [HideInInspector] public AudioSource audioSource;
         [HideInInspector] public IEnumerator coroutine;
+        [HideInInspector] public ASStatus status = ASStatus.none;
+        private int _clipIndex = 0;
+        public int clipIndex
+        {
+            get => _clipIndex;
+            set
+            {
+                _clipIndex = value;
+                if (_clipIndex >= audioClip.Length) _clipIndex = 0;
+
+                audioSource.clip = audioClip[_clipIndex];
+            }
+        }
+
+        public bool IsFinished()
+        {
+            return audioSource.time == 0.0f && !audioSource.isPlaying;
+        }
     }
 
     [SerializeField] float MAX_VOLUME;
-    [SerializeField] List<AmbientSoundInfo> AmbientSoundList = new List<AmbientSoundInfo>();
+    [SerializeField] List<ASInfo> ASList = new List<ASInfo>();
 
-    private AudioSource[] _audioSourceList = new AudioSource[3];
-    private Dictionary<string, AmbientSoundInfo> _soundDictionary = new Dictionary<string, AmbientSoundInfo>();
+    private Dictionary<string, ASInfo> _ASDictionary = new Dictionary<string, ASInfo>();
 
     private float _volume;
-
+ 
     public override void Awake()
     {
         base.Awake();
 
-        for (var i = 0; i < _audioSourceList.Length; ++i)
+        for (var i = 0; i < ASList.Count; ++i)
         {
-            _audioSourceList[i] = gameObject.AddComponent<AudioSource>();
-            _audioSourceList[i].priority = 1;
-            _audioSourceList[i].loop = true;
-        }
- 
-        foreach (var AmbientSoundInfo in AmbientSoundList)
-        {
-            _soundDictionary.Add(AmbientSoundInfo.name, AmbientSoundInfo);
+            ASList[i].audioSource = gameObject.AddComponent<AudioSource>();
+            ASList[i].audioSource.loop = false;
+            ASList[i].audioSource.priority = 1;
+            ASList[i].audioSource.volume = 0;
+
+            _ASDictionary.Add(ASList[i].name, ASList[i]);
         }
     }
+    public void Update()
+    {
+        foreach (var item in _ASDictionary.Values)
+        {
+            if ( (item.status == ASStatus.fadeIn || item.status == ASStatus.play || item.status == ASStatus.fadeOut) && item.IsFinished())
+            {
+                item.clipIndex++;
+                item.audioSource.Play();
+            }
+        }   
+    }
 
+    /// <summary>
+    /// ASを再生する
+    /// </summary>
     public void Play(string name, float fadeTime)
     {
-        string playingAmbientSound = GetPlayingAmbientSound();
-        if (playingAmbientSound == name) return;
-        if (playingAmbientSound != null) Stop(playingAmbientSound, fadeTime);
-
-        if (_soundDictionary.TryGetValue(name, out var ambientSoundInfo))
+        List<string> playingAS = GetPlayingAS();
+        foreach (var item in playingAS) 
         {
-            if (ambientSoundInfo.coroutine != null) StopCoroutine(ambientSoundInfo.coroutine);
+            if (item != name) Stop(item, fadeTime);
+        }
+        if (playingAS.Any(x => x == name)) return;
+        
+        if (_ASDictionary.TryGetValue(name, out var ASInfo))
+        {
+            if (ASInfo.coroutine != null) StopCoroutine(ASInfo.coroutine);
 
-            var audioSource = GetUnusedAudioSource();
-            if (audioSource == null) return; //再生できませんでした
-            audioSource.clip = ambientSoundInfo.audioClip;
-            ambientSoundInfo.coroutine = CPlay( audioSource, fadeTime );
-            StartCoroutine( ambientSoundInfo.coroutine );
+            if (ASInfo.status == ASStatus.fadeOut || ASInfo.status == ASStatus.pause) {
+                ASInfo.coroutine = CResume(ASInfo, fadeTime);
+            }
+            else {
+                ASInfo.clipIndex = ASInfo.clipIndex;
+                ASInfo.coroutine = CPlay(ASInfo, fadeTime);
+            }
+
+            StartCoroutine(ASInfo.coroutine);
         }
     }
-    IEnumerator CPlay(AudioSource audioSource, float fadeTime)
+    IEnumerator CPlay(ASInfo ASInfo, float fadeTime)
     {
-        audioSource.volume = 0;
-        audioSource.Play();
+        ASInfo.status = ASStatus.fadeIn;
+        ASInfo.audioSource.Play();
+        float currentVolume = ASInfo.audioSource.volume;
 
         for (int i = 0; i < 100; i++)
         {
-            audioSource.volume += _volume / 100;
-            if (audioSource.volume > _volume) audioSource.volume = _volume;
+            ASInfo.audioSource.volume += ( _volume - currentVolume ) / 100;
+            if (ASInfo.audioSource.volume > _volume) ASInfo.audioSource.volume = _volume;
             yield return new WaitForSecondsRealtime(fadeTime / 100);
         }
-        audioSource.volume = _volume;
+        ASInfo.audioSource.volume = _volume;
+        ASInfo.status = ASStatus.play;
     }
+    IEnumerator CResume(ASInfo ASInfo, float fadeTime)
+    {
+        ASInfo.status = ASStatus.fadeIn;
+        ASInfo.audioSource.pitch = 1;
+        float currentVolume = ASInfo.audioSource.volume;
+
+        for (int i = 0; i < 100; i++)
+        {
+            ASInfo.audioSource.volume += ( _volume - currentVolume ) / 100;
+            yield return new WaitForSecondsRealtime(fadeTime / 100);
+        }
+        ASInfo.audioSource.volume = _volume;
+        ASInfo.status = ASStatus.play;
+    }
+
+    /// <summary>
+    /// ASを停止する
+    /// </summary>
     public void Stop(string name, float fadeTime)
     {
-        foreach (AudioSource audioSource in _audioSourceList)
+        if (_ASDictionary.TryGetValue(name, out var ASInfo))
         {
-            if ( audioSource.clip == _soundDictionary[name].audioClip)
-            {
-                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+            if (ASInfo.coroutine != null) StopCoroutine(ASInfo.coroutine);
 
-                _soundDictionary[name].coroutine = CStop( audioSource, fadeTime );
-                StartCoroutine( _soundDictionary[name].coroutine );
-            }
+            ASInfo.coroutine = CStop(ASInfo, fadeTime);
+            StartCoroutine(ASInfo.coroutine);
         }
     }
-    IEnumerator CStop(AudioSource audioSource, float fadeTime)
+    IEnumerator CStop(ASInfo ASInfo, float fadeTime)
     {
-        float initVolume = audioSource.volume;
+        ASInfo.status = ASStatus.fadeOut;
+        float currentVolume = ASInfo.audioSource.volume;
+
         for (int i = 0; i < 100; i++)
         {
-            audioSource.volume -= initVolume / 100;
+            ASInfo.audioSource.volume -= currentVolume / 100;
             yield return new WaitForSecondsRealtime(fadeTime / 100);
         }
-        audioSource.volume = 0;
-
-        audioSource.Stop();
+        ASInfo.audioSource.volume = 0;
+        ASInfo.audioSource.Stop();
+        ASInfo.status = ASStatus.stop;
     }
+
+    /// <summary>
+    /// ASを一時停止する
+    /// </summary>
     public void Pause(string name, float fadeTime)
     {
-        foreach (AudioSource audioSource in _audioSourceList)
+        if (_ASDictionary.TryGetValue(name, out var ASInfo))
         {
-            if ( audioSource.clip == _soundDictionary[name].audioClip)
-            {
-                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
+            if (ASInfo.coroutine != null) StopCoroutine(ASInfo.coroutine);
 
-                _soundDictionary[name].coroutine = CPause( audioSource, fadeTime );
-                StartCoroutine( _soundDictionary[name].coroutine );
-            }
+            ASInfo.coroutine = CPause(ASInfo, fadeTime);
+            StartCoroutine(ASInfo.coroutine);
         }
     }
-    IEnumerator CPause(AudioSource audioSource, float fadeTime)
+    IEnumerator CPause(ASInfo ASInfo, float fadeTime)
     {
-        float initVolume = audioSource.volume;
-        for (int i = 0; i < 100; i++)
-        {
-            audioSource.volume -= initVolume / 100;
-            yield return new WaitForSecondsRealtime(fadeTime / 100);
-        }
-        audioSource.volume = 0;
-
-        audioSource.Pause();
-    }
-    public void UnPause(string name, float fadeTime)
-    {
-        foreach (var audioSource in _audioSourceList)
-        {
-            if ( audioSource.clip == _soundDictionary[name].audioClip)
-            {
-                if (_soundDictionary[name].coroutine != null) StopCoroutine(_soundDictionary[name].coroutine);
-
-                _soundDictionary[name].coroutine = CUnPause(audioSource, fadeTime);
-                StartCoroutine( _soundDictionary[name].coroutine );
-            }
-        }
-    }
-    IEnumerator CUnPause(AudioSource audioSource, float fadeTime)
-    {
-        audioSource.UnPause();
+        ASInfo.status = ASStatus.fadeOut;
+        float currentVolume = ASInfo.audioSource.volume;
 
         for (int i = 0; i < 100; i++)
         {
-            audioSource.volume += _volume / 100;
-            if (audioSource.volume > _volume) audioSource.volume = _volume;
+            ASInfo.audioSource.volume -= currentVolume / 100;
             yield return new WaitForSecondsRealtime(fadeTime / 100);
         }
-        audioSource.volume = _volume;
-    }
-    public void PlayAndPause(string name)
-    {
-        var audioSource = GetUnusedAudioSource();
-        if (audioSource == null) return; //再生できませんでした
-        if (_soundDictionary.TryGetValue(name, out var ambientSoundInfo))
-        {
-            bool isPlaying = false;
-            if (GetPlayingAmbientSound() == name) isPlaying = true;
-
-            if (ambientSoundInfo.coroutine != null) StopCoroutine(ambientSoundInfo.coroutine);
-            audioSource.clip = ambientSoundInfo.audioClip;
-            
-            StartCoroutine( CPlayAndPause(audioSource, isPlaying) );
-        }
-    }
-    IEnumerator CPlayAndPause(AudioSource audioSource, bool isPlaying)
-    {
-        yield return new WaitForSecondsRealtime(0.1f);
-
-        if (!isPlaying) 
-        {
-            ChangeVolume(0, false);
-            audioSource.Play();
-            
-            yield return new WaitForSecondsRealtime(0.1f);
-        }
-
-        audioSource.Pause();
-        ChangeVolume(_volume, false);
+        ASInfo.audioSource.volume = 0;
+        ASInfo.audioSource.pitch = 0;
+        ASInfo.status = ASStatus.pause;
     }
 
-    public void ChangeVolume(float volume, bool isSet = true)
+    /// <summary>
+    /// ASの音量を変更する
+    /// </summary>
+    public void ChangeVolume(float volume)
     {
-        if (isSet) _volume = volume * MAX_VOLUME;
-        foreach (var audioSource in _audioSourceList)
+        _volume = volume * MAX_VOLUME;
+        foreach (var item in _ASDictionary.Values)
         {
-            audioSource.volume = volume * MAX_VOLUME;
+            if (item.status == ASStatus.fadeIn || item.status == ASStatus.play) item.audioSource.volume = _volume;
         }
-    }
-    public string GetPlayingAmbientSound()
-    {
-        foreach (var audioSource in _audioSourceList)
-        {
-            if (!audioSource.isPlaying) continue;
-            foreach (var sound in _soundDictionary)
-            {
-                if ( audioSource.clip == sound.Value.audioClip )
-                {
-                    return sound.Value.name;
-                }
-            }
-        }
-        return null;
     }
 
-    private AudioSource GetUnusedAudioSource()
+    /// <summary>
+    /// ASをミュートする
+    /// </summary>
+    public void Mute()
     {
-        for (var i = 0; i < _audioSourceList.Length; ++i)
+        foreach (var item in _ASDictionary.Values)
         {
-            if (_audioSourceList[i].isPlaying == false) return _audioSourceList[i];
+            item.audioSource.pitch = 0;
         }
- 
-        return null;
+    }
+    /// <summary>
+    /// ASのミュートを解除する
+    /// </summary>
+    public void UnMute()
+    {
+        foreach (var item in _ASDictionary.Values)
+        {
+            item.audioSource.pitch = 1;
+        }
+    }
+
+    /// <summary>
+    /// 再生中のASを取得する
+    /// </summary>
+    private List<string> GetPlayingAS()
+    {
+        List<string> playingAS = new List<string>();
+        foreach (var item in _ASDictionary.Values)
+        {
+            if (item.status == ASStatus.fadeIn || item.status == ASStatus.play) playingAS.Add(item.name);
+        }
+        return playingAS;
     }
 }

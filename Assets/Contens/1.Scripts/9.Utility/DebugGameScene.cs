@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class DebugGameScene : MonoBehaviour
 {
@@ -30,6 +31,6 @@ public class DebugGameScene : MonoBehaviour
     }
     private void UIInvisible()
     {
-        gameSceneUI.Debug_UIInvisible();
+        if (gameSceneUI != null) gameSceneUI.Debug_UIInvisible();
     }
 }

@@ -20,18 +20,18 @@ MonoBehaviour:
   Up_Grab: 1
   Down_Crouch: 1
   S_Jump: 1
-  S_BigJump: 1
-  S_FrontJump: 1
-  S_BackJump: 1
-  S_GoDown: 1
+  S_BigJump: 0
+  S_FrontJump: 0
+  S_BackJump: 0
+  S_GoDown: 0
   S_DoubleJump: 1
   S_InfiniteJump: 0
-  E_Hover: 1
-  E_UpBlink: 1
-  E_Blink: 1
-  E_StopHover: 1
-  E_Swoop: 1
-  E_DoubleBlink: 1
+  E_Hover: 0
+  E_UpBlink: 0
+  E_Blink: 0
+  E_StopHover: 0
+  E_Swoop: 0
+  E_DoubleBlink: 0
   E_InfiniteBlink: 0
   W_: 0
   W_Up: 0

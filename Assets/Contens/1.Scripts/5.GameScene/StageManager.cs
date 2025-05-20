@@ -53,8 +53,8 @@ public class StageManager : MonoBehaviour
     }
     private void Initialize()
     {
-        S_BGMManager._instance.Play("stage", 2f);
         Time.timeScale = 1;
+        S_BGMManager._instance.Play("stage", 1.5f);
 
         ChangeGameSceneStatus(GameSceneStatus.anyKey);
 
@@ -166,14 +166,17 @@ public class StageManager : MonoBehaviour
             () => {
                 savePointManager.TeleportStartPosition( sectionManager.NextSection() );
                 playerManager.Initialize( savePointManager.savePoint.facingRight );
+
+                gameSceneUI.SwitchKidouUIVisible(true);
             },
             () => {
                 S_InputSystem._instance.canInput = true;
                 ChangeGameSceneStatus(GameSceneStatus.anyKey);
-            }
+            },
+            FadeType.Black, 0.5f, 1f, 0.5f
         );
 
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.65f);
 
         S_SEManager._instance.Play("s_door");
     }
@@ -185,6 +188,7 @@ public class StageManager : MonoBehaviour
     }
     IEnumerator CClear()
     {
+        S_InputSystem._instance.canInput = false;
         S_BGMManager._instance.Play("clear", 1f);
         S_SEManager._instance.Play("s_getKey");
         S_AmbientSoundManager._instance.Stop("heartBeat", 0.5f);
@@ -209,8 +213,6 @@ public class StageManager : MonoBehaviour
         gameSceneClearUIToolkit.ChangeFastestClearTimeLabel(S_StageInfo._instance.stageDatas[_sceneKind].GetFastestClearTimeString());
 
         yield return new WaitForSecondsRealtime(0.5f);
-
-        S_InputSystem._instance.canInput = false;
 
         playerManager.SectionClear();
         

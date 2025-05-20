@@ -47,13 +47,25 @@ MonoBehaviour:
   MAX_VOLUME: 0.3
   BGMList:
   - name: title
-    audioClip: {fileID: 8300000, guid: 625c0ce72ca815f40a2208a1e3d585f0, type: 3}
+    audioClip:
+    - {fileID: 8300000, guid: 625c0ce72ca815f40a2208a1e3d585f0, type: 3}
+    audioSource: {fileID: 0}
+    status: 0
   - name: select
-    audioClip: {fileID: 8300000, guid: 7ee0c1927ff844f48b77658d90b0fe49, type: 3}
+    audioClip:
+    - {fileID: 8300000, guid: 7ee0c1927ff844f48b77658d90b0fe49, type: 3}
+    audioSource: {fileID: 0}
+    status: 0
   - name: stage
-    audioClip: {fileID: 8300000, guid: 53bc8d93ffa34204e8985c30ef8ad80a, type: 3}
+    audioClip:
+    - {fileID: 8300000, guid: 53bc8d93ffa34204e8985c30ef8ad80a, type: 3}
+    audioSource: {fileID: 0}
+    status: 0
   - name: clear
-    audioClip: {fileID: 8300000, guid: bcef05db1bf1ded4ab4bd428274398a7, type: 3}
+    audioClip:
+    - {fileID: 8300000, guid: bcef05db1bf1ded4ab4bd428274398a7, type: 3}
+    audioSource: {fileID: 0}
+    status: 0
 --- !u!1 &968976278531036980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,9 +1079,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_VOLUME: 1
-  AmbientSoundList:
+  ASList:
   - name: heartBeat
-    audioClip: {fileID: 8300000, guid: 59990bd8163da4144a752134e676bdef, type: 3}
+    audioClip:
+    - {fileID: 8300000, guid: 59990bd8163da4144a752134e676bdef, type: 3}
+    audioSource: {fileID: 0}
+    status: 0
 --- !u!1 &8632328700237990855
 GameObject:
   m_ObjectHideFlags: 0

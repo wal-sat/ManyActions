@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class JumpRamp : MonoBehaviour
 {
-    [SerializeField] Transform PlayerLandingChecker;
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] private float JUMP_POWER;
 
-    private const float OFFSET = 0.2f;
+    private Transform _playerLandingChecker;
+    private Rigidbody2D _rb;
+    private PlayerMovement _playerMovement;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private const float OFFSET = 0.5f;
+    private FirstCallChecker _firstCallChecker = new FirstCallChecker();
+
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player")) 
         {
-            if (PlayerLandingChecker == null) PlayerLandingChecker = other.gameObject.transform.Find("_LandingChecker").gameObject.transform;
-            if (rb == null) rb = other.gameObject.GetComponent<Rigidbody2D>();
+            _playerLandingChecker = other.gameObject.transform.Find("_LandingChecker").gameObject.transform;
+            _rb = other.gameObject.GetComponent<Rigidbody2D>();
+            _playerMovement = other.gameObject.GetComponent<PlayerMovement>();
             
-            if (this.transform.position.y + this.gameObject.transform.localScale.y / 2 - OFFSET <= PlayerLandingChecker.position.y) 
+            if (this.transform.position.y + this.gameObject.transform.localScale.y / 2 - OFFSET <= _playerLandingChecker.position.y )
             {
-                rb.velocity = new Vector3(rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);
+                if (_firstCallChecker.Check())
+                {
+                    _rb.velocity = new Vector3(_rb.velocity.x, JUMP_POWER * Time.deltaTime, 0);
 
-                S_SEManager._instance.Play("s_jumpRamp");
+                    S_SEManager._instance.Play("s_jumpRamp");
+                }
             }
         }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        _firstCallChecker.Reset();
     }
 }
