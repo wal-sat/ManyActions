@@ -49,14 +49,10 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   isCoolTime: 0
-  rb: {fileID: 0}
-  playerMovement: {fileID: 0}
-  playerPreventStuck: {fileID: 0}
+  Player: {fileID: 0}
   ropeManager: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   main: {fileID: 21300000, guid: 9a3edafa92177444fa751610969fec03, type: 3}
   grab: {fileID: 21300000, guid: 8ad1b3d5a591d9f418a900ec70339739, type: 3}
-  isOverlapRope: 0
 --- !u!1 &477133983682632579
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +394,9 @@ MonoBehaviour:
   isAction: 0
   isCoolTime: 0
   playerMovement: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  main: {fileID: 1391727555, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
+  decelerate: {fileID: -1263245578, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
   MINUS_SPEED: 50
 --- !u!114 &7347642044738993028
 MonoBehaviour:
@@ -417,6 +416,9 @@ MonoBehaviour:
   isAction: 0
   isCoolTime: 0
   playerMovement: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  main: {fileID: 1391727555, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
+  decelerate: {fileID: -1263245578, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
   MINUS_SPEED: 50
 --- !u!1 &1339817409602769439
 GameObject:
@@ -709,6 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
+  playerJumpEffect: {fileID: 0}
   jumpActions:
   - {fileID: 1651849363126381672}
   - {fileID: 4046448498535773001}
@@ -872,6 +875,7 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   isCoolTime: 0
+  lrBlockManager: {fileID: 0}
 --- !u!114 &1241716782622643454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +893,7 @@ MonoBehaviour:
   isEnable: 1
   isAction: 0
   isCoolTime: 0
+  lrBlockManager: {fileID: 0}
 --- !u!1 &2832203828829347434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1200,9 @@ MonoBehaviour:
   isAction: 0
   isCoolTime: 0
   playerMovement: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  main: {fileID: 1391727555, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
+  accelerate: {fileID: -1991832818, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
   PLUS_SPEED: 75
 --- !u!114 &1999662930292029623
 MonoBehaviour:
@@ -1214,6 +1222,9 @@ MonoBehaviour:
   isAction: 0
   isCoolTime: 0
   playerMovement: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  main: {fileID: 1391727555, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
+  accelerate: {fileID: -1991832818, guid: 312f015a0920e7c4d8d077358a6d820c, type: 3}
   PLUS_SPEED: 75
 --- !u!1 &3820408495379261030
 GameObject:

@@ -37,6 +37,8 @@ public class Up_Grab : PlayerActionBase
     }
     public override void InAction()
     {
+        _spriteRenderer.sprite = grab;
+
         if (ropeManager.IsOverlapRope() && !_wasGrabRope) InitGrab();
         else if (ropeManager.IsOverlapRope() && _wasGrabRope) InGrab();
         else CancelGrab();

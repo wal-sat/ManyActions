@@ -20,7 +20,7 @@ MonoBehaviour:
   Up_Grab: 1
   Down_Crouch: 1
   S_Jump: 1
-  S_BigJump: 0
+  S_BigJump: 1
   S_FrontJump: 0
   S_BackJump: 0
   S_GoDown: 0

@@ -48,22 +48,22 @@ MonoBehaviour:
   BGMList:
   - name: title
     audioClip:
-    - {fileID: 8300000, guid: 625c0ce72ca815f40a2208a1e3d585f0, type: 3}
+    - {fileID: 8300000, guid: 13a8b0d462e53e644ad403de08df1bcc, type: 3}
     audioSource: {fileID: 0}
     status: 0
   - name: select
     audioClip:
-    - {fileID: 8300000, guid: 7ee0c1927ff844f48b77658d90b0fe49, type: 3}
+    - {fileID: 8300000, guid: 2694e88812ccf23469a1d708495240c1, type: 3}
     audioSource: {fileID: 0}
     status: 0
   - name: stage
     audioClip:
-    - {fileID: 8300000, guid: 53bc8d93ffa34204e8985c30ef8ad80a, type: 3}
+    - {fileID: 8300000, guid: 8676b64e13a73b14980c60067f220cd0, type: 3}
     audioSource: {fileID: 0}
     status: 0
   - name: clear
     audioClip:
-    - {fileID: 8300000, guid: bcef05db1bf1ded4ab4bd428274398a7, type: 3}
+    - {fileID: 8300000, guid: 06181b0119c565543957fa94eb913de1, type: 3}
     audioSource: {fileID: 0}
     status: 0
 --- !u!1 &968976278531036980
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   ASList:
   - name: heartBeat
     audioClip:
-    - {fileID: 8300000, guid: 59990bd8163da4144a752134e676bdef, type: 3}
+    - {fileID: 8300000, guid: 661fc1da547d135409378ba630c15d6c, type: 3}
     audioSource: {fileID: 0}
     status: 0
 --- !u!1 &8632328700237990855

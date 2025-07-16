@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject/AcquireActionData", fileName = "AAD_")]
-
 public class AcquireActionData : ScriptableObject
 {
     [SerializeField] bool LR_Swap;

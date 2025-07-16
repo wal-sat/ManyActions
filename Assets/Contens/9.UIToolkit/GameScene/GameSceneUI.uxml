@@ -38,7 +38,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement style="height: 20%;" />
+        <ui:VisualElement style="height: 20%; display: flex;" />
     </ui:VisualElement>
     <ui:VisualElement name="KidouUI" class="Visible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/KidouUI.png?fileID=21300000&amp;guid=f2f381770259f104daa678faceacb124&amp;type=3#KidouUI&quot;);" />
     <ui:VisualElement name="SleepCameraUI" class="Visible Unvisible" style="position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Contens/4.Sprites/UI/GameScene/SleepCameraUI.png?fileID=21300000&amp;guid=b63c24eef9166a247acca8c8c4286818&amp;type=3#SleepCameraUI&quot;);" />

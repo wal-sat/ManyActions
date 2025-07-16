@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerActionJumpManager : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] PlayerJumpEffect playerJumpEffect;
     [SerializeField] PlayerActionJumpBase[] jumpActions;
     [SerializeField] float RESTRICTE_JUMP_SPEED;
 
@@ -32,7 +33,11 @@ public class PlayerActionJumpManager : MonoBehaviour
         {
             if (action == null) continue;
 
-            if (action.actionKind == actionKind && action.assignedInput == inputKind) action.Jump();
+            if (action.actionKind == actionKind && action.assignedInput == inputKind)
+            {
+                action.Jump();
+                playerJumpEffect.JumpEffect();
+            }
         }
     }
 

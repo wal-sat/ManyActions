@@ -49,6 +49,7 @@ public class CameraAreaManager : MonoBehaviour
 
     public void CameraAreaAddChange(CameraArea cameraArea)
     {
+        cameraArea = _cameraAreas.OrderByDescending(item => item.cameraAreaIndex).FirstOrDefault();
         if (_currentCameraArea == null || _currentCameraArea != cameraArea)
         {
             _cinemachineVirtualCamera[currentCamera].Priority = cameraArea.cameraAreaIndex;

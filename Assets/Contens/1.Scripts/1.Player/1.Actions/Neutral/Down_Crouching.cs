@@ -39,6 +39,12 @@ public class Down_Crouching : PlayerActionBase
 
         S_SEManager._instance.Play("p_crouch");
     }
+    public override void InAction()
+    {
+        base.InAction();
+
+        spriteRenderer.sprite = crouch;
+    }
     public override void EndAction()
     {
         base.EndAction();
