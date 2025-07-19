@@ -323,6 +323,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1773115941}
+    - target: {fileID: 572473860126325612, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1773115948}
     - target: {fileID: 579504073700405380, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: playerMovement
       value: 
@@ -391,6 +395,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1773115941}
+    - target: {fileID: 1999662930292029623, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1773115948}
     - target: {fileID: 2232986677297543202, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: rb
       value: 
@@ -583,6 +591,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1773115941}
+    - target: {fileID: 7347642044738993028, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1773115948}
     - target: {fileID: 7478219854577737714, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: rb
       value: 
@@ -607,6 +619,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1773115941}
+    - target: {fileID: 8086918356260947096, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1773115948}
     - target: {fileID: 8161019896373028330, guid: 03385a9594123ca44868b2f8f68ba373, type: 3}
       propertyPath: rb
       value: 
